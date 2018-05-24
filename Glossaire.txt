@@ -1,4 +1,4 @@
-
+﻿
 
 
 		Glossaire
@@ -29,6 +29,8 @@ professionel : voir expert en sante ou expert en exercice physique
 reception du centre : lieu d'inscription pour les nouveaux clients et les nouveaux professionel, et lieu d'authentification de la carte de membre
 
 requete dans la base de donnees #GYM : Le professionnel peut faire une demande pour consulter les inscriptions a ses séances
+
+répertoire des services : répertoire que le client peut consulter pour voir l'ensemble des services disponibles.
 
 séance: activité ou une ou plusieurs personnes peuvent s'inscrire
 
