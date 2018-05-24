@@ -1,7 +1,7 @@
 ﻿
 
 
-		Glossaire
+				Glossaire
 
 		
 Agent du #GYM: employé chargé de l'authentification de la carte pour l'acces au #GYM du membre, situé a la reception
