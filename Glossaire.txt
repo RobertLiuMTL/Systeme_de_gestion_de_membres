@@ -1,42 +1,69 @@
 ﻿
 
 
-		Glossaire
+		Glossaire (voir section 11.3 du Livre)
 
-		
-Agent du #GYM: employé chargé de l'authentification de la carte pour l'acces au #GYM du membre, situé a la reception
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+Les acteurs
+------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-centre de données #GYM : systeme central qui gere les membres du #GYM
+Agent du #GYM: employé chargé de l'authentification des clients/professionnels pour l'accès au #GYM. D'ordinaire, l'agent se trouve a la reception
 
-code de service : code qui permet d'identifier une activité précise
-
-consultation : rencontre entre un client et un professionnel(expert de la santé ou en exercice physique)
+professionel : voir expert en sante ou expert en exercice physique
 
 expert de la santé : expert en santé que le membre peut rencontrer s'il s'inscrit a une consultation (nutritionniste, physiothérapeute, massothérapeute)
 
 expert de l'exercice physique : expert en exercice physique que le membre peut rencontrer s'il s'inscrit a une consultation (entraineur personnel, de yoga, de cross-fit)
 
-inscription a une activité : Le membre peut completer une demande pour s'inscrire a une séance
+membre : Ce sont les clients du gym. Pour devenir membre, il faut s'inscrire. 
 
-membre : client qui ont adhérer au gym
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+Le centre
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+		
+Centre sportif : Notre client opère un centre offrant des services d'activités physiques, des cours spécifiques avec des entraîneurs et autres professionnels, ainsi que des conseils d'experts en santé physique.
+
+activité : Ce sont les services offerts par le centre (Activités physiques, salle, piscine, entraînements, consultations, etc.).
+
+Réception du centre : La réception est le point de service entre les membres et les professionnels avec le centre sportif. C'est probablement l'endroit le plus important du centre.
+Toutes les personnes doivent toujours s'identifier à l'arrivée, et elles doivent passer par là pour toute inscription.
+
+consultation : rencontre entre un client et un professionnel(expert de la santé ou en exercice physique)
+
+tourniquet : dispositif qui s'ouvre lors d'une authentification de la carte d'un membre valide par l'agent
+//Accéder au centre : Le centre sportif est réservé uniquement aux membres. Seuls les clients authentifiés peuvent franchir le tourniquet.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+Le système
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+centre de données #GYM : système central qui gere les membres du #GYM
+
+répertoire des services : répertoire que le client peut consulter pour voir l'ensemble des services disponibles.
+
+requete dans la base de donnees #GYM : Le professionnel peut faire une demande pour consulter les inscriptions a ses séances
+
+inscription : Le centre sportif n'est pas libre-service ; seules les personnes inscrites peuvent y accéder.
+
+séance: Pour toute activité, il existe plusieurs séances, c'est-à-dire que la même activité est répétée plusieurs fois avec un horaire ou professionnel différent. 
+
+confirmer sa présence (ou son inscription) : Avant que la séance ne commence, le membre, inscrit à celle-ci, doit confirmer sa présence à la réception.
+
+Validation (valider) : C'est le processus de vérification qui s'assure que l'inscription d'un membre à une séance d'activité est bel et bien correcte.
+
+code de service : code à 7 chiffres qui permet d'identifier une activité précise
 
 Numero du membre: numero qui identifie un membre dans le systeme de #GYM
 
 numero du professionnel : numero qui identifie un professionel
 
-professionel : voir expert en sante ou expert en exercice physique
 
-reception du centre : lieu d'inscription pour les nouveaux clients et les nouveaux professionel, et lieu d'authentification de la carte de membre
 
-requete dans la base de donnees #GYM : Le professionnel peut faire une demande pour consulter les inscriptions a ses séances
 
-répertoire des services : répertoire que le client peut consulter pour voir l'ensemble des services disponibles.
 
-séance: activité ou une ou plusieurs personnes peuvent s'inscrire
 
-Services : activités offertes par le #GYM
 
-tourniquet : dispositif qui s'ouvre lors d'une authentification de la carte d'un membre valide par l'agent
 
 
 
