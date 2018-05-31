@@ -1,0 +1,29 @@
+body{
+  margin: auto;
+  width: 90%;
+  background-color: #F0F8FF;
+}
+
+div.colonneG {
+	margin-top: 30px;
+	float: left;
+	border: 2px solid black;
+	margin-left: 10%;
+	width: 20%;
+	padding: 10px;
+	background-color: white;
+}
+
+div ul{
+	margin-left: 20%;
+	list-style-type: none;
+}
+
+img{
+	max-width:50%;
+	max-height:50%;
+}
+
+h1{
+	text-align: center;
+}
