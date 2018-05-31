@@ -54,7 +54,13 @@ h2{
 }
 
 h3{
-	border: 1px solid black;
+	padding: 10px;
+	border-bottom: 1px solid black;
+	font-size: 1.2em;
+}
+
+dl{
+	line-height: 1.5;
 }
 dt{
 	font-weight: bold;
