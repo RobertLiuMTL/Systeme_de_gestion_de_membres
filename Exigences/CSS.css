@@ -10,20 +10,54 @@ div.colonneG {
 	border: 2px solid black;
 	margin-left: 10%;
 	width: 20%;
-	padding: 10px;
+	padding: 20px;
+	background-color: white;
+	height: 100%;
+}
+
+div.principale{
+	float: right;
+	margin-right: 10%;
+	margin-top: 30px;
+	width: 50%;
+	border: 2px solid black;
+	padding: 20px;
 	background-color: white;
 }
 
+div.bloc{
+	max-height: 100%;
+	display: block;
+}
+
 div ul{
-	margin-left: 20%;
+	margin-left: 5%;
 	list-style-type: none;
 }
 
+
 img{
-	max-width:50%;
+	max-width:60%;
 	max-height:50%;
 }
 
 h1{
 	text-align: center;
 }
+
+li{
+	max-width: 80%;
+}
+
+h2{
+	text-align: center;
+}
+
+h3{
+	border: 1px solid black;
+}
+dt{
+	font-weight: bold;
+}
+
+
