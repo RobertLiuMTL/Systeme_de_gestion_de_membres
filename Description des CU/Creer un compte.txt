@@ -11,4 +11,5 @@ Préconditions:
 
 Scénario Principal:
 
-1. L'agent entre les informations personnelles du client 
+1. L'agent entre les informations personnelles du client dans le systeme
+2. Le Systeme attribue
