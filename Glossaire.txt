@@ -4,7 +4,7 @@
 		Glossaire (voir section 11.3 du Livre)
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
-Les acteurs
+Les acteurs (Les individus pertinents)
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Agent du #GYM: employé chargé de l'authentification des clients/professionnels pour l'accès au #GYM. D'ordinaire, l'agent se trouve a la reception
@@ -19,7 +19,7 @@ membre : Ce sont les clients du gym. Pour devenir membre, il faut s'inscrire.
 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
-Le centre
+Le centre (Description des lieux et les principaux termes associés à son utilisation)
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 		
 Centre sportif : Notre client opère un centre offrant des services d'activités physiques, des cours spécifiques avec des entraîneurs et autres professionnels, ainsi que des conseils d'experts en santé physique.
@@ -35,7 +35,7 @@ tourniquet : dispositif qui s'ouvre lors d'une authentification de la carte d'un
 //Accéder au centre : Le centre sportif est réservé uniquement aux membres. Seuls les clients authentifiés peuvent franchir le tourniquet.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
-Le système
+Le système (Les principaux termes associés au logiciel)
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 centre de données #GYM : système central qui gere les membres du #GYM
