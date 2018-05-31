@@ -1,10 +1,14 @@
-
+/**
+ * Classe abstraite qui permet l'hÃ©ritage
+ * @author Robert
+ *
+ */
 public abstract class Individu {
 	private String nomFamille;
 	private String prenom;
 	
-	//Chaque personne a un statut non-suspendu par défaut.
-	//La modifcation de cet état s'effectue dans une autre classe.
+	//Chaque personne a un statut non-suspendu par dï¿½faut.
+	//La modifcation de cet ï¿½tat s'effectue dans une autre classe.
 	private boolean suspendu = false;
 	private String commentaire;
 	
