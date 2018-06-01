@@ -2,6 +2,7 @@ body{
   margin: auto;
   width: 90%;
   background-color: #F0F8FF;
+  font-size: 1.25em;
 }
 
 div.colonneG {
@@ -23,6 +24,30 @@ div.principale{
 	border: 2px solid black;
 	padding: 20px;
 	background-color: white;
+}
+
+div.CU{
+	border: 1px solid black;
+	border-radius: 100px;
+	margin-bottom: 20px;
+	margin-left: 5%;
+	margin-right: 5%;
+	background-color: #F4F4DE;
+}
+
+div.CU-texte{
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
+div.CU dt{
+	margin-top: 10px;
+}
+
+div.CU ol{
+}
+
+div.CU dd{
 }
 
 div.bloc{
