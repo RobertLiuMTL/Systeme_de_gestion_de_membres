@@ -41,6 +41,7 @@
 	</div>
 
 	<div class="principale">
+		<p>Le masculin est employé dans le texte à des fins de simplification.</p>
 		<h2>Tâche 1 - Le glossaire</h2>
 		<h3>Les acteurs (Les individus pertinents)</h3>
 		<dl>
@@ -133,9 +134,9 @@
 
 					<dt>Préconditions :</dt>
 					<dd>
-						Le Client doit se présenter en personne devant la réception et s'adresser à un Agent.<br>
-						Un Agent est disponible pour répondre au Client. <br>
-						Le système informatique est opérationnel.
+						a) Le Client doit se présenter en personne devant la réception et s'adresser à un Agent.<br>
+						b) Un Agent est disponible pour répondre au Client. <br>
+						c) Le système informatique est opérationnel.
 					</dd>
 
 					<dt>Acteurs :</dt>
@@ -145,23 +146,24 @@
 					<dt>Scénario principal :</dt>
 					<dd>
 						<ol>
-							<li>Le client doit demander à l’agent de l’aider à s’inscrire au #GYM.</li>
+							<li>Le Client doit demander à l’Agent de l’aider à s’inscrire au #GYM.</li>
 							<li>L’Agent demande au client s’il a besoin d’information supplémentaire avant de débuter le processus d’inscription.</li>
 							<li>Le client répond non.</li>
 							<li>L'Agent démarre le logiciel de Base de Données, et dans le gestionnaire des membres, il choisit l'option 'Nouveau membre'.</li>
-							<li>Une fois le programme de création de membre démarrée, l'Agent demande au Client de répondre à plusieurs questions. <br>
+							<li>Une fois le programme de création de membre démarrée, l'Agent demande au Client de répondre à plusieurs questions. L'Agent entre les informations qu'il reçoit dans le Système.
 								<ul>
 									<li>Nom de famille et prénom</li>
 									<li>Adresse</li>
-									<li>Date de naissance</li>
+									<li>Date de naissance (J/M/A)</li>
 									<li>Numéro de téléphone</li>
 									<li>Adresse courriel</li>
 								</ul>
 							</li>
-							<li>L'Agent finalise l'inscription du client dans le Système</li>
-							<li>Le Système confirme l'enregistrement des données</li>
+							<li>L'Agent finalise l'inscription du client dans le Système.</li>
+							<li>Le Système confirme l'enregistrement des données et fournit un numéro d'identification à 9 chiffres au nouveau membre</li>							
+							<li>L'Agent imprime une carte de Membre et la remet au Client. Sur la carte se trouve le numéro de Membre.</li>
 							<li>L'Agent remercie le nouveau Membre de faire confiance au Centre Sportif #GYM et il lui remet un cahier contenant toute l'information pertinente!</li>
-							<li>Le Client prend le cahier et remercie l'Agent.</li>
+							<li>Le Client prend sa carte et le cahier. Il remercie l'Agent.</li>
 						</ol>
 					</dd>
 
@@ -179,7 +181,7 @@
 					</dd>
 
 					<dt>Postconditions</dt>
-					<dd>L'Agent ferme la présente session de travail et retourne au menu principal du logiciel. Il est prêt à servir un autre Client.</dd>
+					<dd>L'Agent ferme la présente session de travail afin de conserver la confidentialité des renseignements et retourne au menu principal du logiciel. Il est prêt à servir un autre Client.</dd>
 
 				</dl>
 			</div>
@@ -189,47 +191,78 @@
 			<div class="CU-texte"> 
 				<dl>
 					<dt>Cas d'utilisation :</dt>
-					<dd></dd>
+					<dd>Inscription au #GYM (Professionnel)</dd>
 
 					<dt>But :</dt>
-					<dd></dd>
+					<dd>Permettre à un professionnel de s'inscrire au #GYM comme partenaire afin d'y offrir ses services</dd>
 
 					<dt>Préconditions :</dt>
-					<dd></dd>
+					<dd>
+						a) Le Professionnel doit avoir, au préalable, lu les termes contractuels et les conditions de pratique (Disponibles sur le Site Web du Centre sportif).<br>
+						b) Le professionnel doit se présenter en personne devant la réception, avec des pièces d’identité. Il doit apporter avec lui ses certificats ou diplômes, une lettre de présentation ainsi que des références professionnelles.<br>
+						c) Le Professionnel doit attendre qu’un Agent soit disponible pour le servir.<br>
+						d) Le système informatique doit être opérationnel.
+						
+					</dd>
 
 					<dt>Acteurs :</dt>
-					<dd>Acteur principal : Client <br>
+					<dd>Acteur principal : Le Professionnel <br>
 					Acteur secondaire : L'Agent du centre #GYM.</dd>
 
 					<dt>Scénario principal :</dt>
 					<dd>
 						<ol>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
+							<li>Le Professionnel se présente à la réception et demande à un Agent de l’aider à s’inscrire au #GYM en tant que Professionnel.</li>
+							<li>L’Agent demande au Professionnel s’il a tous les documents nécessaires avant de débuter le processus.</li>
+							<li>Le Professionnel répond oui.</li>
+							<li>Le Professionnel remet ses documents à l’Agent.</li>
+							<li>L’Agent vérifie rapidement que tous les documents demandés sont présents.</li>
+							<li>Tous les documents demandés sont présents.</li>
+							<li>L’agent démarre le logiciel de Base de données et dans le gestionnaire des professionnels, il choisit l’option « Nouveau professionnel ».</li>
+							<li>
+								Une fois le programme de création de Professionnel démarrée, l’Agent demande à l’individu de répondre à plusieurs questions. L'Agent entre les informations qu'il reçoit.
+								<ul>
+									<li>Nom de famille et prénom.</li>
+									<li>Spécialisations ou expertises.</li>
+									<li>Adresse postale.</li>
+									<li>Date de naissance (J/M/A).</li>
+									<li>Numéro de téléphone.</li>
+									<li>Adresse courriel.</li>
+								</ul>
+							</li>
+							<li>L’Agent numérise les documents du Professionnel.</li>
+							<li>Le Système enregistre les données et crée le dossier du professionnel. </li>
+							<li>L’Agent remet les documents originaux au Professionnel.</li>
+							<li>L’Agent remet la carte de membre professionnel (numéro à 9 chiffres générés par le Système) à l’individu.</li>
+							<li>L’Agent rappelle au Professionnel que #GYM va procéder à la vérification des documents (Diplômes, références, etc.). Entre-temps, le Professionnel est considéré comme un Membre et peut accéder aux services offerts par le #GYM. Cependant, son statut de Professionnel n’est pas actif : il ne peut pas offrir ses services.</li>
 						</ol>
 					</dd>
 
 					<dt>Scénarios alternatifs :</dt>
 					<dd> 
+						<h4>Scénario alternatif à l'étape 6 : Le professionnel n'a pas fourni tous les documents</h4>
 						<ol>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
+							<li>
+								L'Agent prévient le Professionnel qu'il manque certains documents.
+								<ul>
+									<strong> 1.1) Si le Professionnel n'a pas les documents avec lui : </strong> 
+									<li class="tab">1.1.1 L'Agent rend tous les documents qu'il a reçus à leur proprirétaire.</li>
+									<li class="tab">1.1.2 La procédure d'inscription est avortée (on ne retourne pas au scénario principal).</li>
+									<li class="tab">1.1.3 L'Agent invite le Professionnel à quitter et à revenir quand son dossier sera complet. Il lui rappelle également de consulter le Site Web pour connaître les modalités d'inscription au #GYM.</li>
+									<li class="tab">1.1.4 L'Agent ferme la session du Système sans sauvegarder.</li>
+								</ul>
+
+								<ul>
+									<strong>1.2) Si le professionnel a les documents manquants avec lui :</strong> 
+									<li class="tab">1.2.1 Le Professionnel remet les documents à l'Agent</li>
+									<li class="tab">1.2.2 On retourne à l'étape 5 du scénario principal</li>
+								</ul>
+							</li>
 						</ol>
 					</dd>
 
 					<dt>Postconditions</dt>
-					<dd></dd>
+					<dd>L'Agent ferme la présente session de travail afin de conserver la confidentialité des renseignements et retourne au menu principal du logiciel. Il est prêt à servir un autre Client.</dd>
 				</dl>
 			</div>
 		</div>

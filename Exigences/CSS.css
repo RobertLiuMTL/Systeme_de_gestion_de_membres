@@ -60,6 +60,9 @@ div ul{
 	list-style-type: none;
 }
 
+li.tab{
+	margin-left: 10%;
+}
 
 img{
 	max-width:60%;
