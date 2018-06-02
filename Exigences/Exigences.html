@@ -300,7 +300,7 @@
 					<dd>
 						<ol>
 							<li>Le Client donne sa carte à l’Agent.</li>
-							<li>L'Agent choisit l'option de "Valider" un numéro de Client.</li>
+							<li>L'Agent choisit l'option du Système : "Valider un numéro de Client".</li>
 							<li>L’Agent entre les 9 chiffres dans le système.</li>
 							<li>Le système effectue une recherche et affiche « Validé ».</li>
 							<li>Le dossier du Client s’ouvre.</li>
@@ -310,11 +310,11 @@
 
 					<dt>Scénarios alternatifs :</dt>
 					<dd> 
-						Étape 3 : Le Système effectue une recherche et affiche "Numéro invalide"
+						Étape 4 : Le Système effectue une recherche et affiche "Numéro invalide"
 						<br>L'Agent relit le numéro à 9 chiffres de la carte et entre les données dans le Système
 						<ol class="casAlternatif">
 							<li>Le système affiche "Validé"</li>
-							<li>Retour au scénario principal, étape 4</li>
+							<li>Retour au scénario principal, étape 5</li>
 						</ol>
 
 						<ol class="casAlternatif">
@@ -325,7 +325,7 @@
 							<li>L'Agent choisit l'option "Recherche par nom".</li>
 							<li>L'Agent entre le nom de famille du Client dans le Système. Au besoin, il entre également le prénom.</li>
 							<li>Si le Système trouve le Client, l'Agent vérifie que le numéro du Client est le même que celui sur la carte. Si le numéro est le même, l'Agent écrit une note au dossier afin de faire un suivi avec les TI.</li>
-							<li>Retour au scénario principal, étape 4.</li>
+							<li>Retour au scénario principal, étape 5.</li>
 							<p>Si le Système ne trouve pas le Client, l'Agent doit référer celui-ci au Comptoir du Service à la Clientèle pour effectuer une recherche plus poussée.</p>
 						</ol>
 
