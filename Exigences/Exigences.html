@@ -125,7 +125,9 @@
 	</div>
 
 	<div class="principale">
-		<h2>Tâche 2 - Diagramme de cas d'utilisation UML</h2>	
+		<h2>Tâche 2 - Diagramme de cas d'utilisation UML</h2>
+		<p align="center">Voici un apperçu de notre diagramme de cas d'utilisation UML réalisé avec le logiciel Visual Paradigm.</p>
+		<a href="vpp.jpg"><img class="centre" src="vpp.jpg"></a>
 	</div>
 
 	<div class="principale">
@@ -278,13 +280,17 @@
 			<div class="CU-texte"> 
 				<dl>
 					<dt>Cas d'utilisation :</dt>
-					<dd></dd>
+					<dd>Valider l'identité du Membre ou du Professionnel</dd>
 
 					<dt>But :</dt>
-					<dd></dd>
+					<dd>Permet d'identifier le client et d'accéder, au besoin, à son dossier pour y effectuer des opérations.</dd>
 
 					<dt>Préconditions :</dt>
-					<dd></dd>
+					<dd>
+						Le Client doit avoir sa carte du centre sportif #GYM avec lui <br>
+						Le Client doit attendre qu'un Agent soit disponible pour le servir.<br>
+						Le système informatique doit être opérationnel.
+					</dd>
 
 					<dt>Acteurs :</dt>
 					<dd>Acteur principal : Client <br>
@@ -293,32 +299,47 @@
 					<dt>Scénario principal :</dt>
 					<dd>
 						<ol>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
+							<li>Le Client donne sa carte à l’Agent.</li>
+							<li>L'Agent choisit l'option de "Valider" un numéro de Client.</li>
+							<li>L’Agent entre les 9 chiffres dans le système.</li>
+							<li>Le système effectue une recherche et affiche « Validé ».</li>
+							<li>Le dossier du Client s’ouvre.</li>
+							<li>L’Agent rend la carte au Client.</li>
 						</ol>
 					</dd>
 
 					<dt>Scénarios alternatifs :</dt>
 					<dd> 
-						<ol>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
+						Étape 3 : Le Système effectue une recherche et affiche "Numéro invalide"
+						<br>L'Agent relit le numéro à 9 chiffres de la carte et entre les données dans le Système
+						<ol class="casAlternatif">
+							<li>Le système affiche "Validé"</li>
+							<li>Retour au scénario principal, étape 4</li>
+						</ol>
+
+						<ol class="casAlternatif">
+							<li>Le Système affiche à nouveau "Numéro invalide"</li>
+							<li>L'Agent s'excuse auprès du Client et lui explique que son numéro de membre ne marche pas.</li>
+							<li>L'Agent demande au Client une carte d'identité afin de faire une recherche différente.</li>
+							<li>Le Client donne une carte d'identité à l'Agent.</li>
+							<li>L'Agent choisit l'option "Recherche par nom".</li>
+							<li>L'Agent entre le nom de famille du Client dans le Système. Au besoin, il entre également le prénom.</li>
+							<li>Si le Système trouve le Client, l'Agent vérifie que le numéro du Client est le même que celui sur la carte. Si le numéro est le même, l'Agent écrit une note au dossier afin de faire un suivi avec les TI.</li>
+							<li>Retour au scénario principal, étape 4.</li>
+							<p>Si le Système ne trouve pas le Client, l'Agent doit référer celui-ci au Comptoir du Service à la Clientèle pour effectuer une recherche plus poussée.</p>
+						</ol>
+
+						<ol class="casAlternatif">
+							<li>Le Système affiche "Membre suspendu"</li>
+							<li>L'Agent prend en note la durée de la suspension ainsi que les raisons (si elles sont mentionnées en commentaires)</li>
+							<li>L'Agent explique au Client que ses privilèges ont été suspendus pour une certaine durée.</li>
+							<li>L'Agent réfère le Client au comptoir du Service à la clientèle s'il désire plus d'information.</li>
+							<li>L'Agent ferme la présente session ; le Scénario principal est avorté.</li>
 						</ol>
 					</dd>
 
 					<dt>Postconditions</dt>
-					<dd></dd>
+					<dd>Une fois le traitement du dossier terminé, l’Agent ferme la session active et retourne au menu principal du Logiciel. Il est prêt à servir un autre client.</dd>
 				</dl>
 			</div>
 		</div>
