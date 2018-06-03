@@ -348,7 +348,7 @@
 			<div class="CU-texte"> 
 				<dl>
 					<dt>Cas d'utilisation :</dt>
-					<dd>Accéder aux activités physiques (Salle d’entraînement, piscine, salles multisport) (include CU #3 : Valider l’identité)</dd>
+					<dd>Accéder aux activités physiques (Salle d’entraînement, piscine, salles multisport) INCLUDE <i>Valider l’identité</i>.</dd>
 
 					<dt>But :</dt>
 					<dd>Permettre au Membre de profiter de ses privilèges en tant que Membre du centre sportif #GYM.</dd>
@@ -386,47 +386,41 @@
 			<div class="CU-texte"> 
 				<dl>
 					<dt>Cas d'utilisation :</dt>
-					<dd></dd>
+					<dd>Consulter l’ensemble des services.</dd>
 
 					<dt>But :</dt>
-					<dd></dd>
+					<dd>Permettre au Membre de connaître l’ensemble des services du centre sportif #GYM.</dd>
 
 					<dt>Préconditions :</dt>
-					<dd></dd>
+					<dd>
+						a) Le Client doit attendre qu’un Agent soit disponible pour le servir.<br>
+						b) Le système informatique doit être opérationnel.
+					</dd>
 
 					<dt>Acteurs :</dt>
-					<dd>Acteur principal : Client <br>
+					<dd>Acteur principal : Le Membre <br>
 					Acteur secondaire : L'Agent du centre #GYM.</dd>
 
 					<dt>Scénario principal :</dt>
 					<dd>
 						<ol>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
+							<li>Le Membre demande à l’Agent de lui donner l’horaire des cours et consultations du #GYM.</li>
+							<li>L’Agent démarre le Répertoire des Services.</li>
+							<li>L’Agent choisit l’option : « Horaire de la journée »</li>
+							<li>L’Agent présente au Membre l’horaire des séances de cours et des consultations pour la journée.</li>
+							<li>L'Agent demande au Membre s'il désire d'autre chose.</li>
+							<li>Le Membre répond non.</li>
+							<li>L’Agent remercie le Membre pour sa fidélité et ferme la séance de recherche et retourne au menu principal.</li>
 						</ol>
 					</dd>
 
 					<dt>Scénarios alternatifs :</dt>
 					<dd> 
-						<ol>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-						</ol>
+						Aucun scénario alternatif.
 					</dd>
 
 					<dt>Postconditions</dt>
-					<dd></dd>
+					<dd>La session active est fermée et l’Agent est prêt à servir un autre Client.</dd>
 				</dl>
 			</div>
 		</div>
@@ -435,47 +429,62 @@
 			<div class="CU-texte"> 
 				<dl>
 					<dt>Cas d'utilisation :</dt>
-					<dd></dd>
+					<dd>S’inscrire à un cours ou à une consultation EXTENDS <i>consulter l’ensemble des services</i> INCLUDES <i>valider l’identité du Membre</i>.</dd>
 
 					<dt>But :</dt>
-					<dd></dd>
+					<dd>Permettre au Membre de s’inscrire à un cours ou à une consultation avec un Professionnel.</dd>
 
 					<dt>Préconditions :</dt>
-					<dd></dd>
+					<dd>
+						a) Le Membre doit avoir sa carte du centre sportif #GYM avec lui.<br>
+						b) Le Client doit attendre qu’un Agent soit disponible pour le servir.<br>
+						c) Le système informatique doit être opérationnel.
+					</dd>
 
 					<dt>Acteurs :</dt>
-					<dd>Acteur principal : Client <br>
+					<dd>Acteur principal : Le Membre <br>
 					Acteur secondaire : L'Agent du centre #GYM.</dd>
 
 					<dt>Scénario principal :</dt>
 					<dd>
+						Remplace l’étape 6 du cas de base (consulter l’offre de services).
 						<ol>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
+							<li>Le Membre signale à l’Agent son intérêt de s’inscrire à un cours ou à une consultation.</li>
+							<li>Le Membre doit s’identifier avec le cas d’utilisation « Valider l’identité du Membre ou du Professionnel »</li>
+							<li>L’Agent sélectionne le cours ou la consultation qui intéresse le Membre.</li>
+							<li>L’Agent sélectionne l’option « Inscription à la séance »</li>
+							<li>L’Agent demande au Membre s’il a des restrictions particulières (santé, allergies, etc.).</li>
+							<li>L’Agent demande au Membre s’il a des restrictions particulières (santé, allergies, etc.).</li>
+							<li>Le Membre répond non.</li>
+							<li>L’Agent entre l’information dans le Système : Numéro du Membre et Commentaires</li>
+							<li>L’Agent imprime une confirmation d’inscription (nom du service, numéro du professionnel, date et heure, code du service, etc.) et la remet au Membre.</li>
+							<li>L’Agent remercie le membre de son intérêt et lui rappelle l’importance de venir confirmer sa présence avant le début du cours ou de la consultation.</li>
 						</ol>
 					</dd>
 
 					<dt>Scénarios alternatifs :</dt>
 					<dd> 
+						Étape 7 : Le Membre répond oui.
 						<ol>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
+							<li>L’Agent demande au Membre de donner des précisions sur sa situation.</li>
+							<li>Le Membre donne des précisions sur sa situation.</li>
+							<li>Retour à l'étape 8 du scénario principal.</li>
 						</ol>
 					</dd>
 
 					<dt>Postconditions</dt>
-					<dd></dd>
+					<dd>
+						Le logiciel crée un enregistrement sur le disque qui contient les champs suivants.
+						<pre>
+							Date et heure actuelles<!-- (JJ-MM-AAAA HH:MM:SS)-->
+							Date à laquelle du service qui sera fourni<!-- (JJ-MM-AAAA)-->
+							Numéro du professionnel<!-- (9 chiffres)-->
+							Numéro du membre<!-- (9 chiffres)-->
+							Code du service<!-- (7 chiffres)-->
+							Commentaires<!-- (100 caractères)--> (facultatif).
+						</pre>
+						L’Agent ferme la session active et retourne au menu principal. Il est prêt à servir le prochain Client.
+					</dd>
 				</dl>
 			</div>
 		</div>
