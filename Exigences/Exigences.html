@@ -493,47 +493,69 @@
 			<div class="CU-texte"> 
 				<dl>
 					<dt>Cas d'utilisation :</dt>
-					<dd></dd>
+					<dd>Confirmation de présence.</dd>
 
 					<dt>But :</dt>
-					<dd></dd>
+					<dd>Permettre au Membre de confirmer sa présence avant le début de la séance de cours ou de consultation. </dd>
 
 					<dt>Préconditions :</dt>
-					<dd></dd>
+					<dd>
+						a) Le Membre doit avoir sa carte de membre (ou son numéro à 9 chiffres).<br>
+						b) Le Membre doit avoir le papier de confirmation d’inscription, ou le code du service à 7 chiffres.<br>
+						c) Le Membre doit attendre qu’un Agent soit disponible pour le servir.<br>
+						d) Le système informatique doit être opérationnel.
+					</dd>
 
 					<dt>Acteurs :</dt>
-					<dd>Acteur principal : Client <br>
+					<dd>Acteur principal : Le Membre <br>
 					Acteur secondaire : L'Agent du centre #GYM.</dd>
 
 					<dt>Scénario principal :</dt>
 					<dd>
 						<ol>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
+							<li>Le Membre demande à l’Agent de confirmer sa présence.</li>
+							<li>L’Agent choisit le Répertoire de Services.</li>
+							<li>L’Agent demande au Membre son papier d’inscription, ou le numéro du code de service.</li>
+							<li>Le Membre donne l’information à l’Agent.</li>
+							<li>L’Agent choisit l’option « Rechercher un service » et entre le code de service à 7 chiffres. </li>
+							<li>Le Système affiche à l’écran avec toute l’information.</li>
+							<li>L’Agent choisit l’option « Confirmer inscriptions ».</li>
+							<li>L’Agent demande au Client sa carte de Membre, ou son numéro de Membre.</li>
+							<li>Le Membre donne l’information.</li>
+							<li>L'Agent entre le numéro de membre à 9 chiffres dans le Système.</li>
+							<li>La requête est envoyée au Centre de données pour valider l’inscription.</li>
+							<li>Le Système affiche <i>Valide</i>.</li>
+							<li>L’Agent rend tous les documents (carte, papier d’inscription) au Membre.</li>
+							<li>Le Membre reprend ses documents et peut aller à sa séance.</li>
 						</ol>
 					</dd>
 
 					<dt>Scénarios alternatifs :</dt>
 					<dd> 
-						<ol>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-						</ol>
+						Remplace l'étape 11 du scénario principal : Le Système affiche "Invalide"
+						<ul>
+							<li>L'Agent signale au Membre qu'il n'est malheureusement pas inscrit à la séance.</li>
+							<li><b>S’il reste de la place</b>, l’Agent peut proposer au Membre de faire l’inscription.</li>
+							<li><b>Si le Membre accepte</b>, l’Agent rend les documents au Membre, on quitte le CU <i>confirmation de présence</i> pour aller au CU <i>s’inscrire à un cours ou à une consultation</i>.</li>
+							<li><b>Si le membre refuse</b>, l'Agent rend les documents au Membre. Fin du CU de confirmation d'inscription.</li>
+							<li><b>S’il ne reste plus de place</b>, l’Agent rend les documents au Membre, fin du CU confirmation d’inscription.</li>
+						</ul>
 					</dd>
 
 					<dt>Postconditions</dt>
-					<dd></dd>
+					<dd>
+						Une fois que le Système a validé la présence d’un membre, le logiciel crée un enregistrement sur le disque qui contient les champs ci-dessous. C'est la confirmation à l'avance que le service a été fourni.
+						<pre>
+							Date et heure actuelles<!-- (JJ-MM-AAAA HH:MM:SS)-->
+							Numéro du professionnel<!-- (9 chiffres)-->
+							Numéro du membre<!-- (9 chiffres)-->
+							Code du service<!-- (7 chiffres)-->
+							Commentaires<!--(100 caractères)--> (facultatif).
+						</pre>
+
+						L’agent ferme ensuite la session active et retourne au menu principal. Il est prêt à servir un autre Client.
+
+					</dd>
 				</dl>
 			</div>
 		</div>
