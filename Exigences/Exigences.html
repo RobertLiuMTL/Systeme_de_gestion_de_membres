@@ -563,7 +563,7 @@
 			<div class="CU-texte"> 
 				<dl>
 					<dt>Cas d'utilisation :</dt>
-					<dd>Annuler une inscription à un cours ou à une consultation INCLUDE S’inscrire à un cours ou à une consultation.</dd>
+					<dd>Annuler une inscription à un cours ou à une consultation.</dd>
 
 					<dt>But :</dt>
 					<dd>Permettre au Membre d’annuler son rendez-vous ou son cours. </dd>
@@ -614,47 +614,37 @@
 			<div class="CU-texte"> 
 				<dl>
 					<dt>Cas d'utilisation :</dt>
-					<dd></dd>
+					<dd>Ouvrir les tourniquets EXTENDS <i>Valider l’identité du membre ou du professionnel</i>.</dd>
 
 					<dt>But :</dt>
-					<dd></dd>
+					<dd>Permettre au Client de traverser la barrière physique et d’accéder aux services du centre sportif #GYM.</dd>
 
 					<dt>Préconditions :</dt>
-					<dd></dd>
+					<dd>Le Système a validé l'identité du Client.<br>
+					Le Client a besoin d'entrer dans le #GYM.</dd>
 
 					<dt>Acteurs :</dt>
-					<dd>Acteur principal : Client <br>
+					<dd>Acteur principal : Le Client <br>
 					Acteur secondaire : L'Agent du centre #GYM.</dd>
 
 					<dt>Scénario principal :</dt>
 					<dd>
+						Ce CU s’exécute à la fin du CU Valider l'identité du Membre ou du Professionnel et s’ajoute après l’étape 6.
 						<ol>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
+							<li>L’Agent débloque les tourniquets.</li>
+							<li>L’Agent signale au Client qu’il peut pénétrer les lieux.</li>
+							<li>Le Membre remercie l’Agent et entre dans le #GYM.</li>
+							<li>L’Agent bloque les tourniquets.</li>
 						</ol>
 					</dd>
 
 					<dt>Scénarios alternatifs :</dt>
 					<dd> 
-						<ol>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-						</ol>
+						Aucun scénario alternatif.
 					</dd>
 
 					<dt>Postconditions</dt>
-					<dd></dd>
+					<dd>Les tourniquets sont bloqués. L’Agent est prêt à servir un autre Client.</dd>
 				</dl>
 			</div>
 		</div>
