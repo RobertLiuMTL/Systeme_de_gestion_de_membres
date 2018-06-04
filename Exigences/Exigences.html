@@ -629,7 +629,7 @@
 
 					<dt>Scénario principal :</dt>
 					<dd>
-						Ce CU s’exécute à la fin du CU Valider l'identité du Membre ou du Professionnel et s’ajoute après l’étape 6.
+						Ce CU s’exécute à la fin du CU <i>Valider l'identité du Membre ou du Professionnel</i> et s’ajoute après l’étape 6.
 						<ol>
 							<li>L’Agent débloque les tourniquets.</li>
 							<li>L’Agent signale au Client qu’il peut pénétrer les lieux.</li>
@@ -653,47 +653,51 @@
 			<div class="CU-texte"> 
 				<dl>
 					<dt>Cas d'utilisation :</dt>
-					<dd></dd>
+					<dd>Suspendre un Membre.</dd>
 
 					<dt>But :</dt>
-					<dd></dd>
+					<dd>Permettre à l’Agent de suspendre un Membre du centre sportif en raison d’une infraction au code de comportement, ou en raison de retards de paiement. </dd>
 
 					<dt>Préconditions :</dt>
-					<dd></dd>
+					<dd>
+						a) Un Agent du centre sportif #GYM remarque un incident impliquant un Membre. Cet incident peut notamment être un comportement inapproprié, un manquement au code d’utilisateur, un défaut de paiement…<br>
+						b) L’Agent a pris en note le numéro de Membre de la personne fautive. <br>
+						c) Le système informatique doit être opérationnel.
+					</dd>
 
 					<dt>Acteurs :</dt>
-					<dd>Acteur principal : Client <br>
-					Acteur secondaire : L'Agent du centre #GYM.</dd>
+					<dd>Acteur principal : L'Agent du centre #GYM.<br>
+					Acteur secondaire : Aucun.</dd>
 
 					<dt>Scénario principal :</dt>
 					<dd>
 						<ol>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
+							<li>L’Agent démarre le Centre de Données. </li>
+							<li>L’Agent choisit le gestionnaire des Membres.</li>
+							<li>L’Agent choisit l’option Suspendre un Membre.</li>
+							<li>L’Agent entre le numéro de Membre de la personne à suspendre.</li>
+							<li>Le Système demande à l’Agent d’entrer la raison de la suspension.</li>
+							<li>L’Agent rédige la raison de la suspension.</li>
+							<li>Le Système demande à l’Agent d’entrer la durée de la suspension.</li>
+							<li>L’Agent entre la durée de la suspension en journées, conformément à la politique du centre sportif #GYM.</li>
+							<li>Le Système demande à l’Agent de confirmer la suspension.</li>
+							<li>L’Agent confirme la suspension.</li>
+							<li>Le Système envoie une requête au Centre de Données qui modifie le statut du Membre à Membre suspendu et qui ajoute en commentaires la raison de la suspension ainsi que sa durée.</li>
+							<li>Le Système affiche « Suspension confirmée. ».</li>
+							<li>L'Agent ferme la session active.</li>
 						</ol>
 					</dd>
 
 					<dt>Scénarios alternatifs :</dt>
 					<dd> 
-						<ol>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-						</ol>
+						Aucun scénario alternatif.
 					</dd>
 
 					<dt>Postconditions</dt>
-					<dd></dd>
+					<dd>
+						Le Système met à jour le dossier du Membre suspendu en changeant son état à Membre suspendu, et en ajoutant en commentaires la durée de la suspension, ainsi que la raison.<br>
+						L’Agent retourne au menu principal et est prêt à servir un Client.
+					</dd>
 				</dl>
 			</div>
 		</div>
