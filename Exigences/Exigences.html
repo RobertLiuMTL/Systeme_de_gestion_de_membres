@@ -429,7 +429,7 @@
 			<div class="CU-texte"> 
 				<dl>
 					<dt>Cas d'utilisation :</dt>
-					<dd>S’inscrire à un cours ou à une consultation EXTENDS <i>consulter l’ensemble des services</i> INCLUDES <i>valider l’identité du Membre</i>.</dd>
+					<dd>S’inscrire à un cours ou à une consultation EXTENDS <i>consulter l’ensemble des services</i> EXTENDS <i>Annuler une inscription à un cours ou à une consultation </i> INCLUDES <i>valider l’identité du Membre</i>.</dd>
 
 					<dt>But :</dt>
 					<dd>Permettre au Membre de s’inscrire à un cours ou à une consultation avec un Professionnel.</dd>
@@ -447,7 +447,6 @@
 
 					<dt>Scénario principal :</dt>
 					<dd>
-						Remplace l’étape 6 du cas de base (consulter l’offre de services).
 						<ol>
 							<li>Le Membre signale à l’Agent son intérêt de s’inscrire à un cours ou à une consultation.</li>
 							<li>Le Membre doit s’identifier avec le cas d’utilisation « Valider l’identité du Membre ou du Professionnel »</li>
@@ -464,7 +463,7 @@
 
 					<dt>Scénarios alternatifs :</dt>
 					<dd> 
-						Étape 7 : Le Membre répond oui.
+						Étape 7 : Le Membre répond oui. (Il a une condition particulière qui mérite d'être mentionnée).
 						<ol>
 							<li>L’Agent demande au Membre de donner des précisions sur sa situation.</li>
 							<li>Le Membre donne des précisions sur sa situation.</li>
@@ -475,14 +474,14 @@
 					<dt>Postconditions</dt>
 					<dd>
 						Le logiciel crée un enregistrement sur le disque qui contient les champs suivants.
-						<pre>
+						<p>
 							Date et heure actuelles<!-- (JJ-MM-AAAA HH:MM:SS)-->
 							Date à laquelle du service qui sera fourni<!-- (JJ-MM-AAAA)-->
 							Numéro du professionnel<!-- (9 chiffres)-->
 							Numéro du membre<!-- (9 chiffres)-->
 							Code du service<!-- (7 chiffres)-->
 							Commentaires<!-- (100 caractères)--> (facultatif).
-						</pre>
+						</p>
 						L’Agent ferme la session active et retourne au menu principal. Il est prêt à servir le prochain Client.
 					</dd>
 				</dl>
@@ -545,13 +544,13 @@
 					<dt>Postconditions</dt>
 					<dd>
 						Une fois que le Système a validé la présence d’un membre, le logiciel crée un enregistrement sur le disque qui contient les champs ci-dessous. C'est la confirmation à l'avance que le service a été fourni.
-						<pre>
-							Date et heure actuelles<!-- (JJ-MM-AAAA HH:MM:SS)-->
-							Numéro du professionnel<!-- (9 chiffres)-->
-							Numéro du membre<!-- (9 chiffres)-->
-							Code du service<!-- (7 chiffres)-->
+						<p align="center">
+							Date et heure actuelles<!-- (JJ-MM-AAAA HH:MM:SS)--><br>
+							Numéro du professionnel<!-- (9 chiffres)--><br>
+							Numéro du membre<!-- (9 chiffres)--><br>
+							Code du service<!-- (7 chiffres)--><br>
 							Commentaires<!--(100 caractères)--> (facultatif).
-						</pre>
+						</p>
 
 						L’agent ferme ensuite la session active et retourne au menu principal. Il est prêt à servir un autre Client.
 
@@ -564,13 +563,18 @@
 			<div class="CU-texte"> 
 				<dl>
 					<dt>Cas d'utilisation :</dt>
-					<dd></dd>
+					<dd>Annuler une inscription à un cours ou à une consultation INCLUDE S’inscrire à un cours ou à une consultation.</dd>
 
 					<dt>But :</dt>
-					<dd></dd>
+					<dd>Permettre au Membre d’annuler son rendez-vous ou son cours. </dd>
 
 					<dt>Préconditions :</dt>
-					<dd></dd>
+					<dd>
+						a) Le Membre doit avoir sa carte de membre (ou son numéro à 9 chiffres). <br>
+						b) Le Membre doit avoir le papier de confirmation d’inscription, ou le code du service à 7 chiffres. <br>
+						c) Le Membre doit attendre qu’un Agent soit disponible pour le servir. <br>
+						d) Le système informatique doit être opérationnel.
+					</dd>
 
 					<dt>Acteurs :</dt>
 					<dd>Acteur principal : Client <br>
@@ -579,32 +583,29 @@
 					<dt>Scénario principal :</dt>
 					<dd>
 						<ol>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
+							<li>Le Membre signale à l’Agent d’annuler son inscription à un cours ou à une consultation.</li>
+							<li>L’Agent démarre le Répertoire de Service.</li>
+							<li>L’Agent choisit l’option d’Annuler une inscription.</li>
+							<li>L’Agent demande au Membre sa carte de membre et le code de service.</li>
+							<li>Le Membre donne les informations demandées.</li>
+							<li>L’Agent entre les informations dans le Système (numéro de Membre à 9 chiffres, code de service à 7 chiffres).</li>
+							<li>Le Système affiche « Inscription annulée ».</li>
+							<li>L’Agent demande au Membre s’il désire s’inscrire à une autre séance.</li>
+							<li>Le Membre répond non.</li>
+							<li>L'Agent remet les documents au Membre</li>
 						</ol>
 					</dd>
 
 					<dt>Scénarios alternatifs :</dt>
 					<dd> 
+						Scénario alternatif à l’étape 9 : le membre répond oui, il désire s’inscrire à un autre cours.
 						<ol>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
+							<li>On quitte le CU <i>annuler une inscription à un cours ou à une consultation</i> pour aller au CU <i>s’inscrire à un cours ou à une consultation</i>.</li>
 						</ol>
 					</dd>
 
 					<dt>Postconditions</dt>
-					<dd></dd>
+					<dd>L’Agent ferme la session active et retourne au menu principal. Il est prêt à servir le prochain Client.</dd>
 				</dl>
 			</div>
 		</div>
