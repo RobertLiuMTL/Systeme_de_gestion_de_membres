@@ -74,7 +74,6 @@ public class Main {
 		switch (input) {
 		case 0:
 			System.out.println("Retour au menu principal...");
-			sc.close();
 			menuPrincipal();
 		case 1:
 			System.out.println("Ouverture du Gestionnaire des Membres...");
@@ -101,17 +100,26 @@ public class Main {
 				dataCenter();
 			case 1:
 				System.out.println("Ouverture du module de création de Membre...");
-				CreateMembre cm = new CreateMembre (data, sc);
+				CreateMembre cm = new CreateMembre (data);
 				break;
 			case 2:
-				System.out.println("Ouverture du Répertoire des Services...");
+				System.out.println("Ouverture du module recherche de Membre...");
+				break;
+			case 3:
+				System.out.println("Ouverture du module afficher tous les Membres...");
 				break;
 			}
 			
 			System.out.println("Création d'un membre");
-			data.addMember("Liu","Robert","4981 Félix-Mclernan", "1987/10/14", "5146213688", "robert.liu@umontreal.ca");
-			System.out.println(data.getMembre());
-			System.out.println(data.membersListe[0].getPrenom());
+			System.out.println("Le prénom et nom :" + data.getMembre());
+			System.out.println("...");
+			System.out.println("...");
+			System.out.println("...");
+			System.out.println("...");
+			System.out.println("...");
+			System.out.println("...");
+			System.out.println("...");
+			System.out.println("Le Membre a été créé avec succès!");
 			break;
 		case 2:
 			System.out.println("Ouverture du Répertoire des Services...");

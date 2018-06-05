@@ -30,6 +30,10 @@ public class DataCenter {
 		return lastNumber;
 	}
 	
+	/**
+	 * retourne la liste des noms et prénoms de tous les membres
+	 * @return
+	 */
 	public String getMembre() {
 		String resultat="";
 		for (int i = 0;i<membersListe.length;i++) {
