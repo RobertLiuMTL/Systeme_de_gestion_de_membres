@@ -28,6 +28,8 @@ public class Main {
 		System.out.println("================================================================================");
 		System.out.println("================================ Menu principal ================================");
 		System.out.println("================================================================================");
+		System.out.println("\n \n \n");
+
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Sélectionnez une option");
 		System.out.println("[0]     Fermer le Système \n");
@@ -43,6 +45,12 @@ public class Main {
 		switch (input) {
 		case 0:
 			System.out.println("Fermeture du système en cours...");
+			try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			System.exit(0);
 		case 1:
 			System.out.println("Ouverture du Centre de Données...");
@@ -101,26 +109,16 @@ public class Main {
 			case 1:
 				System.out.println("Ouverture du module de création de Membre...");
 				CreateMembre cm = new CreateMembre (data);
+				dataCenter();
 				break;
 			case 2:
 				System.out.println("Ouverture du module recherche de Membre...");
 				break;
 			case 3:
 				System.out.println("Ouverture du module afficher tous les Membres...");
+				data.getMembre();
 				break;
 			}
-			
-			System.out.println("Création d'un membre");
-			System.out.println("Le prénom et nom :" + data.getMembre());
-			System.out.println("...");
-			System.out.println("...");
-			System.out.println("...");
-			System.out.println("...");
-			System.out.println("...");
-			System.out.println("...");
-			System.out.println("...");
-			System.out.println("Le Membre a été créé avec succès!");
-			break;
 		case 2:
 			System.out.println("Ouverture du Répertoire des Services...");
 

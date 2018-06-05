@@ -7,15 +7,21 @@ import java.util.Scanner;
  */
 public class CreateMembre {
 	
-	public String nomFamille;
-	public String prenom;
-	public String adresse;
-	public String naissance;
-	public String phone;
-	public String courriel;
+	//les attributs qui seront utilisés pour la création du membre
+	private String nomFamille;
+	private String prenom;
+	private String adresse;
+	private String naissance;
+	private String phone;
+	private String courriel;
+	
 	Scanner sc = new Scanner(System.in);
 	Scanner scString = new Scanner(System.in);
 	
+	/**
+	 * Constructeur qui envoie les lignes de commandes et qui reçoit les résultats
+	 * @param data
+	 */
 	public CreateMembre (DataCenter data) {
 		System.out.println("================================================================================");
 		System.out.println("========================= Module de création de Membre =========================");
@@ -47,7 +53,7 @@ public class CreateMembre {
 			break;
 		}
 		
-		System.out.println("Entrez le Prénom du Client :");
+		System.out.println("\n\n\nEntrez le Prénom du Client :");
 		prenom = scString.nextLine();
 		ok = false;
 		while (ok == false) {
@@ -72,7 +78,7 @@ public class CreateMembre {
 			break;
 		}
 		
-		System.out.println("Entrez l'adresse du Client :");
+		System.out.println("\n\n\nEntrez l'adresse du Client :");
 		scString = new Scanner(System.in);
 		adresse = scString.nextLine();
 		ok = false;
@@ -99,7 +105,7 @@ public class CreateMembre {
 		}
 		
 		
-		System.out.println("Entrez la date de naissance du Client :");
+		System.out.println("\n\n\nEntrez la date de naissance du Client :");
 		scString = new Scanner(System.in);
 		naissance = scString.nextLine();
 		ok = false;
@@ -125,7 +131,7 @@ public class CreateMembre {
 			break;
 		}
 		
-		System.out.println("Entrez le numéro de téléphone du Client :");
+		System.out.println("\n\n\nEntrez le numéro de téléphone du Client :");
 		scString = new Scanner(System.in);
 		phone = scString.nextLine();
 		ok = false;
@@ -151,7 +157,7 @@ public class CreateMembre {
 			break;
 		}
 		
-		System.out.println("Entrez l'adresse courriel du Client :");
+		System.out.println("\n\n\nEntrez l'adresse courriel du Client :");
 		scString = new Scanner(System.in);
 		courriel = scString.nextLine();
 		ok = false;
@@ -177,21 +183,12 @@ public class CreateMembre {
 			break;
 		}
 		
-		data.addMember(nomFamille, prenom, adresse, naissance, phone, courriel);
+		try {
+			data.addMember(nomFamille, prenom, adresse, naissance, phone, courriel);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
 
-//String nomFamille, String prenom, String adresse, String naissance, String phone, String courriel
-//while(nomFamille!= "" && !ok) {
-//System.out.println("Le nom de famille entré est :" + nomFamille +
-	//	"\nPoursuivre?");
-//String reponse = sc.nextLine();
-//if (reponse=="y") {
-//	break;
-//}else {
-//	System.out.println("Entrer un nouveau nom de Famille du Client :");
-//	nomFamille = sc.nextLine();
-//}
-//break;
-
-//}
