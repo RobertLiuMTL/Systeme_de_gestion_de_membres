@@ -1,9 +1,16 @@
 import java.util.Scanner;
 
+/**
+ * La classe Main est la classe de Vue (qui délègue certaines choses à d'autres classes
+ * (Ex : CreateMembre)
+ * @author Shado
+ *
+ */
 public class Main {
 	static DataCenter data = new DataCenter();
+	static GestionnairePro gp = new GestionnairePro(data);
 	RepertoireService service = new RepertoireService();
-	
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
@@ -30,11 +37,11 @@ public class Main {
 		System.out.println("================================================================================");
 		System.out.println("\n \n \n");
 
-		Scanner sc = new Scanner(System.in);
 		System.out.println("Sélectionnez une option");
 		System.out.println("[0]     Fermer le Système \n");
 		System.out.println("[1]     Centre de Données \n");
 		System.out.println("[2]     Répertoire des Services \n");
+		Scanner sc = new Scanner(System.in);
 		int input = sc.nextInt();
 
 		while (input != 1 && input != 2 && input != 0) {
@@ -89,7 +96,6 @@ public class Main {
 			System.out.println("=========================== Gestionnaire des Membres ===========================");
 			System.out.println("================================================================================");
 			System.out.println("\n \n \n");
-			Scanner sc2 = new Scanner(System.in);
 			System.out.println("Sélectionnez une option");
 			System.out.println("[0]     Retour au Centre de Données \n");
 			System.out.println("[1]     Créer un nouveau Membre \n");
@@ -120,8 +126,50 @@ public class Main {
 				break;
 			}
 		case 2:
-			System.out.println("Ouverture du Répertoire des Services...");
+			System.out.println("Ouverture du Gestionnaire des employés...");
+			//Pour simuler le chargement de notre logiciel...
+			try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			System.out.println("================================================================================");
+			System.out.println("======================== Gestionnaire des Professionnels =======================");
+			System.out.println("================================================================================");
+			System.out.println("\n \n \n");
+			Scanner sc2 = new Scanner(System.in);
+			System.out.println("Sélectionnez une option");
+			System.out.println("[0]     Retour au Centre de Données \n");
+			System.out.println("[1]     Créer un nouveau Professionnel \n");
+			System.out.println("[2]     Rechercher un Professionnel \n");
+			System.out.println("[3]     Afficher tous les Professionnels \n");
+			int input3 = sc.nextInt();
 
+			while (input3 != 1 && input3 != 2 && input3 != 0 && input3 != 3) {
+				System.out.println("SVP, faites un choix valide.");
+				input3 = sc.nextInt();	
+			}
+
+			switch (input3) {
+			case 0:
+				System.out.println("Retour au Centre de Données...");
+				dataCenter();
+			case 1:
+				System.out.println("Ouverture du module de création de Professionnel...");
+				gp.createPro();
+				dataCenter();
+				break;
+			case 2:
+				System.out.println("Ouverture du module recherche de Professionnel...");
+				break;
+			case 3:
+				System.out.println("Ouverture du module afficher tous les Membres...");
+				data.getMembre();
+				break;
+			}
+
+			
 		}
 	}
 }
