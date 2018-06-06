@@ -40,7 +40,7 @@ public class CreatePro {
 					System.out.println("Le nom de famille : " + nomFamille + " a été enregistré.");
 				}
 				if (reponse == 'n'){
-					System.out.println("Entrez un nouveau nom de Famille du Client :");
+					System.out.println("Entrez un nouveau nom de Famille du Professionnel :");
 					nomFamille = scString.nextLine();
 					continue;
 					
@@ -48,7 +48,7 @@ public class CreatePro {
 				break;
 			}
 			
-			System.out.println("\n\n\nEntrez le Prénom du Client :");
+			System.out.println("\n\n\nEntrez le Prénom du Professionnel :");
 			prenom = scString.nextLine();
 			ok = false;
 			while (ok == false) {
@@ -66,14 +66,14 @@ public class CreatePro {
 					System.out.println("Le prénom : " + prenom + " a été enregistré.");
 				}
 				if (reponse == 'n'){
-					System.out.println("Entrez le prénom du Client :");
+					System.out.println("Entrez le prénom du Professionnel :");
 					prenom = scString.nextLine();
 					continue;
 				}
 				break;
 			}
 			
-			System.out.println("\n\n\nEntrez l'adresse du Client :");
+			System.out.println("\n\n\nEntrez l'adresse du Professionnel :");
 			scString = new Scanner(System.in);
 			adresse = scString.nextLine();
 			ok = false;
@@ -92,7 +92,7 @@ public class CreatePro {
 					System.out.println("L'adresse : " + adresse+ " a été enregistrée.");
 				}
 				if (reponse == 'n'){
-					System.out.println("Entrez à nouveau l'adresse du Client :");
+					System.out.println("Entrez à nouveau l'adresse du Professionnel :");
 					adresse = scString.nextLine();
 					continue;
 				}
@@ -100,7 +100,7 @@ public class CreatePro {
 			}
 			
 			
-			System.out.println("\n\n\nEntrez la date de naissance du Client :");
+			System.out.println("\n\n\nEntrez la date de naissance du Professionnel:");
 			scString = new Scanner(System.in);
 			naissance = scString.nextLine();
 			ok = false;
@@ -119,14 +119,14 @@ public class CreatePro {
 					System.out.println("La date de naissance " + naissance+ " a été enregistrée.");
 				}
 				if (reponse == 'n'){
-					System.out.println("Entrez à nouveau la date de naissance du Client :");
+					System.out.println("Entrez à nouveau la date de naissance du Professionnel :");
 					naissance = scString.nextLine();
 					continue;
 				}
 				break;
 			}
 			
-			System.out.println("\n\n\nEntrez le numéro de téléphone du Client :");
+			System.out.println("\n\n\nEntrez le numéro de téléphone du Professionnel :");
 			scString = new Scanner(System.in);
 			phone = scString.nextLine();
 			ok = false;
@@ -145,14 +145,14 @@ public class CreatePro {
 					System.out.println("Le numéro de téléphone : " + phone+ " a été enregistré.");
 				}
 				if (reponse == 'n'){
-					System.out.println("Entrez à nouveau le numéro de téléphone du Client :");
+					System.out.println("Entrez à nouveau le numéro de téléphone du Professionnel :");
 					phone = scString.nextLine();
 					continue;
 				}
 				break;
 			}
 			
-			System.out.println("\n\n\nEntrez l'adresse courriel du Client :");
+			System.out.println("\n\n\nEntrez l'adresse courriel du Professionnel :");
 			scString = new Scanner(System.in);
 			courriel = scString.nextLine();
 			ok = false;
@@ -171,15 +171,41 @@ public class CreatePro {
 					System.out.println("L'adresse courriel : " + courriel+ " a été enregistrée.");
 				}
 				if (reponse == 'n'){
-					System.out.println("Entrez à nouveau l'adresse courriel du Client :");
+					System.out.println("Entrez à nouveau l'adresse courriel du Professionnel :");
 					adresse = scString.nextLine();
 					continue;
 				}
 				break;
 			}
 			
+			System.out.println("\n\n\nEntrez la discipline du Professionnel:");
+			scString = new Scanner(System.in);
+			discipline = scString.nextLine();
+			ok = false;
+			while (ok == false) {
+				System.out.println("La discipline entrée est :" + discipline+
+						"\nVoulez-vous poursuivre avec cette discipline? "
+						+ "\nEntrez 'y' pour continuer ; "
+						+ "'n' pour saisir une nouvelle discipline.");
+				char reponse = sc.next().charAt(0);
+				while (reponse != 'y' && reponse != 'n') {
+					System.out.println("SVP, faites un choix valide.");
+					reponse = sc.next().charAt(0);	
+				}
+				if (reponse=='y') {
+					ok = true;
+					System.out.println("La discipline : " + discipline+ " a été enregistrée.");
+				}
+				if (reponse == 'n'){
+					System.out.println("Entrez à nouveau la discipline du Professionnel:");
+					discipline = scString.nextLine();
+					continue;
+				}
+				break;
+			}
+			
 			try {
-				data.addMember(nomFamille, prenom, adresse, naissance, phone, courriel);
+				data.addPro(nomFamille, prenom, adresse, naissance, phone, courriel, discipline);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

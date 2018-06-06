@@ -101,11 +101,13 @@ public class Main {
 			System.out.println("[1]     Créer un nouveau Membre \n");
 			System.out.println("[2]     Rechercher un Membre \n");
 			System.out.println("[3]     Afficher tous les Membres \n");
-			int input2 = sc.nextInt();
+			
+			Scanner sc2 = new Scanner(System.in);
+			int input2 = sc2.nextInt();
 
 			while (input2 != 1 && input2 != 2 && input2 != 0 && input2 != 3) {
 				System.out.println("SVP, faites un choix valide.");
-				input2 = sc.nextInt();	
+				input2 = sc2.nextInt();	
 			}
 
 			switch (input2) {
@@ -119,6 +121,7 @@ public class Main {
 				break;
 			case 2:
 				System.out.println("Ouverture du module recherche de Membre...");
+				data.gestionnaireMembre();
 				break;
 			case 3:
 				System.out.println("Ouverture du module afficher tous les Membres...");
@@ -138,7 +141,7 @@ public class Main {
 			System.out.println("======================== Gestionnaire des Professionnels =======================");
 			System.out.println("================================================================================");
 			System.out.println("\n \n \n");
-			Scanner sc2 = new Scanner(System.in);
+			Scanner sc3 = new Scanner(System.in);
 			System.out.println("Sélectionnez une option");
 			System.out.println("[0]     Retour au Centre de Données \n");
 			System.out.println("[1]     Créer un nouveau Professionnel \n");
@@ -165,7 +168,7 @@ public class Main {
 				break;
 			case 3:
 				System.out.println("Ouverture du module afficher tous les Membres...");
-				data.getMembre();
+				
 				break;
 			}
 

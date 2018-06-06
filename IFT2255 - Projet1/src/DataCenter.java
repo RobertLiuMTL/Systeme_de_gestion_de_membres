@@ -7,6 +7,7 @@
 public class DataCenter {
 	Membre [] membersListe = new Membre[0];
 	Pro [] proListe = new Pro[0];
+	GestionnaireMembre gm = new GestionnaireMembre(this);
 	//Dernier numéro de Membre attribué.
 	private int lastNumber = 123456789;
 	
@@ -35,11 +36,11 @@ public class DataCenter {
 			}
 		temporaire[longueur] = new Membre(nomFamille, prenom, lastNumber, adresse, naissance, phone, courriel);
 		membersListe=temporaire;
-		System.out.println("Le nouveau Professionnel a été crée avec succès!\n");
-		System.out.println(prenom +" "+ nomFamille + " a le numéro de Professionnel suivant : "+lastNumber);
+		System.out.println("Le nouveau Membre a été créé avec succès!\n");
+		System.out.println(prenom +" "+ nomFamille + " a le numéro de Membre suivant : "+lastNumber);
 		lastNumber++;
 		System.out.println("\nVeuillez patienter pendant que le Système "
-				+ "imprime la carte du Professionnel et retourne au Centre de Données..."
+				+ "imprime la carte de Membre et retourne au Centre de Données..."
 				+ "\n\n\n\n\n\n");
 		Thread.sleep(6000);
 	}
@@ -52,13 +53,17 @@ public class DataCenter {
 			}
 		temporaire[longueur] = new Pro(nomFamille, prenom, lastNumber, adresse, naissance, phone, courriel, discipline);
 		proListe=temporaire;
-		System.out.println("Le nouveau Professionnel a été crée avec succès!\n");
-		System.out.println(prenom +" "+ nomFamille + " a le numéro de Membre suivant : "+lastNumber);
+		System.out.println("Le nouveau Professionnel a été créé avec succès!\n");
+		System.out.println(prenom +" "+ nomFamille + " a le numéro du Professionnel suivant : "+lastNumber);
 		lastNumber++;
 		System.out.println("\nVeuillez patienter pendant que le Système "
-				+ "imprime la carte de Membre et retourne au Centre de Données..."
+				+ "imprime la carte du Professionnel et retourne au Centre de Données..."
 				+ "\n\n\n\n\n\n");
 		Thread.sleep(6000);
+	}
+	
+	public void gestionnaireMembre() {
+		
 	}
 	
 	/**
