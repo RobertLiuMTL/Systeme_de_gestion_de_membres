@@ -8,7 +8,6 @@ import java.util.Scanner;
  */
 public class GestionnaireMembre {
 	private DataCenter data;
-	private Membre[] liste;
 	public GestionnaireMembre(DataCenter data) {
 		this.data=data;
 	}
@@ -21,6 +20,12 @@ public class GestionnaireMembre {
 		CreateMembre cm = new CreateMembre(data);
 	}
 	
+	/**
+	 * Méthode pour rechercher un Membre
+	 * Deux types de recherche sont disponibles : 
+	 * 		Recherche par numéro
+	 * 		Recherche par nom de famille
+	 */
 	public void gestionnaireFindMembre() {
 		String resultat = "test";
 		
@@ -31,7 +36,7 @@ public class GestionnaireMembre {
 		System.out.println("Sélectionnez une option");
 		System.out.println("[0]     Retour au Gestionnaire des Membres \n");
 		System.out.println("[1]     Recherche par numéro de Membre \n");
-		System.out.println("[2]     Rechercher par prénom et nom de famille \n");
+		System.out.println("[2]     Rechercher par nom de famille \n");
 
 		Scanner sc2 = new Scanner(System.in);
 		int input2 = sc2.nextInt();
@@ -51,25 +56,39 @@ public class GestionnaireMembre {
 					new GestionnaireMembreFindMembreByNum (data.getMembre());
 			break;
 		case 2:
-			System.out.println("Rechercher par prénom et nom de famille...");
+			System.out.println("Rechercher par nom de famille...");
 			GestionnaireMembreFindMembreByName searchName = 
 					new GestionnaireMembreFindMembreByName(data.getMembre());
-			break;
-		case 3:
-			System.out.println("Ouverture du module afficher tous les Membres...");
-			data.gestionnaireAfficherMembre();
 			break;
 		}
 		
 	}
 	
 	/**
-	 * Démarrer le module de recherche d'un membre par numéro
-	 * Crée une instance de la classe GestionnaireMembreFindMembreByNum
+	 * Méthode qui prend en entrée la liste de Membres et qui
+	 * l'affiche en entièreté.
+	 * @param liste
 	 */
-	public void gestionnaireFindMembreByNum() {
-		GestionnaireMembreFindMembreByNum search = 
-				new GestionnaireMembreFindMembreByNum (data.getMembre());
+	public void gestionnaireAfficherAll(Membre[]liste) {
+		String resultatAll ="Voici la liste de tous les membres "
+				+ "inscrits au Centre Sportif #GYM : \n\n";
+		
+		for (int i = 0; i<liste.length;i++) {
+			resultatAll+="*****************************************\n" 
+					+"Nom : "+liste[i].getPrenom() +"\n"
+					+"Numéro de membre : "+liste[i].getNumero()+"\n"
+					+"Date de naissance : "+liste[i].getNaissance()+"\n"
+					+"Adresse : "+liste[i].getAdresse()+"\n"
+					+"Courriel : " + liste[i].getCourriel()+"\n"
+					+"Numéro de téléphone : " + liste[i].getPhone()+"\n";			
+		}
+		System.out.println(resultatAll);
+	}
+	
+	public String gestionnaireValidation(Membre[]liste) {
+		System.out.println("Veuillez entrer le numéro de Membre à 9 chiffres.");
+		String resultat ="";
+		return resultat;
 	}
 	
 }

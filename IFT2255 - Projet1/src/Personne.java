@@ -4,6 +4,7 @@
  *
  */
 public abstract class Personne {
+	//Les attributs d'une Personne.
 	protected String nomFamille;
 	protected String prenom;
 	protected int numeroMembre;
@@ -12,11 +13,19 @@ public abstract class Personne {
 	protected String phone;
 	protected String courriel;
 	protected String commentaires;
-	protected String statut = "Valide";
+	protected boolean suspendu = false;
 	
+	/**
+	 * getPrenom retourne le nom et le prénom!
+	 * @return Prenom + NomFamille
+	 */
 	public String getPrenom() {
 		String resultat = this.prenom + " "+ this.nomFamille;
 		return resultat;
+	}
+	
+	public String getNomFamille() {
+		return this.nomFamille;
 	}
 	
 	public int getNumero() {
@@ -63,11 +72,11 @@ public abstract class Personne {
 		this.commentaires=newComment;
 	}
 	
-	public String getStatut() {
-		return this.statut;
+	public boolean getSuspendu() {
+		return this.suspendu;
 	}
 	
-	public void setStatut(String newStatut) {
-		this.statut=newStatut;
+	public void setSuspendu(boolean statut) {
+		this.suspendu=statut;
 	}
 }

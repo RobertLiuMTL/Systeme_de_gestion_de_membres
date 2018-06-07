@@ -8,14 +8,14 @@
  *
  */
 public class DataCenter {
+	
+	//Les attributs de la Base de Données
 	Membre [] membersListe = new Membre[0];
 	Pro [] proListe = new Pro[0];
-	
 	Vue vue;
-	
-	
 	GestionnaireMembre gm = new GestionnaireMembre(this);
 	GestionnairePro gp = new GestionnairePro(this);
+	Identification id = new Identification();
 	//Dernier numéro de Membre attribué.
 	private int lastNumber = 123456789;
 	
@@ -28,11 +28,29 @@ public class DataCenter {
 	}
 
 	/**
-	 * retourne la liste des membres
-	 * @return
+	 * retourne la liste des membres contenue dans la Base de données
+	 * @return Une liste de membres
 	 */
 	public Membre[] getMembre() {
 		return this.membersListe;
+	}
+	
+	/**
+	 * Retourne la liste des professionnels contenue dans la Base de données
+	 * @return
+	 */
+	public Pro[] getPro() {
+		return this.proListe;
+	}
+	
+	/**
+	 * Méthode qui permet d'identifier le Client.
+	 * Prend en paramètre le numéro du Client ainsi que la base de données.
+	 * @param numero : Numéro de client à 9 chiffres.
+	 * @return
+	 */
+	public String identifier(int numero) {
+		return id.identifier(this, numero);
 	}
 //////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////
@@ -40,24 +58,30 @@ public class DataCenter {
 //////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////
 	
-	/**
+	/**Méthode pour passer à la Vue
 	 * Pour accéder à la page principale (Accueil)
 	 */
 	public void vueAccueil() {
 		vue.accueil();
 	}
 	
-	/**
+	/**Méthode pour passer à la Vue
 	 * Pour accéder au Centre de Donnéees
 	 */
 	public void vueDataCenter() {
 		vue.dataCenter();
 	}
 	
+	/**Méthode pour passer à la Vue
+	 * Pour accéder au Gestionnaire des Membres
+	 */
 	public void vueGestionnaireMembre() {
 		vue.accueilGestionnaireMembre();
 	}
 	
+	/**Méthode pour passer à la Vue
+	 * Pour accéder au Gestionnaire des Professionnels
+	 */
 	public void vueGestionnairePro() {
 		vue.accueilGestionnairePro();
 	}
@@ -65,34 +89,34 @@ public class DataCenter {
 	
 //////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////
-//Les méthodes qui permettent de mettre à jour les bases de données
+//Les méthodes en lien avec le gestionnaire des membres
 //////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////
 	
-	/**
+	/**Méthode pour passer au Gestionnaire des Membres
 	 * Accède à la fonction Ajouter un Membre du Gestionnaire
 	 */
 	public void gestionnaireAddMembre() {
 		gm.gestionnaireAddMembre();
 	}
 	
-	/**
+	/**Méthode pour passer au Gestionnaire des Membres
 	 * Accède à la fonction Rechercher un Membre du Gestionnaire des Membres
 	 */
 	public void gestionnaireFindMembre() {
 		gm.gestionnaireFindMembre();
 	}
 	
-	/**
+	/**Méthode pour passer au Gestionnaire des Membres
 	 * Accède à la fonction Afficher tous les Membres du Gestionnaire
 	 */
 	public void gestionnaireAfficherMembre() {
-		
+		gm.gestionnaireAfficherAll(membersListe);
 	}
 	
 //////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////
-//Les méthodes en lien avec le gestionnaire des membres
+//Les méthodes qui permettent de mettre à jour les bases de données
 //////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////
 	
@@ -116,7 +140,7 @@ public class DataCenter {
 	public void addMember (String nomFamille, String prenom, String adresse, String naissance, String phone, String courriel) throws InterruptedException {
 		int longueur = membersListe.length;
 		Membre[] temporaire = new Membre[longueur+1];
-		for (int i = 0;i<longueur-1;i++) {
+		for (int i = 0;i<longueur;i++) {
 			temporaire[i]=membersListe[i];		
 			}
 		temporaire[longueur] = new Membre(nomFamille, prenom, lastNumber, adresse, naissance, phone, courriel);
@@ -127,9 +151,20 @@ public class DataCenter {
 		System.out.println("\nVeuillez patienter pendant que le Système "
 				+ "imprime la carte de Membre et retourne au Centre de Données..."
 				+ "\n\n");
-		Thread.sleep(6000);
+		Thread.sleep(4000);
 	}
 	
+	/**
+	 * Méthode pour créer un professionnel.
+	 * @param nomFamille String
+	 * @param prenom String
+	 * @param adresse String
+	 * @param naissance String
+	 * @param phone String
+	 * @param courriel String
+	 * @param discipline String
+	 * @throws InterruptedException
+	 */
 	public void addPro (String nomFamille, String prenom, String adresse, String naissance, String phone, String courriel, String discipline) throws InterruptedException {
 		int longueur = proListe.length;
 		Pro[] temporaire = new Pro[longueur+1];
@@ -144,7 +179,7 @@ public class DataCenter {
 		System.out.println("\nVeuillez patienter pendant que le Système "
 				+ "imprime la carte du Professionnel et retourne au Centre de Données..."
 				+ "\n\n");
-		Thread.sleep(6000);
+		Thread.sleep(4000);
 	}
 
 	

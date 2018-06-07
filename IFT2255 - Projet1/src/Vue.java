@@ -7,8 +7,16 @@ import java.util.Scanner;
  *
  */
 public class Vue {
-	DataCenter data;
-
+	private DataCenter data;
+	private RepertoireServices service;
+	
+	/**
+	 * Constructeur de la Vue.
+	 * Instancié par le Main de notre Logiciel.
+	 * Reçoit le Centre de Données en paramètre.
+	 * Appelle séquentiellement accueil pour passer au menu principal
+	 * @param data
+	 */
 	public Vue(DataCenter data) {
 		this.data = data;
 		accueil();
@@ -28,7 +36,11 @@ public class Vue {
 				+ "    ~^~- `^-% ^~.%~%.^~-%-~.%-^.% ~`% ~-`%^`-~^~\r\n" + "       ~^- ~^- `~.^- %`~.%~-'%~^- %~^- ~^");
 		menuPrincipal();
 	}
-
+	
+	/**
+	 * Menu principal
+	 * Permet une interaction avec l'utilisateur en ligne de commande
+	 */
 	public void menuPrincipal() {
 
 		System.out.println("================================================================================");
@@ -40,10 +52,11 @@ public class Vue {
 		System.out.println("[0]     Fermer le Système \n");
 		System.out.println("[1]     Centre de Données \n");
 		System.out.println("[2]     Répertoire des Services \n");
+		System.out.println("[3]     Identification du Membre ou Professionnel \n");
 		Scanner sc = new Scanner(System.in);
 		int input = sc.nextInt();
 
-		while (input != 1 && input != 2 && input != 0) {
+		while (input != 1 && input != 2 && input != 0 && input!=3) {
 			System.out.println("SVP, faites un choix valide.");
 			input = sc.nextInt();
 		}
@@ -64,11 +77,35 @@ public class Vue {
 			break;
 		case 2:
 			System.out.println("Ouverture du Répertoire des Services...");
+			service = new RepertoireServices(this.data);
+			break;
+			
+		case 3:
+			System.out.println("Ouverture du Service d'Identification...");
+			System.out.println("================================================================================");
+			System.out.println("============================== Identification ==================================");
+			System.out.println("================================================================================");
+			System.out.println("\n ");
+			System.out.println("Veuillez entrer le numéro de Membre à 9 chiffres");
+			int numeroMembre = sc.nextInt();
+			System.out.println(data.identifier(numeroMembre));
+			try {
+				Thread.sleep(1500);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			menuPrincipal();
 			break;
 		}
 
 	}
-
+	
+	/**
+	 * Menu du Centre de données
+	 * C'est une des options du menu principal.
+	 * Permet une interaction avec l'utilisateur en ligne de commande
+	 */
 	public void dataCenter() {
 		System.out.println("================================================================================");
 		System.out.println("============================== Centre de Données ===============================");
@@ -114,7 +151,13 @@ public class Vue {
 
 		}
 	}
-
+	
+	/**
+	 * Menu du Gestionnaire des Membres
+	 * Permet des interactions avec l'utilisateurs.
+	 * Les options présentes dans ce menu sont envoyées au Centre de Données (Contrôleur)
+	 * Le Centre de Données redirige ensuite les commandes aux bonnes classes.
+	 */
 	public void accueilGestionnaireMembre() {
 		System.out.println("================================================================================");
 		System.out.println("=========================== Gestionnaire des Membres ===========================");
@@ -156,6 +199,17 @@ public class Vue {
 		}
 	}
 	
+	
+	/**						À FAIRE
+	 * On peut recopier la logique du Gestionnaire des Membres (à ma connaissance,
+	 * le Gestionnaire des Membres fonctionne assez bien)
+	 * 
+	 * 
+	 * Menu du Gestionnaire des Professionnel
+	 * Permet des interactions avec l'utilisateurs.
+	 * Les options présentes dans ce menu sont envoyées au Centre de Données (Contrôleur)
+	 * Le Centre de Données redirige ensuite les commandes aux bonnes classes.
+	 */
 	public void accueilGestionnairePro() {
 		System.out.println("================================================================================");
 		System.out.println("======================== Gestionnaire des Professionnels =======================");

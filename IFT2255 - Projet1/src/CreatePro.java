@@ -21,7 +21,7 @@ public class CreatePro {
 			System.out.println("================================================================================");
 			System.out.println("==================== Module de création d'un Professionnel =====================");
 			System.out.println("================================================================================");
-			System.out.println("\n \n \n");
+			System.out.println("\n \n");
 			System.out.println("Entrer le nom de Famille du Professionnel :");
 			nomFamille = scString.nextLine();
 			boolean ok = false;
@@ -48,7 +48,7 @@ public class CreatePro {
 				break;
 			}
 			
-			System.out.println("\n\n\nEntrez le Prénom du Professionnel :");
+			System.out.println("\nEntrez le Prénom du Professionnel :");
 			prenom = scString.nextLine();
 			ok = false;
 			while (ok == false) {
@@ -73,7 +73,7 @@ public class CreatePro {
 				break;
 			}
 			
-			System.out.println("\n\n\nEntrez l'adresse du Professionnel :");
+			System.out.println("\nEntrez l'adresse du Professionnel :");
 			scString = new Scanner(System.in);
 			adresse = scString.nextLine();
 			ok = false;
@@ -100,7 +100,7 @@ public class CreatePro {
 			}
 			
 			
-			System.out.println("\n\n\nEntrez la date de naissance du Professionnel:");
+			System.out.println("\nEntrez la date de naissance du Professionnel:");
 			scString = new Scanner(System.in);
 			naissance = scString.nextLine();
 			ok = false;
@@ -126,7 +126,7 @@ public class CreatePro {
 				break;
 			}
 			
-			System.out.println("\n\n\nEntrez le numéro de téléphone du Professionnel :");
+			System.out.println("\nEntrez le numéro de téléphone du Professionnel :");
 			scString = new Scanner(System.in);
 			phone = scString.nextLine();
 			ok = false;
@@ -152,7 +152,7 @@ public class CreatePro {
 				break;
 			}
 			
-			System.out.println("\n\n\nEntrez l'adresse courriel du Professionnel :");
+			System.out.println("\nEntrez l'adresse courriel du Professionnel :");
 			scString = new Scanner(System.in);
 			courriel = scString.nextLine();
 			ok = false;
@@ -178,7 +178,7 @@ public class CreatePro {
 				break;
 			}
 			
-			System.out.println("\n\n\nEntrez la discipline du Professionnel:");
+			System.out.println("\nEntrez la discipline du Professionnel:");
 			scString = new Scanner(System.in);
 			discipline = scString.nextLine();
 			ok = false;
