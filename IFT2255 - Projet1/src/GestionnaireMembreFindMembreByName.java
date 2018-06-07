@@ -59,6 +59,9 @@ public class GestionnaireMembreFindMembreByName {
 				break;
 			}
 		}
+		
+		//Si la recherche aboutit à résultat, on imprime les membres
+		//Sinon, on imprime le message d'échec.
 		if (resultatPositif !="") {
 			System.out.println(resultatPositif);
 		}else {

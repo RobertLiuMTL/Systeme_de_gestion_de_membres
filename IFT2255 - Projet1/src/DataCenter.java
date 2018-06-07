@@ -123,6 +123,34 @@ public class DataCenter {
 	
 //////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////
+//Les méthodes en lien avec le gestionnaire des professionnels
+//////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////
+	
+	/**
+	 * Lance le module d'ajout de Professionnel 
+	 * du gestionnaire des professionnels
+	 */
+	public void gestionnaireAddPro() {
+		gp.createPro();
+	}
+	
+	/**
+	 * Méthode du Gestionnaire Pro qui lance le module
+	 * de recherche de Professionnel.
+	 * Le String résultat sera envoyé à la vue
+	 * @return : Résultat sous forme de String. 
+	 */
+	public String gestionnaireFindPro() {
+		return gp.findPro();
+	}
+	
+	public void gestionnaireAfficherPro() {
+		gp.afficherAll(proListe);
+	}
+	
+//////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////
 //Les méthodes qui permettent de mettre à jour les bases de données
 //////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////
@@ -146,6 +174,8 @@ public class DataCenter {
 	 */
 	public void addMember (String nomFamille, String prenom, String adresse, String naissance, String phone, String courriel) throws InterruptedException {
 		int longueur = membersListe.length;
+		
+		//Recopier la liste des membres dans la liste temporaire
 		Membre[] temporaire = new Membre[longueur+1];
 		for (int i = 0;i<longueur;i++) {
 			temporaire[i]=membersListe[i];		
@@ -174,6 +204,8 @@ public class DataCenter {
 	 */
 	public void addPro (String nomFamille, String prenom, String adresse, String naissance, String phone, String courriel, String discipline) throws InterruptedException {
 		int longueur = proListe.length;
+		
+		//recopier la liste des Professionnels dans la liste temporaire
 		Pro[] temporaire = new Pro[longueur+1];
 		for (int i = 0;i<longueur-1;i++) {
 			temporaire[i]=proListe[i];		
@@ -187,8 +219,5 @@ public class DataCenter {
 				+ "imprime la carte du Professionnel et retourne au Centre de Données..."
 				+ "\n\n");
 		Thread.sleep(4000);
-	}
-
-	
-	
+	}	
 }

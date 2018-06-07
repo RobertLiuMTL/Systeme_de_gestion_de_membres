@@ -234,14 +234,18 @@ public class Vue {
 			dataCenter();
 		case 1:
 			System.out.println("Ouverture du module de création de Professionnel...");
-			dataCenter();
+			data.gestionnaireAddPro();
+			accueilGestionnairePro();
 			break;
 		case 2:
 			System.out.println("Ouverture du module recherche de Professionnel...");
+			System.out.println(data.gestionnaireFindPro());
+			accueilGestionnairePro();
 			break;
 		case 3:
 			System.out.println("Ouverture du module afficher tous les Membres...");
-
+			data.gestionnaireAfficherPro();
+			accueilGestionnairePro();
 			break;
 		}
 	}

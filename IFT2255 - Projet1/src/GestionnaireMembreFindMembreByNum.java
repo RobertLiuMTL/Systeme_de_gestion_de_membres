@@ -56,7 +56,6 @@ public class GestionnaireMembreFindMembreByNum {
 				System.out.println("Veuillez entrer un nouveau numéro :");
 				numeroMembre= sc.nextInt();
 				continue;
-				
 			}
 			if(reponse=='z') {
 				break;

@@ -1,0 +1,52 @@
+import java.util.Scanner;
+
+public class GestionnaireProFind {
+
+	public String rechercheParNum(Pro[] liste) {
+		Scanner sc = new Scanner(System.in);
+
+		// Le résultat de la recherche. Si l'utilisateur annule,
+		// le message par défaut est affiché.
+		String resultat = "La recherche a été annulée";
+		System.out.println("Veuillez entrer le numéro de Professionnel à 9 chiffres");
+		int numeroMembre = sc.nextInt();
+		boolean ok = false;
+		while (ok == false) {
+			System.out.println("Le numéro entré est : " + numeroMembre + "\nVoulez-vous poursuivre avec ce numéro?"
+					+ "\nEntrez 'y' pour continuer ; " + "'n' pour saisir un nouveau numéro"
+					+ "'z' pour quitter la recherche.");
+			char reponse = sc.next().charAt(0);
+			while (reponse != 'y' && reponse != 'n' && reponse != 'z') {
+				System.out.println("SVP, faites un choix valide.");
+				reponse = sc.next().charAt(0);
+			}
+			if (reponse == 'y') {
+				for (int i = 0; i < liste.length; i++) {
+					if (liste[i].getNumero() == numeroMembre) {
+						resultat = "Résultat de la recherche :\n" + "Nom : " + liste[i].getPrenom() + "\n"
+								+ "Numéro de Professionnel : " + liste[i].getNumero() + "\n" + "Date de naissance : "
+								+ liste[i].getNaissance() + "\n" + "Adresse : " + liste[i].getAdresse() + "\n"
+								+ "Courriel : " + liste[i].getCourriel() + "\n" + "Numéro de téléphone : "
+								+ liste[i].getPhone() + "\n" + "Professionnel suspendu? : " + liste[i].getSuspendu() + "\n"
+								+ "Membre depuis : " + liste[i].getDateCreation() + "\n" + "Commentaires : "
+								+ liste[i].getComment();
+						ok = true;
+					} else {
+						resultat = "Le numéro entré est introuvable";
+						ok = true;
+					}
+				}
+			}
+			if (reponse == 'n') {
+				System.out.println("Veuillez entrer un nouveau numéro :");
+				numeroMembre = sc.nextInt();
+				continue;
+			}
+			if (reponse == 'z') {
+				break;
+			}
+		}
+		return resultat;
+	}
+
+}

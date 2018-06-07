@@ -81,11 +81,4 @@ public class GestionnaireMembre {
 		}
 		System.out.println(resultatAll);
 	}
-
-	public String gestionnaireValidation(Membre[] liste) {
-		System.out.println("Veuillez entrer le numéro de Membre à 9 chiffres.");
-		String resultat = "";
-		return resultat;
-	}
-
 }
