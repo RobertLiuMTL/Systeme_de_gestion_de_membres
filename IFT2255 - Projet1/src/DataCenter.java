@@ -1,3 +1,7 @@
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * Centre de Données (DataCenter). C'est la classe de contrôle qui a accès à la base de données et 
  * c'est également la classe à laquelle se réfère toutes les autres classes.
@@ -18,6 +22,9 @@ public class DataCenter {
 	Identification id = new Identification();
 	//Dernier numéro de Membre attribué.
 	private int lastNumber = 123456789;
+	
+	DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+
 	
 	/**
 	 * Constructeur. Au moment d'être instancié, il crée la Vue en lui

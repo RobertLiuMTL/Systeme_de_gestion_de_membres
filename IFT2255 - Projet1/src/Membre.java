@@ -1,4 +1,4 @@
-
+import java.util.Date;
 
 /**
  * Classe pour les Membres du Gym.
@@ -15,6 +15,7 @@ public class Membre extends Personne{
 		this.naissance=naissance;
 		this.phone=phone;
 		this.courriel=courriel;
+		this.dateCreation = dateFormat.format(new Date());
 	}
 	
 	

@@ -1,3 +1,6 @@
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+
 /**
  * Classe abstraite Personne qui offre les attributs communs aux Membres et Professionnels
  * @author Shado
@@ -13,8 +16,10 @@ public abstract class Personne {
 	protected String phone;
 	protected String courriel;
 	protected String commentaires;
+	protected String dateCreation;
 	protected boolean suspendu = false;
-	
+	DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+
 	/**
 	 * getPrenom retourne le nom et le prénom!
 	 * @return Prenom + NomFamille
@@ -78,5 +83,9 @@ public abstract class Personne {
 	
 	public void setSuspendu(boolean statut) {
 		this.suspendu=statut;
+	}
+	
+	public String getDateCreation() {
+		return this.dateCreation;
 	}
 }

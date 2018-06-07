@@ -1,1 +1,6 @@
 /GestionnaireMembre.class
+/GestionnaireMembreFindMembreByName.class
+/GestionnaireMembreFindMembreByNum.class
+/Identification.class
+/RepertoireServices.class
+/Vue.class

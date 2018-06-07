@@ -1,4 +1,10 @@
+import java.util.Date;
 
+/**
+ * Classe du professionnel avec son constructeur.
+ * @author Shado
+ *
+ */
 public class Pro extends Personne{
 	//Attributs d'un professionnel
 
@@ -14,6 +20,7 @@ public class Pro extends Personne{
 		this.phone=phone;
 		this.courriel=courriel;
 		this.discipline=discipline;
+		this.dateCreation = dateFormat.format(new Date());
 	}
 	
 

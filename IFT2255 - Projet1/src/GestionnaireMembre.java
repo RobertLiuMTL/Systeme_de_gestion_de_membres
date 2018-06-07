@@ -1,34 +1,34 @@
 import java.util.Scanner;
+
 /**
- * C'est le gestionnaire des Membres.
- * Interagit avec le Centre de données (DataCenter).
- * Toute communication avec la Vue passe par le Centre de Données
+ * C'est le gestionnaire des Membres. Interagit avec le Centre de données
+ * (DataCenter). Toute communication avec la Vue passe par le Centre de Données
+ * 
  * @author Robert
  *
  */
 public class GestionnaireMembre {
 	private DataCenter data;
+
 	public GestionnaireMembre(DataCenter data) {
-		this.data=data;
+		this.data = data;
 	}
-	
+
 	/**
-	 * Méthode pour créer un membre.
-	 * Lance l'application de création située dans une classe à part.
+	 * Méthode pour créer un membre. Lance l'application de création située dans une
+	 * classe à part.
 	 */
 	public void gestionnaireAddMembre() {
 		CreateMembre cm = new CreateMembre(data);
 	}
-	
+
 	/**
-	 * Méthode pour rechercher un Membre
-	 * Deux types de recherche sont disponibles : 
-	 * 		Recherche par numéro
-	 * 		Recherche par nom de famille
+	 * Méthode pour rechercher un Membre Deux types de recherche sont disponibles :
+	 * Recherche par numéro Recherche par nom de famille
 	 */
 	public void gestionnaireFindMembre() {
 		String resultat = "test";
-		
+
 		System.out.println("================================================================================");
 		System.out.println("=========================== Gestionnaire des Membres ===========================");
 		System.out.println("================================================================================");
@@ -52,43 +52,40 @@ public class GestionnaireMembre {
 			data.vueGestionnaireMembre();
 		case 1:
 			System.out.println("Recherche par numéro de membre...");
-			GestionnaireMembreFindMembreByNum search = 
-					new GestionnaireMembreFindMembreByNum (data.getMembre());
+			GestionnaireMembreFindMembreByNum search = new GestionnaireMembreFindMembreByNum(data.getMembre());
 			break;
 		case 2:
 			System.out.println("Rechercher par nom de famille...");
-			GestionnaireMembreFindMembreByName searchName = 
-					new GestionnaireMembreFindMembreByName(data.getMembre());
+			GestionnaireMembreFindMembreByName searchName = new GestionnaireMembreFindMembreByName(data.getMembre());
 			break;
 		}
-		
+
 	}
-	
+
 	/**
-	 * Méthode qui prend en entrée la liste de Membres et qui
-	 * l'affiche en entièreté.
+	 * Méthode qui prend en entrée la liste de Membres et qui l'affiche en
+	 * entièreté.
+	 * 
 	 * @param liste
 	 */
-	public void gestionnaireAfficherAll(Membre[]liste) {
-		String resultatAll ="Voici la liste de tous les membres "
-				+ "inscrits au Centre Sportif #GYM : \n\n";
-		
-		for (int i = 0; i<liste.length;i++) {
-			resultatAll+="*****************************************\n" 
-					+"Nom : "+liste[i].getPrenom() +"\n"
-					+"Numéro de membre : "+liste[i].getNumero()+"\n"
-					+"Date de naissance : "+liste[i].getNaissance()+"\n"
-					+"Adresse : "+liste[i].getAdresse()+"\n"
-					+"Courriel : " + liste[i].getCourriel()+"\n"
-					+"Numéro de téléphone : " + liste[i].getPhone()+"\n";			
+	public void gestionnaireAfficherAll(Membre[] liste) {
+		String resultatAll = "Voici la liste de tous les membres " + "inscrits au Centre Sportif #GYM : \n\n";
+
+		for (int i = 0; i < liste.length; i++) {
+			resultatAll += "*****************************************\n" + "Nom : " + liste[i].getPrenom() + "\n"
+					+ "Numéro de membre : " + liste[i].getNumero() + "\n" + "Date de naissance : "
+					+ liste[i].getNaissance() + "\n" + "Adresse : " + liste[i].getAdresse() + "\n" + "Courriel : "
+					+ liste[i].getCourriel() + "\n" + "Numéro de téléphone : " + liste[i].getPhone() + "\n"
+					+ "Membre suspendu? : " + liste[i].getSuspendu() + "\n" + "Membre depuis : "
+					+ liste[i].getDateCreation() + "\n" + "Commentaires : " + liste[i].getComment();
 		}
 		System.out.println(resultatAll);
 	}
-	
-	public String gestionnaireValidation(Membre[]liste) {
+
+	public String gestionnaireValidation(Membre[] liste) {
 		System.out.println("Veuillez entrer le numéro de Membre à 9 chiffres.");
-		String resultat ="";
+		String resultat = "";
 		return resultat;
 	}
-	
+
 }

@@ -42,7 +42,9 @@ public class GestionnaireMembreFindMembreByNum {
 								+"Adresse : "+liste[i].getAdresse()+"\n"
 								+"Courriel : " + liste[i].getCourriel()+"\n"
 								+"Numéro de téléphone : " + liste[i].getPhone()+"\n"
-								+"Membre suspendu? : "+liste[i].getSuspendu();
+								+"Membre suspendu? : "+liste[i].getSuspendu()+"\n"
+								+"Membre depuis : " +liste[i].getDateCreation()+"\n"
+								+"Commentaires : "+liste[i].getComment();
 						ok=true;
 					}else {
 						resultat = "Le numéro entré est introuvable";
