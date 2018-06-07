@@ -7,18 +7,13 @@ import java.util.Scanner;
  *
  */
 public class Main {
-	static DataCenter data = new DataCenter();
-	static GestionnairePro gp = new GestionnairePro(data);
-	RepertoireService service = new RepertoireService();
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
-		accueil();
-		menuPrincipal();
+		DataCenter data = new DataCenter();
 	}
 
-	public static void accueil() {
+	/*public static void accueil() {
 		System.out.println("================================================================================");
 		System.out.println("======================= Bienvenue au Centre Sportif #GYM =======================");
 		System.out.println("================================================================================");
@@ -30,12 +25,11 @@ public class Main {
 	}
 
 	public static void menuPrincipal() {
-		boolean ouvert = true;
 
 		System.out.println("================================================================================");
 		System.out.println("================================ Menu principal ================================");
 		System.out.println("================================================================================");
-		System.out.println("\n \n \n");
+		System.out.println("\n");
 
 		System.out.println("Sélectionnez une option");
 		System.out.println("[0]     Fermer le Système \n");
@@ -74,7 +68,7 @@ public class Main {
 		System.out.println("================================================================================");
 		System.out.println("============================== Centre de Données ===============================");
 		System.out.println("================================================================================");
-		System.out.println("\n \n \n");
+		System.out.println("\n ");
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Sélectionnez une option");
 		System.out.println("[0]     Retourner au Menu principal \n");
@@ -95,7 +89,7 @@ public class Main {
 			System.out.println("================================================================================");
 			System.out.println("=========================== Gestionnaire des Membres ===========================");
 			System.out.println("================================================================================");
-			System.out.println("\n \n \n");
+			System.out.println("\n");
 			System.out.println("Sélectionnez une option");
 			System.out.println("[0]     Retour au Centre de Données \n");
 			System.out.println("[1]     Créer un nouveau Membre \n");
@@ -140,7 +134,7 @@ public class Main {
 			System.out.println("================================================================================");
 			System.out.println("======================== Gestionnaire des Professionnels =======================");
 			System.out.println("================================================================================");
-			System.out.println("\n \n \n");
+			System.out.println("\n");
 			Scanner sc3 = new Scanner(System.in);
 			System.out.println("Sélectionnez une option");
 			System.out.println("[0]     Retour au Centre de Données \n");
@@ -174,6 +168,6 @@ public class Main {
 
 			
 		}
-	}
+	}*/
 }
 //String nomFamille, String prenom, String adresse, String naissance, int phone, String courriel

@@ -1,15 +1,100 @@
 /**
- * Centre de Données. C'est la classe de contrôle qui a accès à la base de données et 
+ * Centre de Données (DataCenter). C'est la classe de contrôle qui a accès à la base de données et 
  * c'est également la classe à laquelle se réfère toutes les autres classes.
+ * 
+ * Le Centre de Données crée le pont entre la Vue et le Modèle.
+ * 
  * @author Robert
  *
  */
 public class DataCenter {
 	Membre [] membersListe = new Membre[0];
 	Pro [] proListe = new Pro[0];
+	
+	Vue vue;
+	
+	
 	GestionnaireMembre gm = new GestionnaireMembre(this);
+	GestionnairePro gp = new GestionnairePro(this);
 	//Dernier numéro de Membre attribué.
 	private int lastNumber = 123456789;
+	
+	/**
+	 * Constructeur. Au moment d'être instancié, il crée la Vue en lui
+	 * envoyant en argument this (DataCenter)
+	 */
+	public DataCenter() {
+		this.vue = new Vue(this);
+	}
+
+	/**
+	 * retourne la liste des membres
+	 * @return
+	 */
+	public Membre[] getMembre() {
+		return this.membersListe;
+	}
+//////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////
+//Les méthodes en lien avec la Vue
+//////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////
+	
+	/**
+	 * Pour accéder à la page principale (Accueil)
+	 */
+	public void vueAccueil() {
+		vue.accueil();
+	}
+	
+	/**
+	 * Pour accéder au Centre de Donnéees
+	 */
+	public void vueDataCenter() {
+		vue.dataCenter();
+	}
+	
+	public void vueGestionnaireMembre() {
+		vue.accueilGestionnaireMembre();
+	}
+	
+	public void vueGestionnairePro() {
+		vue.accueilGestionnairePro();
+	}
+
+	
+//////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////
+//Les méthodes qui permettent de mettre à jour les bases de données
+//////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////
+	
+	/**
+	 * Accède à la fonction Ajouter un Membre du Gestionnaire
+	 */
+	public void gestionnaireAddMembre() {
+		gm.gestionnaireAddMembre();
+	}
+	
+	/**
+	 * Accède à la fonction Rechercher un Membre du Gestionnaire des Membres
+	 */
+	public void gestionnaireFindMembre() {
+		gm.gestionnaireFindMembre();
+	}
+	
+	/**
+	 * Accède à la fonction Afficher tous les Membres du Gestionnaire
+	 */
+	public void gestionnaireAfficherMembre() {
+		
+	}
+	
+//////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////
+//Les méthodes en lien avec le gestionnaire des membres
+//////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////
 	
 	/**
 	 * Puisque le Centre de Données contient la liste de Membre,
@@ -41,7 +126,7 @@ public class DataCenter {
 		lastNumber++;
 		System.out.println("\nVeuillez patienter pendant que le Système "
 				+ "imprime la carte de Membre et retourne au Centre de Données..."
-				+ "\n\n\n\n\n\n");
+				+ "\n\n");
 		Thread.sleep(6000);
 	}
 	
@@ -58,23 +143,10 @@ public class DataCenter {
 		lastNumber++;
 		System.out.println("\nVeuillez patienter pendant que le Système "
 				+ "imprime la carte du Professionnel et retourne au Centre de Données..."
-				+ "\n\n\n\n\n\n");
+				+ "\n\n");
 		Thread.sleep(6000);
 	}
+
 	
-	public void gestionnaireMembre() {
-		
-	}
 	
-	/**
-	 * retourne la liste des noms et prénoms de tous les membres
-	 * @return
-	 */
-	public String getMembre() {
-		String resultat="";
-		for (int i = 0;i<membersListe.length;i++) {
-			resultat= resultat + membersListe[i].getPrenom();
-		}
-		return resultat;
-	}
 }

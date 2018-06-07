@@ -26,7 +26,7 @@ public class CreateMembre {
 		System.out.println("================================================================================");
 		System.out.println("========================= Module de création de Membre =========================");
 		System.out.println("================================================================================");
-		System.out.println("\n \n \n");
+		System.out.println("\n");
 		System.out.println("Entrer le nom de Famille du Client :");
 		nomFamille = scString.nextLine();
 		boolean ok = false;
@@ -53,7 +53,7 @@ public class CreateMembre {
 			break;
 		}
 		
-		System.out.println("\n\n\nEntrez le Prénom du Client :");
+		System.out.println("\nEntrez le Prénom du Client :");
 		prenom = scString.nextLine();
 		ok = false;
 		while (ok == false) {
@@ -78,7 +78,7 @@ public class CreateMembre {
 			break;
 		}
 		
-		System.out.println("\n\n\nEntrez l'adresse du Client :");
+		System.out.println("\nEntrez l'adresse du Client :");
 		scString = new Scanner(System.in);
 		adresse = scString.nextLine();
 		ok = false;
@@ -105,7 +105,7 @@ public class CreateMembre {
 		}
 		
 		
-		System.out.println("\n\n\nEntrez la date de naissance du Client :");
+		System.out.println("\nEntrez la date de naissance du Client :");
 		scString = new Scanner(System.in);
 		naissance = scString.nextLine();
 		ok = false;
@@ -131,7 +131,7 @@ public class CreateMembre {
 			break;
 		}
 		
-		System.out.println("\n\n\nEntrez le numéro de téléphone du Client :");
+		System.out.println("\nEntrez le numéro de téléphone du Client :");
 		scString = new Scanner(System.in);
 		phone = scString.nextLine();
 		ok = false;
@@ -157,7 +157,7 @@ public class CreateMembre {
 			break;
 		}
 		
-		System.out.println("\n\n\nEntrez l'adresse courriel du Client :");
+		System.out.println("\nEntrez l'adresse courriel du Client :");
 		scString = new Scanner(System.in);
 		courriel = scString.nextLine();
 		ok = false;

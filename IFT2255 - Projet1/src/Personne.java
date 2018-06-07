@@ -47,6 +47,14 @@ public abstract class Personne {
 		this.courriel=newCourriel;
 	}
 	
+	public String getNaissance() {
+		return this.naissance;
+	}
+	
+	public void setNaissance(String newNaissance) {
+		this.naissance=newNaissance;
+	}
+	
 	public String getComment() {
 		return this.commentaires;
 	}
