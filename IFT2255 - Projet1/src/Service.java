@@ -1,4 +1,8 @@
-
+/**
+ * Classe des Services
+ * @author Robert
+ *
+ */
 public class Service {
 	
 	/**

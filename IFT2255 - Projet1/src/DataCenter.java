@@ -2,7 +2,6 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import com.sun.xml.internal.ws.wsdl.writer.document.Service;
 
 /**
  * Centre de Données (DataCenter). C'est la classe de contrôle qui a accès à la base de données et 
@@ -130,6 +129,14 @@ public class DataCenter {
 		gm.gestionnaireAfficherAll(membersListe);
 	}
 	
+	public void gestionnaireModMembre() {
+		
+	}
+	
+	public void gestionnaireSuspendMembre() {
+		
+	}
+	
 //////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////
 //Les méthodes en lien avec le gestionnaire des professionnels
@@ -240,8 +247,7 @@ public class DataCenter {
 		for (int i = 0;i<longueur-1;i++) {
 			temporaire[i]=serviceListe[i];		
 			}
-		temporaire[longueur] = new Service(titre, enseignant, listeMembre, codeDuCours, dateDebut, 
-				heureDebut, recurrence, capaciteMax);
+		temporaire[longueur] = new Service(titre, enseignant, listeMembre, codeDuCours, dateDebut,heureDebut, recurrence, recurrence, capaciteMax);
 		serviceListe = temporaire;
 		System.out.println("Le nouveau Service a été créé avec succès!\n");
 		System.out.println("Le Service est : "+ titre);
@@ -255,7 +261,12 @@ public class DataCenter {
 		System.out.println("\nVeuillez patienter pendant que le Système "
 				+ "imprime la carte du Professionnel et retourne au Centre de Données..."
 				+ "\n\n");
-		Thread.sleep(4000);
+		try {
+			Thread.sleep(4000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	
 	}
 }
