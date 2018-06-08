@@ -168,11 +168,14 @@ public class Vue {
 		System.out.println("[1]     Créer un nouveau Membre \n");
 		System.out.println("[2]     Rechercher un Membre \n");
 		System.out.println("[3]     Afficher tous les Membres \n");
+		System.out.println("[4]     Modifier un Membre \n");
+		System.out.println("[5]     Suspendre un Membre \n");
 
 		Scanner sc2 = new Scanner(System.in);
 		int input2 = sc2.nextInt();
 
-		while (input2 != 1 && input2 != 2 && input2 != 0 && input2 != 3) {
+		while (input2 != 1 && input2 != 2 && input2 != 0 && input2 != 3
+				&& input2 != 4 && input2 != 5) {
 			System.out.println("SVP, faites un choix valide.");
 			input2 = sc2.nextInt();
 		}
@@ -194,6 +197,16 @@ public class Vue {
 		case 3:
 			System.out.println("Ouverture du module afficher tous les Membres...");
 			data.gestionnaireAfficherMembre();
+			accueilGestionnaireMembre();
+			break;
+		case 4:
+			System.out.println("Ouverture du module de modification d'un Membre...");
+			data.gestionnaireModMembre();
+			accueilGestionnaireMembre();
+			break;
+		case 5:
+			System.out.println("Ouverture du module de suspension d'un Membre...");
+			data.gestionnaireSuspendMembre();
 			accueilGestionnaireMembre();
 			break;
 		}
@@ -239,6 +252,7 @@ public class Vue {
 			break;
 		case 2:
 			System.out.println("Ouverture du module recherche de Professionnel...");
+			//Imprime le résultat de la recherche du pro
 			System.out.println(data.gestionnaireFindPro());
 			accueilGestionnairePro();
 			break;

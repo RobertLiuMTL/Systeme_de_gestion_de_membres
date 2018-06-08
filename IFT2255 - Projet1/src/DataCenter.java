@@ -121,6 +121,14 @@ public class DataCenter {
 		gm.gestionnaireAfficherAll(membersListe);
 	}
 	
+	public String gestionnaireModMembre() {
+		return "result";
+	}
+	
+	public void gestionnaireSuspendMembre() {
+		
+	}
+	
 //////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////
 //Les méthodes en lien avec le gestionnaire des professionnels
