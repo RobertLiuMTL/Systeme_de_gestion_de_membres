@@ -2,6 +2,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+
 /**
  * Centre de Données (DataCenter). C'est la classe de contrôle qui a accès à la base de données et 
  * c'est également la classe à laquelle se réfère toutes les autres classes.
@@ -16,7 +17,9 @@ public class DataCenter {
 	//Les attributs de la Base de Données
 	Membre [] membersListe = new Membre[0];
 	Pro [] proListe = new Pro[0];
+	Service [] serviceListe = new Service[0];
 	Vue vue;
+	RepertoireServices rs = new RepertoireServices(this);
 	GestionnaireMembre gm = new GestionnaireMembre(this);
 	GestionnairePro gp = new GestionnairePro(this);
 	Identification id = new Identification();
@@ -49,7 +52,9 @@ public class DataCenter {
 	public Pro[] getPro() {
 		return this.proListe;
 	}
-	
+	public Service[] getService() {
+		return this.serviceListe;
+	}
 	/**
 	 * Méthode qui permet d'identifier le Client.
 	 * Prend en paramètre le numéro du Client ainsi que la base de données.
@@ -92,7 +97,10 @@ public class DataCenter {
 	public void vueGestionnairePro() {
 		vue.accueilGestionnairePro();
 	}
-
+	/**méthode pour passer à la vue du Répertoire des service
+	 * 
+	 * 
+	 */
 	
 //////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////
@@ -119,6 +127,14 @@ public class DataCenter {
 	 */
 	public void gestionnaireAfficherMembre() {
 		gm.gestionnaireAfficherAll(membersListe);
+	}
+	
+	public void gestionnaireModMembre() {
+		
+	}
+	
+	public void gestionnaireSuspendMembre() {
+		
 	}
 	
 //////////////////////////////////////////////////////////////////////////////////
@@ -220,4 +236,37 @@ public class DataCenter {
 				+ "\n\n");
 		Thread.sleep(4000);
 	}	
+	
+	public void addService(String titre, Pro enseignant, Membre[] listeMembre, int codeDuCours, String dateDebut, String dateFin
+			, String heureDebut, String recurrence, int capaciteMax) {
+		
+		int longueur = serviceListe.length;
+		
+		//Recopier la liste des services dans la liste temporaire
+		Service[] temporaire = new Service[longueur+1];
+		for (int i = 0;i<longueur-1;i++) {
+			temporaire[i]=serviceListe[i];		
+			}
+		temporaire[longueur] = new Service(titre, enseignant, listeMembre, codeDuCours, dateDebut,heureDebut, recurrence, recurrence, capaciteMax);
+		serviceListe = temporaire;
+		System.out.println("Le nouveau Service a été créé avec succès!\n");
+		System.out.println("Le Service est : "+ titre);
+		System.out.println("Il sera donné du : " + dateDebut + " jusqu'au "+dateFin );
+		System.out.println(" ");
+		System.out.println("Le Service est :");
+		System.out.println("Le Service est :");
+		System.out.println("Le Service est :");
+		
+		lastNumber++;
+		System.out.println("\nVeuillez patienter pendant que le Système "
+				+ "imprime la carte du Professionnel et retourne au Centre de Données..."
+				+ "\n\n");
+		try {
+			Thread.sleep(4000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
+	}
 }

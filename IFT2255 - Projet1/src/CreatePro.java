@@ -9,7 +9,6 @@ public class CreatePro {
 		private String phone;
 		private String courriel;
 		private String discipline;
-		
 		Scanner sc = new Scanner(System.in);
 		Scanner scString = new Scanner(System.in);
 		
