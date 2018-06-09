@@ -8,7 +8,7 @@ import java.util.Scanner;
  */
 public class Vue {
 	private DataCenter data;
-	private RepertoireServices service;
+	
 	
 	/**
 	 * Constructeur de la Vue.
@@ -77,9 +77,8 @@ public class Vue {
 			break;
 		case 2:
 			System.out.println("Ouverture du Répertoire des Services...");
-			service = new RepertoireServices(this.data);
+			data.rs.menuRepertoireServices();
 			break;
-			
 		case 3:
 			System.out.println("Ouverture du Service d'Identification...");
 			System.out.println("================================================================================");
