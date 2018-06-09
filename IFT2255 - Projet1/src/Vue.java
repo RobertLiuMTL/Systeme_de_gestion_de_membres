@@ -8,13 +8,8 @@ import java.util.Scanner;
  */
 public class Vue {
 	private DataCenter data;
-<<<<<<< HEAD
 	private RepertoireServices service;
 
-=======
-	
-	
->>>>>>> 3410bc403cafeba244bb5d674ac143e8bf32b530
 	/**
 	 * Constructeur de la Vue. Instancié par le Main de notre Logiciel. Reçoit le
 	 * Centre de Données en paramètre. Appelle séquentiellement accueil pour passer
@@ -87,12 +82,9 @@ public class Vue {
 			break;
 		case 2:
 			System.out.println("Ouverture du Répertoire des Services...");
-			data.rs.menuRepertoireServices();
+			service = new RepertoireServices(this.data);
 			break;
-<<<<<<< HEAD
 
-=======
->>>>>>> 3410bc403cafeba244bb5d674ac143e8bf32b530
 		case 3:
 			System.out.println("Ouverture du Service d'Identification...");
 			System.out.println("================================================================================");
