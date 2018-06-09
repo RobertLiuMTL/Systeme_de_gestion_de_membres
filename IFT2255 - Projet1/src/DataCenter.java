@@ -229,7 +229,7 @@ public class DataCenter {
 		temporaire[longueur] = new Pro(nomFamille, prenom, lastNumber, adresse, naissance, phone, courriel, discipline);
 		proListe=temporaire;
 		System.out.println("Le nouveau Professionnel a été créé avec succès!\n");
-		System.out.println(prenom +" "+ nomFamille + " a le numéro du Professionnel suivant : "+lastNumber);
+		System.out.println(prenom +" "+ nomFamille + " a le numéro de Professionnel suivant : "+lastNumber);
 		lastNumber++;
 		System.out.println("\nVeuillez patienter pendant que le Système "
 				+ "imprime la carte du Professionnel et retourne au Centre de Données..."
