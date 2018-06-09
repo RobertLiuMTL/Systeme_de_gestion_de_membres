@@ -1,26 +1,28 @@
 /**
  * Classe des Services
+ * 
  * @author Robert
  *
  */
 public class Service {
-	
+
 	/**
 	 * Classe pour les services offert par les professionnels
 	 */
-	private String titre; 
+	private String titre;
 	private Pro enseignant;
-	private Membre[] listeMembre; 
-	private static int codeDuCours = 0; 
-	private String dateDebut; 
+	private Membre[] listeMembre;
+	private int codeDuCours;
+	private String dateDebut;
 	private String dateFin;
 	private String heureDebut;
-	private String recurrence; 
+	private String recurrence;
 	private int capaciteMax;
-	
+	private static int compteur = 0;
+	private String commentaire;
 
-	public Service(String titre, Pro enseignant, Membre[] listeMembre, int codeDuCours, String dateDebut, String dateFin
-					, String heureDebut, String recurrence, int capaciteMax){
+	public Service(String titre, Pro enseignant, Membre[] listeMembre, int codeDuCours, String dateDebut,
+			String dateFin, String heureDebut, String recurrence, int capaciteMax, String commentaire) {
 		this.titre = titre;
 		this.enseignant = enseignant;
 		this.listeMembre = listeMembre;
@@ -29,12 +31,26 @@ public class Service {
 		this.dateFin = dateFin;
 		this.heureDebut = heureDebut;
 		this.recurrence = recurrence;
-		this.capaciteMax = listeMembre.length;
-		
+		this.capaciteMax = capaciteMax;
+		this.commentaire = commentaire;
 	}
+
+	// methode qui permet de format le service dans un String pour des fins de
+	// presentation aux membres
+	public String membreService() {
+		String presentation = "\n\nTitre: " + this.titre + "\n" + "Enseignant: " + this.enseignant + "\n"
+				+ "Code du cours: " + this.codeDuCours + "\n" + "Le cours débute le " + this.dateDebut + "\n"
+				+ "Le cours se termine le " + this.dateFin + "\n" + "Il a lieu à " + this.heureDebut + " Les "
+				+ this.recurrence + "\n" + "Capacité maximale" + this.capaciteMax + "\n" + "Commentaires: "
+				+ this.commentaire + "\n\n";
+
+		return presentation;
+	}
+
 	/**
 	 * 
 	 * Liste des getter/setter
+	 * 
 	 * @return
 	 */
 	public String getTitre() {
@@ -61,10 +77,10 @@ public class Service {
 		this.listeMembre = listeMembre;
 	}
 
-	public static int getCodeDuCours() {
+	public int getCodeDuCours() {
 		return codeDuCours;
 	}
-    //il n'y a pas de methode set codeducours pour eviter les conflits
+	// il n'y a pas de methode set codeducours pour eviter les conflits
 
 	public String getDateDebut() {
 		return dateDebut;
@@ -106,16 +122,14 @@ public class Service {
 		this.capaciteMax = capaciteMax;
 	}
 
-	
-	
-	
 	/**
 	 * methode statique pour retourner le code du prochain cours créé
+	 * 
 	 * @return
 	 */
 	public static int getCode() {
-		codeDuCours++;
-		return codeDuCours;
-		
+		compteur++;
+		return compteur;
+
 	}
 }

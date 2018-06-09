@@ -23,6 +23,8 @@ public class DataCenter {
 	GestionnaireMembre gm = new GestionnaireMembre(this);
 	GestionnairePro gp = new GestionnairePro(this);
 	Identification id = new Identification();
+	InscriptionService is = new InscriptionService();
+
 	//Dernier numéro de Membre attribué.
 	private int lastNumber = 123456789;
 	
@@ -251,7 +253,7 @@ public class DataCenter {
 	}	
 	
 	public void addService(String titre, Pro enseignant, Membre[] listeMembre, int codeDuCours, String dateDebut, String dateFin
-			, String heureDebut, String recurrence, int capaciteMax) {
+			, String heureDebut, String recurrence, int capaciteMax, String commentaire) {
 		
 		int longueur = serviceListe.length;
 		
@@ -260,20 +262,16 @@ public class DataCenter {
 		for (int i = 0;i<longueur-1;i++) {
 			temporaire[i]=serviceListe[i];		
 			}
-		temporaire[longueur] = new Service(titre, enseignant, listeMembre, codeDuCours, dateDebut,heureDebut, recurrence, recurrence, capaciteMax);
+		temporaire[longueur] = new Service(titre, enseignant, listeMembre, codeDuCours, dateDebut,heureDebut, recurrence, recurrence, capaciteMax, commentaire);
 		serviceListe = temporaire;
 		System.out.println("Le nouveau Service a été créé avec succès!\n");
 		System.out.println("Le Service est : "+ titre);
 		System.out.println("Il sera donné du : " + dateDebut + " jusqu'au "+dateFin );
-		System.out.println(" ");
-		System.out.println("Le Service est :");
-		System.out.println("Le Service est :");
-		System.out.println("Le Service est :");
-		
-		lastNumber++;
-		System.out.println("\nVeuillez patienter pendant que le Système "
-				+ "imprime la carte du Professionnel et retourne au Centre de Données..."
-				+ "\n\n");
+		System.out.println("Le " + recurrence);
+		System.out.println("à " + heureDebut);
+		System.out.println("Il y a "+ capaciteMax + " places");
+		System.out.println("Le code du service est le " + temporaire[longueur].getCodeDuCours());
+
 		try {
 			Thread.sleep(4000);
 		} catch (InterruptedException e) {
@@ -282,4 +280,10 @@ public class DataCenter {
 		}
 	
 	}
+	
+	//////////////////////////////////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////////////////
+	//Les méthodes qui permettent de manipuler les inscriptions/désinscription d'une activité
+	//////////////////////////////////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////////////////
 }

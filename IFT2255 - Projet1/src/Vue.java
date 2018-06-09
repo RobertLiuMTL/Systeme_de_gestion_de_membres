@@ -8,7 +8,6 @@ import java.util.Scanner;
  */
 public class Vue {
 	private DataCenter data;
-	private RepertoireServices service;
 
 	/**
 	 * Constructeur de la Vue. Instancié par le Main de notre Logiciel. Reçoit le
@@ -82,7 +81,7 @@ public class Vue {
 			break;
 		case 2:
 			System.out.println("Ouverture du Répertoire des Services...");
-			service = new RepertoireServices(this.data);
+			data.rs.menuRepertoireServices();
 			break;
 
 		case 3:
