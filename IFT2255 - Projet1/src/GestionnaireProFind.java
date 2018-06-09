@@ -9,6 +9,12 @@ public class GestionnaireProFind {
 		// le message par défaut est affiché.
 		String resultat = "La recherche a été annulée";
 		System.out.println("Veuillez entrer le numéro de Professionnel à 9 chiffres");
+		
+		// Boucle while qui vérifie que l'entrée est un Integer.
+		while (!sc.hasNextInt()) {
+			System.out.println("Svp, entrez un numéro à 9 chiffres");
+			sc.next();
+		}
 		int numeroMembre = sc.nextInt();
 		boolean ok = false;
 		while (ok == false) {
@@ -27,8 +33,8 @@ public class GestionnaireProFind {
 								+ "Numéro de Professionnel : " + liste[i].getNumero() + "\n" + "Date de naissance : "
 								+ liste[i].getNaissance() + "\n" + "Adresse : " + liste[i].getAdresse() + "\n"
 								+ "Courriel : " + liste[i].getCourriel() + "\n" + "Numéro de téléphone : "
-								+ liste[i].getPhone() + "\n" + "Professionnel suspendu? : " + liste[i].getSuspendu() + "\n"
-								+ "Membre depuis : " + liste[i].getDateCreation() + "\n" + "Commentaires : "
+								+ liste[i].getPhone() + "\n" + "Professionnel suspendu? : " + liste[i].getSuspendu()
+								+ "\n" + "Membre depuis : " + liste[i].getDateCreation() + "\n" + "Commentaires : "
 								+ liste[i].getComment();
 						ok = true;
 					} else {

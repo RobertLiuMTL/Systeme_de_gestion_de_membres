@@ -31,6 +31,7 @@ public class GestionnaireMembre {
 
 		System.out.println("================================================================================");
 		System.out.println("=========================== Gestionnaire des Membres ===========================");
+		System.out.println("=========================== Module de Recherche ================================");
 		System.out.println("================================================================================");
 		System.out.println("\n");
 		System.out.println("Sélectionnez une option");
@@ -81,4 +82,17 @@ public class GestionnaireMembre {
 		}
 		System.out.println(resultatAll);
 	}
+	
+	public String suspendMembre (Membre[]liste,int numero) {
+		String resultat="";
+		for (int i = 0; i<liste.length;i++) {
+			if (liste[i].getNumero()== numero) {
+				liste[i].setSuspendu(true);
+				resultat = "Le membre "+liste[i].getPrenom() +" avec le numéro de membre "
+						+ numero + " a été suspendu.";
+			}
+		}
+		return resultat;
+	}
+	
 }

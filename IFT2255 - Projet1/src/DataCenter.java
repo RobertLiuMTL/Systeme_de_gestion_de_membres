@@ -64,6 +64,10 @@ public class DataCenter {
 	public String identifier(int numero) {
 		return id.identifier(this, numero);
 	}
+	
+	public boolean identifierBool(int numero) {
+		return id.identifierBool(this, numero);
+	}
 //////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////
 //Les méthodes en lien avec la Vue
@@ -130,11 +134,20 @@ public class DataCenter {
 	}
 	
 	public void gestionnaireModMembre() {
-		
 	}
 	
-	public void gestionnaireSuspendMembre() {
-		
+	/**
+	 * Appel de la méthode du gestionnaire de Membre pour suspendre
+	 * un usager. Prend un argument de type int (Numéro reçu par la Vue)
+	 * @param numero : Un int représentant le numéro à 9 chiffres
+	 * @return : Le résultat de la suspension sous forme de String.
+	 * 
+	 * Dans une mise-à-jour future, on pourrait ajouter la durée de la 
+	 * suspension et la raison.
+	 */
+	public String gestionnaireSuspendMembre(int numero) {
+		return gm.suspendMembre(getMembre(), numero);
+
 	}
 	
 //////////////////////////////////////////////////////////////////////////////////
