@@ -718,7 +718,7 @@
 					</dd>
 
 					<dt>Acteurs :</dt>
-					<dd>Acteur principal : Profesionnel <br>
+					<dd>Acteur principal : Professionnel <br>
 					Acteur secondaire : L'Agent du centre #GYM.</dd>
 
 					<dt>Scénario principal :</dt>
@@ -770,47 +770,43 @@
 			<div class="CU-texte"> 
 				<dl>
 					<dt>Cas d'utilisation :</dt>
-					<dd></dd>
+					<dd>Consultation des inscriptions à un service INCLUDE <i>valider l'identité</i></dd>
 
 					<dt>But :</dt>
-					<dd></dd>
+					<dd>Permettre au professionnel de consulter les inscription à son service</dd>
 
 					<dt>Préconditions :</dt>
-					<dd></dd>
-
+					<dd>a) Le professionnel doit être inscrit au #GYM.</dd>
+					<dd>b) La séance de service doit avoir été créé et validé  par le #GYM</dd>
+					
 					<dt>Acteurs :</dt>
-					<dd>Acteur principal : Client <br>
+					<dd>Acteur principal : Professionnel <br>
 					Acteur secondaire : L'Agent du centre #GYM.</dd>
 
 					<dt>Scénario principal :</dt>
 					<dd>
 						<ol>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
+							<li>Le professionnel dit a l’agent qu’il veut consulter les inscriptions</li>
+							<li>L’agent démarre le centre de données</li>
+							<li>L’Agent valide l’identité du professionnel avec le CU  validation de l’identité d’un membre	</li>
+							<li>L’agent demande le numéro du professionnel </li>
+							<li>L’agent récupère les inscriptions du centre de données </li>
+							<li>L’agent montre les inscriptions au professionnel</li>
+							<li>L’agent ferme la session.</li>
 						</ol>
 					</dd>
 
 					<dt>Scénarios alternatifs :</dt>
-					<dd> 
+					<dd>remplace l'étape 7 si le professionnel veut consulter une autre activité 
 						<ol>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
+							<li>L’agent demande le nouveau code du service au professionnel</li>
+							<li>L’agent récupère les inscriptions du centre de données </li>
+							<li>Retour a l’étape 7 </li>
 						</ol>
 					</dd>
 
 					<dt>Postconditions</dt>
-					<dd></dd>
+					<dd>La session active est fermée et l’Agent est prêt à servir un autre Client.</dd>
 				</dl>
 			</div>
 		</div>
