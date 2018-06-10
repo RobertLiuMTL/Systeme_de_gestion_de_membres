@@ -24,7 +24,7 @@ public class GestionnaireMembreFindMembreByNum {
 		System.out.println("Veuillez entrer le numéro de Membre à 9 chiffres");
 
 		// Boucle while qui vérifie que l'entrée est un Integer.
-		while (!sc.hasNextInt() || sc.hasNextInt()) {
+		while (!sc.hasNextInt()) {
 			System.out.println("Svp, entrez un numéro à 9 chiffres");
 			sc.next();
 		}

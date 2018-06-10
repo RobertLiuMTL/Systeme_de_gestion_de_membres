@@ -37,6 +37,40 @@ public class DataCenter {
 	 */
 	public DataCenter() {
 		this.vue = new Vue(this);
+		
+		
+		/**Création d'une liste pour nos tests.
+		membersListe[0].prenom = "Robert";
+		membersListe[0].nomFamille="Liu";
+		membersListe[0].numeroMembre=000000001;
+		membersListe[0].setAdresse("123 Terre");
+		membersListe[0].naissance="123456";
+		membersListe[0].setPhone("5141234567");
+		membersListe[0].courriel="alariey@hotmail.com";
+		membersListe[0].commentaires="Test subject";
+		membersListe[0].dateCreation="1234567";
+		
+		membersListe[1].prenom="Marc-André";
+		membersListe[1].nomFamille="Chabot";
+		membersListe[1].numeroMembre=000000002;
+		membersListe[1].courriel="alariey@hotmail.com";
+		membersListe[1].setPhone("5141234567");
+		membersListe[1].dateCreation="1234567";
+		membersListe[1].naissance="123456";
+		membersListe[1].commentaires="Test subject";
+		membersListe[1].setAdresse("123 Terre");
+		
+		membersListe[2].prenom="Alexandre";
+		membersListe[2].nomFamille="Alarie";
+		membersListe[2].numeroMembre=000000003;
+		membersListe[2].courriel="alariey@hotmail.com";
+		membersListe[2].setPhone("5141234567");
+		membersListe[2].dateCreation="1234567";
+		membersListe[2].naissance="123456";
+		membersListe[2].commentaires="Test subject";
+		membersListe[2].setAdresse("123 Terre");
+		**/
+		
 	}
 
 	/**
@@ -54,6 +88,11 @@ public class DataCenter {
 	public Pro[] getPro() {
 		return this.proListe;
 	}
+	
+	/**
+	 * Retourne la liste des Services contenue dans la base de données
+	 * @return
+	 */
 	public Service[] getService() {
 		return this.serviceListe;
 	}
@@ -67,6 +106,12 @@ public class DataCenter {
 		return id.identifier(this, numero);
 	}
 	
+	/**
+	 * Méthode qui permet d'identifier le Client avec son numéo.
+	 * 
+	 * @param numero
+	 * @return Résultat sous forme de Boolean
+	 */
 	public boolean identifierBool(int numero) {
 		return id.identifierBool(this, numero);
 	}
@@ -135,7 +180,12 @@ public class DataCenter {
 		gm.gestionnaireAfficherAll(membersListe);
 	}
 	
+	/**NON IMPLÉMENTÉE
+	 * Méthode pour passer au Gestionnaire des Membres.
+	 * Accède à la fonction de mofication d'un compte de Membre.
+	 */
 	public void gestionnaireModMembre() {
+		gm.gestionnaireModMembre();
 	}
 	
 	/**

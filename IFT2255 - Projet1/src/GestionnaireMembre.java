@@ -82,17 +82,102 @@ public class GestionnaireMembre {
 		}
 		System.out.println(resultatAll);
 	}
-	
-	public String suspendMembre (Membre[]liste,int numero) {
-		String resultat="";
-		for (int i = 0; i<liste.length;i++) {
-			if (liste[i].getNumero()== numero) {
+
+	public String suspendMembre(Membre[] liste, int numero) {
+		String resultat = "";
+		for (int i = 0; i < liste.length; i++) {
+			if (liste[i].getNumero() == numero) {
 				liste[i].setSuspendu(true);
-				resultat = "Le membre "+liste[i].getPrenom() +" avec le numéro de membre "
-						+ numero + " a été suspendu.";
+				resultat = "Le membre " + liste[i].getPrenom() + " avec le numéro de membre " + numero
+						+ " a été suspendu.";
 			}
 		}
 		return resultat;
 	}
-	
+
+	public void gestionnaireModMembre() {
+		System.out.println("================================================================================");
+		System.out.println("=========================== Gestionnaire des Membres ===========================");
+		System.out.println("=========================== Module de Modification==============================");
+		System.out.println("================================================================================");
+		System.out.println("\n");
+		System.out.println("Veuillez entrer le numéro à 9 chiffres du Membre");
+		Membre resultat = null;
+		Scanner sc2 = new Scanner(System.in);
+
+		// S'assurer que l'entrée est un int.
+		while (!sc2.hasNextInt()) {
+			System.out.println("SVP, entrez un numéro valide à 9 chiffres");
+			sc2.next();
+		}
+		int input2 = sc2.nextInt();
+		if (data.identifierBool(input2) == true) {
+			for (int i = 0; i < data.getMembre().length; i++) {
+				if (data.getMembre()[i].getNumero() == input2) {
+					resultat = data.getMembre()[i];
+				}
+			}
+		}
+		System.out.println("================================================================================");
+		System.out.println("========================Le compte de " + resultat.getPrenom() + "=====================");
+		System.out.println("=========================== Module de Modification==============================");
+		System.out.println("================================================================================");
+		System.out.println("Sélectionnez une option");
+		System.out.println("[0]     Pour quitter le module de modification \n");
+		System.out.println("[1]     Modifier l'adresse postale \n");
+		System.out.println("[2]     Modifier le numéro de téléphone \n");
+		System.out.println("[3]     Modifier l'adresse courriel \n");
+		System.out.println("[4]     Ajouter un commentaire \n");
+		boolean continuerModification= true;
+		while (continuerModification) {
+			System.out.println("Veuillez sélectionner une option. Pour quitter, appuyez sur 0");
+			// S'assurer que l'entrée est un int.
+			while (!sc2.hasNextInt()) {
+				System.out.println("SVP, entrez un numéro");
+				sc2.next();
+			}
+			input2 = sc2.nextInt();
+			while (input2 != 1 && input2 != 2 && input2 != 0 && input2 != 3 && input2 != 4) {
+				System.out.println("SVP, faites un choix valide.");
+				input2 = sc2.nextInt();
+			}
+
+			switch (input2) {
+			case 0:
+				System.out.println("Retour au Gestionnaire des Membres...");
+				continuerModification = false;
+				break;
+			case 1:
+				System.out.println("Veuillez entrer la nouvelle adresse postale du Membre");
+				sc2 = new Scanner(System.in);
+				String newAdresse = sc2.nextLine();
+				System.out.println("La nouvelle adresse est : " + newAdresse);
+				resultat.setAdresse(newAdresse);
+				break;
+			case 2:
+				System.out.println("Veuillez entrer le nouveau numéro de téléphone du Membre");
+				sc2 = new Scanner(System.in);
+				String newPhone = sc2.nextLine();
+				System.out.println("Le nouveau numéro de téléphone est : " + newPhone);
+				resultat.setPhone(newPhone);
+				break;
+			case 3:
+				System.out.println("Veuillez entrer la nouvelle adresse courriel du Membre");
+				sc2 = new Scanner(System.in);
+				String newCourriel = sc2.nextLine();
+				System.out.println("La nouvelle adresse courriel est : " + newCourriel);
+				resultat.setCourriel(newCourriel);
+				break;
+			case 4:
+				System.out.println("Veuillez entrer le commentaire à ajouter au dossier du Membre");
+				sc2 = new Scanner(System.in);
+				String newComment = sc2.nextLine();
+				System.out.println("Le commentaire entré est : " + newComment);
+				resultat.setComment(newComment);
+				break;
+			}
+		}
+
+	}
+
 }

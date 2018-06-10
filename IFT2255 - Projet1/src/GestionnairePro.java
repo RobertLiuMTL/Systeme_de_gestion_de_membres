@@ -24,7 +24,7 @@ public class GestionnairePro {
 	}
 	
 	/**
-	 * Méthode de recherche d'un professionnel. 
+	 * Méthode de recherche d'un professionnel par numéro. 
 	 *
 	 * @return Résultat sous forme de String
 	 */
@@ -56,14 +56,4 @@ public class GestionnairePro {
 	
 	}
 	
-	/** -------------------À IMPLÉMENTER--------------------------
-	 * 
-	 * Méthode qui ne prend aucun argument et qui retourne la liste
-	 * de tous les professionnels
-	 * @return
-	 */
-	public String afficherTout() {
-		String resultat="";
-		return resultat;
-	}
 }

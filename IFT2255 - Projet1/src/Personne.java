@@ -15,7 +15,7 @@ public abstract class Personne {
 	protected String naissance;
 	protected String phone;
 	protected String courriel;
-	protected String commentaires;
+	protected String commentaires="";
 	protected String dateCreation;
 	protected boolean suspendu = false;
 	DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
@@ -74,7 +74,7 @@ public abstract class Personne {
 	}
 	
 	public void setComment(String newComment) {
-		this.commentaires=newComment;
+		this.commentaires+=newComment;
 	}
 	
 	public boolean getSuspendu() {
