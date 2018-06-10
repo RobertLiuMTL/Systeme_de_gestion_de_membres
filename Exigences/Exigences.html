@@ -706,47 +706,62 @@
 			<div class="CU-texte"> 
 				<dl>
 					<dt>Cas d'utilisation :</dt>
-					<dd></dd>
+					<dd>Créer une séance de service. INCLUDE <i>valider l'identité</i> </dd>
 
 					<dt>But :</dt>
-					<dd></dd>
+					<dd>Permettre au professionnel de créer une séance de service</dd>
 
 					<dt>Préconditions :</dt>
-					<dd></dd>
+					<dd>
+						a) Le professionnel doit être inscrit au #GYM.
+						b) La séance de service doit pouvoir être offerte par le #GYM.
+					</dd>
 
 					<dt>Acteurs :</dt>
-					<dd>Acteur principal : Client <br>
+					<dd>Acteur principal : Profesionnel <br>
 					Acteur secondaire : L'Agent du centre #GYM.</dd>
 
 					<dt>Scénario principal :</dt>
 					<dd>
 						<ol>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
+							<li>Le professionnel dit a l’agent qu’il veut créer un service</li>
+							<li>L’agent démarre le centre de données</li>
+							<li>L’agent choisis l’option créé une séance de service</li>
+							<li>L’Agent valide l’identité du professionnel avec le CU  validation de l’identité d’un membre</li>
+							<li>L’agent demande des informations au professionnel
+								<ul>
+									<li>Date et heure actuelle</li>
+									<li>Date de début du service</li>
+									<li>Récurrence hebdomadaire du service (quels jours il est offert à la même heure)</li>
+									<li>Capacité maximale</li>
+									<li>Numéro du professionnel</li>
+									<li>Code du service</li>
+									<li>Commentaires (facultatif).</li>
+								</ul>
+							</li>
+							<li>L’agent entre ses informations dans le centre de données.</li>
+							<li>L’agent regarde la validité du service avec le centre de données.</li>
+							<li>L’agent regarde la validité du service avec le centre de données.</li>
+							<li>L’Agent ferme la session.</li>
 						</ol>
 					</dd>
 
 					<dt>Scénarios alternatifs :</dt>
-					<dd> 
+					<dd>remplace l'étape 5 si le professionnel n'est pas déjà membre 
 						<ol>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
+							<li>1. CU inscrire le professionnel</li>
+							<li>2. revenir a l'étape 6</li>
 						</ol>
 					</dd>
-
+					<dd>remplace l'étape 8 si le le service n'est pas valide 
+						<ol>
+							<li> L’agent propose au professionnel de changer ca plage horaire </li>
+							<li> L’agent regarde la validité du service à ce moment </li>
+							<li> revenir a l'étape 9</li>
+						</ol>
+					</dd>
 					<dt>Postconditions</dt>
-					<dd></dd>
+					<dd>La session active est fermée et l’Agent est prêt à servir un autre Client</dd>
 				</dl>
 			</div>
 		</div>
