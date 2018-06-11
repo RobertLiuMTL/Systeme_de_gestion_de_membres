@@ -36,7 +36,7 @@
 			<li>Nom : Robert Liu</li>
 			<li>Matricule : 865826</li>
 			<li>Courriel : robert.liu@umontreal.ca</li>
-			<li>Heures travaillées : </li>
+			<li>Heures travaillées : 40 heures.</li>
 		</ul>
 	</div>
 
@@ -158,7 +158,7 @@
 							<li>Le Client doit demander à l’Agent de l’aider à s’inscrire au #GYM.</li>
 							<li>L’Agent demande au client s’il a besoin d’information supplémentaire avant de débuter le processus d’inscription.</li>
 							<li>Le client répond non.</li>
-							<li>L'Agent démarre le logiciel de Base de Données, et dans le gestionnaire des membres, il choisit l'option 'Nouveau membre'.</li>
+							<li>L'Agent démarre le Centre de Données, et choisit le Gestionnaire des membres (option 1). Il choisit l'option 'Créer un nouveau membre (Option 1)'.</li>
 							<li>Une fois le programme de création de membre démarrée, l'Agent demande au Client de répondre à plusieurs questions. L'Agent entre les informations qu'il reçoit dans le Système.
 								<ul>
 									<li>Nom de famille et prénom</li>
@@ -169,7 +169,7 @@
 								</ul>
 							</li>
 							<li>L'Agent finalise l'inscription du client dans le Système.</li>
-							<li>Le Système confirme l'enregistrement des données et fournit un numéro d'identification à 9 chiffres au nouveau membre</li>							
+							<li>Le Système confirme l'enregistrement des données et fournit un numéro d'identification à 9 chiffres au nouveau membre</li>					
 							<li>L'Agent imprime une carte de Membre et la remet au Client. Sur la carte se trouve le numéro de Membre.</li>
 							<li>L'Agent remercie le nouveau Membre de faire confiance au Centre Sportif #GYM et il lui remet un cahier contenant toute l'information pertinente!</li>
 							<li>Le Client prend sa carte et le cahier. Il remercie l'Agent.</li>
@@ -190,7 +190,7 @@
 					</dd>
 
 					<dt>Postconditions</dt>
-					<dd>L'Agent ferme la présente session de travail afin de conserver la confidentialité des renseignements et retourne au menu principal du logiciel. Il est prêt à servir un autre Client.</dd>
+					<dd>Une fois le compte créé, la session active est fermée et l'Agent retourne au menu principal du logiciel.Il est prêt à servir un autre Client.</dd>
 
 				</dl>
 			</div>
@@ -227,23 +227,25 @@
 							<li>Le Professionnel remet ses documents à l’Agent.</li>
 							<li>L’Agent vérifie rapidement que tous les documents demandés sont présents.</li>
 							<li>Tous les documents demandés sont présents.</li>
-							<li>L’agent démarre le logiciel de Base de données et dans le gestionnaire des professionnels, il choisit l’option « Nouveau professionnel ».</li>
+							<li>L’Agent démarre le Centre de données et choisit le gestionnaire des professionnels (option 2)</li> 
+							<li>L'Agent choisit l’option #1 « Créer un nouveau professionnel ».</li>
 							<li>
 								Une fois le programme de création de Professionnel démarrée, l’Agent demande à l’individu de répondre à plusieurs questions. L'Agent entre les informations qu'il reçoit.
 								<ul>
 									<li>Nom de famille et prénom.</li>
-									<li>Spécialisations ou expertises.</li>
 									<li>Adresse postale.</li>
 									<li>Date de naissance (J/M/A).</li>
 									<li>Numéro de téléphone.</li>
 									<li>Adresse courriel.</li>
+									<li>Spécialisations ou expertises.</li>
 								</ul>
 							</li>
 							<li>L’Agent numérise les documents du Professionnel.</li>
-							<li>Le Système enregistre les données et crée le dossier du professionnel. </li>
+							<li>Le Système enregistre les données et crée le dossier du professionnel.</li>
+							<li>Le Système génère un numéro de Professionnel à 9 chiffres.</li>
 							<li>L’Agent remet les documents originaux au Professionnel.</li>
 							<li>L’Agent remet la carte de membre professionnel (numéro à 9 chiffres générés par le Système) à l’individu.</li>
-							<li>L’Agent rappelle au Professionnel que #GYM va procéder à la vérification des documents (Diplômes, références, etc.). Entre-temps, le Professionnel est considéré comme un Membre et peut accéder aux services offerts par le #GYM. Cependant, son statut de Professionnel n’est pas actif : il ne peut pas offrir ses services.</li>
+							<li>L’Agent rappelle au Professionnel que #GYM va procéder à la vérification des documents (Diplômes, références, etc.).</li>
 						</ol>
 					</dd>
 
@@ -271,7 +273,7 @@
 					</dd>
 
 					<dt>Postconditions</dt>
-					<dd>L'Agent ferme la présente session de travail afin de conserver la confidentialité des renseignements et retourne au menu principal du logiciel. Il est prêt à servir un autre Client.</dd>
+					<dd>L'Agent ferme la présente session de travail afin de conserver la confidentialité des renseignements et retourne au menu principal du logiciel (en sélectionnant l'option 0 du menu). Il est prêt à servir un autre Client.</dd>
 				</dl>
 			</div>
 		</div>
@@ -300,21 +302,21 @@
 					<dd>
 						<ol>
 							<li>Le Client donne sa carte à l’Agent.</li>
-							<li>L'Agent choisit l'option du Système : "Valider un numéro de Client".</li>
+							<li>L'Agent choisit l'option #3 du Système à la page d'accueil : "Identification du Membre ou Professionnel".</li>
+							<li>Le Système demande à l'Agent d'entrer le numéro à 9 chiffres du Membre.</li>
 							<li>L’Agent entre les 9 chiffres dans le système.</li>
 							<li>Le système effectue une recherche et affiche « Validé ».</li>
-							<li>Le dossier du Client s’ouvre.</li>
 							<li>L’Agent rend la carte au Client.</li>
 						</ol>
 					</dd>
 
 					<dt>Scénarios alternatifs :</dt>
 					<dd> 
-						Étape 4 : Le Système effectue une recherche et affiche "Numéro invalide"
+						Étape 5 : Le Système effectue une recherche et affiche "Numéro invalide"
 						<br>L'Agent relit le numéro à 9 chiffres de la carte et entre les données dans le Système
 						<ol class="casAlternatif">
 							<li>Le système affiche "Validé"</li>
-							<li>Retour au scénario principal, étape 5</li>
+							<li>Retour au scénario principal, étape 6</li>
 						</ol>
 
 						<ol class="casAlternatif">
@@ -325,7 +327,7 @@
 							<li>L'Agent choisit l'option "Recherche par nom".</li>
 							<li>L'Agent entre le nom de famille du Client dans le Système. Au besoin, il entre également le prénom.</li>
 							<li>Si le Système trouve le Client, l'Agent vérifie que le numéro du Client est le même que celui sur la carte. Si le numéro est le même, l'Agent écrit une note au dossier afin de faire un suivi avec les TI.</li>
-							<li>Retour au scénario principal, étape 5.</li>
+							<li>Retour au scénario principal, étape 6.</li>
 							<p>Si le Système ne trouve pas le Client, l'Agent doit référer celui-ci au Comptoir du Service à la Clientèle pour effectuer une recherche plus poussée.</p>
 						</ol>
 
@@ -382,6 +384,9 @@
 			</div>
 		</div>
 
+
+
+
 		<div class="CU">
 			<div class="CU-texte"> 
 				<dl>
@@ -405,8 +410,8 @@
 					<dd>
 						<ol>
 							<li>Le Membre demande à l’Agent de lui donner l’horaire des cours et consultations du #GYM.</li>
-							<li>L’Agent démarre le Répertoire des Services.</li>
-							<li>L’Agent choisit l’option : « Horaire de la journée »</li>
+							<li>L’Agent démarre le Répertoire des Services (option #2 du menu d'accueil).</li>
+							<li>L’Agent choisit l’option #1 : « Voir les services offerts »</li>
 							<li>L’Agent présente au Membre l’horaire des séances de cours et des consultations pour la journée.</li>
 							<li>L'Agent demande au Membre s'il désire d'autre chose.</li>
 							<li>Le Membre répond non.</li>
@@ -450,9 +455,9 @@
 						<ol>
 							<li>Le Membre signale à l’Agent son intérêt de s’inscrire à un cours ou à une consultation.</li>
 							<li>Le Membre doit s’identifier avec le cas d’utilisation « Valider l’identité du Membre ou du Professionnel »</li>
-							<li>L’Agent sélectionne le cours ou la consultation qui intéresse le Membre.</li>
-							<li>L’Agent sélectionne l’option « Inscription à la séance »</li>
-							<li>L’Agent demande au Membre s’il a des restrictions particulières (santé, allergies, etc.).</li>
+							<li>L’Agent sélectionne l'option #1 "Voir les services offerts".</li>
+							<li>Le Système retourne la liste des services disponibles et demande si l'utilisateur désire inscrire quelqu'un à un service.</li>
+							<li>L’Agent choisit OUI en entrant "y".</li>
 							<li>L’Agent demande au Membre s’il a des restrictions particulières (santé, allergies, etc.).</li>
 							<li>Le Membre répond non.</li>
 							<li>L’Agent entre l’information dans le Système : Numéro du Membre et Commentaires</li>
@@ -488,6 +493,9 @@
 			</div>
 		</div>
 
+
+<!-- Mettre à jour ce CU (Confirmation de présence) une fois le JAVA complété.
+-->
 		<div class="CU">
 			<div class="CU-texte"> 
 				<dl>
@@ -559,6 +567,8 @@
 			</div>
 		</div>
 
+<!-- CE CU n'a pas été mis à jour (En attente du module JAVA pour annuler une inscription)
+-->
 		<div class="CU">
 			<div class="CU-texte"> 
 				<dl>
@@ -584,8 +594,8 @@
 					<dd>
 						<ol>
 							<li>Le Membre signale à l’Agent d’annuler son inscription à un cours ou à une consultation.</li>
-							<li>L’Agent démarre le Répertoire de Service.</li>
-							<li>L’Agent choisit l’option d’Annuler une inscription.</li>
+							<li>L’Agent démarre le Répertoire de Service (option #2 du menu principal).</li>
+							<li>L’Agent choisit l’option "Désinscrire un membre".</li>
 							<li>L’Agent demande au Membre sa carte de membre et le code de service.</li>
 							<li>Le Membre donne les informations demandées.</li>
 							<li>L’Agent entre les informations dans le Système (numéro de Membre à 9 chiffres, code de service à 7 chiffres).</li>
@@ -610,6 +620,7 @@
 			</div>
 		</div>
 
+<!-- Ce CU (ouvrir les tourniquets) ne touche peut-être pas directement au Centre de Données -->
 		<div class="CU">
 			<div class="CU-texte"> 
 				<dl>
@@ -672,16 +683,22 @@
 					<dt>Scénario principal :</dt>
 					<dd>
 						<ol>
-							<li>L’Agent démarre le Centre de Données. </li>
-							<li>L’Agent choisit le gestionnaire des Membres.</li>
+							<li>L’Agent démarre le Centre de Données (option #1 du menu principal). </li>
+							<li>L’Agent choisit l'option #1 : le gestionnaire des Membres.</li>
 							<li>L’Agent choisit l’option Suspendre un Membre.</li>
+							<li>Le System affiche le module de suspension d'un Membre et demande à l'utilisateur d'entrer le numéro à 9 chiffres du Membre.</li>
 							<li>L’Agent entre le numéro de Membre de la personne à suspendre.</li>
-							<li>Le Système demande à l’Agent d’entrer la raison de la suspension.</li>
+							<li>Le Système effectue une recherche auprès du Centre de Données et trouve le Membre</li>
+							<li>Le Système demande "Êtes-vous certain de vouloir suspendre le Membre?"</li>
+							<li>L'Agent entre "y" pour confirmer la suspension.</li>
+
+<!--  Implémentation future : Développer davantage le module de suspension, en incluant, notamment, les raisons de la suspension, ainsi que sa durée
 							<li>L’Agent rédige la raison de la suspension.</li>
 							<li>Le Système demande à l’Agent d’entrer la durée de la suspension.</li>
 							<li>L’Agent entre la durée de la suspension en journées, conformément à la politique du centre sportif #GYM.</li>
 							<li>Le Système demande à l’Agent de confirmer la suspension.</li>
 							<li>L’Agent confirme la suspension.</li>
+-->
 							<li>Le Système envoie une requête au Centre de Données qui modifie le statut du Membre à Membre suspendu et qui ajoute en commentaires la raison de la suspension ainsi que sa durée.</li>
 							<li>Le Système affiche « Suspension confirmée. ».</li>
 							<li>L'Agent ferme la session active.</li>
@@ -690,7 +707,10 @@
 
 					<dt>Scénarios alternatifs :</dt>
 					<dd> 
-						Aucun scénario alternatif.
+						<p>Le Système ne trouve pas le Membre (étape 6).<br>
+							L'Agent entre le numéro à nouveau. Si le Membre est trouvé, on retourne à l'étape 7 du scénario principal.<br>
+							Si le Système ne trouve toujours pas le numéro, l'Agent ferme le Système et doit aller faire une recherche par nom de famille.
+						</p>
 					</dd>
 
 					<dt>Postconditions</dt>
@@ -725,23 +745,24 @@
 					<dd>
 						<ol>
 							<li>Le professionnel dit a l’agent qu’il veut créer un service</li>
-							<li>L’agent démarre le centre de données</li>
-							<li>L’agent choisis l’option créé une séance de service</li>
 							<li>L’Agent valide l’identité du professionnel avec le CU  validation de l’identité d’un membre</li>
+							<li>L’agent démarre le Répertoire des services (option #2 du menu principal)</li>
+							<li>L’agent choisis l’option #2 : "Créer un nouveau service"</li>
+							<li>Le Système demande à l'Agent de répondre à toutes les questions.</li>						
 							<li>L’agent demande des informations au professionnel
 								<ul>
-									<li>Date et heure actuelle</li>
+									<li>Titre du cours</li>
+									<li>Numéro du professionnel</li>
 									<li>Date de début du service</li>
+									<li>Date de fin du service</li>
+									<li>Heure du début du service</li>
 									<li>Récurrence hebdomadaire du service (quels jours il est offert à la même heure)</li>
 									<li>Capacité maximale</li>
-									<li>Numéro du professionnel</li>
-									<li>Code du service</li>
 									<li>Commentaires (facultatif).</li>
 								</ul>
 							</li>
-							<li>L’agent entre ses informations dans le centre de données.</li>
-							<li>L’agent regarde la validité du service avec le centre de données.</li>
-							<li>L’agent regarde la validité du service avec le centre de données.</li>
+							<li>L’agent entre ses informations dans le Système.</li>
+							<li>Le Système valide l'information entrée et retourne le "Code du Service" qu'il transmet au Professionnel</li>
 							<li>L’Agent ferme la session.</li>
 						</ol>
 					</dd>
@@ -755,7 +776,7 @@
 					</dd>
 					<dd>remplace l'étape 8 si le le service n'est pas valide 
 						<ol>
-							<li> L’agent propose au professionnel de changer ca plage horaire </li>
+							<li> L’agent propose au professionnel de changer sa plage horaire </li>
 							<li> L’agent regarde la validité du service à ce moment </li>
 							<li> revenir a l'étape 9</li>
 						</ol>
@@ -788,7 +809,7 @@
 						<ol>
 							<li>Le professionnel dit à l’agent qu’il veut consulter les inscriptions.</li>
 							<li>L’agent démarre le centre de données.</li>
-							<li>L’Agent valide l’identité du professionnel avec le CU  validation de l’identité d’un membre.	</li>
+							<li>L’Agent valide l’identité du professionnel avec le CU  validation de l’identité d’un membre</li>
 							<li>L’agent demande le numéro du professionnel. </li>
 							<li>L’agent récupère les inscriptions du centre de données. </li>
 							<li>L’agent montre les inscriptions au professionnel.</li>
@@ -830,7 +851,7 @@
 					<dt>Scénario principal :</dt>
 					<dd>
 						<ol>
-							<li>L’agent démarre le centre de données.</li>
+							<li>L’agent démarre le Répertoire des Services.</li>
 							<li>L’agent demande le numéro du professionnel. </li>
 							<li>L’agent valide l’identité du professionnel avec le CU  validation de l’identité d’un membre.</li>
 							<li>L'agent choisis l'option annuler séance.</li>
@@ -919,7 +940,7 @@
 			<tr>
 				<th>Cas d'utilisation</th>
 				<th>CU des Membres. 50%</th>
-				<th>CU liés aux services. 25%</th>
+				<th>CU liés aux services. Manuel d'utilisateur. 25%</th>
 				<th>CU des Professionnels. 25%</th>
 			</tr>
 
@@ -939,8 +960,8 @@
 
 			<tr>
 				<th>Prototype</th>
-				<th>UI, Gestionnaire des Membres, Squelette du JAVA, Vue, Contrôleur. 50%</th>
-				<th>Débogage, JavaDoc. 20%</th>
+				<th>UI, Gestionnaire des Membres, Centre de Données, Structure générale du JAVA, Vue, Contrôleur. 40%</th>
+				<th>Répertoire des Services, Débogage, JavaDoc. 30%</th>
 				<th>Répertoire des services, Gestionnaire des professionnels. 30%</th>
 			</tr>
 		</table>
