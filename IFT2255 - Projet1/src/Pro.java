@@ -22,6 +22,8 @@ public class Pro extends Personne{
 		this.discipline=discipline;
 		this.dateCreation = dateFormat.format(new Date());
 	}
-	
+	public int getNumeroMembre() {
+		return this.numeroMembre;
+	}
 
 }

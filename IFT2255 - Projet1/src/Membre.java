@@ -18,5 +18,9 @@ public class Membre extends Personne{
 		this.dateCreation = dateFormat.format(new Date());
 	}
 	
+	public int getNumeroMembre() {
+		return this.numeroMembre;
+	}
+	
 	
 }

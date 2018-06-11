@@ -302,7 +302,7 @@ public class DataCenter {
 		Thread.sleep(4000);
 	}	
 	
-	public void addService(String titre, Pro enseignant, Membre[] listeMembre, int codeDuCours, String dateDebut, String dateFin
+	public void addService(String titre, Pro enseignant, Membre[] listeMembre, String dateDebut, String dateFin
 			, String heureDebut, String recurrence, int capaciteMax, String commentaire) {
 		
 		int longueur = serviceListe.length;
@@ -312,7 +312,7 @@ public class DataCenter {
 		for (int i = 0;i<longueur-1;i++) {
 			temporaire[i]=serviceListe[i];		
 			}
-		temporaire[longueur] = new Service(titre, enseignant, listeMembre, codeDuCours, dateDebut,heureDebut, recurrence, recurrence, capaciteMax, commentaire);
+		temporaire[longueur] = new Service(titre, enseignant, listeMembre, dateDebut,heureDebut, recurrence, recurrence, capaciteMax, commentaire);
 		serviceListe = temporaire;
 		System.out.println("Le nouveau Service a été créé avec succès!\n");
 		System.out.println("Le Service est : "+ titre);
@@ -336,4 +336,74 @@ public class DataCenter {
 	//Les méthodes qui permettent de manipuler les inscriptions/désinscription d'une activité
 	//////////////////////////////////////////////////////////////////////////////////////////
 	//////////////////////////////////////////////////////////////////////////////////////////
+	
+	/**
+	 * 
+	 * @param codeDuCours
+	 * @return retourne -1 si le service n'existe pas, sinon retourne la position i dans la serviceListe 
+	 * de data, du service correspondant au code
+	 */
+	public int servicePosition(int codeDuCours) {
+		int code = -1;
+		for(int i = 0; i <this.serviceListe.length; i++) {
+			if(codeDuCours == serviceListe[i].getCodeDuCours()) {
+				code = i;
+			}
+		}
+		return code;
+	}
+	/**
+	 * retourne le numero qui correspond a la position du membre dans la liste des membres
+	 * si le membre n'existe pas, retourne -1
+	 * @param num
+	 * @return
+	 */
+	
+	public int membrePosition(int num) {
+		int code = -1;
+		for(int i = 0; i < this.membersListe.length; i++ ) {
+			if(num == membersListe[i].getNumeroMembre()) {
+				code = i;
+			}
+		}
+		
+		return code;
+	}
+	/**
+	 * retourne le numero qui correspond a la position du membre dans la liste des membres
+	 * si le membre n'existe pas, retourne -1
+	 * @param num
+	 * @return
+	 */
+	
+	public int proPosition(int num) {
+		int code = -1;
+		for(int i = 0; i < this.membersListe.length; i++ ) {
+			if(num == proListe[i].getNumeroMembre()) {
+				code = i;
+			}
+		}
+		
+		return code;
+	}
+	
+	/**
+	 * permet d'ajouter un membre dans la liste des inscrit d'un service
+	 * @param positionServ la position du service dans le tableau de service
+	 * @param positionMemb la position du membre dans la liste des membres dans le data center
+	 */
+	public void inscrireMembre(int positionServ, int positionMemb) {
+		
+		Service service = this.serviceListe[positionServ];
+		Membre [] listemembre = service.getListeMembre();
+		Membre [] temporaire = new Membre[listemembre.length+1];
+		
+		for(int i = 0; i < listemembre.length; i++) {
+			temporaire[i] = listemembre[i];
+		}
+		temporaire[listemembre.length+1] = this.getMembre()[positionMemb];
+	}
+	
+	
+	
 }

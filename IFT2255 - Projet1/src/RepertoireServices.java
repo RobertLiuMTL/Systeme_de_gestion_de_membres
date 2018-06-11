@@ -22,6 +22,8 @@ public class RepertoireServices {
 		this.data = data;
 	}
 
+	
+	//menu principal du repertoire services
 	public void menuRepertoireServices() {
 		System.out.println("================================================================================");
 		System.out.println("=========================== Répertoire des Services ============================");
@@ -79,8 +81,18 @@ public class RepertoireServices {
 			}
 			break;
 		case 2:
-
-			break;
+			/**String titre; 
+			Pro enseignant;  
+			int codeDuCours; 
+			String dateDebut; 
+			String dateFin;
+			String heureDebut; 
+			String recurrence;
+			int capaciteMax; 
+			String commentaire;
+			 data.addService(titre, enseignant,new Membre[0],dateDebut,dateFin,heureDebut,recurrence,
+					capaciteMax,commentaire);
+			**/break;
 		case 3:
 
 			break;

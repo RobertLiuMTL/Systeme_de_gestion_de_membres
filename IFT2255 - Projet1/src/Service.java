@@ -21,7 +21,7 @@ public class Service {
 	private static int compteur = 0;
 	private String commentaire;
 
-	public Service(String titre, Pro enseignant, Membre[] listeMembre, int codeDuCours, String dateDebut,
+	public Service(String titre, Pro enseignant, Membre[] listeMembre, String dateDebut,
 			String dateFin, String heureDebut, String recurrence, int capaciteMax, String commentaire) {
 		this.titre = titre;
 		this.enseignant = enseignant;
@@ -127,9 +127,10 @@ public class Service {
 	 * 
 	 * @return
 	 */
-	public static int getCode() {
+	private static int getCode() {
 		compteur++;
 		return compteur;
 
 	}
+	
 }
