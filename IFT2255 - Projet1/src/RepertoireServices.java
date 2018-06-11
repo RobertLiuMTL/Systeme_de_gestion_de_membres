@@ -49,10 +49,14 @@ public class RepertoireServices {
 		}
 
 		switch (input2) {
+		
 		case 0:
 			System.out.println("Retour au Menu Principal");
 
 			data.vueAccueil();
+			break;
+		
+		
 		case 1:
 			System.out.println("Voici les services offerts présentement");
 
@@ -80,19 +84,14 @@ public class RepertoireServices {
 				menuRepertoireServices();
 			}
 			break;
+		
+		
 		case 2:
-			/**String titre; 
-			Pro enseignant;  
-			int codeDuCours; 
-			String dateDebut; 
-			String dateFin;
-			String heureDebut; 
-			String recurrence;
-			int capaciteMax; 
-			String commentaire;
-			 data.addService(titre, enseignant,new Membre[0],dateDebut,dateFin,heureDebut,recurrence,
-					capaciteMax,commentaire);
-			**/break;
+			data.cs.creerService(data);
+			 
+			break;
+		
+		
 		case 3:
 
 			break;

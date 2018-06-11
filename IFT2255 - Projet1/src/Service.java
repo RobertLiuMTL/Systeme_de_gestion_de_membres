@@ -21,11 +21,11 @@ public class Service {
 	private static int compteur = 0;
 	private String commentaire;
 
-	public Service(String titre, Pro enseignant, Membre[] listeMembre, String dateDebut,
+	public Service(String titre, Pro enseignant, String dateDebut,
 			String dateFin, String heureDebut, String recurrence, int capaciteMax, String commentaire) {
 		this.titre = titre;
 		this.enseignant = enseignant;
-		this.listeMembre = listeMembre;
+		this.listeMembre = new Membre[0];
 		this.codeDuCours = Service.getCode();
 		this.dateDebut = dateDebut;
 		this.dateFin = dateFin;

@@ -24,6 +24,7 @@ public class DataCenter {
 	GestionnairePro gp = new GestionnairePro(this);
 	Identification id = new Identification();
 	InscriptionService is = new InscriptionService();
+	CreationService cs = new CreationService();
 
 	//Dernier numéro de Membre attribué.
 	private int lastNumber = 123456789;
@@ -69,7 +70,7 @@ public class DataCenter {
 		membersListe[2].naissance="123456";
 		membersListe[2].commentaires="Test subject";
 		membersListe[2].setAdresse("123 Terre");
-		**/
+		*/
 		
 	}
 
@@ -302,7 +303,7 @@ public class DataCenter {
 		Thread.sleep(4000);
 	}	
 	
-	public void addService(String titre, Pro enseignant, Membre[] listeMembre, String dateDebut, String dateFin
+	public void addService(String titre, Pro enseignant, String dateDebut, String dateFin
 			, String heureDebut, String recurrence, int capaciteMax, String commentaire) {
 		
 		int longueur = serviceListe.length;
@@ -312,7 +313,7 @@ public class DataCenter {
 		for (int i = 0;i<longueur-1;i++) {
 			temporaire[i]=serviceListe[i];		
 			}
-		temporaire[longueur] = new Service(titre, enseignant, listeMembre, dateDebut,heureDebut, recurrence, recurrence, capaciteMax, commentaire);
+		temporaire[longueur] = new Service(titre, enseignant, dateDebut,heureDebut, recurrence, recurrence, capaciteMax, commentaire);
 		serviceListe = temporaire;
 		System.out.println("Le nouveau Service a été créé avec succès!\n");
 		System.out.println("Le Service est : "+ titre);
@@ -378,7 +379,7 @@ public class DataCenter {
 	
 	public int proPosition(int num) {
 		int code = -1;
-		for(int i = 0; i < this.membersListe.length; i++ ) {
+		for(int i = 0; i < this.proListe.length; i++ ) {
 			if(num == proListe[i].getNumeroMembre()) {
 				code = i;
 			}
