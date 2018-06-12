@@ -19,10 +19,10 @@ public class DataCenter {
 	
 
 	//Les attributs de la Base de Données
-	Membre [] membersListe = new Membre[0];
-	Pro [] proListe = new Pro[0];
+	Membre [] membersListe = new Membre[3];
+	Pro [] proListe = new Pro[1];
 	Service [] serviceListe = new Service[0];
-	Vue vue;
+	Vue vue = new Vue(this);
 	
 	GestionnaireMembre gm = new GestionnaireMembre(this);
 	GestionnairePro gp = new GestionnairePro(this);
@@ -40,41 +40,23 @@ public class DataCenter {
 	 * Constructeur. Au moment d'être instancié, il crée la Vue en lui
 	 * envoyant en argument this (DataCenter)
 	 */
-	public DataCenter() {
-		this.vue = new Vue(this);
+	public DataCenter() {//Création d'une liste pour nos tests.
+		membersListe[0] = new Membre("nomFamille", "String prenom", 0001, "String adresse", "String naissance", "String phone", "String courriel");
+		
+		membersListe[1] = new Membre("nomFamille123", "String prenom23", 0002, "String adresse", "String naissance", "String phone", "String courriel");
+		
+		membersListe[2] = new Membre("nomFamille4234", "String prenom12", 0003, "String 323adresse", "String naissance", "String phone", "String courriel");
+		
+		proListe[0] = new Pro( "nomFamille",  "prenom", 7, "adresse", 
+				 "naissance", "phone",  "courriel", "discipline");
+		
+		//test
+		System.out.println(proListe[0].getNumeroMembre());
+		this.vue.accueil();
 		
 		
-		/**Création d'une liste pour nos tests.
-		membersListe[0].prenom = "Robert";
-		membersListe[0].nomFamille="Liu";
-		membersListe[0].numeroMembre=000000001;
-		membersListe[0].setAdresse("123 Terre");
-		membersListe[0].naissance="123456";
-		membersListe[0].setPhone("5141234567");
-		membersListe[0].courriel="alariey@hotmail.com";
-		membersListe[0].commentaires="Test subject";
-		membersListe[0].dateCreation="1234567";
 		
-		membersListe[1].prenom="Marc-André";
-		membersListe[1].nomFamille="Chabot";
-		membersListe[1].numeroMembre=000000002;
-		membersListe[1].courriel="alariey@hotmail.com";
-		membersListe[1].setPhone("5141234567");
-		membersListe[1].dateCreation="1234567";
-		membersListe[1].naissance="123456";
-		membersListe[1].commentaires="Test subject";
-		membersListe[1].setAdresse("123 Terre");
-		
-		membersListe[2].prenom="Alexandre";
-		membersListe[2].nomFamille="Alarie";
-		membersListe[2].numeroMembre=000000003;
-		membersListe[2].courriel="alariey@hotmail.com";
-		membersListe[2].setPhone("5141234567");
-		membersListe[2].dateCreation="1234567";
-		membersListe[2].naissance="123456";
-		membersListe[2].commentaires="Test subject";
-		membersListe[2].setAdresse("123 Terre");
-		*/
+	
 		
 	}
 
@@ -416,6 +398,35 @@ public class DataCenter {
 		temporaire[listemembre.length+1] = this.getMembre()[positionMemb];
 	}
 	
+	public void desinscrireMembre(int codeDuMemb, int codeDuCours) {
+		int estPresent = -1;
+		int membPosition = membrePosition(codeDuMemb);
+		int servPosition = servicePosition(codeDuCours);
+		Membre[] listMembDuService = serviceListe[servPosition].getListeMembre();
+		
+		for(int i = 0; i <listMembDuService.length; i++) {
+			if(listMembDuService[i] == membersListe[membPosition] ) {
+				estPresent = i;
+				
+			}
+			
+		}
+		if(estPresent == -1) {
+			System.out.println("Vous n'êtes pas inscrit à ce cours");
+		}else {
+			
+			Membre[] temporaire = new Membre[listMembDuService.length-1];			
+			for(int j = 0; j < estPresent; j++) {
+				temporaire[j] = listMembDuService[j];
+				
+			}
+			for(int k = estPresent + 1; k < listMembDuService.length; k++ ) {
+				temporaire[k-1] = listMembDuService[k];
+			}
+			serviceListe[servPosition].setListeMembre(temporaire);
+		}
+		
+	}
 	
 	
 }

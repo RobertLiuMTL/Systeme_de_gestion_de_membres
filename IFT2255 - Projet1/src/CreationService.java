@@ -33,18 +33,20 @@ public class CreationService {
 		System.out.println(codetemp);
 	    int membPos =data.proPosition(codetemp);
 	    int compteur = 0;
-		while(membPos == -1) {
+		
+	    while(membPos == -1) {
 			System.out.println("Votre numéro est invalide veuillez recommencer");
 			compteur++;
 			codetemp = scanInt.nextInt();
 			membPos =data.proPosition(codetemp);
+			
 			if(compteur >= 3) {
 				System.out.println("trop d'essais, retour au menu principal");
-				data.vueAccueil();
+				data.vue.accueil();
 			}
-			
-		}
-		enseignant = data.proListe[membPos];
+	    }
+		
+	    enseignant = data.proListe[membPos];
 		
 		
 		System.out.println("Tapez la date de debut");
@@ -68,6 +70,7 @@ public class CreationService {
 		
 		data.addService(titre, enseignant, dateDebut, 
 				dateFin, heureDebut, recurrence, capaciteMax, commentaire);
+		data.vueAccueil();
 	}
 	
 }

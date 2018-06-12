@@ -18,7 +18,7 @@ public class Vue {
 	 */
 	public Vue(DataCenter data) {
 		this.data = data;
-		accueil();
+		
 	}
 
 	/**
@@ -391,12 +391,14 @@ public void menuRepertoireServices(){
 
 			if (input3 == 'y') {
 				data.is.inscrireMembre(data);
-			} else if (input3 == 'n') {
+			
+			}else if (input3 == 'n') {
 				System.out.println("retour au répertoire des services");
 
 				menuRepertoireServices();
 			}
-			break;
+			
+		break;
 		
 		
 		case 2:
