@@ -30,7 +30,8 @@ public class GestionnaireProFind {
 				for (int i = 0; i < liste.length; i++) {
 					if (liste[i].getNumero() == numeroMembre) {
 						resultat = "Résultat de la recherche :\n" + "Nom : " + liste[i].getPrenom() + "\n"
-								+ "Numéro de Professionnel : " + liste[i].getNumero() + "\n" + "Date de naissance : "
+								+ "Numéro de Professionnel : " + liste[i].getNumero() + "\n" + "discipline : " 
+								+ liste[i].getDiscipline() + "\n" + "Date de naissance : "
 								+ liste[i].getNaissance() + "\n" + "Adresse : " + liste[i].getAdresse() + "\n"
 								+ "Courriel : " + liste[i].getCourriel() + "\n" + "Numéro de téléphone : "
 								+ liste[i].getPhone() + "\n" + "Professionnel suspendu? : " + liste[i].getSuspendu()

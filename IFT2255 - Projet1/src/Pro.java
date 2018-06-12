@@ -25,5 +25,8 @@ public class Pro extends Personne{
 	public int getNumeroMembre() {
 		return this.numeroMembre;
 	}
-
+	
+	public String getDiscipline() {
+		return this.discipline;
+	}
 }
