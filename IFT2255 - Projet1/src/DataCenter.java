@@ -21,7 +21,7 @@ public class DataCenter {
 	//Les attributs de la Base de Données
 	Membre [] membersListe = new Membre[3];
 	Pro [] proListe = new Pro[2];
-	Service [] serviceListe = new Service[0];
+	Service [] serviceListe = new Service[1];
 	Vue vue = new Vue(this);
 	
 	GestionnaireMembre gm = new GestionnaireMembre(this);
@@ -54,6 +54,9 @@ public class DataCenter {
 		
 		proListe[1] = new Pro( "Escuela",  "Pablo", 555555555, "Yoyo vamos a la playa", 
 				 "1999 10 10", "123456789",  "Pablo@yoyo.ca", "Voleur");
+		
+		serviceListe[0] = new Service("String titre", this.proListe[0], "String dateDebut",
+			"String dateFin", "String heureDebut", "String recurrence",15 , "String commentaire");
 		//test
 		this.vue.accueil();
 		
@@ -381,7 +384,7 @@ public class DataCenter {
 	}
 	
 	/**
-	 * permet d'ajouter un membre dans la liste des inscrit d'un service
+	 * permet d'ajouter un membre dans la liste des inscrit d'un service, retourne  -1 si le membre n'existe pas
 	 * @param positionServ la position du service dans le tableau de service
 	 * @param positionMemb la position du membre dans la liste des membres dans le data center
 	 */
@@ -433,5 +436,7 @@ public class DataCenter {
 		
 		
 	}
+	
+	
 	
 }

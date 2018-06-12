@@ -346,7 +346,9 @@ public void menuRepertoireServices(){
 	System.out.println("[1]     Voir les services offerts \n");
 	System.out.println("[2]     Créer un nouveau service \n");
 	System.out.println("[3]     Désinscrire un membre d'un service\n");
-		
+	System.out.println("[4]     Annuler une séance   \n");
+    System.out.println("[5]     Confirmer sa  présence \n" );
+    System.out.println("[6]     Consulter inscriptions \n");	
 
 		Scanner sc2 = new Scanner(System.in);
 		// Boucle while qui vérifie que l'entrée est un Integer.
@@ -356,7 +358,7 @@ public void menuRepertoireServices(){
 				}
 		int input2 = sc2.nextInt();
 
-		while (input2 != 1 && input2 != 2 && input2 != 0 && input2 != 3) {
+		while (input2 != 1 && input2 != 2 && input2 != 0 && input2 != 3 && input2 != 4 && input2 != 5) {
 			System.out.println("SVP, faites un choix valide.");
 			input2 = sc2.nextInt();
 		}
@@ -419,6 +421,30 @@ public void menuRepertoireServices(){
 			
 			System.out.println("Vous etes maintenant désinscrit de " + (data.serviceListe[data.servicePosition(numbCours)].getTitre()));
 			accueil();
+			break;
+		
+		
+		case 4:
+			System.out.println("Veuillez taper votre ");
+			break;
+			
+		case 5:
+			System.out.println("Veuillez entrer le code de la séance pour laquelle vous voulez confirmer votre présence");
+			Scanner scan5 = new Scanner(System.in);
+			int reponse = scan5.nextInt();
+			int compteur = 0;
+			while(data.servicePosition(reponse) == -1) {
+				System.out.println("Le service tapé n'existe pas veuillez recommencer");
+				compteur++;
+				if(compteur >= 3) {
+					menuRepertoireServices();
+					System.out.println("trop d'essais, retour au répertoire des services");
+				}
+			}
+			
+			System.out.println("Votre présence est confirmé pour le cours suivant" + 
+			data.serviceListe[data.servicePosition(reponse)].getTitre());
+			menuRepertoireServices();
 			break;
 		}
 	}
