@@ -396,6 +396,7 @@ public class DataCenter {
 		}
 		temporaire[listemembre.length] = this.getMembre()[positionMemb];
 		
+		this.serviceListe[positionServ].setListeMembre(temporaire);
 		
 	}
 	

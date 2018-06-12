@@ -345,7 +345,7 @@ public void menuRepertoireServices(){
 	System.out.println("[0]     Retour au Menu principal \n");
 	System.out.println("[1]     Voir les services offerts \n");
 	System.out.println("[2]     Créer un nouveau service \n");
-	System.out.println("[3]     Désinscrire un membre \n");
+	System.out.println("[3]     Désinscrire un membre d'un service\n");
 		
 
 		Scanner sc2 = new Scanner(System.in);
@@ -415,6 +415,7 @@ public void menuRepertoireServices(){
 			System.out.println("Veuillez taper le numéro de cours auquel vous souhaiter vous désinscrire");
 			int numbCours = yolo.nextInt();
 			
+			data.desinscrireMembre(numbMemb, numbCours);
 			
 			System.out.println("Vous etes maintenant désinscrit de " + (data.serviceListe[data.servicePosition(numbCours)].getTitre()));
 			accueil();
