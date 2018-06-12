@@ -18,7 +18,7 @@ public class Service {
 	private String heureDebut;
 	private String recurrence;
 	private int capaciteMax;
-	private static int compteur = 0;
+	private static int compteur = 1000000;
 	private String commentaire;
 
 	public Service(String titre, Pro enseignant, String dateDebut,
