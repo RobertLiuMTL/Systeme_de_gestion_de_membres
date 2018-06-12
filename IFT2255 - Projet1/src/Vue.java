@@ -455,8 +455,9 @@ public void menuRepertoireServices(){
 				System.out.println("Le service tapé n'existe pas veuillez recommencer");
 				compteur++;
 				if(compteur >= 3) {
-					menuRepertoireServices();
+					
 					System.out.println("trop d'essais, retour au répertoire des services");
+					menuRepertoireServices();
 				}
 			}
 			

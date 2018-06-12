@@ -442,13 +442,14 @@ public class DataCenter {
 	}
 	
 	public void removeService(int codePosService) {
-		int pos = servicePosition(codePosService);
+		
+		
 		Service[] temporaire = new Service[serviceListe.length-1];
 		
-		for(int i = 0; i < pos; i++) {
+		for(int i = 0; i < codePosService; i++) {
 			temporaire[i] = serviceListe[i];
 		}
-		for(int j = pos + 1; j < serviceListe.length;j++ ) {
+		for(int j = codePosService + 1; j < serviceListe.length;j++ ) {
 			temporaire[j-1] = serviceListe[j];
 		}
 		this.serviceListe = temporaire;
