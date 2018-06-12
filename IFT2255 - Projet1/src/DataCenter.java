@@ -20,7 +20,7 @@ public class DataCenter {
 
 	//Les attributs de la Base de Données
 	Membre [] membersListe = new Membre[3];
-	Pro [] proListe = new Pro[1];
+	Pro [] proListe = new Pro[2];
 	Service [] serviceListe = new Service[0];
 	Vue vue = new Vue(this);
 	
@@ -40,18 +40,21 @@ public class DataCenter {
 	 * Constructeur. Au moment d'être instancié, il crée la Vue en lui
 	 * envoyant en argument this (DataCenter)
 	 */
-	public DataCenter() {//Création d'une liste pour nos tests.
-		membersListe[0] = new Membre("nomFamille", "String prenom", 0001, "String adresse", "String naissance", "String phone", "String courriel");
+	public DataCenter() {
 		
-		membersListe[1] = new Membre("nomFamille123", "String prenom23", 0002, "String adresse", "String naissance", "String phone", "String courriel");
+		//Création d'une liste pour nos tests.
+		membersListe[0] = new Membre("Liu", "Robert", 111111111, "4981 félix", "14 octobre", "514621", "String@courriel");
 		
-		membersListe[2] = new Membre("nomFamille4234", "String prenom12", 0003, "String 323adresse", "String naissance", "String phone", "String courriel");
+		membersListe[1] = new Membre("Alarie", "Alexandre", 222222222, "123 UDEM", "13 octobre", "1234567", "String@courriel");
 		
-		proListe[0] = new Pro( "nomFamille",  "prenom", 7, "adresse", 
-				 "naissance", "phone",  "courriel", "discipline");
+		membersListe[2] = new Membre("Chabot", "Marc-André", 333333333, "321 allo", "12 octobre", "999123", "String@courriel");
 		
+		proListe[0] = new Pro( "Wick",  "John", 666666666, "adresse", 
+				 "naissance", "phone",  "courriel", "Docteur");
+		
+		proListe[1] = new Pro( "Escuela",  "Pablo", 555555555, "adresse", 
+				 "naissance", "phone",  "courriel", "Voleur");
 		//test
-		System.out.println(proListe[0].getNumeroMembre());
 		this.vue.accueil();
 		
 		

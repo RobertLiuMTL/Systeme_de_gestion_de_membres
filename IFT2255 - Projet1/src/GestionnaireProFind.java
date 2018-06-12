@@ -7,7 +7,7 @@ public class GestionnaireProFind {
 
 		// Le résultat de la recherche. Si l'utilisateur annule,
 		// le message par défaut est affiché.
-		String resultat = "La recherche a été annulée";
+		String resultat = "La recherche n'a donné aucun résultat.";
 		System.out.println("Veuillez entrer le numéro de Professionnel à 9 chiffres");
 		
 		// Boucle while qui vérifie que l'entrée est un Integer.
@@ -29,6 +29,7 @@ public class GestionnaireProFind {
 			if (reponse == 'y') {
 				for (int i = 0; i < liste.length; i++) {
 					if (liste[i].getNumero() == numeroMembre) {
+						System.out.println("OUI");
 						resultat = "Résultat de la recherche :\n" + "Nom : " + liste[i].getPrenom() + "\n"
 								+ "Numéro de Professionnel : " + liste[i].getNumero() + "\n" + "discipline : " 
 								+ liste[i].getDiscipline() + "\n" + "Date de naissance : "
@@ -38,11 +39,12 @@ public class GestionnaireProFind {
 								+ "\n" + "Membre depuis : " + liste[i].getDateCreation() + "\n" + "Commentaires : "
 								+ liste[i].getComment();
 						ok = true;
-					} else {
-						resultat = "Le numéro entré est introuvable";
-						ok = true;
+						break;
+					
 					}
+					
 				}
+				ok = true;
 			}
 			if (reponse == 'n') {
 				System.out.println("Veuillez entrer un nouveau numéro :");
@@ -50,6 +52,7 @@ public class GestionnaireProFind {
 				continue;
 			}
 			if (reponse == 'z') {
+				resultat = "La recherche a été annulée.";
 				break;
 			}
 		}
