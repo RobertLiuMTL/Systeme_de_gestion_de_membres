@@ -49,11 +49,11 @@ public class DataCenter {
 		
 		membersListe[2] = new Membre("Chabot", "Marc-André", 333333333, "321 allo", "12 octobre", "999123", "String@courriel");
 		
-		proListe[0] = new Pro( "Wick",  "John", 666666666, "adresse", 
-				 "naissance", "phone",  "courriel", "Docteur");
+		proListe[0] = new Pro( "Wick",  "John", 666666666, "John Wick is a dog", 
+				 "n10 octobre", "123456789",  "John Wick 3 va être un bon film", "Docteur");
 		
-		proListe[1] = new Pro( "Escuela",  "Pablo", 555555555, "adresse", 
-				 "naissance", "phone",  "courriel", "Voleur");
+		proListe[1] = new Pro( "Escuela",  "Pablo", 555555555, "Yoyo vamos a la playa", 
+				 "1999 10 10", "123456789",  "Pablo@yoyo.ca", "Voleur");
 		//test
 		this.vue.accueil();
 		

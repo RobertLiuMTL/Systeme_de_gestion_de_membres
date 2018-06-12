@@ -38,7 +38,7 @@ public class Service {
 	// methode qui permet de format le service dans un String pour des fins de
 	// presentation aux membres
 	public String membreService() {
-		String presentation = "\n\nTitre: " + this.titre + "\n" + "Enseignant: " + this.enseignant + "\n"
+		String presentation = "\n\nTitre: " + this.titre + "\n" + "Enseignant: " + this.enseignant.getPrenom() + "\n"
 				+ "Code du cours: " + this.codeDuCours + "\n" + "Le cours débute le " + this.dateDebut + "\n"
 				+ "Le cours se termine le " + this.dateFin + "\n" + "Il a lieu à " + this.heureDebut + " Les "
 				+ this.recurrence + "\n" + "Capacité maximale" + this.capaciteMax + "\n" + "Commentaires: "
