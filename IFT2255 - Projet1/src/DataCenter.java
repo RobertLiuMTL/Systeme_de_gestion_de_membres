@@ -188,11 +188,7 @@ public class DataCenter {
 		return gm.suspendMembre(getMembre(), numero);
 
 	}
-//////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////
-//Menu du repertoireServices
-//////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////
+
 	
 	
 		
@@ -395,7 +391,9 @@ public class DataCenter {
 		for(int i = 0; i < listemembre.length; i++) {
 			temporaire[i] = listemembre[i];
 		}
-		temporaire[listemembre.length+1] = this.getMembre()[positionMemb];
+		temporaire[listemembre.length] = this.getMembre()[positionMemb];
+		
+		
 	}
 	
 	public void desinscrireMembre(int codeDuMemb, int codeDuCours) {
@@ -413,7 +411,10 @@ public class DataCenter {
 		}
 		if(estPresent == -1) {
 			System.out.println("Vous n'êtes pas inscrit à ce cours");
-		}else {
+			vue.menuRepertoireServices();
+			
+			}
+		else {
 			
 			Membre[] temporaire = new Membre[listMembDuService.length-1];			
 			for(int j = 0; j < estPresent; j++) {
@@ -426,7 +427,7 @@ public class DataCenter {
 			serviceListe[servPosition].setListeMembre(temporaire);
 		}
 		
+		
 	}
-	
 	
 }

@@ -8,7 +8,13 @@ import java.util.Scanner;
 
 public class InscriptionService {
 	
-	
+	/**
+	 * Cette classe c'est juste une methode(extension de vue)
+	 * elle verifie les codes tapé (no membre et no de Service) pour voir si c'est correct
+	 * si oui alors elle utilise la methode inscrireMembre() de datacenter
+	 * 
+	 * BUG ne detecte pas la capacite maximale
+	 */
 	
 	public InscriptionService(){
 		
@@ -22,8 +28,9 @@ public class InscriptionService {
 		
 		Scanner scan = new Scanner(System.in);
 		int code = scan.nextInt();
-		Service[] services = data.getService();
+		Service[] services = data.serviceListe;
 		
+		//verifie si le service existe
 		if(data.servicePosition(code) == -1) {
 			System.out.println("Le code tapé n'existe pas");
 			try {
@@ -34,6 +41,7 @@ public class InscriptionService {
 			}
 			data.vue.menuRepertoireServices();
 		}
+		
 		if(services[data.servicePosition(code)].getCapaciteMax() <= 
 				services[data.servicePosition(code)].getListeMembre().length) {
 			System.out.println("Le cours est plein, veuillez choisir une autre activité");
@@ -44,23 +52,34 @@ public class InscriptionService {
 		
 		int codeMemb = scan.nextInt();
 		int compteur = 0;
+		
+		//verifie si le membre existe
 		while(data.membrePosition(codeMemb) == -1) {
 			System.out.println("Le code de membre entré est invalide, veuillez recommencer.");
 			codeMemb = scan.nextInt();
 			compteur++;
+			
 			if(compteur >= 3) {
+				System.out.println("Trop d'essais");
+				try {
+					Thread.sleep(3000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				data.vueDataCenter();
 			}
 		}
-		
+		// verifie si le membre est suspendu
 		if(data.getMembre()[codeMemb].getSuspendu()) {
 			System.out.println("Vous etes suspendu, contacter l'agent pour plus de renseignement");
 			data.vueAccueil();
 			
 		}
 		else {
-			data.inscrireMembre(code, codeMemb);
-			
+			data.inscrireMembre(data.servicePosition(code), data.membrePosition(codeMemb));
+			System.out.println("Vous etes bien inscrit au cour suivant " + data.serviceListe[data.servicePosition(code)].getTitre());
+			data.vueAccueil();
 		}
 		
 		

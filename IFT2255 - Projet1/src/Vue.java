@@ -408,7 +408,16 @@ public void menuRepertoireServices(){
 		
 		
 		case 3:
-
+			System.out.println("Veuillez taper votre numéro de membre");
+			Scanner yolo = new Scanner(System.in);
+			int numbMemb = yolo.nextInt();
+			
+			System.out.println("Veuillez taper le numéro de cours auquel vous souhaiter vous désinscrire");
+			int numbCours = yolo.nextInt();
+			
+			
+			System.out.println("Vous etes maintenant désinscrit de " + (data.serviceListe[data.servicePosition(numbCours)].getTitre()));
+			accueil();
 			break;
 		}
 	}
