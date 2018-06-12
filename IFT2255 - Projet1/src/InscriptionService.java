@@ -32,12 +32,12 @@ public class InscriptionService {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			data.rs.menuRepertoireServices();
+			data.vue.menuRepertoireServices();
 		}
 		if(services[data.servicePosition(code)].getCapaciteMax() <= 
 				services[data.servicePosition(code)].getListeMembre().length) {
 			System.out.println("Le cours est plein, veuillez choisir une autre activité");
-			data.rs.menuRepertoireServices();
+			data.vue.menuRepertoireServices();
 		}
 		
 		System.out.println("Veuillez taper votre numéro de membre");
