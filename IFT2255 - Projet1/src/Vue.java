@@ -425,7 +425,25 @@ public void menuRepertoireServices(){
 		
 		
 		case 4:
-			System.out.println("Veuillez taper votre ");
+			System.out.println("Veuillez taper votre numéro de service");
+			Scanner scanna = new Scanner(System.in);
+			int numbServ4 = scanna.nextInt();
+			
+			while(data.servicePosition(numbServ4) == -1) {
+				System.out.println("Le Service n'existe pas, veuillez recommencer");
+				numbServ4 = scanna.nextInt();
+				
+			}
+			System.out.println("Veuillez taper votre numéro de membre");
+			int numbMemb4 = scanna.nextInt();
+			
+			while(data.proPosition(numbMemb4) == -1) {
+				System.out.println("Le code de Professionnel n'existe pas, veuillez recommencer");
+				numbMemb4 = scanna.nextInt();
+			}
+			
+			data.removeService(data.servicePosition(numbServ4));
+			menuRepertoireServices();
 			break;
 			
 		case 5:
