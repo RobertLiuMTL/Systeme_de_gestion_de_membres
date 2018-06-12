@@ -71,7 +71,7 @@ public class InscriptionService {
 			}
 		}
 		// verifie si le membre est suspendu
-		if(data.getMembre()[codeMemb].getSuspendu()) {
+		if(data.getMembre()[data.membrePosition(codeMemb)].getSuspendu()) {
 			System.out.println("Vous etes suspendu, contacter l'agent pour plus de renseignement");
 			data.vueAccueil();
 			
