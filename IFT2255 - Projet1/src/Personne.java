@@ -73,8 +73,12 @@ public abstract class Personne {
 		return this.commentaires;
 	}
 	
+	/**
+	 * Ajoute un nouveau commentaire au dossier
+	 * @param newComment
+	 */
 	public void setComment(String newComment) {
-		this.commentaires+=newComment;
+		this.commentaires+=newComment+"\n";
 	}
 	
 	public boolean getSuspendu() {

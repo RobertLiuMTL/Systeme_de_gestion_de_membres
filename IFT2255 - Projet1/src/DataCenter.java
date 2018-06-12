@@ -105,6 +105,10 @@ public class DataCenter {
 	public boolean identifierBool(int numero) {
 		return id.identifierBool(this, numero);
 	}
+	
+	public Membre identifierMembre(int numero) {
+		return id.identifierMembre(this, numero);
+	}
 //////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////
 //Les méthodes en lien avec la Vue

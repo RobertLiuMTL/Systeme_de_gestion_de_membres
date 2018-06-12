@@ -1,9 +1,7 @@
 import java.util.Scanner;
 
 /**
- * La classe Main est la classe de Vue (qui délègue certaines choses à d'autres classes
- * (Ex : CreateMembre)
- * @author Shado
+ *La Classe main sert uniquement à démarrer le logiciel
  *
  */
 public class Main {

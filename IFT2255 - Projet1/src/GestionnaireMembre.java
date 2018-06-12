@@ -110,12 +110,9 @@ public class GestionnaireMembre {
 			sc2.next();
 		}
 		int input2 = sc2.nextInt();
-		if (data.identifierBool(input2) == true) {
-			for (int i = 0; i < data.getMembre().length; i++) {
-				if (data.getMembre()[i].getNumero() == input2) {
-					resultat = data.getMembre()[i];
-				}
-			}
+		Membre membreFound =data.identifierMembre(input2); 
+		if ( membreFound != null) {
+			moduleMod(membreFound);
 		}else {
 			System.out.println("Le numéro de Membre que vous avez entré n'est pas valide.");
 			System.out.println("Retour au menu précédent.");
@@ -127,9 +124,9 @@ public class GestionnaireMembre {
 			}
 		}
 	}
-	public void moduleMod() {
+	public void moduleMod(Membre membre) {
 		System.out.println("================================================================================");
-		System.out.println("========================Le compte de " + resultat.getPrenom() + "=====================");
+		System.out.println("=========================== Le compte de " + membre.getPrenom() + "====");
 		System.out.println("=========================== Module de Modification==============================");
 		System.out.println("================================================================================");
 		System.out.println("Sélectionnez une option");
@@ -164,28 +161,28 @@ public class GestionnaireMembre {
 				sc2 = new Scanner(System.in);
 				String newAdresse = sc2.nextLine();
 				System.out.println("La nouvelle adresse est : " + newAdresse);
-				resultat.setAdresse(newAdresse);
+				membre.setAdresse(newAdresse);
 				break;
 			case 2:
 				System.out.println("Veuillez entrer le nouveau numéro de téléphone du Membre");
 				sc2 = new Scanner(System.in);
 				String newPhone = sc2.nextLine();
 				System.out.println("Le nouveau numéro de téléphone est : " + newPhone);
-				resultat.setPhone(newPhone);
+				membre.setPhone(newPhone);
 				break;
 			case 3:
 				System.out.println("Veuillez entrer la nouvelle adresse courriel du Membre");
 				sc2 = new Scanner(System.in);
 				String newCourriel = sc2.nextLine();
 				System.out.println("La nouvelle adresse courriel est : " + newCourriel);
-				resultat.setCourriel(newCourriel);
+				membre.setCourriel(newCourriel);
 				break;
 			case 4:
 				System.out.println("Veuillez entrer le commentaire à ajouter au dossier du Membre");
 				sc2 = new Scanner(System.in);
 				String newComment = sc2.nextLine();
 				System.out.println("Le commentaire entré est : " + newComment);
-				resultat.setComment(newComment);
+				membre.setComment(newComment);
 				break;
 			}
 		}

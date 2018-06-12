@@ -101,15 +101,23 @@ public class Identification {
 		for (int i = 0; i < data.getMembre().length; i++) {
 			if (data.getMembre()[i].getNumero() == numero) {
 				resultat = data.getMembre()[i];
-			} else {
-				System.out.println("Le membre est introuvable");
-				try {
-					Thread.sleep(2000);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
+			} 
+		}
+		return resultat;
+	}
+	
+	/**
+	 * Méthode d'identification qui retourne le compte du professionnel
+	 * @param data
+	 * @param numero
+	 * @return
+	 */
+	public Pro identifierPro(DataCenter data, int numero) {
+		Pro resultat = null;
+		for (int i = 0; i < data.getPro().length; i++) {
+			if (data.getPro()[i].getNumero() == numero) {
+				resultat = data.getPro()[i];
+			} 
 		}
 		return resultat;
 	}
