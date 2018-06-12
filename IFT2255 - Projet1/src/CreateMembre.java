@@ -1,7 +1,11 @@
 import java.util.Scanner;
 
 /**
- * Le module de création de Membre
+ * Le module de création de Membre.
+ * 
+ * Interagit avec l'utilisateur sous formes de lignes de commande.
+ * Une fois toute l'information recueillie, on fait appel à la fonciton de création de Membre contenue dans le DataCenter.
+ * 
  * @author Shado
  *
  */
@@ -184,6 +188,8 @@ public class CreateMembre {
 		}
 		
 		try {
+			
+			//Une fois toute l'informations recueillie, le processus de création de Membre se poursuit avec le Centre de Données
 			data.addMember(nomFamille, prenom, adresse, naissance, phone, courriel);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block

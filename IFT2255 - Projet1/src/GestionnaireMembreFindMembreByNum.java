@@ -40,6 +40,10 @@ public class GestionnaireMembreFindMembreByNum {
 				reponse = sc.next().charAt(0);
 			}
 			if (reponse == 'y') {
+				if (liste.length==0) {
+					System.out.println("La liste de Membre est vide... Retour au menu précédent.");
+					break;
+				}
 				for (int i = 0; i < liste.length; i++) {
 					if (liste[i].getNumero() == numeroMembre) {
 						resultat = "Résultat de la recherche :\n" + "Nom : " + liste[i].getPrenom() + "\n"
@@ -50,11 +54,10 @@ public class GestionnaireMembreFindMembreByNum {
 								+ "Membre depuis : " + liste[i].getDateCreation() + "\n" + "Commentaires : "
 								+ liste[i].getComment();
 						ok = true;
-					} else {
-						resultat = "Le numéro entré est introuvable";
-						ok = true;
-					}
+					}					
 				}
+				//Si la recherche n'aboutit pas.
+				ok = true;
 			}
 			if (reponse == 'n') {
 				System.out.println("Veuillez entrer un nouveau numéro :");

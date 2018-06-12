@@ -9,6 +9,7 @@ import java.util.Scanner;
  */
 public class GestionnaireMembre {
 	private DataCenter data;
+	Membre resultat = null;
 
 	public GestionnaireMembre(DataCenter data) {
 		this.data = data;
@@ -27,7 +28,6 @@ public class GestionnaireMembre {
 	 * Recherche par numéro Recherche par nom de famille
 	 */
 	public void gestionnaireFindMembre() {
-		String resultat = "test";
 
 		System.out.println("================================================================================");
 		System.out.println("=========================== Gestionnaire des Membres ===========================");
@@ -102,7 +102,6 @@ public class GestionnaireMembre {
 		System.out.println("================================================================================");
 		System.out.println("\n");
 		System.out.println("Veuillez entrer le numéro à 9 chiffres du Membre");
-		Membre resultat = null;
 		Scanner sc2 = new Scanner(System.in);
 
 		// S'assurer que l'entrée est un int.
@@ -117,7 +116,18 @@ public class GestionnaireMembre {
 					resultat = data.getMembre()[i];
 				}
 			}
+		}else {
+			System.out.println("Le numéro de Membre que vous avez entré n'est pas valide.");
+			System.out.println("Retour au menu précédent.");
+			try {
+				Thread.sleep(1500);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
+	}
+	public void moduleMod() {
 		System.out.println("================================================================================");
 		System.out.println("========================Le compte de " + resultat.getPrenom() + "=====================");
 		System.out.println("=========================== Module de Modification==============================");
@@ -129,6 +139,8 @@ public class GestionnaireMembre {
 		System.out.println("[3]     Modifier l'adresse courriel \n");
 		System.out.println("[4]     Ajouter un commentaire \n");
 		boolean continuerModification= true;
+		Scanner sc2 = new Scanner(System.in);
+		int input2;
 		while (continuerModification) {
 			System.out.println("Veuillez sélectionner une option. Pour quitter, appuyez sur 0");
 			// S'assurer que l'entrée est un int.

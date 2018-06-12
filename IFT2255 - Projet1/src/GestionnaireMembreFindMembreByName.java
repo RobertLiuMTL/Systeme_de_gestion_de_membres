@@ -17,10 +17,10 @@ public class GestionnaireMembreFindMembreByName {
 		String resultatPositif="";
 		System.out.println("Veuillez entrer le nom de famille de la personne.");
 		String nomFamille = sc.nextLine();		
+
 		boolean ok = false;
 		while (ok == false) {
-			System.out.println("Le nom de famille entré est : " + nomFamille+ 
-					"\nVoulez-vous poursuivre?"
+			System.out.println("\nVoulez-vous poursuivre?"
 					+ "\nEntrez 'y' pour continuer ; "
 					+ "'n' pour saisir à nouveau"
 					+ "'z' pour quitter la recherche.");
@@ -30,9 +30,13 @@ public class GestionnaireMembreFindMembreByName {
 				reponse = sc.next().charAt(0);	
 			}
 			if (reponse=='y') {
-				for (int i = 0; i<liste.length;i++) {
-					if (liste[i].getNomFamille().equalsIgnoreCase(nomFamille)) {
-						resultatPositif +="*****************************************\n"
+				if (liste.length==0) {
+					System.out.println("La liste de Membre est vide");
+					break;
+				}else {
+					for (int i = 0; i<liste.length;i++) {
+						if (liste[i].getNomFamille().equalsIgnoreCase(nomFamille)) {
+							resultatPositif +="*****************************************\n"
 								+ "Résultat(s) de la recherche :\n" 
 								+"Nom : "+liste[i].getPrenom() +"\n"
 								+"Numéro de membre : "+liste[i].getNumero()+"\n"
@@ -43,10 +47,10 @@ public class GestionnaireMembreFindMembreByName {
 								+"Membre suspendu? : "+liste[i].getSuspendu() +"\n"
 								+"Membre depuis : " +liste[i].getDateCreation()+"\n"
 								+"Commentaires : "+liste[i].getComment();
-						ok=true;
-					}else {
-						resultat = "Le nom de famille ne donne pas de résultat";
+							ok=true;
+						}
 					}
+					ok=true;
 				}
 			}
 			if (reponse == 'n'){
@@ -56,6 +60,7 @@ public class GestionnaireMembreFindMembreByName {
 				
 			}
 			if(reponse=='z') {
+				ok=true;
 				break;
 			}
 		}
