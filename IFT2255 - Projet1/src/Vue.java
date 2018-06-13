@@ -372,7 +372,7 @@ public class Vue {
 			for (int i = 0; i < data.getService().length; i++) {
 				System.out.println(data.getService()[i].membreService());
 			}
-			System.out.println("Désirez-vous vous inscrire à un service\n (y/n)");
+			System.out.println("Le Membre désire-t-il s'inscrire à un service\n (y/n)");
 
 			Scanner scanner = new Scanner(System.in);
 
@@ -402,22 +402,22 @@ public class Vue {
 			break;
 
 		case 3:
-			System.out.println("Veuillez taper votre numéro de membre");
+			System.out.println("Veuillez entrer le numéro de membre(9 chiffres)");
 			Scanner yolo = new Scanner(System.in);
 			int numbMemb = yolo.nextInt();
 
-			System.out.println("Veuillez taper le numéro de cours auquel vous souhaiter vous désinscrire");
+			System.out.println("Veuillez entrer le numéro de cours (7 chiffres) ");
 			int numbCours = yolo.nextInt();
 
 			data.desinscrireMembre(numbMemb, numbCours);
 
-			System.out.println("Vous etes maintenant désinscrit de "
+			System.out.println("Le membre a été désinscrit du cours : "
 					+ (data.serviceListe[data.servicePosition(numbCours)].getTitre()));
-			accueil();
+			menuRepertoireServices();
 			break;
 
 		case 4:
-			System.out.println("Veuillez taper votre numéro de service");
+			System.out.println("Veuillez entrer le numéro de service (7 chiffres)");
 			Scanner scanna = new Scanner(System.in);
 			int numbServ4 = scanna.nextInt();
 
@@ -426,7 +426,7 @@ public class Vue {
 				numbServ4 = scanna.nextInt();
 
 			}
-			System.out.println("Veuillez taper votre numéro de membre");
+			System.out.println("Veuillez taper votre numéro de membre (9 chiffres)");
 			int numbMemb4 = scanna.nextInt();
 
 			while (data.proPosition(numbMemb4) == -1) {
@@ -447,7 +447,7 @@ public class Vue {
 
 		case 5:
 			System.out
-					.println("Veuillez entrer le code de la séance pour laquelle vous voulez confirmer votre présence");
+					.println("Veuillez entrer le code de la séance (7 chiffres) pour laquelle vous voulez confirmer la présence du Membre");
 			sc2 = new Scanner(System.in);
 			while (!sc2.hasNextInt()) {
 				System.out.println("Svp, entrez un numéro");
@@ -458,7 +458,7 @@ public class Vue {
 			int compteur = 0;
 
 			while (data.servicePosition(reponse) == -1) {
-				System.out.println("Le service tapé n'existe pas veuillez recommencer");
+				System.out.println("Le service n'existe pas, veuillez recommencer");
 				compteur++;
 				reponse = sc2.nextInt();
 				if (compteur >= 3) {
@@ -468,7 +468,7 @@ public class Vue {
 				}
 			}
 
-			System.out.println("Veuillez taper votre numéro de membre");
+			System.out.println("Veuillez taper le numéro de membre");
 			user = sc2.nextInt();
 			compteur = 0;
 
@@ -477,7 +477,7 @@ public class Vue {
 				compteur++;
 				user = sc2.nextInt();
 				if (compteur >= 3) {
-					System.out.println("Trop d'essai, retour au répertoire de services");
+					System.out.println("Trop d'essais, retour au répertoire de services");
 					menuRepertoireServices();
 				}
 			}
@@ -491,7 +491,7 @@ public class Vue {
 				}
 			}
 			if (estPresent) {
-				System.out.println("Votre présence est confirmé pour le cours suivant"
+				System.out.println("La présence du Membre est confirmée pour le cours suivant : \n"
 						+ data.serviceListe[data.servicePosition(reponse)].getTitre() + "\n" + "Numéro du membre : "
 						+ user + "\n" + "Numéro du professionnel : "
 						+ data.serviceListe[data.servicePosition(reponse)].getEnseignant().getPrenom() + "\n"
@@ -503,7 +503,7 @@ public class Vue {
 					e.printStackTrace();
 				}
 			}else {
-				System.out.println("Le numéro de membre entré : "+ user + " n'est pas inscrit au cours : "
+				System.out.println("Le Membre : "+ user + " n'est pas inscrit au cours : "
 						+data.serviceListe[data.servicePosition(reponse)].getTitre() );
 				try {
 					Thread.sleep(2000);
@@ -516,14 +516,17 @@ public class Vue {
 			break;
 
 		case 6:
-			System.out.println("tapez votre numéro de cours");
+			System.out.println("Veuillez entrer le numéro de cours (7 chiffres) à consulter");
 			sc2 = new Scanner(System.in);
 			while (!sc2.hasNextInt()) {
-				System.out.println("Svp, entrez un numéro");
+				System.out.println("Svp, entrez un numéro de cours valide (7 chiffres)");
 				sc2.next();
 			}
 			int numbCours6 = sc2.nextInt();
-			int compteur6 = 0;
+			
+			
+			/* Code retiré
+			 * int compteur6 = 0;
 			while (data.servicePosition(numbCours6) == -1) {
 				System.out.println("Le numéro de membre est invalide, veuillez recommencer");
 				compteur6++;
@@ -532,14 +535,9 @@ public class Vue {
 					System.out.println("Trop d'essai, retour au répertoire de services");
 					menuRepertoireServices();
 				}
-			}
-<<<<<<< HEAD
-			System.out.print("Voici la liste des cours du Professionnel : " + numbPro6 +"\n");
-			data.consulterInscription(numbPro6);
-=======
+			}*/
 			
 			data.consulterInscription(numbCours6);
->>>>>>> ba9a6a9f946903f0bb2f6857a9cfd69d6a8df1e2
 			System.out.println("Retour au répertoire des services");
 			try {
 				Thread.sleep(3000);

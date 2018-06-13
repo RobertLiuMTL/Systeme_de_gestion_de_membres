@@ -48,7 +48,7 @@ public class InscriptionService {
 			data.vue.menuRepertoireServices();
 		}
 		
-		System.out.println("Veuillez taper votre numéro de membre");
+		System.out.println("Veuillez entrer le numéro de membre (9 chiffres)");
 		
 		int codeMemb = scan.nextInt();
 		int compteur = 0;
@@ -72,13 +72,13 @@ public class InscriptionService {
 		}
 		// verifie si le membre est suspendu
 		if(data.getMembre()[data.membrePosition(codeMemb)].getSuspendu()) {
-			System.out.println("Vous etes suspendu, contacter l'agent pour plus de renseignement");
+			System.out.println("Échec de l'inscription : Le Membre est suspendu. ");
 			data.vue.menuRepertoireServices();
 			
 		}
 		else {
 			data.inscrireMembre(data.servicePosition(code), data.membrePosition(codeMemb));
-			System.out.println("Vous etes bien inscrit au cour suivant " + data.serviceListe[data.servicePosition(code)].getTitre());
+			System.out.println("L'inscription a été réussie pour le cour " + data.serviceListe[data.servicePosition(code)].getTitre());
 			data.vue.menuRepertoireServices();
 		}
 		
