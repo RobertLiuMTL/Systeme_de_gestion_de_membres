@@ -21,7 +21,7 @@ public class DataCenter {
 	//Les attributs de la Base de Données
 	Membre [] membersListe = new Membre[3];
 	Pro [] proListe = new Pro[2];
-	Service [] serviceListe = new Service[1];
+	Service [] serviceListe = new Service[2];
 	Vue vue = new Vue(this);
 	
 	GestionnaireMembre gm = new GestionnaireMembre(this);
@@ -43,11 +43,11 @@ public class DataCenter {
 	public DataCenter() {
 		
 		//Création d'une liste pour nos tests.
-		membersListe[0] = new Membre("Liu", "Robert", 111111111, "4981 félix", "14 octobre", "514621", "String@courriel");
+		membersListe[0] = new Membre("Liu", "Robert", 111111111, "4981 félix", "14 octobre", "514621", "robert.liu@allo.com");
 		
-		membersListe[1] = new Membre("Alarie", "Alexandre", 222222222, "123 UDEM", "13 octobre", "1234567", "String@courriel");
+		membersListe[1] = new Membre("Alarie", "Alexandre", 222222222, "123 UDEM", "13 octobre", "1234567", "alexandre@pomme.ca");
 		
-		membersListe[2] = new Membre("Chabot", "Marc-André", 333333333, "321 allo", "12 octobre", "999123", "String@courriel");
+		membersListe[2] = new Membre("Chabot", "Marc-André", 333333333, "321 allo", "12 octobre", "999123", "Marc@andre.lol");
 		
 		proListe[0] = new Pro( "Wick",  "John", 666666666, "John Wick is a dog", 
 				 "n10 octobre", "123456789",  "John Wick 3 va être un bon film", "Docteur");
@@ -55,8 +55,10 @@ public class DataCenter {
 		proListe[1] = new Pro( "Escuela",  "Pablo", 555555555, "Yoyo vamos a la playa", 
 				 "1999 10 10", "123456789",  "Pablo@yoyo.ca", "Voleur");
 		
-		serviceListe[0] = new Service("String titre", this.proListe[0], "String dateDebut",
-			"String dateFin", "String heureDebut", "String recurrence",15 , "String commentaire");
+		serviceListe[0] = new Service("Comment protéger son Chien", this.proListe[0], "Toujours",
+			"15 octobre", "13 pm", "Une fois par semaine",15 , "Le Chien de John Wick est précieux");
+		serviceListe[1] = new Service("Comment tuer ses ennemis", this.proListe[0], "Toujours",
+				"15 octobre", "13 pm", "Une fois par semaine",15 , "JOHNNNNNN");
 		//test
 		this.vue.accueil();
 		

@@ -18,7 +18,7 @@ public class Vue {
 	 */
 	public Vue(DataCenter data) {
 		this.data = data;
-		
+
 	}
 
 	/**
@@ -80,7 +80,7 @@ public class Vue {
 			dataCenter();
 			break;
 		case 2:
-	
+
 			menuRepertoireServices();
 			break;
 
@@ -91,13 +91,13 @@ public class Vue {
 			System.out.println("================================================================================");
 			System.out.println("\n ");
 			System.out.println("Veuillez entrer le numéro de Membre à 9 chiffres");
-			
+
 			// Boucle while qui vérifie que l'entrée est un Integer.
 			while (!sc.hasNextInt()) {
 				System.out.println("Svp, entrez un numéro");
 				sc.next();
 			}
-			
+
 			int numeroMembre = sc.nextInt();
 			System.out.println(data.identifier(numeroMembre));
 			try {
@@ -241,15 +241,15 @@ public class Vue {
 				char reponse = sc2.next().charAt(0);
 				while (reponse != 'y' && reponse != 'n') {
 					System.out.println("SVP, faites un choix valide.");
-					reponse = sc2.next().charAt(0);	
+					reponse = sc2.next().charAt(0);
 				}
-				if (reponse=='y') {
-					System.out.println(data.gestionnaireSuspendMembre(numero));					
+				if (reponse == 'y') {
+					System.out.println(data.gestionnaireSuspendMembre(numero));
 				}
-				if (reponse == 'n'){
+				if (reponse == 'n') {
 					System.out.println("Retour au au menu Gestionnaire de Membres...");
 				}
-				
+
 				try {
 					Thread.sleep(2000);
 				} catch (InterruptedException e) {
@@ -329,49 +329,43 @@ public class Vue {
 		}
 	}
 
+	public void menuRepertoireServices() {
 
-public void menuRepertoireServices(){
-	
-
-	
-
-	
-	//menu principal du repertoire services
-	System.out.println("================================================================================");
-	System.out.println("=========================== Répertoire des Services ============================");
-	System.out.println("================================================================================");
-	System.out.println("\n");
-	System.out.println("Sélectionnez une option");
-	System.out.println("[0]     Retour au Menu principal \n");
-	System.out.println("[1]     Voir les services offerts \n");
-	System.out.println("[2]     Créer un nouveau service \n");
-	System.out.println("[3]     Désinscrire un membre d'un service\n");
-	System.out.println("[4]     Annuler une séance   \n");
-    System.out.println("[5]     Confirmer sa  présence \n" );
-    System.out.println("[6]     Consulter inscriptions \n");	
+		// menu principal du repertoire services
+		System.out.println("================================================================================");
+		System.out.println("=========================== Répertoire des Services ============================");
+		System.out.println("================================================================================");
+		System.out.println("\n");
+		System.out.println("Sélectionnez une option");
+		System.out.println("[0]     Retour au Menu principal \n");
+		System.out.println("[1]     Voir les services offerts \n");
+		System.out.println("[2]     Créer un nouveau service \n");
+		System.out.println("[3]     Désinscrire un membre d'un service\n");
+		System.out.println("[4]     Annuler une séance   \n");
+		System.out.println("[5]     Confirmer sa  présence \n");
+		System.out.println("[6]     Consulter inscriptions \n");
 
 		Scanner sc2 = new Scanner(System.in);
 		// Boucle while qui vérifie que l'entrée est un Integer.
-				while (!sc2.hasNextInt()) {
-					System.out.println("Svp, entrez un numéro");
-					sc2.next();
-				}
+		while (!sc2.hasNextInt()) {
+			System.out.println("Svp, entrez un numéro");
+			sc2.next();
+		}
 		int input2 = sc2.nextInt();
 
-		while (input2 != 1 && input2 != 2 && input2 != 0 && input2 != 3 && input2 != 4 && input2 != 5 && input2 !=6) {
+		while (input2 != 1 && input2 != 2 && input2 != 0 && input2 != 3 && input2 != 4 && input2 != 5 && input2 != 6) {
 			System.out.println("SVP, faites un choix valide.");
 			input2 = sc2.nextInt();
 		}
 
 		switch (input2) {
-		
+
 		case 0:
 			System.out.println("Retour au Menu Principal");
 
 			accueil();
 			break;
-		
-		
+
 		case 1:
 			System.out.println("Voici les services offerts présentement");
 
@@ -381,7 +375,7 @@ public void menuRepertoireServices(){
 			System.out.println("Désirez-vous vous inscrire à un service\n (y/n)");
 
 			Scanner scanner = new Scanner(System.in);
-			
+
 			char input3 = scanner.nextLine().charAt(0);
 
 			while (input3 != 'y' && input3 != 'n') {
@@ -393,128 +387,142 @@ public void menuRepertoireServices(){
 
 			if (input3 == 'y') {
 				data.is.inscrireMembre(data);
-			
-			}else if (input3 == 'n') {
+
+			} else if (input3 == 'n') {
 				System.out.println("retour au répertoire des services");
 
 				menuRepertoireServices();
 			}
-			
-		break;
-		
-		
+
+			break;
+
 		case 2:
 			data.cs.creerService(data);
-			 
+
 			break;
-		
-		
+
 		case 3:
 			System.out.println("Veuillez taper votre numéro de membre");
 			Scanner yolo = new Scanner(System.in);
 			int numbMemb = yolo.nextInt();
-			
+
 			System.out.println("Veuillez taper le numéro de cours auquel vous souhaiter vous désinscrire");
 			int numbCours = yolo.nextInt();
-			
+
 			data.desinscrireMembre(numbMemb, numbCours);
-			
-			System.out.println("Vous etes maintenant désinscrit de " + (data.serviceListe[data.servicePosition(numbCours)].getTitre()));
+
+			System.out.println("Vous etes maintenant désinscrit de "
+					+ (data.serviceListe[data.servicePosition(numbCours)].getTitre()));
 			accueil();
 			break;
-		
-		
+
 		case 4:
 			System.out.println("Veuillez taper votre numéro de service");
 			Scanner scanna = new Scanner(System.in);
 			int numbServ4 = scanna.nextInt();
-			
-			while(data.servicePosition(numbServ4) == -1) {
+
+			while (data.servicePosition(numbServ4) == -1) {
 				System.out.println("Le Service n'existe pas, veuillez recommencer");
 				numbServ4 = scanna.nextInt();
-				
+
 			}
 			System.out.println("Veuillez taper votre numéro de membre");
 			int numbMemb4 = scanna.nextInt();
-			
-			while(data.proPosition(numbMemb4) == -1) {
+
+			while (data.proPosition(numbMemb4) == -1) {
 				System.out.println("Le code de Professionnel n'existe pas, veuillez recommencer");
 				numbMemb4 = scanna.nextInt();
 			}
-			
+
 			data.removeService(data.servicePosition(numbServ4));
 			menuRepertoireServices();
 			break;
-			
-		
+
 		case 5:
-			System.out.println("Veuillez entrer le code de la séance pour laquelle vous voulez confirmer votre présence");
-			Scanner scan5 = new Scanner(System.in);
-			int reponse = scan5.nextInt();
+			System.out
+					.println("Veuillez entrer le code de la séance pour laquelle vous voulez confirmer votre présence");
+			sc2 = new Scanner(System.in);
+			while (!sc2.hasNextInt()) {
+				System.out.println("Svp, entrez un numéro");
+				sc2.next();
+			}
+			int reponse = sc2.nextInt();
 			int user;
 			int compteur = 0;
-			
-			while(data.servicePosition(reponse) == -1) {
+
+			while (data.servicePosition(reponse) == -1) {
 				System.out.println("Le service tapé n'existe pas veuillez recommencer");
 				compteur++;
-				reponse = scan5.nextInt();
-				if(compteur >= 3) {
-					
+				reponse = sc2.nextInt();
+				if (compteur >= 3) {
+
 					System.out.println("trop d'essais, retour au répertoire des services");
 					menuRepertoireServices();
 				}
 			}
-			
-			
+
 			System.out.println("Veuillez taper votre numéro de membre");
-			user = scan5.nextInt();
+			user = sc2.nextInt();
 			compteur = 0;
-			
-			while(data.membrePosition(user) == -1) {
+
+			while (data.membrePosition(user) == -1) {
 				System.out.println("Le numéro de membre est invalide, veuillez recommencer");
 				compteur++;
-				user = scan5.nextInt();
-				if(compteur >= 3) {
+				user = sc2.nextInt();
+				if (compteur >= 3) {
 					System.out.println("Trop d'essai, retour au répertoire de services");
 					menuRepertoireServices();
 				}
 			}
-			
+
 			Boolean estPresent = false;
 			Membre[] listeMembServ = data.getService()[data.servicePosition(reponse)].getListeMembre();
-			
-			for(int i = 0; i < listeMembServ.length;i++) {
-				if(user == listeMembServ[i].getNumeroMembre()) {
+
+			for (int i = 0; i < listeMembServ.length; i++) {
+				if (user == listeMembServ[i].getNumeroMembre()) {
 					estPresent = true;
 				}
 			}
-			if(estPresent) {
-			System.out.println("Votre présence est confirmé pour le cours suivant" + 
-			data.serviceListe[data.servicePosition(reponse)].getTitre()+ "\n" + "Numéro du membre : " + user + "\n"
-            + "Numéro du professionnel : " + data.serviceListe[data.servicePosition(reponse)].getEnseignant().getPrenom()
-            + "\n" + "Code du service : " + reponse + "\n"  + "Commentaire : ");}
+			if (estPresent) {
+				System.out.println("Votre présence est confirmé pour le cours suivant"
+						+ data.serviceListe[data.servicePosition(reponse)].getTitre() + "\n" + "Numéro du membre : "
+						+ user + "\n" + "Numéro du professionnel : "
+						+ data.serviceListe[data.servicePosition(reponse)].getEnseignant().getPrenom() + "\n"
+						+ "Code du service : " + reponse + "\n" + "Commentaire : ");
+			}
 			menuRepertoireServices();
 			break;
-		
+
 		case 6:
 			System.out.println("tapez votre numéro de professionel");
-			Scanner scan6 = new Scanner(System.in);
-			int numbPro6 = scan6.nextInt();
+			sc2 = new Scanner(System.in);
+			while (!sc2.hasNextInt()) {
+				System.out.println("Svp, entrez un numéro");
+				sc2.next();
+			}
+			int numbPro6 = sc2.nextInt();
 			int compteur6 = 0;
-			while(data.proPosition(numbPro6) == -1) {
+			while (data.proPosition(numbPro6) == -1) {
 				System.out.println("Le numéro de membre est invalide, veuillez recommencer");
 				compteur6++;
-				numbPro6 = scan6.nextInt();
-				if(compteur6 >= 3) {
+				numbPro6 = sc2.nextInt();
+				if (compteur6 >= 3) {
 					System.out.println("Trop d'essai, retour au répertoire de services");
 					menuRepertoireServices();
 				}
 			}
+			System.out.print("Voici la liste des cours du Professionnel : " + numbPro6);
 			data.consulterInscription(numbPro6);
 			System.out.println("Retour au répertoire des services");
+			try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			menuRepertoireServices();
 			break;
-		
+
 		}
 	}
 }
