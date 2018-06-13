@@ -440,7 +440,10 @@ public class DataCenter {
 		
 		
 	}
-	
+	/**
+	 * enleve le service dans la liste de service de data
+	 * @param codePosService int qui correspond a la position du service a retirer dans la liste de service
+	 */
 	public void removeService(int codePosService) {
 		
 		
@@ -455,6 +458,15 @@ public class DataCenter {
 		this.serviceListe = temporaire;
 	}
 	
+	public void consulterInscription(int codeDuPro) {
+		for(int i = 0; i < serviceListe.length; i++) {
+			
+			if(serviceListe[i].getEnseignant().getNumeroMembre() == codeDuPro) {
+				System.out.println(serviceListe[i].membreService());
+			}
+		}
+		
+	}
 	
 	
 	

@@ -358,7 +358,7 @@ public void menuRepertoireServices(){
 				}
 		int input2 = sc2.nextInt();
 
-		while (input2 != 1 && input2 != 2 && input2 != 0 && input2 != 3 && input2 != 4 && input2 != 5) {
+		while (input2 != 1 && input2 != 2 && input2 != 0 && input2 != 3 && input2 != 4 && input2 != 5 && input2 !=6) {
 			System.out.println("SVP, faites un choix valide.");
 			input2 = sc2.nextInt();
 		}
@@ -490,9 +490,31 @@ public void menuRepertoireServices(){
 			}
 			if(estPresent) {
 			System.out.println("Votre présence est confirmé pour le cours suivant" + 
-			data.serviceListe[data.servicePosition(reponse)].getTitre());}
+			data.serviceListe[data.servicePosition(reponse)].getTitre()+ "\n" + "Numéro du membre : " + user + "\n"
+            + "Numéro du professionnel : " + data.serviceListe[data.servicePosition(reponse)].getEnseignant().getPrenom()
+            + "\n" + "Code du service : " + reponse + "\n"  + "Commentaire : ");}
 			menuRepertoireServices();
 			break;
+		
+		case 6:
+			System.out.println("tapez votre numéro de professionel");
+			Scanner scan6 = new Scanner(System.in);
+			int numbPro6 = scan6.nextInt();
+			int compteur6 = 0;
+			while(data.proPosition(numbPro6) == -1) {
+				System.out.println("Le numéro de membre est invalide, veuillez recommencer");
+				compteur6++;
+				numbPro6 = scan6.nextInt();
+				if(compteur6 >= 3) {
+					System.out.println("Trop d'essai, retour au répertoire de services");
+					menuRepertoireServices();
+				}
+			}
+			data.consulterInscription(numbPro6);
+			System.out.println("Retour au répertoire des services");
+			menuRepertoireServices();
+			break;
+		
 		}
 	}
 }
