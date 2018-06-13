@@ -516,25 +516,30 @@ public class Vue {
 			break;
 
 		case 6:
-			System.out.println("tapez votre numéro de professionel");
+			System.out.println("tapez votre numéro de cours");
 			sc2 = new Scanner(System.in);
 			while (!sc2.hasNextInt()) {
 				System.out.println("Svp, entrez un numéro");
 				sc2.next();
 			}
-			int numbPro6 = sc2.nextInt();
+			int numbCours6 = sc2.nextInt();
 			int compteur6 = 0;
-			while (data.proPosition(numbPro6) == -1) {
+			while (data.servicePosition(numbCours6) == -1) {
 				System.out.println("Le numéro de membre est invalide, veuillez recommencer");
 				compteur6++;
-				numbPro6 = sc2.nextInt();
+				numbCours6 = sc2.nextInt();
 				if (compteur6 >= 3) {
 					System.out.println("Trop d'essai, retour au répertoire de services");
 					menuRepertoireServices();
 				}
 			}
+<<<<<<< HEAD
 			System.out.print("Voici la liste des cours du Professionnel : " + numbPro6 +"\n");
 			data.consulterInscription(numbPro6);
+=======
+			
+			data.consulterInscription(numbCours6);
+>>>>>>> ba9a6a9f946903f0bb2f6857a9cfd69d6a8df1e2
 			System.out.println("Retour au répertoire des services");
 			try {
 				Thread.sleep(3000);
