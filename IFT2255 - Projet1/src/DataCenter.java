@@ -460,15 +460,19 @@ public class DataCenter {
 		this.serviceListe = temporaire;
 	}
 	
-	public void consulterInscription(int codeDuPro) {
-		for(int i = 0; i < serviceListe.length; i++) {
-			
-			if(serviceListe[i].getEnseignant().getNumeroMembre() == codeDuPro) {
-				System.out.println(serviceListe[i].membreService());
-			}
-		}
+	public void consulterInscription(int codeDuService) {
+		System.out.println("information sur le cours " + codeDuService);
+		System.out.println("Liste des inscrits: \n");
 		
+		Membre[] listeMemb = serviceListe[servicePosition(codeDuService)].getListeMembre();
+		
+		for(int i = 0; i < listeMemb.length; i++) {
+			System.out.println(listeMemb[i].getPrenom());
+			}
+	
+		System.out.println(serviceListe[servicePosition(codeDuService)].membreService());
 	}
+	
 	
 	
 	
