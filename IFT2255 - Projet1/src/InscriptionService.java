@@ -67,19 +67,19 @@ public class InscriptionService {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				data.vueDataCenter();
+				data.vue.menuRepertoireServices();
 			}
 		}
 		// verifie si le membre est suspendu
 		if(data.getMembre()[data.membrePosition(codeMemb)].getSuspendu()) {
 			System.out.println("Vous etes suspendu, contacter l'agent pour plus de renseignement");
-			data.vueAccueil();
+			data.vue.menuRepertoireServices();
 			
 		}
 		else {
 			data.inscrireMembre(data.servicePosition(code), data.membrePosition(codeMemb));
 			System.out.println("Vous etes bien inscrit au cour suivant " + data.serviceListe[data.servicePosition(code)].getTitre());
-			data.vueAccueil();
+			data.vue.menuRepertoireServices();
 		}
 		
 		

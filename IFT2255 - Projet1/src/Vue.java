@@ -435,6 +435,13 @@ public class Vue {
 			}
 
 			data.removeService(data.servicePosition(numbServ4));
+			System.out.println("La scéance a été retirée de l'offre de Services. Veuillez en aviser les Membres");
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			menuRepertoireServices();
 			break;
 
@@ -489,6 +496,21 @@ public class Vue {
 						+ user + "\n" + "Numéro du professionnel : "
 						+ data.serviceListe[data.servicePosition(reponse)].getEnseignant().getPrenom() + "\n"
 						+ "Code du service : " + reponse + "\n" + "Commentaire : ");
+				try {
+					Thread.sleep(2000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}else {
+				System.out.println("Le numéro de membre entré : "+ user + " n'est pas inscrit au cours : "
+						+data.serviceListe[data.servicePosition(reponse)].getTitre() );
+				try {
+					Thread.sleep(2000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 			menuRepertoireServices();
 			break;
@@ -511,7 +533,7 @@ public class Vue {
 					menuRepertoireServices();
 				}
 			}
-			System.out.print("Voici la liste des cours du Professionnel : " + numbPro6);
+			System.out.print("Voici la liste des cours du Professionnel : " + numbPro6 +"\n");
 			data.consulterInscription(numbPro6);
 			System.out.println("Retour au répertoire des services");
 			try {
