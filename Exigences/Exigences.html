@@ -43,6 +43,8 @@
 	<div class="principale">
 		<p>Le masculin est employé dans le texte à des fins de simplification.</p>
 		<h2>Tâche 1 - Le glossaire</h2>
+		<a class="lienDL" href="Glossaire.txt">Lien pour télécharger le Glossaire</a>
+
 		<h3>Les acteurs (Les individus pertinents)</h3>
 		<dl>
 			<dt>Agent du #GYM</dt>
@@ -126,12 +128,16 @@
 
 	<div class="principale">
 		<h2>Tâche 2 - Diagramme de cas d'utilisation UML</h2>
+		<a class="lienDL" href="Tp1_diagramme_use_casesOriginal.vpp">Lien pour télécharger Diagramme de cas d'utilisation (Visual Paradigm est requis)</a>
+
 		<p align="center">Voici un apperçu de notre diagramme de cas d'utilisation UML réalisé avec le logiciel Visual Paradigm.</p>
 		<a href="Vppfinal.jpg"><img class="centre" src="Vppfinal.jpg"></a>
 	</div>
 
 	<div class="principale">
 		<h2>Tâche 3 - Cas d'utilisation</h2>
+		<a class="lienDL" href="manuel d'utilisation.txt">Lien pour afficher le Manuel utilisateur</a>
+
 		<div class="CU">
 			<div class="CU-texte"> 
 				<dl>
@@ -494,8 +500,6 @@
 		</div>
 
 
-<!-- Mettre à jour ce CU (Confirmation de présence) une fois le JAVA complété.
--->
 		<div class="CU">
 			<div class="CU-texte"> 
 				<dl>
@@ -511,6 +515,7 @@
 						b) Le Membre doit avoir le papier de confirmation d’inscription, ou le code du service à 7 chiffres.<br>
 						c) Le Membre doit attendre qu’un Agent soit disponible pour le servir.<br>
 						d) Le système informatique doit être opérationnel.
+						e) Le Membre doit s'être inscrit, au préalable, au cours à confirmer
 					</dd>
 
 					<dt>Acteurs :</dt>
@@ -521,12 +526,10 @@
 					<dd>
 						<ol>
 							<li>Le Membre demande à l’Agent de confirmer sa présence.</li>
-							<li>L’Agent choisit le Répertoire de Services.</li>
+							<li>L’Agent choisit l'option #2 le Répertoire de Services.</li>
 							<li>L’Agent demande au Membre son papier d’inscription, ou le numéro du code de service.</li>
 							<li>Le Membre donne l’information à l’Agent.</li>
-							<li>L’Agent choisit l’option « Rechercher un service » et entre le code de service à 7 chiffres. </li>
-							<li>Le Système affiche à l’écran avec toute l’information.</li>
-							<li>L’Agent choisit l’option « Confirmer inscriptions ».</li>
+							<li>L’Agent choisit l’option #5 « Confirmer sa présence ».</li>
 							<li>L’Agent demande au Client sa carte de Membre, ou son numéro de Membre.</li>
 							<li>Le Membre donne l’information.</li>
 							<li>L'Agent entre le numéro de membre à 9 chiffres dans le Système.</li>
@@ -539,7 +542,7 @@
 
 					<dt>Scénarios alternatifs :</dt>
 					<dd> 
-						Remplace l'étape 11 du scénario principal : Le Système affiche "Invalide"
+						Remplace l'étape 10 du scénario principal : Le Système affiche "Invalide"
 						<ul>
 							<li>L'Agent signale au Membre qu'il n'est malheureusement pas inscrit à la séance.</li>
 							<li><b>S’il reste de la place</b>, l’Agent peut proposer au Membre de faire l’inscription.</li>
@@ -567,8 +570,7 @@
 			</div>
 		</div>
 
-<!-- CE CU n'a pas été mis à jour (En attente du module JAVA pour annuler une inscription)
--->
+
 		<div class="CU">
 			<div class="CU-texte"> 
 				<dl>
@@ -595,7 +597,7 @@
 						<ol>
 							<li>Le Membre signale à l’Agent d’annuler son inscription à un cours ou à une consultation.</li>
 							<li>L’Agent démarre le Répertoire de Service (option #2 du menu principal).</li>
-							<li>L’Agent choisit l’option "Désinscrire un membre".</li>
+							<li>L’Agent choisit l’option (#3) "Désinscrire un membre".</li>
 							<li>L’Agent demande au Membre sa carte de membre et le code de service.</li>
 							<li>Le Membre donne les informations demandées.</li>
 							<li>L’Agent entre les informations dans le Système (numéro de Membre à 9 chiffres, code de service à 7 chiffres).</li>
@@ -620,7 +622,6 @@
 			</div>
 		</div>
 
-<!-- Ce CU (ouvrir les tourniquets) ne touche peut-être pas directement au Centre de Données -->
 		<div class="CU">
 			<div class="CU-texte"> 
 				<dl>
