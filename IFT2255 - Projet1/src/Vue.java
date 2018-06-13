@@ -446,14 +446,18 @@ public void menuRepertoireServices(){
 			menuRepertoireServices();
 			break;
 			
+		
 		case 5:
 			System.out.println("Veuillez entrer le code de la séance pour laquelle vous voulez confirmer votre présence");
 			Scanner scan5 = new Scanner(System.in);
 			int reponse = scan5.nextInt();
+			int user;
 			int compteur = 0;
+			
 			while(data.servicePosition(reponse) == -1) {
 				System.out.println("Le service tapé n'existe pas veuillez recommencer");
 				compteur++;
+				reponse = scan5.nextInt();
 				if(compteur >= 3) {
 					
 					System.out.println("trop d'essais, retour au répertoire des services");
@@ -461,8 +465,32 @@ public void menuRepertoireServices(){
 				}
 			}
 			
+			
+			System.out.println("Veuillez taper votre numéro de membre");
+			user = scan5.nextInt();
+			compteur = 0;
+			
+			while(data.membrePosition(user) == -1) {
+				System.out.println("Le numéro de membre est invalide, veuillez recommencer");
+				compteur++;
+				user = scan5.nextInt();
+				if(compteur >= 3) {
+					System.out.println("Trop d'essai, retour au répertoire de services");
+					menuRepertoireServices();
+				}
+			}
+			
+			Boolean estPresent = false;
+			Membre[] listeMembServ = data.getService()[data.servicePosition(reponse)].getListeMembre();
+			
+			for(int i = 0; i < listeMembServ.length;i++) {
+				if(user == listeMembServ[i].getNumeroMembre()) {
+					estPresent = true;
+				}
+			}
+			if(estPresent) {
 			System.out.println("Votre présence est confirmé pour le cours suivant" + 
-			data.serviceListe[data.servicePosition(reponse)].getTitre());
+			data.serviceListe[data.servicePosition(reponse)].getTitre());}
 			menuRepertoireServices();
 			break;
 		}
