@@ -1,5 +1,5 @@
+/CreateMembre.class
 /CreatePro.class
-/CreationService.class
 /DataCenter.class
 /GestionnaireMembre.class
 /GestionnaireMembreFindMembreByName.class
@@ -12,5 +12,12 @@
 /Membre.class
 /Personne.class
 /Pro.class
+/RepertoireServices.class
 /Service.class
 /Vue.class
+/CreationService.class
+/.gitignore
+/FindMembreByName.class
+/FindMembreByNum.class
+/ProFind.class
+/ServiceFourni.class
