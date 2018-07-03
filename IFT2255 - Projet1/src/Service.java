@@ -20,6 +20,12 @@ public class Service {
 	private int capaciteMax;
 	private static int compteur = 1000000;
 	private String commentaire;
+	
+	// Insérer ici l'attribut Séance[] listeSeance
+	// avec séance contenant le nom du prof, le numéro du cours, et les informations de dates...?
+	// [[Tennis : Prof A, Prof b...],[Médecine sportive : Prof c, Prof d...]...] 
+	// Le centre de données contiendra une liste de Service. Dans les services, il y aura ensuite une liste des séances possibles.
+	// public void addSeance(Pro enseignant, dates... heures...)
 
 	public Service(String titre, Pro enseignant, String dateDebut,
 			String dateFin, String heureDebut, String recurrence, int capaciteMax, String commentaire) {
@@ -40,7 +46,7 @@ public class Service {
 	public String membreService() {
 		String presentation = 
 				"\n\nTitre: " + this.titre + 
-				"\n" + "Enseignant: " + this.enseignant.getPrenom() 
+				"\n" + "Enseignant: " + this.enseignant.getNomComplet() 
 				+ "\nCode du cours: " + this.codeDuCours + 
 				"\n" + "Le cours débute le " + this.dateDebut + "\n"
 				+ "Le cours se termine le " + this.dateFin + 

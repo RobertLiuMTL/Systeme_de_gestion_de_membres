@@ -9,7 +9,6 @@ import java.util.Scanner;
  */
 public class GestionnaireMembre {
 	private DataCenter data;
-	Membre resultat = null;
 
 	public GestionnaireMembre(DataCenter data) {
 		this.data = data;
@@ -19,7 +18,7 @@ public class GestionnaireMembre {
 	 * Méthode pour créer un membre. Lance l'application de création située dans une
 	 * classe à part.
 	 */
-	public void gestionnaireAddMembre() {
+	public void addMembre() {
 		CreateMembre cm = new CreateMembre(data);
 	}
 
@@ -27,7 +26,7 @@ public class GestionnaireMembre {
 	 * Méthode pour rechercher un Membre Deux types de recherche sont disponibles :
 	 * Recherche par numéro Recherche par nom de famille
 	 */
-	public void gestionnaireFindMembre() {
+	public void findMembre() {
 
 		System.out.println("================================================================================");
 		System.out.println("=========================== Gestionnaire des Membres ===========================");
@@ -53,11 +52,11 @@ public class GestionnaireMembre {
 			data.vueGestionnaireMembre();
 		case 1:
 			System.out.println("Recherche par numéro de membre...");
-			GestionnaireMembreFindMembreByNum search = new GestionnaireMembreFindMembreByNum(data.getMembre());
+			FindMembreByNum search = new FindMembreByNum(data.getMembre());
 			break;
 		case 2:
 			System.out.println("Rechercher par nom de famille...");
-			GestionnaireMembreFindMembreByName searchName = new GestionnaireMembreFindMembreByName(data.getMembre());
+			FindMembreByName searchName = new FindMembreByName(data.getMembre());
 			break;
 		}
 
@@ -69,11 +68,11 @@ public class GestionnaireMembre {
 	 * 
 	 * @param liste
 	 */
-	public void gestionnaireAfficherAll(Membre[] liste) {
+	public void afficherAll(Membre[] liste) {
 		String resultatAll = "Voici la liste de tous les membres " + "inscrits au Centre Sportif #GYM : \n\n";
 
 		for (int i = 0; i < liste.length; i++) {
-			resultatAll += "*****************************************\n" + "Nom : " + liste[i].getPrenom() + "\n"
+			resultatAll += "*****************************************\n" + "Nom : " + liste[i].getNomComplet() + "\n"
 					+ "Numéro de membre : " + liste[i].getNumero() + "\n" + "Date de naissance : "
 					+ liste[i].getNaissance() + "\n" + "Adresse : " + liste[i].getAdresse() + "\n" + "Courriel : "
 					+ liste[i].getCourriel() + "\n" + "Numéro de téléphone : " + liste[i].getPhone() + "\n"
@@ -88,14 +87,14 @@ public class GestionnaireMembre {
 		for (int i = 0; i < liste.length; i++) {
 			if (liste[i].getNumero() == numero) {
 				liste[i].setSuspendu(true);
-				resultat = "Le membre " + liste[i].getPrenom() + " avec le numéro de membre " + numero
+				resultat = "Le membre " + liste[i].getNomComplet() + " avec le numéro de membre " + numero
 						+ " a été suspendu.";
 			}
 		}
 		return resultat;
 	}
 
-	public void gestionnaireModMembre() {
+	public void modifierMembre() {
 		System.out.println("================================================================================");
 		System.out.println("=========================== Gestionnaire des Membres ===========================");
 		System.out.println("=========================== Module de Modification==============================");
@@ -126,7 +125,7 @@ public class GestionnaireMembre {
 	}
 	public void moduleMod(Membre membre) {
 		System.out.println("================================================================================");
-		System.out.println("=========================== Le compte de " + membre.getPrenom() + "====");
+		System.out.println("=========================== Le compte de " + membre.getNomComplet() + "====");
 		System.out.println("=========================== Module de Modification==============================");
 		System.out.println("================================================================================");
 		System.out.println("Sélectionnez une option");

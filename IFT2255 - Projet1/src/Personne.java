@@ -24,7 +24,7 @@ public abstract class Personne {
 	 * getPrenom retourne le nom et le prénom!
 	 * @return Prenom + NomFamille
 	 */
-	public String getPrenom() {
+	public String getNomComplet() {
 		String resultat = this.prenom + " "+ this.nomFamille;
 		return resultat;
 	}

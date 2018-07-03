@@ -494,7 +494,7 @@ public class Vue {
 				System.out.println("La présence du Membre est confirmée pour le cours suivant : \n"
 						+ data.serviceListe[data.servicePosition(reponse)].getTitre() + "\n" + "Numéro du membre : "
 						+ user + "\n" + "Numéro du professionnel : "
-						+ data.serviceListe[data.servicePosition(reponse)].getEnseignant().getPrenom() + "\n"
+						+ data.serviceListe[data.servicePosition(reponse)].getEnseignant().getNomComplet() + "\n"
 						+ "Code du service : " + reponse + "\n" + "Commentaire : ");
 				try {
 					Thread.sleep(2000);

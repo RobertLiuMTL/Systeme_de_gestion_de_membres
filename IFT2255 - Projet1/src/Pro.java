@@ -29,4 +29,7 @@ public class Pro extends Personne{
 	public String getDiscipline() {
 		return this.discipline;
 	}
+	
+	//Est-ce que la liste de cours est sauvegardé dans chaque professionnel?
+	
 }

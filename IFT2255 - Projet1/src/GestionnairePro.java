@@ -8,7 +8,7 @@ public class GestionnairePro {
 	//Attributs du gestionnaire des professionnels
 	private DataCenter data;
 	
-	private GestionnaireProFind find = new GestionnaireProFind();
+	private ProFind find = new ProFind();
 
 	
 	public GestionnairePro(DataCenter data) {
@@ -45,7 +45,7 @@ public class GestionnairePro {
 	+ "inscrits au Centre Sportif #GYM : \n\n";
 
 		for (int i = 0; i < liste.length; i++) {
-			resultatAll += "*****************************************\n" + "Nom : " + liste[i].getPrenom() + "\n"
+			resultatAll += "*****************************************\n" + "Nom : " + liste[i].getNomComplet() + "\n"
 					+ "Numéro de Professionnel : " + liste[i].getNumero() + "\n" + "Date de naissance : "
 					+ liste[i].getNaissance() + "\n" + "Adresse : " + liste[i].getAdresse() + "\n" + "Courriel : "
 					+ liste[i].getCourriel() + "\n" + "Numéro de téléphone : " + liste[i].getPhone() + "\n"

@@ -162,21 +162,21 @@ public class DataCenter {
 	 * Accède à la fonction Ajouter un Membre du Gestionnaire
 	 */
 	public void gestionnaireAddMembre() {
-		gm.gestionnaireAddMembre();
+		gm.addMembre();
 	}
 	
 	/**Méthode pour passer au Gestionnaire des Membres
 	 * Accède à la fonction Rechercher un Membre du Gestionnaire des Membres
 	 */
 	public void gestionnaireFindMembre() {
-		gm.gestionnaireFindMembre();
+		gm.findMembre();
 	}
 	
 	/**Méthode pour passer au Gestionnaire des Membres
 	 * Accède à la fonction Afficher tous les Membres du Gestionnaire
 	 */
 	public void gestionnaireAfficherMembre() {
-		gm.gestionnaireAfficherAll(membersListe);
+		gm.afficherAll(membersListe);
 	}
 	
 	/**NON IMPLÉMENTÉE
@@ -184,7 +184,7 @@ public class DataCenter {
 	 * Accède à la fonction de mofication d'un compte de Membre.
 	 */
 	public void gestionnaireModMembre() {
-		gm.gestionnaireModMembre();
+		gm.modifierMembre();
 	}
 	
 	/**
@@ -467,7 +467,7 @@ public class DataCenter {
 		Membre[] listeMemb = serviceListe[servicePosition(codeDuService)].getListeMembre();
 		
 		for(int i = 0; i < listeMemb.length; i++) {
-			System.out.println(listeMemb[i].getPrenom());
+			System.out.println(listeMemb[i].getNomComplet());
 			}
 	
 		System.out.println(serviceListe[servicePosition(codeDuService)].membreService());
