@@ -26,7 +26,10 @@ public class Service {
 	// [[Tennis : Prof A, Prof b...],[Médecine sportive : Prof c, Prof d...]...] 
 	// Le centre de données contiendra une liste de Service. Dans les services, il y aura ensuite une liste des séances possibles.
 	// public void addSeance(Pro enseignant, dates... heures...)
-
+	//Partie en construction
+	Seance[] listeSeance;
+	/////////////////////////////////////////////////////////////////
+	
 	public Service(String titre, Pro enseignant, String dateDebut,
 			String dateFin, String heureDebut, String recurrence, int capaciteMax, String commentaire) {
 		this.titre = titre;

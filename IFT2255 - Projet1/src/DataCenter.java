@@ -20,7 +20,7 @@ public class DataCenter {
 
 	//Les attributs de la Base de Données
 	Membre [] membersListe = new Membre[3];
-	Pro [] proListe = new Pro[2];
+	static Pro [] proListe = new Pro[2];
 	Service [] serviceListe = new Service[2];
 	Vue vue = new Vue(this);
 	
@@ -80,8 +80,8 @@ public class DataCenter {
 	 * Retourne la liste des professionnels contenue dans la Base de données
 	 * @return
 	 */
-	public Pro[] getPro() {
-		return this.proListe;
+	public static Pro[] getPro() {
+		return proListe;
 	}
 	
 	/**
