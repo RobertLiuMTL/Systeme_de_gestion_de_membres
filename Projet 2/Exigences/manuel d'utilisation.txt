@@ -1,0 +1,78 @@
+La première page que vous verrez dans le programme sera le menu principal.
+ce menu contient 4 options:
+	0 fermez le programme 								
+		 Cet option ferme le programme.
+	1 Centre de données
+		 Cet option ouvre le centre de données. 
+	2 répertoire de services
+		 Cet option vous permet de faire différentes actions sur les services.
+	3 identification du membre ou professionnel
+		 Cet option vous permet d'identifier le membre ou professionnel.
+		 
+1) Lorsque vous entrez dans le centre de données vous avez trois choix.
+	1.0) Retournez au menu principal.
+			Cet option vous ramène au menu principal.
+	1.1) Gestionnaire des Membres
+			Cet option vous permet de gérer les membres.
+	1.2) Gestionnaire des professionnels
+			Cet option vous permet de gérer les professionnels.
+
+2) Lorsque vous entrez dans le répertoire des services vous avez 5 choix
+	2.0) Retour au menu principal
+			Cet option vous permet de revenir au menu principal.
+	2.1) Voir les services offerts
+			Cet option vous permet de visualiser tout les services offerts par le #GYM et de vous y inscrire.
+	2.2) Créer un nouveau service		
+			Cet option vous permet de créer un nouveau service en entrant  toute les informations  
+			demandées par le programme.
+	2.3) Désinscrire un membre 		
+			Cet option vous permet de désinscrire un membre d'une activité.
+	2.4) Annuler une séance. 
+			Cet option vous permet d'annuler une séance.
+	2.5) Confirmer sa présence	
+			Cet option permet de confirmer ça présence à une séance.
+	2.6) Consulter les inscriptions.
+			Cet option vous permet de consulter les inscriptions à une séance.
+
+3)  Choisir cette option vous demandera de rentrer le numéro du memebre ou du professionnel 
+	à identifier et écrira ensuite "validé"  ou "invalide".
+	
+1.1)Losrque vous êtes dans le gestionnaire des membres vous avez 6 options
+	
+	1.1.0) Retour au centre de données
+				Cet option vous retourne au menu du centre de données
+	1.1.1)	Créer un nouveau membre	
+				Cet option vous permet de créer un nouveau membre en entrant les informations demandées 
+				par le système.
+	1.1.2)	Rechercher un membre
+				Cet option permet de rechercher un membre par son numéro ou  son nom.
+	1.1.3)	Afficher tous les membres
+				Cet option vous permet de visualiser tous les membres.
+	1.1.4)	Modifier un membre
+				Cet option permet de modifier les données d'un membre.
+	1.1.5)	Suspendre un membre 
+				cet option permet à l'utilisateur de suspendre un membre.
+			
+1.2)Losque vous êtes dans le gestionnaire des professionnels vous avez 4 options 
+
+	1.2.0) Retour au centre de données
+				Cet option vous retourne au centre de données.
+	1.2.1) Créer un nouveau professionnel
+				Cet option vous permet de créer un nouveau professionnel en entrant les informations demandées 
+				par le système.
+	1.2.2)  Rechercher un professionnel 
+				Cet option permet de faire la recherche d'un professionnel par son numéro de membre.
+	1.2.3)	Afficher tous les professionnels
+				Cet option permet de visualiser tous les professionnels inscrits au #GYM. 
+1.1.4)Après avoir entré le numéro du membre que vous voulez modifier vous aurez plusieurs options.
+
+	1.1.4.0) Pour quitter le module de modification
+				Cet option permet de retourner au menu précédent.
+	1.1.4.1) Modifier l'adresse porstale
+				Cet option permet de changer l'adresse postale du membre.
+	1.1.4.2) Modifier le numéro de téléphone
+				Cet option permet de changer le numéro de téléphone du membre.
+	1.1.4.3) Modifier l'adresse courriel
+				Cet option permet de changer l'adresse courriel du membre.
+	1.1.4.4)Ajouter un commentaire
+				Cet option permet d'ajouter un commentaire au dossier du membre.
