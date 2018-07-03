@@ -34,9 +34,6 @@ public class Membre extends Personne{
 	 */
 	public void ajouterSolde(int montant) {
 		this.facture+= montant;
-		if (facture>=50) {
-			this.suspendu= true;
-		}
 	}
 	
 	/**
@@ -58,7 +55,7 @@ public class Membre extends Personne{
 		if(facture< 50) {
 			this.suspendu=false;
 		}else {
-			System.out.println("Le compte est toujours en souffrance. Un montant de : " + facture + " est dû.");
+			System.out.println("Le compte est en souffrance. Un montant de : " + facture + " est dû.");
 		}
 	}
 	

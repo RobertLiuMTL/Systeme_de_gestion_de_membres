@@ -11,7 +11,7 @@ public class Seance {
 	 * Les attributs de la classe Séance. La capacité maximale est de 30 membres.
 	 */
 	private Pro enseignant;
-	private int prix;
+	private int prix =0;
 	private int capaciteMax;
 	private int capaciteDispo = 30;
 
@@ -121,6 +121,7 @@ public class Seance {
 		}else {
 			//30 - capacité disponible = l'emplacement dans le Array.
 			listeMembre[30-capaciteDispo]=membre;
+			membre.ajouterSolde(prix);
 		}
 	}
 	
