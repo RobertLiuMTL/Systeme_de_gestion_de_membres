@@ -1,4 +1,4 @@
-import java.util.Scanner;
+Pimport java.util.Scanner;
 
 /**
  * La classe Séance contient une liste des membres inscrits.
@@ -125,5 +125,19 @@ public class Seance {
 		}
 	}
 	
+	/**
+	 * Méthode pour désinscrire un Membre à la séance.
+	 */
+	public void desinscrireMembre(int numeroMembre) {
+		
+	}
+	
+	/**
+	 * Méthode qui affiche les membres inscrits à la présente séance.
+	 */
+	public String afficherInscription() {
+		String resultat = "";
+		return resultat;
+	}
 	
 }
