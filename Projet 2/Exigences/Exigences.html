@@ -42,33 +42,55 @@
 
 	<div class="principale">
 		<p>Le masculin est employé dans le texte à des fins de simplification.</p>
+		<h2>Tâche 0 - Les hypothèses de notre travail</h2>
+		<ol>
+			<li>Étant donné que nous n'avons pas reçu les corrections pour le Projet #1, nous faisons l'hypothèse que la structure de notre JAVA répond aux exigences et avons poursuivi le projet en ajoutant les fonctionalités demandées dans le code existant.</li>
+
+			<li>Certaines fonctions dans le code JAVA ne permettent pas à l'utilisateur d'abandonner l'action courante. Nous faisons l'hypothèse que le #GYM demande à ses employés de démarrer une procédure uniquement s'ils ont l'intention de la mener à terme.</li>
+			
+			<li>Nous faisons l'hypothèse que les membres et professionnels partagent la même banque de numéro à 9 chiffres (Et qu'il n'y a donc pas d'identifiant spécifique).</li>
+
+			<li>Nous avons pour hypothèse que les professionnels ne sont pas des membres.</li>
+
+		</ol>
+	</div>
+
+	<div class="principale">
+		<h2>Tâche 0.5 - Diagramme de CU (modifié)</h2>
+		<a class="lienDL" href="diagrammeCU.png"><img class="grandeImage" src="diagrammeCU.png"></a>
+		<a class="lienDL" href="../DiagrammedeCU.vpp">Lien pour télécharger Diagramme des CU UML (Visual Paradigm est requis)</a>	
+	</div>
+
+	<div class="principale">
 		<h2>Tâche 1 - Analyse</h2>
 
 		<dl>
 			<dt>Quelles parties seront informatisées?</dt>
-			<dd>Les systèmes de gestion des membres et professionnels. Le système de gestion des services. Finalement, et non le moindre, le système de facturation.</dd>
+			<dd>Le système de gestion des membres et professionnels. Le système de gestion des services. Finalement, et non le moindre, le système de facturation : frais mensuels, frais de service, procédure comptable.</dd>
 
 			<dt>Où seront stockées les données?</dt>
-			<dd>Les données seront stockées dans des fichiers.</dd>
+			<dd>Les données seront stockées à l'interne et dans des fichiers.</dd>
 
 			<dt>Quel matériel sera nécessaire?</dt>
-			<dd>Des ordinateurs. Un lecteur de carte de membres. Des lecteurs pour paiement (interac, crédit)</dd>
+			<dd>Des ordinateurs, des disques durs en capacité suffisante et une connexion internet.</dd>
 
 			<dt>Comment le système #GYM que vous développez interagira avec les autres sytèmes?</dt>
-			<dd>Notre système incorporera un lecteur de carte de membre pour l'authentification. Les systèmes seront également connectés à un réseau et interagiront avec RnB pour les services comptables.</dd>
+			<dd>Le système #GYM sera connecté à un réseau local pour le partage des dossiers et interagira avec les systèmes de RnB, une entreprise tierce, pour les services comptables.</dd>
 
 			<dt>Comment les utilisateurs interagiront avec le système?</dt>
-			<dd>Avec l'interface-utilisateur</dd>
+			<dd>Avec l'interface-utilisateur en lignes de commande. Pour l'instant, seul l'employé interagit avec le logiciel.</dd>
 		</dl>
 	</div>
 
 	<div class="principale">
 		<h2>Tâche 2 - Diagramme d'activité UML</h2>
-		<a class="lienDL" href="">Lien pour télécharger Diagramme d'Activités UML d'utilisation (Visual Paradigm est requis)</a>
+		<a class="lienDL" href="">Lien pour télécharger Diagramme d'Activités UML(Visual Paradigm est requis)</a>
 	</div>
 
 	<div class="principale">
 		<h2>Tâche 3 - Diagramme de classe UML</h2>
+		<a class="lienDL" href="diagrammeClasses.png"><img class="grandeImage" src="diagrammeClasses.png"></a>
+		<a class="lienDL" href="../diagrammeClasses.vpp">Lien pour télécharger le fichier de Diagramme de Classes.vpp</a>
 			
 	</div>
 
@@ -99,45 +121,45 @@
 			</tr>
 
 			<tr>
-				<th>Glossaire</th>
-				<th>40%</th>
-				<th>20%</th>
-				<th>40%</th>
-			</tr>
-
-			<tr>
-				<th>Diagramme des cas d'utilisation</th>
-				<th>30%</th>
-				<th>20%</th>
-				<th>50%</th>
-			</tr>
-
-			<tr>
-				<th>Cas d'utilisation</th>
-				<th>CU des Membres. 50%</th>
-				<th>CU liés aux services. Manuel d'utilisateur. 25%</th>
-				<th>CU des Professionnels. 25%</th>
-			</tr>
-
-			<tr>
-				<th>Risques</th>
+				<th>Description du système opérationnel et manuel utilisateur</th>
 				<th>0%</th>
-				<th>100%</th>
-				<th>0%</th>
-			</tr>
-
-			<tr>
-				<th>Exigences non-fonctionnelles</th>
-				<th>100%</th>
 				<th>0%</th>
 				<th>0%</th>
 			</tr>
 
 			<tr>
-				<th>Prototype</th>
-				<th>UI, Gestionnaire des Membres, Centre de Données, Structure générale du JAVA, Vue, Contrôleur. 40%</th>
-				<th>Répertoire des Services, Débogage, JavaDoc. 30%</th>
-				<th>Répertoire des services, Gestionnaire des professionnels. 30%</th>
+				<th>Modifications au Diagramme des cas d'utilisation</th>
+				<th>0%</th>
+				<th>0%</th>
+				<th>0%</th>
+			</tr>
+
+			<tr>
+				<th>Diagrammes d'activité UML(x6)[30%]</th>
+				<th>10%</th>
+				<th>10%</th>
+				<th>80%</th>
+			</tr>
+
+			<tr>
+				<th>Diagramme de classes UML[20%]</th>
+				<th>80%</th>
+				<th>10%</th>
+				<th>10%</th>
+			</tr>
+
+			<tr>
+				<th>Diagrammes de séquence UML(x5)[25%]</th>
+				<th>0%</th>
+				<th>0%</th>
+				<th>0%</th>
+			</tr>
+
+			<tr>
+				<th>Prototype Java [15%]</th>
+				<th>0%</th>
+				<th>0%</th>
+				<th>0%</th>
 			</tr>
 		</table>
 	</div>
