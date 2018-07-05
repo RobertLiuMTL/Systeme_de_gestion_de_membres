@@ -1,4 +1,4 @@
-Pimport java.util.Scanner;
+import java.util.Scanner;
 
 /**
  * La classe Séance contient une liste des membres inscrits.
@@ -116,7 +116,7 @@ public class Seance {
 	 */
 	public void inscrireMembre(Membre membre) {
 		if(capaciteDispo ==0) {
-			System.out.println("Désolé, la séanece est complète. "
+			System.out.println("Désolé, la séance est complète. "
 					+ "Veuillez choisir une autre séance");
 		}else {
 			//30 - capacité disponible = l'emplacement dans le Array.
@@ -129,14 +129,40 @@ public class Seance {
 	 * Méthode pour désinscrire un Membre à la séance.
 	 */
 	public void desinscrireMembre(int numeroMembre) {
+		Membre[] temporaire = new Membre[30];
+		int positionMembre = -1;
 		
+		for(int i = 0; i < 30; i++){
+			if(listeMembre[i].getNumeroMembre() == numeroMembre) {
+			positionMembre = i;	
+			}
+		}
+		for(int i = 0; i < positionMembre; i++ ) {
+		
+				temporaire[i] = listeMembre[i];
+		}
+		for(int i = positionMembre + 1; i < listeMembre.length; i++){
+			
+				temporaire[i-1] = listeMembre[i];
+		}
+		listeMembre = temporaire;
+		
+		capaciteDispo++;
 	}
 	
 	/**
 	 * Méthode qui affiche les membres inscrits à la présente séance.
 	 */
 	public String afficherInscription() {
+		
 		String resultat = "";
+		
+		
+		for(int i = 0; i < 30 - capaciteDispo; i++ ) {
+			resultat += listeMembre[i].getNomComplet() + "\n";
+			
+		}
+		
 		return resultat;
 	}
 	
