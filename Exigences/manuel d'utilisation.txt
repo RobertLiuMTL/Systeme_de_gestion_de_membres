@@ -35,7 +35,8 @@ ce menu contient 4 options:
 			Cet option permet de confirmer ça présence à une séance.
 	2.6) Consulter les inscriptions.
 			Cet option vous permet de consulter les inscriptions à une séance.
-
+	2.7)Modifier les services
+			Cet option vous permet de modifer un service.
 3)  Choisir cette option vous demandera de rentrer le numéro du memebre ou du professionnel 
 	à identifier et écrira ensuite "validé"  ou "invalide".
 
@@ -73,6 +74,18 @@ ce menu contient 4 options:
 				Cet option permet de faire la recherche d'un professionnel par son numéro de membre.
 	1.2.3)	Afficher tous les professionnels
 				Cet option permet de visualiser tous les professionnels inscrits au #GYM. 
+2.7)Vous avez le choix entre 5 actions.
+	
+	2.7.0) Quitter le module
+				Cette option retourne l'utilisateur au menu principale.
+	2.7.1) Modifier l'adresse postale 
+				Cette option modifie l'adresse postale.
+	2.7.2) Modifier le numéro de téléphone
+				Cette option modifie le numéro de téléphone.
+	2.7.3) Modifie l'adresse courriel
+				Cette option modifie l'adresse courriel. 
+	2.7.4) Ajouter un commentaire
+				Cette option ajoute un commentaire.
 1.1.4)Après avoir entré le numéro du membre que vous voulez modifier vous aurez plusieurs options.
 
 	1.1.4.0) Pour quitter le module de modification
