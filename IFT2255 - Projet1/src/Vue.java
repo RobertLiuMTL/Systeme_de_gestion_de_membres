@@ -50,7 +50,12 @@ public class Vue {
 		System.out.println("[0]     Fermer le SystÃ¨me \n");
 		System.out.println("[1]     Centre de DonnÃ©es \n");
 		System.out.println("[2]     RÃ©pertoire des Services \n");
+<<<<<<< HEAD
 		//System.out.println("[3]     Identification du Membre ou Professionnel \n");
+=======
+		System.out.println("[3]     Identification du Membre ou Professionnel \n");
+		System.out.println("[4]     procédure comptable \n");
+>>>>>>> 48abaa8ebc3c1c6b0447efcbbb8226094265532f
 		Scanner sc = new Scanner(System.in);
 
 		// Boucle while qui vÃ©rifie que l'entrÃ©e est un Integer.
@@ -60,7 +65,7 @@ public class Vue {
 		}
 		int input = sc.nextInt();
 
-		while (input != 1 && input != 2 && input != 0 && input != 3) {
+		while (input != 1 && input != 2 && input != 0 && input != 3 && input != 4) {
 			System.out.println("SVP, faites un choix valide.");
 			input = sc.nextInt();
 		}
@@ -107,6 +112,9 @@ public class Vue {
 				e.printStackTrace();
 			}
 			menuPrincipal();
+			break;
+		case 4:
+			menuComptable();
 			break;
 		}
 
@@ -595,5 +603,37 @@ public class Vue {
 			break;
 
 		}
-	}
+		public void menuComptable(){
+			System.out.println("================================================================================");
+			System.out.println("=========================== Procédure comptable =================================");
+			System.out.println("================================================================================");
+			System.out.println("\n");
+			System.out.println("Sélectionnez une option");
+			System.out.println("[0]     Quitter la procédure comptable \n");
+			System.out.println("[1]     Générer les enregistrments TEF \n");
+			System.out.println("[2]     Produire un rapport de synthèse \n");
+			
+			Scanner sc4 = new Scanner(System.in);
+		
+			while (!sc4.hasNextInt()) {
+				System.out.println("Svp, entrez un numéro");
+				sc4.next();
+			}
+			int input4 = sc4.nextInt();
+
+			while (input4 != 1 && input4 != 2 && input4 != 0) {
+				System.out.println("SVP, faites un choix valide.");
+				input4 = sc4.nextInt();
+			}
+
+			switch (input4) {
+
+			case 0:
+				System.out.println("Retour au Menu Principal");
+				accueil();
+				break;
+			case 1:
+				//data.
+			case 2:
+				//data.}
 }
