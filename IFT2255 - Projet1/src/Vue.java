@@ -621,7 +621,7 @@ public class Vue {
 		}
 		int input4 = sc4.nextInt();
 
-		while (input4 != 1 && input4 != 2 && input4 != 0) {
+		while (input4 != 1 && input4 != 2 && input4!=3 && input4 != 0) {
 			System.out.println("SVP, faites un choix valide.");
 			input4 = sc4.nextInt();
 		}
@@ -638,6 +638,10 @@ public class Vue {
 			break;
 		case 2:
 			Comptable.rapportSemaine();
+			menuComptable();
+			break;
+		case 3:
+			Comptable.rapportJour();
 			menuComptable();
 			break;
 		}
