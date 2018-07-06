@@ -1,4 +1,4 @@
-Pimport java.util.Scanner;
+import java.util.Scanner;
 
 /**
  * La classe Séance contient une liste des membres inscrits.
