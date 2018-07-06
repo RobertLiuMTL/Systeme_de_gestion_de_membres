@@ -11,4 +11,12 @@ public class TEF {
 		this.numeroPro = numeroPro;
 		this.nombreInscrit= nombreInscrit;
 	}
+	//methode qui reste a completer
+	public String representationTEF() {
+		String representation = "";
+		
+		
+		return representation;
+	}
+	
 }
