@@ -1,4 +1,4 @@
-La première page que vous verrez dans le programme sera le menu principal.
+﻿La première page que vous verrez dans le programme sera le menu principal.
 ce menu contient 4 options:
 	0 fermez le programme 								
 		 Cet option ferme le programme.
@@ -8,6 +8,8 @@ ce menu contient 4 options:
 		 Cet option vous permet de faire différentes actions sur les services.
 	3 identification du membre ou professionnel
 		 Cet option vous permet d'identifier le membre ou professionnel.
+	4 procédure comptable
+		Cet option permet d'effectuer la comptabilité du centre.
 		 
 1) Lorsque vous entrez dans le centre de données vous avez trois choix.
 	1.0) Retournez au menu principal.
@@ -36,7 +38,13 @@ ce menu contient 4 options:
 
 3)  Choisir cette option vous demandera de rentrer le numéro du memebre ou du professionnel 
 	à identifier et écrira ensuite "validé"  ou "invalide".
-	
+
+4) Lorsque vous entrez dans le menu vous avez deux choix
+	4.0)Générer les enregistrements TEF
+				Génère le rapport TEF.
+	4.1)Produire un rapport de synthèse
+				Génère le rapport de synthèse				
+
 1.1)Losrque vous êtes dans le gestionnaire des membres vous avez 6 options
 	
 	1.1.0) Retour au centre de données
@@ -52,7 +60,8 @@ ce menu contient 4 options:
 				Cet option permet de modifier les données d'un membre.
 	1.1.5)	Suspendre un membre 
 				cet option permet à l'utilisateur de suspendre un membre.
-			
+	1.1.6)  Suppimer un membre
+				Cet option supprime un membre.
 1.2)Losque vous êtes dans le gestionnaire des professionnels vous avez 4 options 
 
 	1.2.0) Retour au centre de données
@@ -76,3 +85,8 @@ ce menu contient 4 options:
 				Cet option permet de changer l'adresse courriel du membre.
 	1.1.4.4)Ajouter un commentaire
 				Cet option permet d'ajouter un commentaire au dossier du membre.
+4.1.1)Choisir entre individuel et hebdomadaire
+	4.1.1.0)individuel
+				Choisit la synthèse individuel
+	4.1.1.0)habdomadaire
+				choisit la synthèse habdomadaire
