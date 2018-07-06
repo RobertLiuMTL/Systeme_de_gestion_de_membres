@@ -29,6 +29,8 @@ public class Comptable {
 		System.out.println("nb total professionel: 2"
 						  +"\n"+ "nb total Services: 2 +\n"
 						  +"Montant total à payer: 150$");
+		
+		envoyerRapportGerant("BigBoss@gym.com");
 	}
 	
 	public static void rapportJour() {
@@ -42,6 +44,12 @@ public class Comptable {
 		System.out.println("nb total professionel: 2"
 						  +"\n"+ "nb total Services: 2 +\n"
 						  +"Montant total à payer: 150$");
+		
+		envoyerRapportGerant("BigBoss@gym.com");
+	}
+	
+	public static void envoyerRapportGerant(String email) {
+		System.out.println("Le rapport Hebdo a été envoyé à "+ email);
 	}
 	
 }
