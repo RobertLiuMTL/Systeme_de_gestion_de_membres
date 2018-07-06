@@ -50,8 +50,8 @@ public class Vue {
 		System.out.println("[0]     Fermer le Système \n");
 		System.out.println("[1]     Centre de Données \n");
 		System.out.println("[2]     Répertoire des Services \n");
-		//System.out.println("[3]     Identification du Membre ou Professionnel \n");
-		System.out.println("[4]     proc�dure comptable \n");
+		System.out.println("[3]     Identification du Membre ou Professionnel \n");
+		System.out.println("[4]     procédure comptable \n");
 		Scanner sc = new Scanner(System.in);
 
 		// Boucle while qui vérifie que l'entrée est un Integer.
@@ -203,7 +203,7 @@ public class Vue {
 		int input2 = sc2.nextInt();
 
 		// Boucle qui vérifie que l'integer est une des option.
-		while (input2 != 1 && input2 != 2 && input2 != 0 && input2 != 3 && input2 != 4 && input2 != 5 && input2!=6) {
+		while (input2 != 1 && input2 != 2 && input2 != 0 && input2 != 3 && input2 != 4 && input2 != 5 && input2 != 6) {
 			System.out.println("SVP, faites un choix valide.");
 			input2 = sc2.nextInt();
 		}
@@ -274,7 +274,7 @@ public class Vue {
 
 			accueilGestionnaireMembre();
 			break;
-			
+
 		case 6:
 			System.out.println("Ouverture du module de supression de Membre...");
 			System.out.println("Veuillez entrer le numéro à 9 chiffres du Membre à suspendre");
@@ -394,6 +394,7 @@ public class Vue {
 		System.out.println("[4]     Annuler une séance   \n");
 		System.out.println("[5]     Confirmer sa  présence \n");
 		System.out.println("[6]     Consulter inscriptions \n");
+		System.out.println("[7]     Modifier Service\n");
 
 		Scanner sc2 = new Scanner(System.in);
 		// Boucle while qui vérifie que l'entrée est un Integer.
@@ -403,7 +404,8 @@ public class Vue {
 		}
 		int input2 = sc2.nextInt();
 
-		while (input2 != 1 && input2 != 2 && input2 != 0 && input2 != 3 && input2 != 4 && input2 != 5 && input2 != 6) {
+		while (input2 != 1 && input2 != 2 && input2 != 0 && input2 != 3 && input2 != 4 && input2 != 5 && input2 != 6
+				&& input2 != 7) {
 			System.out.println("SVP, faites un choix valide.");
 			input2 = sc2.nextInt();
 		}
@@ -496,8 +498,8 @@ public class Vue {
 			break;
 
 		case 5:
-			System.out
-					.println("Veuillez entrer le code de la séance (7 chiffres) pour laquelle vous voulez confirmer la présence du Membre");
+			System.out.println(
+					"Veuillez entrer le code de la séance (7 chiffres) pour laquelle vous voulez confirmer la présence du Membre");
 			sc2 = new Scanner(System.in);
 			while (!sc2.hasNextInt()) {
 				System.out.println("Svp, entrez un numéro");
@@ -552,9 +554,9 @@ public class Vue {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-			}else {
-				System.out.println("Le Membre : "+ user + " n'est pas inscrit au cours : "
-						+data.serviceListe[data.servicePosition(reponse)].getTitre() );
+			} else {
+				System.out.println("Le Membre : " + user + " n'est pas inscrit au cours : "
+						+ data.serviceListe[data.servicePosition(reponse)].getTitre());
 				try {
 					Thread.sleep(2000);
 				} catch (InterruptedException e) {
@@ -573,20 +575,16 @@ public class Vue {
 				sc2.next();
 			}
 			int numbCours6 = sc2.nextInt();
-			
-			
-			/* Code retiré
-			 * int compteur6 = 0;
-			while (data.servicePosition(numbCours6) == -1) {
-				System.out.println("Le numéro de membre est invalide, veuillez recommencer");
-				compteur6++;
-				numbCours6 = sc2.nextInt();
-				if (compteur6 >= 3) {
-					System.out.println("Trop d'essai, retour au répertoire de services");
-					menuRepertoireServices();
-				}
-			}*/
-			
+
+			/*
+			 * Code retiré int compteur6 = 0; while (data.servicePosition(numbCours6) == -1)
+			 * {
+			 * System.out.println("Le numéro de membre est invalide, veuillez recommencer");
+			 * compteur6++; numbCours6 = sc2.nextInt(); if (compteur6 >= 3) {
+			 * System.out.println("Trop d'essai, retour au répertoire de services");
+			 * menuRepertoireServices(); } }
+			 */
+
 			data.consulterInscription(numbCours6);
 			System.out.println("Retour au répertoire des services");
 			try {
@@ -597,42 +595,47 @@ public class Vue {
 			}
 			menuRepertoireServices();
 			break;
+		case 7:
+			data.gestionnaireModService();
+			menuRepertoireServices();
+			break;
 		}
 
+	}
+
+	public void menuComptable() {
+		System.out.println("================================================================================");
+		System.out.println("=========================== Procédure comptable =================================");
+		System.out.println("================================================================================");
+		System.out.println("\n");
+		System.out.println("Sélectionnez une option");
+		System.out.println("[0]     Quitter la procédure comptable \n");
+		System.out.println("[1]     Générer les enregistrments TEF \n");
+		System.out.println("[2]     Produire un rapport de synthèse \n");
+
+		Scanner sc4 = new Scanner(System.in);
+
+		while (!sc4.hasNextInt()) {
+			System.out.println("Svp, entrez un numéro");
+			sc4.next();
 		}
-		public void menuComptable(){
-			System.out.println("================================================================================");
-			System.out.println("=========================== Procédure comptable =================================");
-			System.out.println("================================================================================");
-			System.out.println("\n");
-			System.out.println("Sélectionnez une option");
-			System.out.println("[0]     Quitter la procédure comptable \n");
-			System.out.println("[1]     Générer les enregistrments TEF \n");
-			System.out.println("[2]     Produire un rapport de synth�se \n");
-			
-			Scanner sc4 = new Scanner(System.in);
-		
-			while (!sc4.hasNextInt()) {
-				System.out.println("Svp, entrez un numéro");
-				sc4.next();
-			}
-			int input4 = sc4.nextInt();
+		int input4 = sc4.nextInt();
 
-			while (input4 != 1 && input4 != 2 && input4 != 0) {
-				System.out.println("SVP, faites un choix valide.");
-				input4 = sc4.nextInt();
-			}
-
-			switch (input4) {
-
-			case 0:
-				System.out.println("Retour au Menu Principal");
-				accueil();
-				break;
-			case 1:
-				//data.
-			case 2:
-				//data.}
-			}
+		while (input4 != 1 && input4 != 2 && input4 != 0) {
+			System.out.println("SVP, faites un choix valide.");
+			input4 = sc4.nextInt();
 		}
+
+		switch (input4) {
+
+		case 0:
+			System.out.println("Retour au Menu Principal");
+			accueil();
+			break;
+		case 1:
+			// data.
+		case 2:
+			// data.
+		}
+	}
 }
