@@ -633,9 +633,13 @@ public class Vue {
 			accueil();
 			break;
 		case 1:
-			// data.
+			Comptable.generateTEF();
+			menuComptable();
+			break;
 		case 2:
-			// data.
+			Comptable.rapportSemaine();
+			menuComptable();
+			break;
 		}
 	}
 }
