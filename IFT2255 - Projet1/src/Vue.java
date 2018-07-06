@@ -50,7 +50,7 @@ public class Vue {
 		System.out.println("[0]     Fermer le Système \n");
 		System.out.println("[1]     Centre de Données \n");
 		System.out.println("[2]     Répertoire des Services \n");
-		System.out.println("[3]     Identification du Membre ou Professionnel \n");
+		//System.out.println("[3]     Identification du Membre ou Professionnel \n");
 		Scanner sc = new Scanner(System.in);
 
 		// Boucle while qui vérifie que l'entrée est un Integer.
@@ -186,6 +186,7 @@ public class Vue {
 		System.out.println("[3]     Afficher tous les Membres \n");
 		System.out.println("[4]     Modifier un Membre \n");
 		System.out.println("[5]     Suspendre un Membre \n");
+		System.out.println("[6]     Supprimer un Membre \n");
 
 		Scanner sc2 = new Scanner(System.in);
 
@@ -198,7 +199,7 @@ public class Vue {
 		int input2 = sc2.nextInt();
 
 		// Boucle qui vérifie que l'integer est une des option.
-		while (input2 != 1 && input2 != 2 && input2 != 0 && input2 != 3 && input2 != 4 && input2 != 5) {
+		while (input2 != 1 && input2 != 2 && input2 != 0 && input2 != 3 && input2 != 4 && input2 != 5 && input2!=6) {
 			System.out.println("SVP, faites un choix valide.");
 			input2 = sc2.nextInt();
 		}
@@ -245,6 +246,51 @@ public class Vue {
 				}
 				if (reponse == 'y') {
 					System.out.println(data.gestionnaireSuspendMembre(numero));
+				}
+				if (reponse == 'n') {
+					System.out.println("Retour au au menu Gestionnaire de Membres...");
+				}
+
+				try {
+					Thread.sleep(2000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			} else {
+				System.out.println("Le numéro de membre entré : " + numero + " est invalide");
+
+				try {
+					Thread.sleep(1500);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+
+			accueilGestionnaireMembre();
+			break;
+			
+		case 6:
+			System.out.println("Ouverture du module de supression de Membre...");
+			System.out.println("Veuillez entrer le numéro à 9 chiffres du Membre à suspendre");
+			sc2 = new Scanner(System.in);
+			while (!sc2.hasNextInt()) {
+				System.out.println("SVP, entrez un numéro à 9 chiffres");
+				sc2.next();
+			}
+			numero = sc2.nextInt();
+			if (data.identifierBool(numero)) {
+				System.out.println("Êtes-vous certain de vouloir supprimer " + numero
+						+ " ?\nEntrez 'y' pour suspendre.\nEntrez 'n' pour quitter.");
+				char reponse = sc2.next().charAt(0);
+				while (reponse != 'y' && reponse != 'n') {
+					System.out.println("SVP, faites un choix valide.");
+					reponse = sc2.next().charAt(0);
+				}
+				if (reponse == 'y') {
+					data.gestionnaireSupMembre(numero);
+					System.out.println("Le membre a été supprimé");
 				}
 				if (reponse == 'n') {
 					System.out.println("Retour au au menu Gestionnaire de Membres...");

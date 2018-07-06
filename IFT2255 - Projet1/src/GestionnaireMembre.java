@@ -21,6 +21,26 @@ public class GestionnaireMembre {
 	public void addMembre() {
 		CreateMembre cm = new CreateMembre(data);
 	}
+	
+	/**
+	 * Méthode pour supprimner un membre. Prend le numéro du Membre et performe une
+	 * recherche avec une boucle FOR.
+	 * Une liste temporaire -1 est créée pour remplacer l'ancienne liste.
+	 * @param numero
+	 */
+	public void suppMembre(int numero) {
+		Membre[]temp = new Membre[data.getMembre().length-1];
+		int j = 0;
+		for (int i = 0; i<data.getMembre().length;i++) {
+			if(data.getMembre()[i].getNumero() == numero) {
+				
+			}else {
+				temp[j]=data.getMembre()[i];
+				j++;
+			}
+		}
+		data.membersListe=temp;
+	}
 
 	/**
 	 * Méthode pour rechercher un Membre Deux types de recherche sont disponibles :

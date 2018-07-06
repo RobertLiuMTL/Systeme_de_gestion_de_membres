@@ -200,6 +200,10 @@ public class DataCenter {
 		return gm.suspendMembre(getMembre(), numero);
 
 	}
+	
+	public void gestionnaireSupMembre(int numero) {
+		gm.suppMembre(numero);
+	}
 
 	
 	
