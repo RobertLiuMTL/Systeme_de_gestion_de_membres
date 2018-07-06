@@ -50,12 +50,8 @@ public class Vue {
 		System.out.println("[0]     Fermer le SystÃ¨me \n");
 		System.out.println("[1]     Centre de DonnÃ©es \n");
 		System.out.println("[2]     RÃ©pertoire des Services \n");
-<<<<<<< HEAD
 		//System.out.println("[3]     Identification du Membre ou Professionnel \n");
-=======
-		System.out.println("[3]     Identification du Membre ou Professionnel \n");
-		System.out.println("[4]     procédure comptable \n");
->>>>>>> 48abaa8ebc3c1c6b0447efcbbb8226094265532f
+		System.out.println("[4]     procï¿½dure comptable \n");
 		Scanner sc = new Scanner(System.in);
 
 		// Boucle while qui vÃ©rifie que l'entrÃ©e est un Integer.
@@ -289,7 +285,7 @@ public class Vue {
 			}
 			numero = sc2.nextInt();
 			if (data.identifierBool(numero)) {
-				System.out.println("ÃŠtes-vous certain de vouloir supprimer " + numero
+				System.out.println("ÃŠtes-vous certain de vouloir supprimer le membre avec le numÃ©ro : " + numero
 						+ " ?\nEntrez 'y' pour suspendre.\nEntrez 'n' pour quitter.");
 				char reponse = sc2.next().charAt(0);
 				while (reponse != 'y' && reponse != 'n') {
@@ -601,22 +597,23 @@ public class Vue {
 			}
 			menuRepertoireServices();
 			break;
+		}
 
 		}
 		public void menuComptable(){
 			System.out.println("================================================================================");
-			System.out.println("=========================== Procédure comptable =================================");
+			System.out.println("=========================== ProcÃ©dure comptable =================================");
 			System.out.println("================================================================================");
 			System.out.println("\n");
-			System.out.println("Sélectionnez une option");
-			System.out.println("[0]     Quitter la procédure comptable \n");
-			System.out.println("[1]     Générer les enregistrments TEF \n");
-			System.out.println("[2]     Produire un rapport de synthèse \n");
+			System.out.println("SÃ©lectionnez une option");
+			System.out.println("[0]     Quitter la procÃ©dure comptable \n");
+			System.out.println("[1]     GÃ©nÃ©rer les enregistrments TEF \n");
+			System.out.println("[2]     Produire un rapport de synthï¿½se \n");
 			
 			Scanner sc4 = new Scanner(System.in);
 		
 			while (!sc4.hasNextInt()) {
-				System.out.println("Svp, entrez un numéro");
+				System.out.println("Svp, entrez un numÃ©ro");
 				sc4.next();
 			}
 			int input4 = sc4.nextInt();
@@ -636,4 +633,6 @@ public class Vue {
 				//data.
 			case 2:
 				//data.}
+			}
+		}
 }
