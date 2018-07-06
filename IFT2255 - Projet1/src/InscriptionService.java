@@ -78,7 +78,9 @@ public class InscriptionService {
 		}
 		else {
 			data.inscrireMembre(data.servicePosition(code), data.membrePosition(codeMemb));
-			System.out.println("L'inscription a été réussie pour le cour " + data.serviceListe[data.servicePosition(code)].getTitre());
+			
+			//reste a implanter le choix des seances
+			//System.out.println("Choisissez une séance pour le cours " + data.serviceListe[data.servicePosition(code)].getTitre());
 			data.vue.menuRepertoireServices();
 		}
 		

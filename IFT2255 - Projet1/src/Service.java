@@ -26,7 +26,7 @@ public class Service {
 	// [[Tennis : Prof A, Prof b...],[Médecine sportive : Prof c, Prof d...]...] 
 	// Le centre de données contiendra une liste de Service. Dans les services, il y aura ensuite une liste des séances possibles.
 	// public void addSeance(Pro enseignant, dates... heures...)
-	//Partie en construction
+	//Partie en construction2
 	Seance[] listeSeance;
 	/////////////////////////////////////////////////////////////////
 	
@@ -49,16 +49,14 @@ public class Service {
 	public String membreService() {
 		String presentation = 
 				"\n\nTitre: " + this.titre + 
-				"\n" + "Enseignant: " + this.enseignant.getNomComplet() 
-				+ "\nCode du cours: " + this.codeDuCours + 
-				"\n" + "Le cours débute le " + this.dateDebut + "\n"
-				+ "Le cours se termine le " + this.dateFin + 
-				"\n" + "Il a lieu à " + this.heureDebut + 
-				" Les "+ this.recurrence + 
-				"\n" + "Capacité maximale: " + this.capaciteMax + "\n" +
-				"Il y a présentement: "+ this.listeMembre.length + " personnes inscrites" 
-				+ "\nCommentaires: "
-				+ this.commentaire + "\n\n";
+			 
+				"\nCode du cours: " + this.codeDuCours ;
+				 
+			
+				
+				
+				
+			
 
 		return presentation;
 	}

@@ -397,6 +397,16 @@ public class DataCenter {
 	public void inscrireMembre(int positionServ, int positionMemb) {
 		
 		Service service = this.serviceListe[positionServ];
+		
+		//fake choix de seance au cas ou on aurait pas le temps de l'implanter
+		System.out.println("Choisissez une séance");
+		System.out.println("[1] 9 juillet 2018 à 20h00");
+		System.out.println("[2] 16 juillet 2018 à 20h00");
+		System.out.println("[3] 23 juillet 2018 à 20h00");
+		Scanner yolo = new Scanner(System.in);
+		int choix = yolo.nextInt();	
+		System.out.println("Vous vous êtes bien inscrit à la séance "+ choix );
+		
 		Membre [] listemembre = service.getListeMembre();
 		Membre [] temporaire = new Membre[listemembre.length+1];
 		
