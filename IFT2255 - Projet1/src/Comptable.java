@@ -31,4 +31,17 @@ public class Comptable {
 						  +"Montant total à payer: 150$");
 	}
 	
+	public static void rapportJour() {
+		System.out.print("Nom: John Wick\n" 
+						+"Montant à payer: 60$ "
+		);
+		System.out.print("Nom: Pablo Escuela\n" 
+						+"Montant à payer: 90$ "
+		);
+		
+		System.out.println("nb total professionel: 2"
+						  +"\n"+ "nb total Services: 2 +\n"
+						  +"Montant total à payer: 150$");
+	}
+	
 }
