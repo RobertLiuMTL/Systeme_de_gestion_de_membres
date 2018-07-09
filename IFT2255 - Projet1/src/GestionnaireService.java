@@ -14,7 +14,87 @@ public class GestionnaireService {
 		this.data = data;
 	}
 	
+	public void afficherAll() {
+		Service[] liste = data.getService();
+		String resultatAll = "Voici la liste de tous les Services : \n\n";
+
+		for (int i = 0; i < liste.length; i++) {
+			resultatAll += "*****************************************\n" + "Titre : " + liste[i].getTitre() + "\n"
+					+ "Code de service : " + liste[i].getService() + "\n";
+		}
+		System.out.println(resultatAll);
+	}
 	
+	
+	/**
+	 * Méthode pour créer un service à partir du gestionnaire de Service.
+	 */
+	public void creerService() {
+		System.out.println("================================================================================");
+		System.out.println("========================== Menu de création d'un service =======================");
+		System.out.println("================================================================================");
+		
+		String titre; 
+	
+		Scanner scanInt = new Scanner(System.in);
+		Scanner scanString = new Scanner(System.in);
+		System.out.println("Veuillez entrer le titre du service");
+		titre = scanString.nextLine();
+		
+				
+		
+		data.addService(titre);
+	}
+	
+	
+	public void creerSeance() {
+		System.out.println("================================================================================");
+		System.out.println("========================== Menu de création d'une séance =======================");
+		System.out.println("================================================================================");
+
+		String titre; 
+		Pro enseignant;  
+		String dateDebut; 
+		String dateFin;
+		String heureDebut;
+		String recurrence; 
+		int capaciteMax; 
+		String commentaire;
+		Scanner scanInt = new Scanner(System.in);
+		Scanner scanString = new Scanner(System.in);
+		System.out.println("Veuillez entrer le titre de votre cours");
+		titre = scanString.nextLine();
+		
+		System.out.println("Veuillez entrer votre numéro d'employé");
+		int codetemp = scanInt.nextInt();
+		System.out.println(codetemp);
+
+		
+		
+		System.out.println("Tapez la date de debut");
+		dateDebut = scanString.nextLine();
+		
+		System.out.println("Tapez la date de fin");
+		dateFin = scanString.nextLine();
+		
+		System.out.println("Tapez l'heure de début du service");
+		heureDebut = scanString.nextLine();
+		
+		System.out.println("Tapez le jour de la semaine ou l'activité à lieu");
+		recurrence = scanString.nextLine();
+		
+		System.out.println("Tapez la capacité maximale du service");
+		capaciteMax = scanInt.nextInt();
+		
+		System.out.println("Tapez des commentaires liés au cours");
+		commentaire = scanString.nextLine();
+		
+		
+		
+	}
+	
+	
+	/*
 	public void modifierService() {
 		System.out.println("================================================================================");
 		System.out.println("=========================== Gestionnaire des Services ==========================");
@@ -50,6 +130,7 @@ public class GestionnaireService {
 			}
 		}
 	}
+	
 	public void moduleMod(Service service) {
 		System.out.println("================================================================================");
 		System.out.println("=========================== Modification du cours " + service.getTitre() + "====");
@@ -129,5 +210,6 @@ public class GestionnaireService {
 		}
 
 	}
+	*/
 	
 }

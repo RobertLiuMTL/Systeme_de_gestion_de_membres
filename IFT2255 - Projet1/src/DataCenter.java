@@ -21,7 +21,7 @@ public class DataCenter {
 	//Les attributs de la Base de Données
 	Membre [] membersListe = new Membre[3];
 	static Pro [] proListe = new Pro[2];
-	Service [] serviceListe = new Service[2];
+	Service [] serviceListe = new Service[1];
 	Vue vue = new Vue(this);
 	
 	GestionnaireMembre gm = new GestionnaireMembre(this);
@@ -33,6 +33,9 @@ public class DataCenter {
 
 	//Dernier numéro de Membre attribué.
 	private int lastNumber = 123456789;
+	
+	//Dernier numéro du Service attribué
+	private int lastService = 0000000;
 	
 	DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 
@@ -56,11 +59,18 @@ public class DataCenter {
 		proListe[1] = new Pro( "Escuela",  "Pablo", 555555555, "Yoyo vamos a la playa", 
 				 "1999 10 10", "123456789",  "Pablo@yoyo.ca", "Voleur");
 		
-		serviceListe[0] = new Service("Comment protéger son Chien", this.proListe[0], "Toujours",
-			"15 octobre", "13 pm", "Une fois par semaine",15 , "Le Chien de John Wick est précieux");
-		serviceListe[1] = new Service("Comment tuer ses ennemis", this.proListe[0], "Toujours",
-				"15 octobre", "13 pm", "Une fois par semaine",15 , "JOHNNNNNN");
-		//test
+		//Création de services de base
+		serviceListe[0]=new Service("Test", this.lastService);
+		addService("Nutritionniste");
+		addService("Orthopédiste");
+		addService("Physiothérapeute");
+		addService("Massage");
+		addService("Acupuncture");
+		addService("Tennis");
+		addService("Soccer");
+		addService("Hockey");
+		addService("Badminton");
+		
 		this.vue.accueil();
 		
 		
@@ -245,8 +255,9 @@ public class DataCenter {
 //////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////
 	
-	public void gestionnaireModService() {
-		gs.modifierService();
+	
+	public void gestionnaireServiceAff() {
+		gs.afficherAll();
 	}
 //////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////
@@ -320,8 +331,7 @@ public class DataCenter {
 		Thread.sleep(4000);
 	}	
 	
-	public void addService(String titre, Pro enseignant, String dateDebut, String dateFin
-			, String heureDebut, String recurrence, int capaciteMax, String commentaire) {
+	public void addService(String titre) {
 		
 		int longueur = serviceListe.length;
 		
@@ -330,22 +340,16 @@ public class DataCenter {
 		for (int i = 0;i<longueur-1;i++) {
 			temporaire[i]=serviceListe[i];		
 			}
-		temporaire[longueur] = new Service(titre, enseignant, dateDebut,heureDebut, recurrence, recurrence, capaciteMax, commentaire);
+		
+		//augmenter la valeur du service
+		this.lastService+=10000;
+		
+		temporaire[longueur] = new Service(titre, this.lastService);
 		serviceListe = temporaire;
 		System.out.println("Le nouveau Service a été créé avec succès!\n");
 		System.out.println("Le Service est : "+ titre);
-		System.out.println("Il sera donné du : " + dateDebut + " jusqu'au "+dateFin );
-		System.out.println("Le " + recurrence);
-		System.out.println("à " + heureDebut);
-		System.out.println("Il y a "+ capaciteMax + " places");
-		System.out.println("Le code du service est le " + temporaire[longueur].getCodeDuCours());
+		System.out.println("Le code du service est le " + temporaire[longueur].getService());
 
-		try {
-			Thread.sleep(4000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	
 	}
 	
@@ -355,21 +359,7 @@ public class DataCenter {
 	//////////////////////////////////////////////////////////////////////////////////////////
 	//////////////////////////////////////////////////////////////////////////////////////////
 	
-	/**
-	 * 
-	 * @param codeDuCours
-	 * @return retourne -1 si le service n'existe pas, sinon retourne la position i dans la serviceListe 
-	 * de data, du service correspondant au code
-	 */
-	public int servicePosition(int codeDuCours) {
-		int code = -1;
-		for(int i = 0; i <this.serviceListe.length; i++) {
-			if(codeDuCours == serviceListe[i].getCodeDuCours()) {
-				code = i;
-			}
-		}
-		return code;
-	}
+	
 	/**
 	 * retourne le numero qui correspond a la position du membre dans la liste des membres
 	 * si le membre n'existe pas, retourne -1
@@ -435,6 +425,8 @@ public class DataCenter {
 		
 	}
 	
+	
+	/*
 	public void desinscrireMembre(int codeDuMemb, int codeDuCours) {
 		int estPresent = -1;
 		int membPosition = membrePosition(codeDuMemb);
@@ -468,10 +460,13 @@ public class DataCenter {
 		
 		
 	}
+	*/
+	
 	/**
 	 * enleve le service dans la liste de service de data
 	 * @param codePosService int qui correspond a la position du service a retirer dans la liste de service
 	 */
+	/*
 	public void removeService(int codePosService) {
 		
 		
@@ -499,7 +494,7 @@ public class DataCenter {
 		System.out.println(serviceListe[servicePosition(codeDuService)].membreService());
 	}
 	
-	
+	*/
 	
 	
 	

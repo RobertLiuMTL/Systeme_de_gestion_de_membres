@@ -419,11 +419,7 @@ public class Vue {
 			break;
 
 		case 1:
-			System.out.println("Voici les services offerts présentement");
-
-			for (int i = 0; i < data.getService().length; i++) {
-				System.out.println(data.getService()[i].membreService());
-			}
+			data.gestionnaireServiceAff();
 			System.out.println("Le Membre désire-t-il s'inscrire à un service\n (y/n)");
 
 			Scanner scanner = new Scanner(System.in);
@@ -453,6 +449,8 @@ public class Vue {
 
 			break;
 
+/* TODO : Refaire les options du Menu des Services
+ 
 		case 3:
 			System.out.println("Veuillez entrer le numéro de membre(9 chiffres)");
 			Scanner yolo = new Scanner(System.in);
@@ -566,7 +564,8 @@ public class Vue {
 			}
 			menuRepertoireServices();
 			break;
-
+*/
+			/*
 		case 6:
 			System.out.println("Veuillez entrer le numéro de cours (7 chiffres) à consulter");
 			sc2 = new Scanner(System.in);
@@ -576,14 +575,6 @@ public class Vue {
 			}
 			int numbCours6 = sc2.nextInt();
 
-			/*
-			 * Code retiré int compteur6 = 0; while (data.servicePosition(numbCours6) == -1)
-			 * {
-			 * System.out.println("Le numéro de membre est invalide, veuillez recommencer");
-			 * compteur6++; numbCours6 = sc2.nextInt(); if (compteur6 >= 3) {
-			 * System.out.println("Trop d'essai, retour au répertoire de services");
-			 * menuRepertoireServices(); } }
-			 */
 
 			data.consulterInscription(numbCours6);
 			System.out.println("Retour au répertoire des services");
@@ -599,7 +590,11 @@ public class Vue {
 			data.gestionnaireModService();
 			menuRepertoireServices();
 			break;
+			*/
+			
+			
 		}
+		
 
 	}
 
