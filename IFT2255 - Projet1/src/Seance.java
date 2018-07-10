@@ -1,3 +1,8 @@
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.Scanner;
 
 /**
@@ -10,7 +15,8 @@ public class Seance {
 	/**
 	 * Les attributs de la classe Séance. La capacité maximale est de 30 membres.
 	 */
-	private Pro enseignant;
+	Pro enseignant;
+	private String nomComplet;
 	private int codeSeance;
 	private int prix =0;
 	private int capaciteMax;
@@ -19,6 +25,8 @@ public class Seance {
 	/**
 	 * Les formats des dates doivent être modifiés afin de répondre aux consignes
 	 */
+	private String dateCreation ;
+	
 	private String dateDebut;
 	private String dateFin;
 	private String heureDebut;
@@ -29,13 +37,22 @@ public class Seance {
 	private String commentaire; //100 caractères max
 	
 	public String getPro() {
-		return enseignant.getNomComplet();
+		return this.nomComplet;
 	}
 	public int getCode() {
 		return this.codeSeance;
 	}
 	
-	private Membre[] listeMembre = new Membre[30];
+	public String getDebut() {
+		return this.dateDebut;
+	}
+	
+	public String getFin() {
+		return this.dateFin;
+	}
+	
+	//TODO Liste de membre à 30 ou bien nulle?
+	private Membre[] listeMembre = new Membre[0];
 	
 	/**
 	 * Constructeur de la classe Séance qui prend en paramètre
@@ -43,12 +60,20 @@ public class Seance {
 	 * @param enseignant
 	 */
 	public Seance(Pro enseignant, int numero) {
+		
+		//Date de création de la séance
+		//Gregorian Calendar = année, mois, jour
+		GregorianCalendar date = new GregorianCalendar();
+		this.dateCreation=date.get(Calendar.DATE) + "-" + date.get(Calendar.MONTH) 
+		+ "-" + date.get(Calendar.YEAR);
+		
 		this.enseignant=enseignant;
+		this.nomComplet=enseignant.getNomComplet();
 		
 		//Le module 100 permet d'obtenir les deux derniers chiffres du numéro du professionnel
 		this.codeSeance= numero + enseignant.getNumero()%100;
 		System.out.println("================================================================================");
-		System.out.println("================================ Création de séance=============================");
+		System.out.println("================================ Création de séance ============================");
 		System.out.println("================================================================================");
 		System.out.println("\n");
 		
@@ -124,6 +149,71 @@ public class Seance {
 			break;
 		}
 		
+		sc = new Scanner(System.in);
+		
+		System.out.println("Veuillez entrer la Date de début.");
+		System.out.println("Veuillez entrer le jour de début de la séance.");
+		// Boucle while qui vérifie que l'entrée est un Integer.
+		while (!sc.hasNextInt()) {
+			System.out.println("Svp, entrez un montant entre 1 à 31");
+			sc.next();
+		}
+		int jour= sc.nextInt();
+		
+		System.out.println("Veuillez entrer le mois de début de la séance.");
+		// Boucle while qui vérifie que l'entrée est un Integer.
+		while (!sc.hasNextInt()) {
+			System.out.println("Svp, entrez un montant entre 1 à 12");
+			sc.next();
+		}
+		int mois = sc.nextInt();
+		
+		System.out.println("Veuillez entrer l'année de début de la séance.");
+		// Boucle while qui vérifie que l'entrée est un Integer.
+		while (!sc.hasNextInt()) {
+			System.out.println("Svp, entrez une année");
+			sc.next();
+		}
+		int annee = sc.nextInt();
+		
+		GregorianCalendar dateCalendar = new GregorianCalendar(annee,mois,jour);
+		dateDebut = dateCalendar.get(Calendar.DATE) + "-" + dateCalendar.get(Calendar.MONTH) 
+		+ "-" + dateCalendar.get(Calendar.YEAR);
+		
+		
+		
+		System.out.println("Veuillez entrer la Date de fin.");
+		System.out.println("Veuillez entrer le jour de fin de la séance.");
+		// Boucle while qui vérifie que l'entrée est un Integer.
+		while (!sc.hasNextInt()) {
+			System.out.println("Svp, entrez un montant entre 1 à 31");
+			sc.next();
+		}
+		jour= sc.nextInt();
+		
+		System.out.println("Veuillez entrer le mois de fin de la séance.");
+		// Boucle while qui vérifie que l'entrée est un Integer.
+		while (!sc.hasNextInt()) {
+			System.out.println("Svp, entrez un montant entre 1 à 12");
+			sc.next();
+		}
+		mois = sc.nextInt();
+		
+		System.out.println("Veuillez entrer l'année de fin de la séance.");
+		// Boucle while qui vérifie que l'entrée est un Integer.
+		while (!sc.hasNextInt()) {
+			System.out.println("Svp, entrez une année");
+			sc.next();
+		}
+		annee = sc.nextInt();
+		
+		dateCalendar = new GregorianCalendar(annee,mois,jour);
+		dateFin = dateCalendar.get(Calendar.DATE) + "-" + dateCalendar.get(Calendar.MONTH) 
+		+ "-" + dateCalendar.get(Calendar.YEAR);
+		
+		
+		
+		SimpleDateFormat format =new SimpleDateFormat ("T hh:mm:ss"); 
 	}
 	
 	/**

@@ -28,7 +28,9 @@ public class GestionnaireService {
 				for(int j = 0; j <liste[i].getSeance().length;j++) {
 					resultatAll+="Voici les séances disponibles pour ce service : \n------------------------------------"
 							+ "\nNom du professeur : "+liste[i].getSeance()[j].getPro()+
-							"\nNuméro de Séance : "+liste[i].getSeance()[j].getCode()+"\n";
+							"\nNuméro de Séance : "+liste[i].getSeance()[j].getCode()+"\n"
+							+"Date de début : "+liste[i].getSeance()[j].getDebut()+"\n"
+							+"Date de fin : "+liste[i].getSeance()[j].getFin();
 				}
 			}
 		}

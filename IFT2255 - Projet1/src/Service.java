@@ -71,7 +71,7 @@ public class Service {
 		
 		//augmenter la valeur du service
 		this.codeSeance+=100;
-		
+		System.out.print("Début de la création de la séance pour le Service " +getTitre() +"...\n");
 		temporaire[longueur] = new Seance(pro, this.codeSeance);
 		seances = temporaire;
 		System.out.println("La nouvelle Séance a été créée avec succès!\n");
