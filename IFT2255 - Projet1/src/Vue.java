@@ -50,7 +50,7 @@ public class Vue {
 		System.out.println("[0]     Fermer le Système \n");
 		System.out.println("[1]     Centre de Données \n");
 		System.out.println("[2]     Répertoire des Services \n");
-		System.out.println("[3]     Identification du Membre ou Professionnel \n");
+		System.out.println("[3]     Application mobile \n");
 		System.out.println("[4]     procédure comptable \n");
 		Scanner sc = new Scanner(System.in);
 
@@ -390,7 +390,7 @@ public class Vue {
 		System.out.println("[0]     Retour au Menu principal \n");
 		System.out.println("[1]     Voir les services offerts \n");
 		System.out.println("[2]     Créer un nouveau service \n");
-		System.out.println("[3]     Désinscrire un membre d'un service\n");
+		System.out.println("[3]     Créer une nouvelle séance\n");
 		System.out.println("[4]     Annuler une séance   \n");
 		System.out.println("[5]     Confirmer sa  présence \n");
 		System.out.println("[6]     Consulter inscriptions \n");
@@ -445,8 +445,21 @@ public class Vue {
 			break;
 
 		case 2:
-			data.cs.creerService(data);
-
+			data.gestionnaireAddServ();
+			
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			menuRepertoireServices();
+			break;
+			
+		case 3:
+			data.gestionnaireAddSeance();
+			menuRepertoireServices();
 			break;
 
 /* TODO : Refaire les options du Menu des Services

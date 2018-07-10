@@ -35,7 +35,7 @@ public class DataCenter {
 	private int lastNumber = 123456789;
 	
 	//Dernier numéro du Service attribué
-	private int lastService = 0000000;
+	private int lastService = 1000000;
 	
 	DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 
@@ -60,7 +60,7 @@ public class DataCenter {
 				 "1999 10 10", "123456789",  "Pablo@yoyo.ca", "Voleur");
 		
 		//Création de services de base
-		serviceListe[0]=new Service("Test", this.lastService);
+		serviceListe[0]=new Service("Ostéopathes", this.lastService);
 		addService("Nutritionniste");
 		addService("Orthopédiste");
 		addService("Physiothérapeute");
@@ -70,9 +70,7 @@ public class DataCenter {
 		addService("Soccer");
 		addService("Hockey");
 		addService("Badminton");
-		
 		this.vue.accueil();
-		
 		
 		
 	
@@ -91,7 +89,7 @@ public class DataCenter {
 	 * Retourne la liste des professionnels contenue dans la Base de données
 	 * @return
 	 */
-	public static Pro[] getPro() {
+	public Pro[] getPro() {
 		return proListe;
 	}
 	
@@ -259,6 +257,14 @@ public class DataCenter {
 	public void gestionnaireServiceAff() {
 		gs.afficherAll();
 	}
+	
+	public void gestionnaireAddServ() {
+		gs.creerService();
+	}
+	
+	public void gestionnaireAddSeance() {
+		gs.creerSeance();
+	}
 //////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////
 //Les méthodes qui permettent de mettre à jour les bases de données
@@ -287,7 +293,7 @@ public class DataCenter {
 		
 		//Recopier la liste des membres dans la liste temporaire
 		Membre[] temporaire = new Membre[longueur+1];
-		for (int i = 0;i<longueur;i++) {
+		for (int i = 0;i<=longueur;i++) {
 			temporaire[i]=membersListe[i];		
 			}
 		temporaire[longueur] = new Membre(nomFamille, prenom, lastNumber, adresse, naissance, phone, courriel);
@@ -317,7 +323,7 @@ public class DataCenter {
 		
 		//recopier la liste des Professionnels dans la liste temporaire
 		Pro[] temporaire = new Pro[longueur+1];
-		for (int i = 0;i<longueur-1;i++) {
+		for (int i = 0;i<=longueur-1;i++) {
 			temporaire[i]=proListe[i];		
 			}
 		temporaire[longueur] = new Pro(nomFamille, prenom, lastNumber, adresse, naissance, phone, courriel, discipline);
@@ -337,7 +343,7 @@ public class DataCenter {
 		
 		//Recopier la liste des services dans la liste temporaire
 		Service[] temporaire = new Service[longueur+1];
-		for (int i = 0;i<longueur-1;i++) {
+		for (int i = 0;i<=longueur-1;i++) {
 			temporaire[i]=serviceListe[i];		
 			}
 		
@@ -347,7 +353,7 @@ public class DataCenter {
 		temporaire[longueur] = new Service(titre, this.lastService);
 		serviceListe = temporaire;
 		System.out.println("Le nouveau Service a été créé avec succès!\n");
-		System.out.println("Le Service est : "+ titre);
+		System.out.println("Le Service est : "+ temporaire[longueur].getTitre());
 		System.out.println("Le code du service est le " + temporaire[longueur].getService());
 
 	
@@ -400,6 +406,7 @@ public class DataCenter {
 	 * @param positionServ la position du service dans le tableau de service
 	 * @param positionMemb la position du membre dans la liste des membres dans le data center
 	 */
+	/*
 	public void inscrireMembre(int positionServ, int positionMemb) {
 		
 		Service service = this.serviceListe[positionServ];
@@ -424,7 +431,7 @@ public class DataCenter {
 		this.serviceListe[positionServ].setListeMembre(temporaire);
 		
 	}
-	
+	*/
 	
 	/*
 	public void desinscrireMembre(int codeDuMemb, int codeDuCours) {

@@ -11,7 +11,8 @@ public class Service {
 	 */
 	private String titre;
 	private int codeService;
-	private Membre[] listeMembre;
+	Seance[] seances = new Seance[0];
+	private int codeSeance;
 
 	
 	// Insérer ici l'attribut Séance[] listeSeance
@@ -23,8 +24,10 @@ public class Service {
 	Seance[] listeSeance;
 	/////////////////////////////////////////////////////////////////
 	
-	public Service(String titre, int codeService) {;
+	public Service(String titre, int codeService) {
+		this.titre=titre;
 		this.codeService=codeService;
+		this.codeSeance=codeService;
 
 	}
 
@@ -41,20 +44,38 @@ public class Service {
 		return this.titre;
 	}
 	
-	public Membre[] getListeMembre() {
-		return listeMembre;
+	public String test() {
+		return "allo";
 	}
 
-	public void setListeMembre(Membre[] listeMembre) {
-		this.listeMembre = listeMembre;
-	}
 
 	public int getService() {
-		return codeService;
+		return this.codeService;
 	}
 	public void setService(int service) {
 		this.codeService=service;
 	}
 	
+	public Seance[] getSeance() {
+		return this.seances;
+	}
 	
+	public void addSeance(Pro pro) {
+		int longueur = seances.length;
+		
+		//Recopier la liste des séances dans la liste temporaire
+		Seance[] temporaire = new Seance[longueur+1];
+		for (int i = 0;i<=longueur-1;i++) {
+			temporaire[i]=seances[i];		
+			}
+		
+		//augmenter la valeur du service
+		this.codeSeance+=100;
+		
+		temporaire[longueur] = new Seance(pro, this.codeSeance);
+		seances = temporaire;
+		System.out.println("La nouvelle Séance a été créée avec succès!\n");
+		//System.out.println("La Séance est : "+ temporaire[longueur].getTitre());
+		//System.out.println("Le code du service est le " + temporaire[longueur].getService());
+	}
 }

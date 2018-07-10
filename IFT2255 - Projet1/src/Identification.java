@@ -107,7 +107,7 @@ public class Identification {
 	}
 	
 	/**
-	 * Méthode d'identification qui retourne le compte du professionnel
+	 * Méthode d'identification qui retourne le compte du professionnel s'il existe
 	 * @param data
 	 * @param numero
 	 * @return
@@ -117,6 +117,7 @@ public class Identification {
 		for (int i = 0; i < data.getPro().length; i++) {
 			if (data.getPro()[i].getNumero() == numero) {
 				resultat = data.getPro()[i];
+				break;
 			} 
 		}
 		return resultat;

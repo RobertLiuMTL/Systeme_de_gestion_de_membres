@@ -11,6 +11,7 @@ public class Seance {
 	 * Les attributs de la classe Séance. La capacité maximale est de 30 membres.
 	 */
 	private Pro enseignant;
+	private int codeSeance;
 	private int prix =0;
 	private int capaciteMax;
 	private int capaciteDispo = 30;
@@ -27,6 +28,13 @@ public class Seance {
 	
 	private String commentaire; //100 caractères max
 	
+	public String getPro() {
+		return enseignant.getNomComplet();
+	}
+	public int getCode() {
+		return this.codeSeance;
+	}
+	
 	private Membre[] listeMembre = new Membre[30];
 	
 	/**
@@ -34,8 +42,11 @@ public class Seance {
 	 * le Professionnel.
 	 * @param enseignant
 	 */
-	public Seance(Pro enseignant) {
+	public Seance(Pro enseignant, int numero) {
 		this.enseignant=enseignant;
+		
+		//Le module 100 permet d'obtenir les deux derniers chiffres du numéro du professionnel
+		this.codeSeance= numero + enseignant.getNumero()%100;
 		System.out.println("================================================================================");
 		System.out.println("================================ Création de séance=============================");
 		System.out.println("================================================================================");
@@ -46,7 +57,7 @@ public class Seance {
 		System.out.println("Veuillez entrer le prix de la séance");
 		
 		// Boucle while qui vérifie que l'entrée est un Integer.
-		while (!sc.hasNextInt() || sc.nextInt() < 100 && sc.nextInt() >=0) {
+		while (!sc.hasNextInt()) {
 			System.out.println("Svp, entrez un montant entre 0 à 100");
 			sc.next();
 		}
@@ -70,7 +81,7 @@ public class Seance {
 			if (reponse == 'n'){
 				System.out.println("Entrez un nouveau montant :");
 				sc = new Scanner(System.in);
-				sc.nextInt();
+				input = sc.nextInt();
 				continue;
 			}
 			break;
@@ -79,11 +90,12 @@ public class Seance {
 		System.out.println("Veuillez entrer la capacité maximale du cours (0 à 30)");
 		
 		// Boucle while qui vérifie que l'entrée est un entier valide.
-		while (!sc.hasNextInt() || sc.nextInt() <= 30 && sc.nextInt() > 0) {
-			System.out.println("Svp, entrez un montant entre 0 à 100");
+		while (!sc.hasNextInt()&&sc.nextInt()<=30) {
+			System.out.println("Svp, entrez un montant entre 0 à 30");
 			sc.next();
 		}
 		input = sc.nextInt();
+		
 		ok = false;
 		while (ok == false) {
 			System.out.println("La capacité maximale a été fixée à :" + input +
@@ -97,12 +109,16 @@ public class Seance {
 			}
 			if (reponse=='y') {
 				ok = true;
+				if (input>30) {
+					System.out.println("La capacité du cours a été établie à 30 étudiants (Capacité maximale permise).");
+					input=30;
+				}
 				this.capaciteMax = input;
 			}
 			if (reponse == 'n'){
 				System.out.println("Entrez un nouveau nombre :");
 				sc = new Scanner(System.in);
-				sc.nextInt();
+				input = sc.nextInt();
 				continue;
 			}
 			break;

@@ -9,18 +9,28 @@ import java.util.Scanner;
  */
 public class GestionnaireService {
 	private DataCenter data;
+	Identification id = new Identification();
 
 	public GestionnaireService(DataCenter data) {
 		this.data = data;
 	}
 	
 	public void afficherAll() {
-		Service[] liste = data.getService();
+		Service[]liste=data.getService();
 		String resultatAll = "Voici la liste de tous les Services : \n\n";
 
 		for (int i = 0; i < liste.length; i++) {
 			resultatAll += "*****************************************\n" + "Titre : " + liste[i].getTitre() + "\n"
 					+ "Code de service : " + liste[i].getService() + "\n";
+			if(liste[i].getSeance().length==0) {
+				resultatAll+= "Aucune séance n'est disponible pour ce Service.\n";
+			}else {
+				for(int j = 0; j <liste[i].getSeance().length;j++) {
+					resultatAll+="Voici les séances disponibles pour ce service : \n------------------------------------"
+							+ "\nNom du professeur : "+liste[i].getSeance()[j].getPro()+
+							"\nNuméro de Séance : "+liste[i].getSeance()[j].getCode()+"\n";
+				}
+			}
 		}
 		System.out.println(resultatAll);
 	}
@@ -40,7 +50,6 @@ public class GestionnaireService {
 		Scanner scanString = new Scanner(System.in);
 		System.out.println("Veuillez entrer le titre du service");
 		titre = scanString.nextLine();
-		
 				
 		
 		data.addService(titre);
@@ -60,35 +69,46 @@ public class GestionnaireService {
 		String recurrence; 
 		int capaciteMax; 
 		String commentaire;
-		Scanner scanInt = new Scanner(System.in);
-		Scanner scanString = new Scanner(System.in);
-		System.out.println("Veuillez entrer le titre de votre cours");
-		titre = scanString.nextLine();
 		
-		System.out.println("Veuillez entrer votre numéro d'employé");
-		int codetemp = scanInt.nextInt();
-		System.out.println(codetemp);
-
+		Scanner sc = new Scanner(System.in);
 		
+		//Authentification du Professionnel
+		System.out.println("Veuillez entrer le numéro d'employé à 9 chiffres");
+		while(!sc.hasNextInt()) {
+			System.out.println("Veuillez entrer un numéro valide à 9 chiffres");
+			sc.next();
+		}
+		int numero = sc.nextInt();
 		
-		System.out.println("Tapez la date de debut");
-		dateDebut = scanString.nextLine();
-		
-		System.out.println("Tapez la date de fin");
-		dateFin = scanString.nextLine();
-		
-		System.out.println("Tapez l'heure de début du service");
-		heureDebut = scanString.nextLine();
-		
-		System.out.println("Tapez le jour de la semaine ou l'activité à lieu");
-		recurrence = scanString.nextLine();
-		
-		System.out.println("Tapez la capacité maximale du service");
-		capaciteMax = scanInt.nextInt();
-		
-		System.out.println("Tapez des commentaires liés au cours");
-		commentaire = scanString.nextLine();
-		
+		Pro pro = id.identifierPro(this.data, numero);
+		if(pro != null) {
+			
+			afficherAll();
+			System.out.println("Le numéro entré est valide. Veuillez entrer le numéro du Service à 7 chiffres pour lequel le Professionnel aimerait"
+					+ "donner une séance. ");
+			sc = new Scanner(System.in);
+			while(!sc.hasNextInt()) {
+				System.out.println("Veuillez entrer un numéro de service valide à 7 chiffres");
+				sc.next();
+			}
+			numero = sc.nextInt();
+			Service temp = null;
+			for(int i = 0 ; i<data.getService().length;i++) {
+				if (data.getService()[i].getService()==numero) {
+					temp = data.getService()[i];
+					break;
+				}
+			}
+			
+			//Si le Pro a été trouvé et que le Service existe, on crée la séance
+			if(temp != null) {
+				temp.addSeance(pro);
+			}else {
+				System.out.println("Le numéro de service n'existe pas");
+			}
+		}else {
+			System.out.println("Erreur : Le Système n'a pas été en mesure d'identifier un professionnel associé au numéro suivant : " + numero);
+		}	
 		
 		
 	}
