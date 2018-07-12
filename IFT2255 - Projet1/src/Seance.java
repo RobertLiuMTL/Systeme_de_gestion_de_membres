@@ -22,12 +22,10 @@ public class Seance {
 	private int prix = 0;
 	private int capaciteMax;
 	private int capaciteDispo = 30;
-
 	/**
 	 * Les formats des dates doivent être modifiés afin de répondre aux consignes
 	 */
 	private String dateCreation;
-
 	private String dateDebut;
 	private String dateFin;
 	private String heureDebut;
@@ -52,12 +50,24 @@ public class Seance {
 	public String getFin() {
 		return this.dateFin;
 	}
+	
+	public String getHeure() {
+		return this.heureDebut;
+	}
+	
+	public String getRecurrence() {
+		return this.recurrence;
+	}
+	
+	public int getPrix() {
+		return this.prix;
+	}
 
 	// TODO Liste de membre à 30 ou bien nulle?
 	private Membre[] listeMembre = new Membre[0];
 
 	public Seance(String nomProf, int numProf, int codeSeance, int cout, int capacite,
-			String dateDebut, String dateFin,String heureDEbut, String recurrence, String comments) {
+			String dateDebut, String dateFin,String heureDebut, String recurrence, String comments) {
 
 		// Date de création de la séance
 		// Gregorian Calendar = année, mois, jour
@@ -76,11 +86,7 @@ public class Seance {
 		this.commentaire=comments;
 	}
 
-	/**
-	 * Constructeur de la classe Séance qui prend en paramètre le Professionnel.
-	 * 
-	 * @param enseignant
-	 */
+/*Ancienne méthode, désusète
 	public Seance(Pro enseignant, int numero) {
 
 		// Date de création de la séance
@@ -231,6 +237,8 @@ public class Seance {
 
 		SimpleDateFormat format = new SimpleDateFormat("hh:mm:ss");
 	}
+	*/
+	
 
 	/**
 	 * Méthode pour inscrire un membre à cette séance.

@@ -4,10 +4,11 @@ import java.util.Scanner;
  * C'est le gestionnaire des Services (incomplet en date de la remise du TP2). 
  * 
  * TODO : Migrer les opérations sur les services et séances dans ce gestionnaire.
+ * Hérite d'une interface de création de Séance
  * @author Robert
  *
  */
-public class GestionnaireService{
+public class GestionnaireService implements CreateSeance{
 	private DataCenter data;
 
 	public GestionnaireService(DataCenter data) {
@@ -19,17 +20,25 @@ public class GestionnaireService{
 		String resultatAll = "Voici la liste de tous les Services : \n\n";
 
 		for (int i = 0; i < liste.length; i++) {
-			resultatAll += "*****************************************\n" + "Titre : " + liste[i].getTitre() + "\n"
-					+ "Code de service : " + liste[i].getService() + "\n";
+			resultatAll += "\n*******************************************************"
+					+ "\n*******************************************************\n" 
+					+ "Titre du service           : " + liste[i].getTitre() + "\n"
+					+ "Code de service            : " + liste[i].getService() + "\n";
+			
 			if(liste[i].getSeance().length==0) {
 				resultatAll+= "Aucune séance n'est disponible pour ce Service.\n";
 			}else {
+				resultatAll+="\n-------------------------------------------------"+
+							"\nVoici les séances disponibles pour ce service :";
 				for(int j = 0; j <liste[i].getSeance().length;j++) {
-					resultatAll+="Voici les séances disponibles pour ce service : \n------------------------------------"
-							+ "\nNom du professeur : "+liste[i].getSeance()[j].getPro()+
-							"\nNuméro de Séance : "+liste[i].getSeance()[j].getCode()+"\n"
-							+"Date de début : "+liste[i].getSeance()[j].getDebut()+"\n"
-							+"Date de fin : "+liste[i].getSeance()[j].getFin();
+					resultatAll+="\n-------------------------------------------------"+
+							"\nNom du professeur           : "+liste[i].getSeance()[j].getPro()+
+							"\nNuméro de Séance            : "+liste[i].getSeance()[j].getCode()+"\n"
+							+"Prix de la séance           : "+liste[i].getSeance()[j].getPrix()+"$\n"
+							+"Jour de la semaine          : " +liste[i].getSeance()[j].getRecurrence()+
+							"\nHeure de début de la séance : "+liste[i].getSeance()[j].getHeure()
+							+"\nDate de début               : "+liste[i].getSeance()[j].getDebut()+"\n"
+							+"Date de fin                 : "+liste[i].getSeance()[j].getFin()+"\n";
 				}
 			}
 		}
@@ -94,7 +103,7 @@ public class GestionnaireService{
 			
 			//Si le Pro a été trouvé et que le Service existe, on crée la séance
 			if(temp != null) {
-				temp.addSeance(pro);
+				createSeance(temp,pro);
 			}else {
 				System.out.println("Le numéro de service n'existe pas");
 			}

@@ -16,22 +16,14 @@ public interface CreateSeance {
 		String nomPro= pro.getNomComplet();
 		int numPro = pro.getNumero();
 		int prix = 0;
-		int capaciteMax;
-		int capaciteDispo = 30;
-
-		/**
-		 * Les formats des dates doivent être modifiés afin de répondre aux consignes
-		 */
+		int capaciteMax=0;
+		int capaciteDispo;
 		String dateCreation;
-
 		String dateDebut;
 		String dateFin;
 		String heureDebut;
-
-		// Le format des récurrences est incertaine en ce moment.
-		String recurrence;
-
-		String commentaire; // 100 caractères max
+		String recurrence="";
+		String commentaire;
 		
 		
 		System.out.println("================================================================================");
@@ -224,7 +216,8 @@ public interface CreateSeance {
 			commentaire=sc.nextLine();
 		}
 		
-		service.addSeance(pro);
+		service.addSeance(nomPro,numPro,prix,capaciteMax,dateDebut,
+				dateFin,heureDebut,recurrence,commentaire);
 
 	}
 	

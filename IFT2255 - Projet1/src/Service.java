@@ -4,7 +4,7 @@
  * @author Robert
  *
  */
-public class Service implements CreateSeance {
+public class Service{
 
 	/**
 	 * Classe pour les services offerts par les professionnels
@@ -55,7 +55,10 @@ public class Service implements CreateSeance {
 		return this.seances;
 	}
 	
-	public void addSeance(Pro pro) {
+	
+	
+	public void addSeance(String nomProf, int numProf, int cout, int capacite,
+			String dateDebut, String dateFin,String heureDebut, String recurrence, String comments) {
 		int longueur = seances.length;
 		
 		//Recopier la liste des séances dans la liste temporaire
@@ -67,7 +70,8 @@ public class Service implements CreateSeance {
 		//augmenter la valeur du service
 		this.codeSeance+=100;
 		System.out.print("Début de la création de la séance pour le Service " +getTitre() +"...\n");
-		temporaire[longueur] = new Seance(pro, this.codeSeance);
+		temporaire[longueur] = new Seance(nomProf,numProf,codeSeance,cout,capacite,
+				dateDebut,dateFin,heureDebut,recurrence,comments);
 		seances = temporaire;
 		System.out.println("La nouvelle Séance a été créée avec succès!\n");
 		//System.out.println("La Séance est : "+ temporaire[longueur].getTitre());

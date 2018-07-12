@@ -20,7 +20,7 @@ public class DataCenter implements Identification {
 	
 	//Les attributs de la Base de Données
 	Membre [] membersListe = new Membre[3];
-	static Pro [] proListe = new Pro[2];
+	static Pro [] proListe = new Pro[3];
 	Service [] serviceListe = new Service[1];
 
 	
@@ -58,24 +58,29 @@ public class DataCenter implements Identification {
 		addMember ("nomFamille", "prenom", "adresse", "naissance", "phone", "courriel@test.ca");
 		
 		proListe[0] = new Pro( "Wick",  "John", 666666666, "John Wick is a dog", 
-				 "n10 octobre", "123456789",  "JohnWick@hotmail.com", "Docteur");
+				 "n10 octobre", "5141234567",  "JohnWick@hotmail.com", "Docteur");
 		
 		proListe[1] = new Pro( "Escuela",  "Pablo", 555555555, "Yoyo vamos a la playa", 
-				 "1999 10 10", "123456789",  "Pablo@hotmail.com", "Voleur");
-		
+				 "1999 10 10", "1800-199-2000",  "Pablo@hotmail.com", "Voleur");
+		proListe[2] = new Pro( "Snow",  "John", 444444444, "123 St-John Street", 
+				 "12/12/2012", "514-5280528",  "johnSnow@hotmail.com", "John knows nothing");
 		//Création de services de base + test de la méthode addService()
-		serviceListe[0]=new Service("Ostéopathes", this.lastService);
+		serviceListe[0]=new Service("Cours d'autodéfense", this.lastService);
 		addService("Nutritionniste");
 		addService("Orthopédiste");
 		addService("Physiothérapeute");
 		addService("Massage");
 		addService("Acupuncture");
-		addService("Tennis");
-		addService("Soccer");
-		addService("Hockey");
-		addService("Badminton");
+		addService("White Walkers Hunting");
+		addService("Soccer professionnel");
+		addService("Escalade");
+		addService("Esport");
 		
-		
+		//Création de Séances test.
+		serviceListe[0].addSeance("John Wick", 666666666, 55, 22, "22/10/2018", "30/11/2018", "15:30", "Lundi", "");
+		serviceListe[0].addSeance("John Wick", 666666666, 55, 22, "22/10/2018", "30/11/2018", "15:30", "Mardi", "");
+
+		serviceListe[6].addSeance("John Snow", 444444444, 99, 30, "14/10/2018", "14/10/2019", "8:30", "Samedi", "You know nothing");
 		this.vue.accueil();
 		
 	}
