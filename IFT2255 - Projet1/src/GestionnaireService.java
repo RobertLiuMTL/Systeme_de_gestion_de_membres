@@ -62,15 +62,6 @@ public class GestionnaireService{
 		System.out.println("========================== Menu de création d'une séance =======================");
 		System.out.println("================================================================================");
 
-		String titre; 
-		Pro enseignant;  
-		String dateDebut; 
-		String dateFin;
-		String heureDebut;
-		String recurrence; 
-		int capaciteMax; 
-		String commentaire;
-		
 		Scanner sc = new Scanner(System.in);
 		
 		//Authentification du Professionnel
@@ -85,8 +76,8 @@ public class GestionnaireService{
 		if(pro != null) {
 			
 			afficherAll();
-			System.out.println("Le numéro entré est valide. Veuillez entrer le numéro du Service à 7 chiffres pour lequel le Professionnel aimerait"
-					+ "donner une séance. ");
+			System.out.println("Le numéro entré est valide. Veuillez entrer le numéro du Service à "
+					+ "7 chiffres pour lequel le Professionnel aimerait donner une séance. ");
 			sc = new Scanner(System.in);
 			while(!sc.hasNextInt()) {
 				System.out.println("Veuillez entrer un numéro de service valide à 7 chiffres");
@@ -108,7 +99,8 @@ public class GestionnaireService{
 				System.out.println("Le numéro de service n'existe pas");
 			}
 		}else {
-			System.out.println("Erreur : Le Système n'a pas été en mesure d'identifier un professionnel associé au numéro suivant : " + numero);
+			System.out.println("Erreur : Le Système n'a pas été en mesure d'identifier "
+					+ "un professionnel associé au numéro suivant : " + numero);
 		}	
 		
 		

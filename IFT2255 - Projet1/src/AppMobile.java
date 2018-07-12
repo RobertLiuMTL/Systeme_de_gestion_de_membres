@@ -203,12 +203,45 @@ public class AppMobile implements RegexEmail {
 		}
 	}
 	
+	
+	
+	//TODO : Accueil mobile pour les PRO est incomplet. 
+	//Les méthodes dépendent de d'autres implémentations.
 	public void accueilPro (Pro pro) {
 		System.out.println("================================================================================");
 		System.out.println("Bienvenue "+ pro.getNomComplet()+" à l'application mobile pour les Professionnels");
 		System.out.println("Votre numéro de Professionnel est : " +pro.getNumero());
 		System.out.println("================================================================================");
+		
+		
+		
+		System.out.println("\n\n\nSélectionnez une option");
+		System.out.println("[0]     Quitter l'Application mobile pour Membre\n");
+		System.out.println("[1]     Voir les inscriptions à mes séances \n");
+		System.out.println("[2]     Rechercher une séance\n");
+		System.out.println("[3]     Consulter mes avis de paiement\n");
+		
+		
+		Scanner sc = new Scanner(System.in);
 
+		// Boucle while qui vérifie que l'entrée est un Integer.
+		while (!sc.hasNextInt()) {
+			System.out.println("Svp, entrez un numéro");
+			sc.next();
+		}
+		int input = sc.nextInt();
+
+		while (input != 1 && input != 2 && input != 0 && input != 3) {
+			System.out.println("SVP, faites un choix valide.");
+			input = sc.nextInt();
+		}
+		switch (input) {
+		case 0:
+			break;
+		case 1:
+		case 2:
+		case 3: 
+		}
 	}
 
 }

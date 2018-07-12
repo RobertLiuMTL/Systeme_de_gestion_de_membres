@@ -1,99 +1,39 @@
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Scanner;
 
 /**
- * La classe Séance contient une liste des membres inscrits.
+ * Interface pour la Classe GestionnaireService qui permet la création de Service.
  * 
  * @author Robert
  *
  */
-public class Seance {
+public interface CreateSeance {
+	
+	public default void createSeance(Service service, Pro pro) {
+		String nomPro= pro.getNomComplet();
+		int numPro = pro.getNumero();
+		int prix = 0;
+		int capaciteMax;
+		int capaciteDispo = 30;
 
-	/**
-	 * Les attributs de la classe Séance. La capacité maximale est de 30 membres.
-	 */
-	Pro enseignant;
-	private String nomComplet;
-	private int codeSeance;
-	private int prix = 0;
-	private int capaciteMax;
-	private int capaciteDispo = 30;
+		/**
+		 * Les formats des dates doivent être modifiés afin de répondre aux consignes
+		 */
+		String dateCreation;
 
-	/**
-	 * Les formats des dates doivent être modifiés afin de répondre aux consignes
-	 */
-	private String dateCreation;
+		String dateDebut;
+		String dateFin;
+		String heureDebut;
 
-	private String dateDebut;
-	private String dateFin;
-	private String heureDebut;
+		// Le format des récurrences est incertaine en ce moment.
+		String recurrence;
 
-	// Le format des récurrences est incertaine en ce moment.
-	private String recurrence;
-
-	private String commentaire; // 100 caractères max
-
-	public String getPro() {
-		return this.nomComplet;
-	}
-
-	public int getCode() {
-		return this.codeSeance;
-	}
-
-	public String getDebut() {
-		return this.dateDebut;
-	}
-
-	public String getFin() {
-		return this.dateFin;
-	}
-
-	// TODO Liste de membre à 30 ou bien nulle?
-	private Membre[] listeMembre = new Membre[0];
-
-	public Seance(String nomProf, int numProf, int codeSeance, int cout, int capacite,
-			String dateDebut, String dateFin,String heureDEbut, String recurrence, String comments) {
-
-		// Date de création de la séance
-		// Gregorian Calendar = année, mois, jour
-		GregorianCalendar date = new GregorianCalendar();
-		this.dateCreation = date.get(Calendar.DATE) + "-" + date.get(Calendar.MONTH) + "-" + date.get(Calendar.YEAR);
-
-		this.nomComplet = nomProf;
-		this.codeSeance = codeSeance + (numProf % 100);
-		this.prix=cout;
-		this.capaciteMax=capacite;
-		this.capaciteDispo=capacite;
-		this.dateDebut=dateDebut;
-		this.dateFin=dateFin;
-		this.heureDebut=heureDebut;
-		this.recurrence=recurrence;
-		this.commentaire=comments;
-	}
-
-	/**
-	 * Constructeur de la classe Séance qui prend en paramètre le Professionnel.
-	 * 
-	 * @param enseignant
-	 */
-	public Seance(Pro enseignant, int numero) {
-
-		// Date de création de la séance
-		// Gregorian Calendar = année, mois, jour
-		GregorianCalendar date = new GregorianCalendar();
-		this.dateCreation = date.get(Calendar.DATE) + "-" + date.get(Calendar.MONTH) + "-" + date.get(Calendar.YEAR);
-
-		this.enseignant = enseignant;
-		this.nomComplet = enseignant.getNomComplet();
-
-		// Le module 100 permet d'obtenir les deux derniers chiffres du numéro du
-		// professionnel
-		this.codeSeance = numero + enseignant.getNumero() % 100;
+		String commentaire; // 100 caractères max
+		
+		
 		System.out.println("================================================================================");
 		System.out.println("================================ Création de séance ============================");
 		System.out.println("================================================================================");
@@ -121,7 +61,7 @@ public class Seance {
 			}
 			if (reponse == 'y') {
 				ok = true;
-				this.prix = input;
+				prix = input;
 			}
 			if (reponse == 'n') {
 				System.out.println("Entrez un nouveau montant :");
@@ -157,8 +97,8 @@ public class Seance {
 							.println("La capacité du cours a été établie à 30 étudiants (Capacité maximale permise).");
 					input = 30;
 				}
-				this.capaciteMax = input;
-				this.capaciteDispo = input;
+				capaciteMax = input;
+				capaciteDispo = input;
 			}
 			if (reponse == 'n') {
 				System.out.println("Entrez un nouveau nombre :");
@@ -229,66 +169,64 @@ public class Seance {
 		dateFin = dateCalendar.get(Calendar.DATE) + "-" + dateCalendar.get(Calendar.MONTH) + "-"
 				+ dateCalendar.get(Calendar.YEAR);
 
-		SimpleDateFormat format = new SimpleDateFormat("hh:mm:ss");
+		System.out.println("Veuillez entrer l'Heure de début de la séance.");
+		System.out.println("Veuillez entrer une heure entre 7 à 21.");
+		while (!sc.hasNextInt()) {
+			System.out.println("Svp, entrez une heure valide entre 7 à 21");
+			sc.next();
+		}
+		int heureInput = sc.nextInt();
+		while (heureInput>21 || heureInput<7) {
+			System.out.println("Les heures d'ouvertures du GYM sont"
+					+ "de 7 am à 23 pm. SVP, entrez une heure valide (7 à 21)");
+			heureInput = sc.nextInt();
+		}
+		System.out.println("Veuillez entrer les minutes (0 à 59).");
+		while (!sc.hasNextInt()) {
+			System.out.println("Svp, entrez un nombre valide entre 0 à 59");
+			sc.next();
+		}
+		int minuteInput = sc.nextInt();
+		while (minuteInput>59 || minuteInput<0) {
+			System.out.println("SVP, entrez un nombre entre 0 à 59");
+			minuteInput = sc.nextInt();
+		}
+		heureDebut = ""+heureInput+":"+minuteInput;
+		
+		
+		System.out.println("Veuillez entrer le jour de la semaine de la séance.");
+		System.out.println("1:Lundi\n2:Mardi\n3:Mercredi\n4:Jeudi"
+				+ "\n5:Vendredi\n6:Samedi\n7:Dimanche\n");
+		while (!sc.hasNextInt()) {
+			System.out.println("Svp, entrez un nombre valide entre 0 à 7");
+			sc.next();
+		}
+		int jourInput = sc.nextInt();
+		while (jourInput>7 || jourInput<1) {
+			System.out.println("SVP, entrez un jour valide entre 1 à 7");
+			jourInput = sc.nextInt();
+		}
+		switch(jourInput) {
+		case 1:recurrence = "Lundi";
+		case 2:recurrence = "Mardi";
+		case 3:recurrence = "Mercredi";
+		case 4:recurrence = "Jeudi";
+		case 5:recurrence = "Vendredi";
+		case 6:recurrence = "Samedi";
+		case 7:recurrence = "Dimanche";
+		}
+		
+		System.out.println("Veuillez entrer des commentaires, s'il y a lien.");
+		commentaire=sc.nextLine();
+		while(commentaire.length()>100) {
+			System.out.println("Le commentaire ne peut pas dépasser 100 caractères."
+					+ "\nEntrez un nouveau commentaire ou appuyez sur ENTER pour poursuivre");
+			commentaire=sc.nextLine();
+		}
+		
+		service.addSeance(pro);
+
 	}
-
-	/**
-	 * Méthode pour inscrire un membre à cette séance.
-	 * 
-	 * @param membre
-	 */
-	public void inscrireMembre(Membre membre) {
-		if (capaciteDispo == 0) {
-			System.out.println("Désolé, la séance est complète. " + "Veuillez choisir une autre séance");
-		} else {
-			// 30 - capacité disponible = l'emplacement dans le Array.
-			listeMembre[30 - capaciteDispo] = membre;
-			capaciteDispo--;
-			membre.ajouterSolde(prix);
-		}
-	}
-
-	/**
-	 * Méthode pour désinscrire un Membre à la séance.
-	 */
-	public void desinscrireMembre(int numeroMembre) {
-		Membre[] temporaire = new Membre[30];
-		int positionMembre = -1;
-
-		for (int i = 0; i < 30; i++) {
-			if (listeMembre[i].getNumero() == numeroMembre) {
-				positionMembre = i;
-			}
-		}
-		for (int i = 0; i < positionMembre; i++) {
-
-			temporaire[i] = listeMembre[i];
-		}
-		for (int i = positionMembre + 1; i < listeMembre.length; i++) {
-
-			temporaire[i - 1] = listeMembre[i];
-		}
-		listeMembre = temporaire;
-
-		capaciteDispo++;
-	}
-
-	/**
-	 * Méthode qui affiche les membres inscrits à la présente séance.
-	 */
-	public String afficherInscription() {
-
-		String resultat = "";
-
-		for (int i = 0; i < 30 - capaciteDispo; i++) {
-			resultat += listeMembre[i].getNomComplet() + "\n";
-
-		}
-		if (resultat == "") {
-			return "Il n'y a aucun membre inscrit à cette séance";
-		} else {
-			return resultat;
-		}
-	}
-
+	
+	
 }

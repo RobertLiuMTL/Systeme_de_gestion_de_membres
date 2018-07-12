@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 /**
- * La vue de notre Logiciel. C'est l'interface utilisateur.
+ * La vue de notre Logiciel. C'est l'interface utilisateur en ligne de commande.
  * 
  * @author Robert
  *
@@ -22,7 +22,8 @@ public class Vue {
 	}
 
 	/**
-	 * Imprime l'écran d'accueil.
+	 * Imprime l'écran d'accueil. 
+	 * Deux choix sont proposés à l'utilisateur : L'application mobile ou le logiciel
 	 */
 	public void accueil() {
 		System.out.println("================================================================================");
@@ -88,8 +89,8 @@ public class Vue {
 		System.out.println("[0]     Retourner à l'accueil \n");
 		System.out.println("[1]     Centre de Données \n");
 		System.out.println("[2]     Répertoire des Services \n");
-		System.out.println("[3]     Application mobile \n");
-		System.out.println("[4]     procédure comptable \n");
+		System.out.println("[3]     Identification du Membre pour accès au GYM \n");
+		System.out.println("[4]     Procédure comptable \n");
 		Scanner sc = new Scanner(System.in);
 
 		// Boucle while qui vérifie que l'entrée est un Integer.
@@ -452,7 +453,7 @@ public class Vue {
 
 		case 1:
 			data.gestionnaireServiceAff();
-			System.out.println("Le Membre désire-t-il s'inscrire à un service\n (y/n)");
+			System.out.println("Le Membre désire-t-il s'inscrire à une séance?\n (y/n)");
 
 			Scanner scanner = new Scanner(System.in);
 
@@ -671,18 +672,14 @@ public class Vue {
 		case 0:
 			System.out.println("Retour au Menu Principal");
 			accueil();
-			break;
 		case 1:
 			ProcedureComptable.generateTEF();
-			menuComptable();
 			break;
 		case 2:
 			ProcedureComptable.rapportSemaine();
-			menuComptable();
 			break;
 		case 3:
 			ProcedureComptable.rapportJour();
-			menuComptable();
 			break;
 		}
 	}

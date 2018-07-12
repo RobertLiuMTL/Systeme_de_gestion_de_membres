@@ -4,7 +4,7 @@
  * @author Robert
  *
  */
-public class Service {
+public class Service implements CreateSeance {
 
 	/**
 	 * Classe pour les services offerts par les professionnels

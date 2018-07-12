@@ -1,3 +1,4 @@
+import java.awt.desktop.SystemEventListener;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -53,6 +54,8 @@ public class DataCenter implements Identification {
 		membersListe[1] = new Membre("Alarie", "Alexandre", 222222222, "123 UDEM", "13 octobre", "1234567", "alariey@hotmail.com");
 		
 		membersListe[2] = new Membre("Chabot", "Marc-André", 333333333, "321 allo", "12 octobre", "999123", "marcandrechabot86@gmail.com");
+		
+		addMember ("nomFamille", "prenom", "adresse", "naissance", "phone", "courriel@test.ca");
 		
 		proListe[0] = new Pro( "Wick",  "John", 666666666, "John Wick is a dog", 
 				 "n10 octobre", "123456789",  "JohnWick@hotmail.com", "Docteur");
@@ -312,13 +315,12 @@ public class DataCenter implements Identification {
 	 * @param courriel
 	 * @throws InterruptedException
 	 */
-	public void addMember (String nomFamille, String prenom, String adresse, String naissance, String phone, String courriel) throws InterruptedException {
+	public void addMember (String nomFamille, String prenom, String adresse, String naissance, String phone, String courriel) {
 		int longueur = membersListe.length;
-		
 		//Recopier la liste des membres dans la liste temporaire
 		Membre[] temporaire = new Membre[longueur+1];
-		for (int i = 0;i<=longueur;i++) {
-			temporaire[i]=membersListe[i];		
+		for (int i = 0;i<longueur;i++) {
+			temporaire[i]=membersListe[i];
 			}
 		temporaire[longueur] = new Membre(nomFamille, prenom, lastNumber, adresse, naissance, phone, courriel);
 		membersListe=temporaire;
@@ -328,7 +330,12 @@ public class DataCenter implements Identification {
 		System.out.println("\nVeuillez patienter pendant que le Système "
 				+ "imprime la carte de Membre et retourne au Centre de Données..."
 				+ "\n\n");
-		Thread.sleep(4000);
+		try {
+			Thread.sleep(4000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	
