@@ -673,15 +673,15 @@ public class Vue {
 			accueil();
 			break;
 		case 1:
-			Comptable.generateTEF();
+			ProcedureComptable.generateTEF();
 			menuComptable();
 			break;
 		case 2:
-			Comptable.rapportSemaine();
+			ProcedureComptable.rapportSemaine();
 			menuComptable();
 			break;
 		case 3:
-			Comptable.rapportJour();
+			ProcedureComptable.rapportJour();
 			menuComptable();
 			break;
 		}

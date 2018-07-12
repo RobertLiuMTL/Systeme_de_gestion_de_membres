@@ -17,22 +17,23 @@ import java.util.Scanner;
  */
 public class DataCenter implements Identification {
 	
-
 	//Les attributs de la Base de Données
 	Membre [] membersListe = new Membre[3];
 	static Pro [] proListe = new Pro[2];
 	Service [] serviceListe = new Service[1];
-	Vue vue = new Vue(this);
+
 	
+	//Les différentes extensions
+	Vue vue = new Vue(this);
 	GestionnaireMembre gm = new GestionnaireMembre(this);
 	GestionnairePro gp = new GestionnairePro(this);
 	GestionnaireService gs = new GestionnaireService(this);
 	InscriptionService is = new InscriptionService();
 	CreationService cs = new CreationService();
 
+	
 	//Dernier numéro de Membre attribué.
 	private int lastNumber = 123456789;
-	
 	//Dernier numéro du Service attribué
 	private int lastService = 1000000;
 	
@@ -70,10 +71,9 @@ public class DataCenter implements Identification {
 		addService("Soccer");
 		addService("Hockey");
 		addService("Badminton");
+		
+		
 		this.vue.accueil();
-		
-		
-	
 		
 	}
 
@@ -100,6 +100,11 @@ public class DataCenter implements Identification {
 	public Service[] getService() {
 		return this.serviceListe;
 	}
+	
+
+	
+	
+	
 	/**
 	 * Méthode qui permet d'identifier le Client.
 	 * Prend en paramètre le numéro du Client ainsi que la base de données.
@@ -214,6 +219,10 @@ public class DataCenter implements Identification {
 
 	}
 	
+	/**
+	 * Méthode pour supprimer un Membre;
+	 * @param numero
+	 */
 	public void gestionnaireSupMembre(int numero) {
 		gm.suppMembre(numero);
 	}
@@ -245,6 +254,9 @@ public class DataCenter implements Identification {
 		return gp.findPro();
 	}
 	
+	/**
+	 * Méthode pour afficher tous les professionnels.
+	 */
 	public void gestionnaireAfficherPro() {
 		gp.afficherAll(proListe);
 	}
@@ -319,6 +331,8 @@ public class DataCenter implements Identification {
 		Thread.sleep(4000);
 	}
 	
+	
+	
 	/**
 	 * Méthode pour créer un professionnel.
 	 * @param nomFamille String
@@ -349,6 +363,11 @@ public class DataCenter implements Identification {
 		Thread.sleep(4000);
 	}	
 	
+	
+	/**
+	 * Méthode pour ajouter un nouveau Service à la banque de données
+	 * @param titre
+	 */
 	public void addService(String titre) {
 		
 		int longueur = serviceListe.length;
@@ -370,6 +389,7 @@ public class DataCenter implements Identification {
 
 	
 	}
+	
 	
 	//////////////////////////////////////////////////////////////////////////////////////////
 	//////////////////////////////////////////////////////////////////////////////////////////

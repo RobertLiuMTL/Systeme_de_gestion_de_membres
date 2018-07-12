@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 /**
  * La classe Séance contient une liste des membres inscrits.
- * @author Shado
+ * @author Robert
  *
  */
 public class Seance {
@@ -139,6 +139,7 @@ public class Seance {
 					input=30;
 				}
 				this.capaciteMax = input;
+				this.capaciteDispo=input;
 			}
 			if (reponse == 'n'){
 				System.out.println("Entrez un nouveau nombre :");
@@ -213,7 +214,7 @@ public class Seance {
 		
 		
 		
-		SimpleDateFormat format =new SimpleDateFormat ("T hh:mm:ss"); 
+		SimpleDateFormat format =new SimpleDateFormat ("hh:mm:ss"); 
 	}
 	
 	/**
@@ -227,6 +228,7 @@ public class Seance {
 		}else {
 			//30 - capacité disponible = l'emplacement dans le Array.
 			listeMembre[30-capaciteDispo]=membre;
+			capaciteDispo--;
 			membre.ajouterSolde(prix);
 		}
 	}

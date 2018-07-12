@@ -1,4 +1,8 @@
-
+/**
+ * Classe qui offre une méthode pour authentifier un membre ou professionnel par son Courriel
+ * @author Robert
+ *
+ */
 public class IdentificationCourriel {
 	
 	/**

@@ -108,7 +108,13 @@ public class GestionnaireMembre {
 		}
 		System.out.println(resultatAll);
 	}
-
+	
+	/**
+	 * Méthode qui permet de suspendre un membre.
+	 * @param liste : Liste de Membre
+	 * @param numero : Le code du Membre à 9 chiffres
+	 * @return : Retourne le message (String) de suspension
+	 */
 	public String suspendMembre(Membre[] liste, int numero) {
 		String resultat = "";
 		for (int i = 0; i < liste.length; i++) {
@@ -120,7 +126,10 @@ public class GestionnaireMembre {
 		}
 		return resultat;
 	}
-
+	
+	/**
+	 * Méthode pour modifier les informations d'un Membre
+	 */
 	public void modifierMembre() {
 		System.out.println("================================================================================");
 		System.out.println("=========================== Gestionnaire des Membres ===========================");
@@ -150,6 +159,11 @@ public class GestionnaireMembre {
 			}
 		}
 	}
+	
+	/**
+	 * Méthode pour modifier les informations du Membre
+	 * @param membre
+	 */
 	public void moduleMod(Membre membre) {
 		System.out.println("================================================================================");
 		System.out.println("=========================== Le compte de " + membre.getNomComplet() + "====");

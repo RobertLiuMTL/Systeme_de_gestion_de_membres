@@ -1,8 +1,9 @@
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
-public class ServiceFourni {
+/**TODO : Doit être produit à chaque fois qu'un membre confirme sa présence à une séance.
+ */
+public class DATA_ServiceFourni {
     //Date et heure actuelles
 	private String dateHeure;
     //Date à laquelle du service qui sera fourni
@@ -19,7 +20,7 @@ public class ServiceFourni {
 	DateFormat fullDate = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 	DateFormat dateOnly = new SimpleDateFormat("yyyy/MM/dd");
 	
-	public ServiceFourni(String dateService, int numPro, int numMembre, int codeService, String comment) {
+	public DATA_ServiceFourni(String dateService, int numPro, int numMembre, int codeService, String comment) {
 		//heure de confirmation
 		this.dateHeure = fullDate.format(new Date());
 		

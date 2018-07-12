@@ -43,11 +43,6 @@ public class Service {
 	public String getTitre() {
 		return this.titre;
 	}
-	
-	public String test() {
-		return "allo";
-	}
-
 
 	public int getService() {
 		return this.codeService;

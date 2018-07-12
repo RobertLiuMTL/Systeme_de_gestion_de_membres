@@ -175,7 +175,7 @@ public class AppMobile implements RegexEmail {
 
 		System.out.println("\n\n\nSélectionnez une option");
 		System.out.println("[0]     Quitter l'Application mobile pour Membre\n");
-		System.out.println("[1]     Voir les Services offerts \n");
+		System.out.println("[1]     Voir les Services offerts et s'inscrire à un service \n");
 		System.out.println("[2]     Voir mes Services de la semaine\n");
 		System.out.println("[3]     Consulter ma facture\n");
 		
@@ -198,12 +198,14 @@ public class AppMobile implements RegexEmail {
 			break;
 		case 1:
 			data.gestionnaireServiceAff();
+		case 2:
+		case 3: 
 		}
 	}
 	
 	public void accueilPro (Pro pro) {
 		System.out.println("================================================================================");
-		System.out.println("Bienvenue"+ pro.getNomComplet()+" à l'application mobile pour les Professionnels");
+		System.out.println("Bienvenue "+ pro.getNomComplet()+" à l'application mobile pour les Professionnels");
 		System.out.println("Votre numéro de Professionnel est : " +pro.getNumero());
 		System.out.println("================================================================================");
 
