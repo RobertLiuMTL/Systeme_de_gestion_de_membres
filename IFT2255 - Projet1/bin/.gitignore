@@ -16,3 +16,9 @@
 /Service.class
 /Vue.class
 /CreationService.class
+/ValidateEmail.class
+/ApplicationMobile.class
+/IdentificationCourriel.class
+/RegexEmail.class
+/AppLogin.class
+/AppMobile.class

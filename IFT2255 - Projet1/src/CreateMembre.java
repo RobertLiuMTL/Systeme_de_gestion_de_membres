@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-/**
+/**TODO : Inclure une étape pour vérifier si le membre a payé ou non.
  * Le module de création de Membre.
  * 
  * Interagit avec l'utilisateur sous formes de lignes de commande.
@@ -9,8 +9,7 @@ import java.util.Scanner;
  * @author Shado
  *
  */
-public class CreateMembre {
-	
+public class CreateMembre implements RegexEmail {
 	//les attributs qui seront utilisés pour la création du membre
 	private String nomFamille;
 	private String prenom;

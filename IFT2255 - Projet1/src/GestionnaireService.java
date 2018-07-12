@@ -7,9 +7,8 @@ import java.util.Scanner;
  * @author Robert
  *
  */
-public class GestionnaireService {
+public class GestionnaireService{
 	private DataCenter data;
-	Identification id = new Identification();
 
 	public GestionnaireService(DataCenter data) {
 		this.data = data;
@@ -82,7 +81,7 @@ public class GestionnaireService {
 		}
 		int numero = sc.nextInt();
 		
-		Pro pro = id.identifierPro(this.data, numero);
+		Pro pro = data.identifierPro(this.data, numero);
 		if(pro != null) {
 			
 			afficherAll();

@@ -7,6 +7,16 @@ import java.util.Date;
  */
 public class Membre extends Personne{
 	
+	/**
+	 * Constructeur du Membre qui acquitte ses frais d'inscription
+	 * @param nomFamille
+	 * @param prenom
+	 * @param numeroMembre
+	 * @param adresse
+	 * @param naissance
+	 * @param phone
+	 * @param courriel
+	 */
 	public Membre (String nomFamille, String prenom, int numeroMembre, String adresse, String naissance, String phone, String courriel) {
 		this.nomFamille=nomFamille;
 		this.prenom=prenom;
@@ -18,8 +28,23 @@ public class Membre extends Personne{
 		this.dateCreation = dateFormat.format(new Date());
 	}
 	
-	public int getNumeroMembre() {
-		return this.numeroMembre;
+	/**
+	 * Constructeur pour un membre qui n'acquitte pas de ses frais de membre
+	 * @param nomFamille
+	 * @param prenom
+	 * @param adresse
+	 * @param naissance
+	 * @param phone
+	 * @param courriel
+	 */
+	public Membre (String nomFamille, String prenom, String adresse, String naissance, String phone, String courriel) {
+		this.nomFamille=nomFamille;
+		this.prenom=prenom;
+		this.adresse=adresse;
+		this.naissance=naissance;
+		this.phone=phone;
+		this.courriel=courriel;
+		this.dateCreation = dateFormat.format(new Date());
 	}
 	
 	/**

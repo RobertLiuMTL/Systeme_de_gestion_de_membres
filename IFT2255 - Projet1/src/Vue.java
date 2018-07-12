@@ -33,7 +33,45 @@ public class Vue {
 				+ " '._'--\"```          \\   ^   /          ```\"--'_.'\r\n"
 				+ "    ``\"''~---~~%^%^.%.`._0_.'%,^%^%^~~---~''\"``\r\n"
 				+ "    ~^~- `^-% ^~.%~%.^~-%-~.%-^.% ~`% ~-`%^`-~^~\r\n" + "       ~^- ~^- `~.^- %`~.%~-'%~^- %~^- ~^");
-		menuPrincipal();
+		
+		System.out.println("\n\n\nSélectionnez une option");
+		System.out.println("[0]     Fermer le Système \n");
+		System.out.println("[1]     Logiciel #GYM \n");
+		System.out.println("[2]     Application mobile \n");
+		
+		
+		Scanner sc = new Scanner(System.in);
+
+		// Boucle while qui vérifie que l'entrée est un Integer.
+		while (!sc.hasNextInt()) {
+			System.out.println("Svp, entrez un numéro");
+			sc.next();
+		}
+		int input = sc.nextInt();
+
+		while (input != 1 && input != 2 && input != 0) {
+			System.out.println("SVP, faites un choix valide.");
+			input = sc.nextInt();
+		}
+		switch (input) {
+		case 0:
+			System.out.println("Fermeture du système en cours...");
+			try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			System.exit(0);
+		case 1:
+			menuPrincipal();
+			break;
+		case 2:
+			AppMobile app = new AppMobile(data);
+			accueil();
+			break;
+		}
+		
 	}
 
 	/**
@@ -47,7 +85,7 @@ public class Vue {
 		System.out.println("\n");
 
 		System.out.println("Sélectionnez une option");
-		System.out.println("[0]     Fermer le Système \n");
+		System.out.println("[0]     Retourner à l'accueil \n");
 		System.out.println("[1]     Centre de Données \n");
 		System.out.println("[2]     Répertoire des Services \n");
 		System.out.println("[3]     Application mobile \n");
@@ -68,14 +106,8 @@ public class Vue {
 
 		switch (input) {
 		case 0:
-			System.out.println("Fermeture du système en cours...");
-			try {
-				Thread.sleep(3000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			System.exit(0);
+			accueil();
+			break;
 		case 1:
 			System.out.println("Ouverture du Centre de Données...");
 			dataCenter();

@@ -239,7 +239,7 @@ public class Seance {
 		int positionMembre = -1;
 		
 		for(int i = 0; i < 30; i++){
-			if(listeMembre[i].getNumeroMembre() == numeroMembre) {
+			if(listeMembre[i].getNumero() == numeroMembre) {
 			positionMembre = i;	
 			}
 		}

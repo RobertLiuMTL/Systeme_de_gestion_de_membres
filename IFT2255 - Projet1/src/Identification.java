@@ -4,11 +4,8 @@
  * @author Robert
  *
  */
-public class Identification {
+public interface Identification {
 
-	public Identification() {
-
-	}
 
 	/**
 	 * Fonction d'identification qui vérifie si le Membre est inscrit Vérifie
@@ -23,7 +20,7 @@ public class Identification {
 	 *            : Numéro de client à 9 chiffre
 	 * @return Le résultat de l'identification sous forme de String
 	 */
-	public String identifier(DataCenter data, int numero) {
+	public default String identifier(DataCenter data, int numero) {
 		String resultat = "Numéro invalide.";
 		for (int i = 0; i < data.getMembre().length; i++) {
 			if (data.getMembre()[i].getNumero() == numero) {
@@ -62,7 +59,7 @@ public class Identification {
 	 *            : numéro à 9 chiffres
 	 * @return True or False
 	 */
-	public boolean identifierBool(DataCenter data, int numero) {
+	public default boolean identifierBool(DataCenter data, int numero) {
 		boolean resultat = false;
 		boolean trouve = false;
 		for (int i = 0; i < data.getMembre().length; i++) {
@@ -96,7 +93,7 @@ public class Identification {
 	 * @param numero
 	 * @return
 	 */
-	public Membre identifierMembre(DataCenter data, int numero) {
+	public default Membre identifierMembre(DataCenter data, int numero) {
 		Membre resultat = null;
 		for (int i = 0; i < data.getMembre().length; i++) {
 			if (data.getMembre()[i].getNumero() == numero) {
@@ -112,7 +109,7 @@ public class Identification {
 	 * @param numero
 	 * @return
 	 */
-	public Pro identifierPro(DataCenter data, int numero) {
+	public default Pro identifierPro(DataCenter data, int numero) {
 		Pro resultat = null;
 		for (int i = 0; i < data.getPro().length; i++) {
 			if (data.getPro()[i].getNumero() == numero) {

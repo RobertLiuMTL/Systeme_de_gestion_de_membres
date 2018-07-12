@@ -90,10 +90,17 @@ public class GestionnaireMembre {
 	 */
 	public void afficherAll(Membre[] liste) {
 		String resultatAll = "Voici la liste de tous les membres " + "inscrits au Centre Sportif #GYM : \n\n";
-
+		String temp;
 		for (int i = 0; i < liste.length; i++) {
+			
+			// Ce IF/ELSE gère le cas des membres qui n'ont pas payé leur frais d'adhésion.
+			if (liste[i].getNumero()==0) {
+				temp = "Le numéro du Membre est indisponible jusqu'au paiement des frais d'adhésion";
+			}else {
+				temp = ""+liste[i].getNumero();
+			}
 			resultatAll += "*****************************************\n" + "Nom : " + liste[i].getNomComplet() + "\n"
-					+ "Numéro de membre : " + liste[i].getNumero() + "\n" + "Date de naissance : "
+					+ "Numéro de membre : " + temp + "\n" + "Date de naissance : "
 					+ liste[i].getNaissance() + "\n" + "Adresse : " + liste[i].getAdresse() + "\n" + "Courriel : "
 					+ liste[i].getCourriel() + "\n" + "Numéro de téléphone : " + liste[i].getPhone() + "\n"
 					+ "Membre suspendu? : " + liste[i].getSuspendu() + "\n" + "Membre depuis : "

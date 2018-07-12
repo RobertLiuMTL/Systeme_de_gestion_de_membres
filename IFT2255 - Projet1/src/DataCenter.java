@@ -15,7 +15,7 @@ import java.util.Scanner;
  * @author Robert
  *
  */
-public class DataCenter {
+public class DataCenter implements Identification {
 	
 
 	//Les attributs de la Base de Données
@@ -27,7 +27,6 @@ public class DataCenter {
 	GestionnaireMembre gm = new GestionnaireMembre(this);
 	GestionnairePro gp = new GestionnairePro(this);
 	GestionnaireService gs = new GestionnaireService(this);
-	Identification id = new Identification();
 	InscriptionService is = new InscriptionService();
 	CreationService cs = new CreationService();
 
@@ -47,19 +46,20 @@ public class DataCenter {
 	public DataCenter() {
 		
 		//Création d'une liste pour nos tests.
-		membersListe[0] = new Membre("Liu", "Robert", 111111111, "4981 félix", "14 octobre", "514621", "robert.liu@allo.com");
+		membersListe[0] = new Membre("Liu", "Robert", 111111111, "4981 félix", "14 octobre", "514621", "robert.liu@umontreal.ca");
+		membersListe[0].setSuspendu(true);
 		
-		membersListe[1] = new Membre("Alarie", "Alexandre", 222222222, "123 UDEM", "13 octobre", "1234567", "alexandre@pomme.ca");
+		membersListe[1] = new Membre("Alarie", "Alexandre", 222222222, "123 UDEM", "13 octobre", "1234567", "alariey@hotmail.com");
 		
-		membersListe[2] = new Membre("Chabot", "Marc-André", 333333333, "321 allo", "12 octobre", "999123", "Marc@andre.lol");
+		membersListe[2] = new Membre("Chabot", "Marc-André", 333333333, "321 allo", "12 octobre", "999123", "marcandrechabot86@gmail.com");
 		
 		proListe[0] = new Pro( "Wick",  "John", 666666666, "John Wick is a dog", 
-				 "n10 octobre", "123456789",  "John Wick 3 va être un bon film", "Docteur");
+				 "n10 octobre", "123456789",  "JohnWick@hotmail.com", "Docteur");
 		
 		proListe[1] = new Pro( "Escuela",  "Pablo", 555555555, "Yoyo vamos a la playa", 
-				 "1999 10 10", "123456789",  "Pablo@yoyo.ca", "Voleur");
+				 "1999 10 10", "123456789",  "Pablo@hotmail.com", "Voleur");
 		
-		//Création de services de base
+		//Création de services de base + test de la méthode addService()
 		serviceListe[0]=new Service("Ostéopathes", this.lastService);
 		addService("Nutritionniste");
 		addService("Orthopédiste");
@@ -107,7 +107,7 @@ public class DataCenter {
 	 * @return
 	 */
 	public String identifier(int numero) {
-		return id.identifier(this, numero);
+		return identifier(this, numero);
 	}
 	
 	/**
@@ -117,11 +117,15 @@ public class DataCenter {
 	 * @return Résultat sous forme de Boolean
 	 */
 	public boolean identifierBool(int numero) {
-		return id.identifierBool(this, numero);
+		return identifierBool(this, numero);
 	}
 	
 	public Membre identifierMembre(int numero) {
-		return id.identifierMembre(this, numero);
+		return identifierMembre(this, numero);
+	}
+	
+	public Pro identifierPro (int numero) {
+		return identifierPro(this,numero);
 	}
 //////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////
@@ -253,15 +257,23 @@ public class DataCenter {
 //////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////
 	
-	
+	/**
+	 * Méthode pour afficher l'ensemble des services disponibles et leurs séances
+	 */
 	public void gestionnaireServiceAff() {
 		gs.afficherAll();
 	}
 	
+	/**
+	 * Méthode pour ajouter un nouveau service
+	 */
 	public void gestionnaireAddServ() {
 		gs.creerService();
 	}
 	
+	/**
+	 * Méthode pour créer une nouvelle séance
+	 */
 	public void gestionnaireAddSeance() {
 		gs.creerSeance();
 	}
@@ -376,7 +388,7 @@ public class DataCenter {
 	public int membrePosition(int num) {
 		int code = -1;
 		for(int i = 0; i < this.membersListe.length; i++ ) {
-			if(num == membersListe[i].getNumeroMembre()) {
+			if(num == membersListe[i].getNumero()) {
 				code = i;
 			}
 		}
