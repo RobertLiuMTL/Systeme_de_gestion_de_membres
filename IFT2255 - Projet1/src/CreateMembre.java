@@ -186,14 +186,8 @@ public class CreateMembre implements RegexEmail {
 			break;
 		}
 		
-		try {
-			
-			//Une fois toute l'informations recueillie, le processus de création de Membre se poursuit avec le Centre de Données
-			data.addMember(nomFamille, prenom, adresse, naissance, phone, courriel);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		//Une fois toute l'informations recueillie, le processus de création de Membre se poursuit avec le Centre de Données
+		data.addMember(nomFamille, prenom, adresse, naissance, phone, courriel);
 	}
 }
 

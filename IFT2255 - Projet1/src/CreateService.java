@@ -4,9 +4,9 @@ import java.util.Scanner;
  * @author Marc-André
  *La classe c'est juste une methode qui fais la vue pour la creation d'un service
  */
-public class CreationService {
+public class CreateService {
 
-	public CreationService() {
+	public CreateService() {
 		
 	}
 	

@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class ProFind {
+public class FindPro {
 
 	public String rechercheParNum(Pro[] liste) {
 		Scanner sc = new Scanner(System.in);

@@ -16,12 +16,13 @@ public class Seance {
 	/**
 	 * Les attributs de la classe Séance. La capacité maximale est de 30 membres.
 	 */
+	String titreService;
 	Pro enseignant;
 	private String nomComplet;
 	private int codeSeance;
 	private int prix = 0;
 	private int capaciteMax;
-	private int capaciteDispo = 30;
+	private int capaciteDispo;
 	/**
 	 * Les formats des dates doivent être modifiés afin de répondre aux consignes
 	 */
@@ -64,16 +65,17 @@ public class Seance {
 	}
 
 	// TODO Liste de membre à 30 ou bien nulle?
-	private Membre[] listeMembre = new Membre[0];
+	private Membre[] listeMembre = new Membre[30];
 
 	public Seance(String nomProf, int numProf, int codeSeance, int cout, int capacite,
-			String dateDebut, String dateFin,String heureDebut, String recurrence, String comments) {
+			String dateDebut, String dateFin,String heureDebut, String recurrence, 
+			String comments,String titreService) {
 
 		// Date de création de la séance
 		// Gregorian Calendar = année, mois, jour
 		GregorianCalendar date = new GregorianCalendar();
 		this.dateCreation = date.get(Calendar.DATE) + "-" + date.get(Calendar.MONTH) + "-" + date.get(Calendar.YEAR);
-
+		this.titreService=titreService;
 		this.nomComplet = nomProf;
 		this.codeSeance = codeSeance + (numProf % 100);
 		this.prix=cout;
@@ -250,9 +252,10 @@ public class Seance {
 			System.out.println("Désolé, la séance est complète. " + "Veuillez choisir une autre séance");
 		} else {
 			// 30 - capacité disponible = l'emplacement dans le Array.
-			listeMembre[30 - capaciteDispo] = membre;
+			listeMembre[capaciteMax - capaciteDispo] = membre;
 			capaciteDispo--;
 			membre.ajouterSolde(prix);
+			System.out.println("Le membre " +membre.getNomComplet() +" s'est inscrit à la séance!");
 		}
 	}
 
@@ -278,24 +281,32 @@ public class Seance {
 		}
 		listeMembre = temporaire;
 
-		capaciteDispo++;
+		capaciteDispo--;
 	}
 
 	/**
 	 * Méthode qui affiche les membres inscrits à la présente séance.
 	 */
 	public String afficherInscription() {
-
+		String msg = "Voici les membres inscrits à la séance de "
+	+this.titreService+"\n"+"Nom du professionnel : "+this.nomComplet
+	+"\nCode de la séance : "+this.codeSeance+"\n";
 		String resultat = "";
 
-		for (int i = 0; i < 30 - capaciteDispo; i++) {
-			resultat += listeMembre[i].getNomComplet() + "\n";
+		for (int i = 0; i <= capaciteMax - capaciteDispo; i++) {
+			if(listeMembre[i]==null) {
+				break;
+			}else {
+				resultat += listeMembre[i].getNomComplet() + "\n"
+					+listeMembre[i].getNumero()+"\n";
+			}
 
 		}
+		
 		if (resultat == "") {
-			return "Il n'y a aucun membre inscrit à cette séance";
+			return "Il n'y a aucun membre inscrit à cette séance\n";
 		} else {
-			return resultat;
+			return msg+resultat;
 		}
 	}
 

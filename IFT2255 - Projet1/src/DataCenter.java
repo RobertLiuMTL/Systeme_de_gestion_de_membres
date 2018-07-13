@@ -29,9 +29,8 @@ public class DataCenter implements Identification {
 	GestionnaireMembre gm = new GestionnaireMembre(this);
 	GestionnairePro gp = new GestionnairePro(this);
 	GestionnaireService gs = new GestionnaireService(this);
-	InscriptionService is = new InscriptionService();
-	CreationService cs = new CreationService();
-
+	CreateService cs = new CreateService();
+	IdentificationServiceSeance is = new IdentificationServiceSeance(this);
 	
 	//Dernier numéro de Membre attribué.
 	private int lastNumber = 123456789;
@@ -281,7 +280,7 @@ public class DataCenter implements Identification {
 	 * Méthode pour afficher l'ensemble des services disponibles et leurs séances
 	 */
 	public void gestionnaireServiceAff() {
-		gs.afficherAll();
+		gs.afficherServices();
 	}
 	
 	/**

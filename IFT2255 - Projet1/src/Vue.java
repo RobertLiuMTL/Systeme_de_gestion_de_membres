@@ -455,23 +455,23 @@ public class Vue {
 			data.gestionnaireServiceAff();
 			System.out.println("Le Membre désire-t-il s'inscrire à une séance?\n (y/n)");
 
-			Scanner scanner = new Scanner(System.in);
+			sc2 = new Scanner(System.in);
 
-			char input3 = scanner.nextLine().charAt(0);
+			char input3 = sc2.nextLine().charAt(0);
 
 			while (input3 != 'y' && input3 != 'n') {
 				System.out.println("tapez une entrée valide");
-				input3 = scanner.nextLine().charAt(0);
+				input3 = sc2.nextLine().charAt(0);
 				System.out.println(input3);
 
 			}
 
 			if (input3 == 'y') {
-				data.is.inscrireMembre(data);
+				data.gs.inscrireMembre(data);
+				menuRepertoireServices();
 
 			} else if (input3 == 'n') {
 				System.out.println("retour au répertoire des services");
-
 				menuRepertoireServices();
 			}
 
@@ -611,7 +611,7 @@ public class Vue {
 			menuRepertoireServices();
 			break;
 */
-			/*
+			
 		case 6:
 			System.out.println("Veuillez entrer le numéro de cours (7 chiffres) à consulter");
 			sc2 = new Scanner(System.in);
@@ -619,10 +619,10 @@ public class Vue {
 				System.out.println("Svp, entrez un numéro de cours valide (7 chiffres)");
 				sc2.next();
 			}
-			int numbCours6 = sc2.nextInt();
+			int codeSeance = sc2.nextInt();
 
 
-			data.consulterInscription(numbCours6);
+			data.gs.afficherInscription(codeSeance);
 			System.out.println("Retour au répertoire des services");
 			try {
 				Thread.sleep(3000);
@@ -632,6 +632,7 @@ public class Vue {
 			}
 			menuRepertoireServices();
 			break;
+			/*
 		case 7:
 			data.gestionnaireModService();
 			menuRepertoireServices();

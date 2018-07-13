@@ -71,7 +71,7 @@ public class Service{
 		this.codeSeance+=100;
 		System.out.print("Début de la création de la séance pour le Service " +getTitre() +"...\n");
 		temporaire[longueur] = new Seance(nomProf,numProf,codeSeance,cout,capacite,
-				dateDebut,dateFin,heureDebut,recurrence,comments);
+				dateDebut,dateFin,heureDebut,recurrence,comments,this.titre);
 		seances = temporaire;
 		System.out.println("La nouvelle Séance a été créée avec succès!\n");
 		//System.out.println("La Séance est : "+ temporaire[longueur].getTitre());

@@ -26,3 +26,8 @@
 /DATA_ServiceFourni.class
 /DATA_InscriptionService.class
 /CreateSeance.class
+/InscriptionSeance.class
+/IdentificationService.class
+/IdentificationServiceSeance.class
+/CreateService.class
+/FindPro.class

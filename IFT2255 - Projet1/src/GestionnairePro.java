@@ -8,7 +8,7 @@ public class GestionnairePro {
 	//Attributs du gestionnaire des professionnels
 	private DataCenter data;
 	
-	private ProFind find = new ProFind();
+	private FindPro find = new FindPro();
 
 	
 	public GestionnairePro(DataCenter data) {

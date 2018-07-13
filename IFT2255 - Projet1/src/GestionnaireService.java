@@ -8,14 +8,14 @@ import java.util.Scanner;
  * @author Robert
  *
  */
-public class GestionnaireService implements CreateSeance{
+public class GestionnaireService implements CreateSeance, InscriptionSeance{
 	private DataCenter data;
 
 	public GestionnaireService(DataCenter data) {
 		this.data = data;
 	}
 	
-	public void afficherAll() {
+	public void afficherServices() {
 		Service[]liste=data.getService();
 		String resultatAll = "Voici la liste de tous les Services : \n\n";
 
@@ -43,6 +43,21 @@ public class GestionnaireService implements CreateSeance{
 			}
 		}
 		System.out.println(resultatAll);
+	}
+	
+	
+	/**
+	 * Méthode pour afficher la liste des Membres inscrits
+	 * à une séance.
+	 * @param codeSeance
+	 */
+	public void afficherInscription(int codeSeance) {
+		Seance seance = data.is.findSeance(codeSeance);
+		if(seance!= null) {
+			System.out.print(seance.afficherInscription());
+		}else {
+			System.out.println("La séance est introuvable");
+		}
 	}
 	
 	
@@ -84,7 +99,7 @@ public class GestionnaireService implements CreateSeance{
 		Pro pro = data.identifierPro(this.data, numero);
 		if(pro != null) {
 			
-			afficherAll();
+			afficherServices();
 			System.out.println("Le numéro entré est valide. Veuillez entrer le numéro du Service à "
 					+ "7 chiffres pour lequel le Professionnel aimerait donner une séance. ");
 			sc = new Scanner(System.in);
@@ -112,6 +127,11 @@ public class GestionnaireService implements CreateSeance{
 					+ "un professionnel associé au numéro suivant : " + numero);
 		}	
 		
+	}
+	
+	
+	
+	public void inscriptionService() {
 		
 	}
 	
