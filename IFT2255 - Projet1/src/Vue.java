@@ -652,7 +652,7 @@ public class Vue {
 		System.out.println("\n");
 		System.out.println("Sélectionnez une option");
 		System.out.println("[0]     Quitter la procédure comptable \n");
-		System.out.println("[1]     Générer les enregistrments TEF \n");
+		System.out.println("[1]     Générer les enregistrements TEF \n");
 		System.out.println("[2]     Produire un rapport de synthèse \n");
 
 		Scanner sc4 = new Scanner(System.in);
@@ -674,14 +674,8 @@ public class Vue {
 			System.out.println("Retour au Menu Principal");
 			accueil();
 		case 1:
-			ProcedureComptable.generateTEF();
-			break;
-		case 2:
-			ProcedureComptable.rapportSemaine();
-			break;
-		case 3:
-			ProcedureComptable.rapportJour();
-			break;
+			data.procedureComptable();
+		
 		}
 	}
 }

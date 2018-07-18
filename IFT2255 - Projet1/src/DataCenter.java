@@ -443,6 +443,41 @@ public class DataCenter implements Identification {
 		
 		return code;
 	}
+	/**
+	 * cette methode permet de realiser la procedure comptable 
+	 */
+	public void procedureComptable() {
+		//genererRapportMembre();
+		//genererRapportPro();
+		//genererRapportDeSynthese();
+		genererRapportTEF();
+		
+	}
+	
+	
+	public void genererRapportDeSynthese() {
+		
+	}
+	
+	/**
+	 * methode prive utilise par la procedure comptable pour generer les rapports a envoyer aux pros
+	 */
+	private void genererRapportPro(){
+		
+	}
+	/**
+	 * methode prive utilise par la procedure comptable pour generer les rapports a envoyer aux Membres
+	 */
+	private void genererRapportMembre() {
+	
+	}
+	/**
+	 * genere le rapport TEF a partir de la procedure comptable
+	 *
+	 */
+	private void genererRapportTEF() {
+		TEF tef = new TEF(this.getService(), this.getPro());
+	}
 	
 	/**
 	 * permet d'ajouter un membre dans la liste des inscrit d'un service, retourne  -1 si le membre n'existe pas

@@ -63,6 +63,10 @@ public class Seance {
 	public int getPrix() {
 		return this.prix;
 	}
+	
+	public String getDateCreation() {
+		return this.dateCreation;
+	}
 
 	// TODO Liste de membre à 30 ou bien nulle?
 	private Membre[] listeMembre = new Membre[30];
@@ -308,6 +312,18 @@ public class Seance {
 		} else {
 			return msg+resultat;
 		}
+	}
+	/**
+	 * une methode qui retourne un string formatter pour des ajouts de seances dans un fichier TEF
+	 * @return
+	 */
+	public String descriptionTEF() {
+		String info = "\nDate de création : "+ this.getDateCreation()+ "\n"
+					+ "Date du début du Service : " + this.getDebut() + "\n"
+					+ this.afficherInscription();
+				;
+		
+		return info;
 	}
 
 }
