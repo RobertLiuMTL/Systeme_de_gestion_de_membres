@@ -1,7 +1,8 @@
 /**
- * TODO : Chaque rapport de membre doit être écrit dans son propre fichier ; 
- * le nom du fichier doit commencer par le nom du membre, suivi de la date du rapport. 
- * Il en est de même pour les rapports de professionnels. 
+ * 
+ * DEPRECIE
+ * la procedure comptable est maintenant une methode dans datacenter 
+ * 
  * 
  * @author Robert
  *

@@ -23,6 +23,8 @@ public class TEF {
 		int currentWeek = calendrier.get(Calendar.WEEK_OF_YEAR);
 		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 		File container = new File("tp1");
+		
+		
 		for(int i = 0; i < Pro.length; i++) {
 			System.out.println("boucle 1");
 			for(int j = 0; j < Services.length; j++) {
