@@ -17,7 +17,7 @@ public class Membre extends Personne{
 	 * @param phone
 	 * @param courriel
 	 */
-	public Membre (String nomFamille, String prenom, int numeroMembre, String adresse, String naissance, String phone, String courriel) {
+	public Membre (String nomFamille, String prenom, int numeroMembre, String adresse, String naissance, String phone, String courriel , String province ,String city , String postalcode) {
 		this.nomFamille=nomFamille;
 		this.prenom=prenom;
 		this.numeroMembre=numeroMembre;
@@ -26,6 +26,9 @@ public class Membre extends Personne{
 		this.phone=phone;
 		this.courriel=courriel;
 		this.dateCreation = dateFormat.format(new Date());
+		this.province = province;
+		this.postalCode = postalcode;
+		this.city = city;
 	}
 	
 	/**
@@ -37,7 +40,7 @@ public class Membre extends Personne{
 	 * @param phone
 	 * @param courriel
 	 */
-	public Membre (String nomFamille, String prenom, String adresse, String naissance, String phone, String courriel) {
+	public Membre (String nomFamille, String prenom, String adresse, String naissance, String phone, String courriel, String province ,String city , String postalcode) {
 		this.nomFamille=nomFamille;
 		this.prenom=prenom;
 		this.adresse=adresse;
@@ -45,6 +48,9 @@ public class Membre extends Personne{
 		this.phone=phone;
 		this.courriel=courriel;
 		this.dateCreation = dateFormat.format(new Date());
+		this.province = province;
+		this.postalCode = postalcode;
+		this.city = city;
 	}
 	
 	/**

@@ -11,7 +11,7 @@ public class Pro extends Personne{
 	private String discipline;
 	
 	public Pro (String nomFamille, String prenom, int numeroPro, String adresse, 
-			String naissance, String phone, String courriel, String discipline) {
+			String naissance, String phone, String courriel, String discipline, String province ,String city , String postalcode) {
 		this.nomFamille=nomFamille;
 		this.prenom=prenom;
 		this.numeroMembre=numeroPro;
@@ -21,6 +21,9 @@ public class Pro extends Personne{
 		this.courriel=courriel;
 		this.discipline=discipline;
 		this.dateCreation = dateFormat.format(new Date());
+		this.province = province;
+		this.postalCode = postalcode;
+		this.city = city;
 	}
 	public int getNumeroMembre() {
 		return this.numeroMembre;
