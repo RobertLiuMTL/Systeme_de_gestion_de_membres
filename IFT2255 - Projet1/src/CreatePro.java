@@ -9,6 +9,9 @@ public class CreatePro {
 		private String phone;
 		private String courriel;
 		private String discipline;
+		private String province;
+		private String city;
+		private String codepostal;
 		Scanner sc = new Scanner(System.in);
 		Scanner scString = new Scanner(System.in);
 		
@@ -203,8 +206,86 @@ public class CreatePro {
 				break;
 			}
 			
+			System.out.println("\nEntrez la province du Professionnel :");
+			scString = new Scanner(System.in);
+			province = scString.nextLine();
+			ok = false;
+			while (ok == false) {
+				System.out.println("L'adresse courriel entrée est :" + province +
+						"\nVoulez-vous poursuivre avec cette province? "
+						+ "\nEntrez 'y' pour continuer ; "
+						+ "'n' pour saisir une nouvelle province.");
+				char reponse = sc.next().charAt(0);
+				while (reponse != 'y' && reponse != 'n') {
+					System.out.println("SVP, faites un choix valide.");
+					reponse = sc.next().charAt(0);	
+				}
+				if (reponse=='y') {
+					ok = true;
+					System.out.println("La province : " + province + " a été enregistrée.");
+				}
+				if (reponse == 'n'){
+					System.out.println("Entrez à nouveau la province du Professionnel :");
+					adresse = scString.nextLine();
+					continue;
+				}
+				break;
+			}
+			
+			System.out.println("\nEntrez la ville du Professionnel :");
+			scString = new Scanner(System.in);
+			city = scString.nextLine();
+			ok = false;
+			while (ok == false) {
+				System.out.println("La ville entrée est :" + city+
+						"\nVoulez-vous poursuivre avec cette ville? "
+						+ "\nEntrez 'y' pour continuer ; "
+						+ "'n' pour saisir une nouvelle ville.");
+				char reponse = sc.next().charAt(0);
+				while (reponse != 'y' && reponse != 'n') {
+					System.out.println("SVP, faites un choix valide.");
+					reponse = sc.next().charAt(0);	
+				}
+				if (reponse=='y') {
+					ok = true;
+					System.out.println("La ville: " + city + " a été enregistrée.");
+				}
+				if (reponse == 'n'){
+					System.out.println("Entrez à nouveau la ville du Professionnel :");
+					adresse = scString.nextLine();
+					continue;
+				}
+				break;
+			}
+			
+			System.out.println("\nEntrez le code postal du Professionnel :");
+			scString = new Scanner(System.in);
+			codepostal = scString.nextLine();
+			ok = false;
+			while (ok == false) {
+				System.out.println("Le code postal entrée est :" + codepostal +
+						"\nVoulez-vous poursuivre avec ce code postal? "
+						+ "\nEntrez 'y' pour continuer ; "
+						+ "'n' pour saisir un nouveau code postal.");
+				char reponse = sc.next().charAt(0);
+				while (reponse != 'y' && reponse != 'n') {
+					System.out.println("SVP, faites un choix valide.");
+					reponse = sc.next().charAt(0);	
+				}
+				if (reponse=='y') {
+					ok = true;
+					System.out.println("Le code postal : " + codepostal+ " a été enregistré.");
+				}
+				if (reponse == 'n'){
+					System.out.println("Entrez à nouveau le code postal du Professionnel :");
+					adresse = scString.nextLine();
+					continue;
+				}
+				break;
+			}
+			
 			try {
-				data.addPro(nomFamille, prenom, adresse, naissance, phone, courriel, discipline);
+				data.addPro(nomFamille, prenom, adresse, naissance, phone, courriel, discipline, province, city, codepostal);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

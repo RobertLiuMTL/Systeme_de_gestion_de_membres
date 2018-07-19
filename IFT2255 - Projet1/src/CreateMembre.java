@@ -17,6 +17,9 @@ public class CreateMembre implements RegexEmail {
 	private String naissance;
 	private String phone;
 	private String courriel;
+	private String province;
+	private String city;
+	private String codepostal;
 	
 	Scanner sc = new Scanner(System.in);
 	Scanner scString = new Scanner(System.in);
@@ -186,8 +189,86 @@ public class CreateMembre implements RegexEmail {
 			break;
 		}
 		
+		System.out.println("\nEntrez la province du Client :");
+		scString = new Scanner(System.in);
+		province = scString.nextLine();
+		ok = false;
+		while (ok == false) {
+			System.out.println("L'adresse courriel entrée est :" + province +
+					"\nVoulez-vous poursuivre avec cette province? "
+					+ "\nEntrez 'y' pour continuer ; "
+					+ "'n' pour saisir une nouvelle province.");
+			char reponse = sc.next().charAt(0);
+			while (reponse != 'y' && reponse != 'n') {
+				System.out.println("SVP, faites un choix valide.");
+				reponse = sc.next().charAt(0);	
+			}
+			if (reponse=='y') {
+				ok = true;
+				System.out.println("La province : " + province + " a été enregistrée.");
+			}
+			if (reponse == 'n'){
+				System.out.println("Entrez à nouveau la province du Client :");
+				adresse = scString.nextLine();
+				continue;
+			}
+			break;
+		}
+		
+		System.out.println("\nEntrez la ville du Client :");
+		scString = new Scanner(System.in);
+		city = scString.nextLine();
+		ok = false;
+		while (ok == false) {
+			System.out.println("La ville entrée est :" + city+
+					"\nVoulez-vous poursuivre avec cette ville? "
+					+ "\nEntrez 'y' pour continuer ; "
+					+ "'n' pour saisir une nouvelle ville.");
+			char reponse = sc.next().charAt(0);
+			while (reponse != 'y' && reponse != 'n') {
+				System.out.println("SVP, faites un choix valide.");
+				reponse = sc.next().charAt(0);	
+			}
+			if (reponse=='y') {
+				ok = true;
+				System.out.println("La ville: " + city + " a été enregistrée.");
+			}
+			if (reponse == 'n'){
+				System.out.println("Entrez à nouveau la ville du Client :");
+				adresse = scString.nextLine();
+				continue;
+			}
+			break;
+		}
+		
+		System.out.println("\nEntrez le code postal du Client :");
+		scString = new Scanner(System.in);
+		codepostal = scString.nextLine();
+		ok = false;
+		while (ok == false) {
+			System.out.println("Le code postal entrée est :" + codepostal +
+					"\nVoulez-vous poursuivre avec ce code postal? "
+					+ "\nEntrez 'y' pour continuer ; "
+					+ "'n' pour saisir un nouveau code postal.");
+			char reponse = sc.next().charAt(0);
+			while (reponse != 'y' && reponse != 'n') {
+				System.out.println("SVP, faites un choix valide.");
+				reponse = sc.next().charAt(0);	
+			}
+			if (reponse=='y') {
+				ok = true;
+				System.out.println("Le code postal : " + codepostal+ " a été enregistré.");
+			}
+			if (reponse == 'n'){
+				System.out.println("Entrez à nouveau le code postal du Client :");
+				adresse = scString.nextLine();
+				continue;
+			}
+			break;
+		}
+		
 		//Une fois toute l'informations recueillie, le processus de création de Membre se poursuit avec le Centre de Données
-		data.addMember(nomFamille, prenom, adresse, naissance, phone, courriel);
+		data.addMember(nomFamille, prenom, adresse, naissance, phone, courriel, province, city, codepostal);
 	}
 }
 

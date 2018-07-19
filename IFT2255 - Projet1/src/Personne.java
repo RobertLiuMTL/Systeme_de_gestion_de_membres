@@ -19,6 +19,9 @@ public abstract class Personne {
 	protected String dateCreation;
 	protected boolean suspendu = false;
 	DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+	protected String province;
+	protected String city;
+	protected String postalCode;
 
 	/**
 	 * getPrenom retourne le nom et le prénom!
@@ -91,5 +94,16 @@ public abstract class Personne {
 	
 	public String getDateCreation() {
 		return this.dateCreation;
+	}
+	public String getPostalCode() {
+		return this.postalCode;
+	}
+	
+	public String getcity() {
+		return this.city;
+	}
+	
+	public String getprovince() {
+		return this.province;
 	}
 }
