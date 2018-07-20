@@ -76,10 +76,10 @@ public class DataCenter implements Identification {
 		addService("Esport");
 		
 		//Création de Séances test.
-		serviceListe[0].addSeance("John Wick", 666666666, 55, 22, "22/10/2018", "30/11/2018", "15:30", "Lundi", "");
-		serviceListe[0].addSeance("John Wick", 666666666, 55, 22, "22/10/2018", "30/11/2018", "15:30", "Mardi", "");
+		serviceListe[0].addSeance("John Wick", 666666666, 55, 22, "22/05/2018", "30/06/2018", "15:30", "Lundi", "");
+		serviceListe[0].addSeance("John Wick", 666666666, 55, 22, "22/04/2018", "30/06/2018", "15:30", "Mardi", "");
 
-		serviceListe[6].addSeance("John Snow", 444444444, 99, 30, "14/10/2018", "14/10/2019", "8:30", "Samedi", "You know nothing");
+		serviceListe[6].addSeance("John Snow", 444444444, 99, 30, "14/06/2018", "14/10/2019", "8:30", "Samedi", "You know nothing");
 		this.vue.accueil();
 		
 	}
@@ -444,7 +444,9 @@ public class DataCenter implements Identification {
 		return code;
 	}
 	/**
-	 * cette methode permet de realiser la procedure comptable 
+	 * cette methode permet de realiser la procedure comptable les methodes qui suivent celle-ci sont celle qui implementent les 
+	 * parties de cette procedure.
+	 * 
 	 */
 	public void procedureComptable() {
 		//genererRapportMembre();

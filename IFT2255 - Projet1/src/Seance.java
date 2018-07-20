@@ -67,6 +67,9 @@ public class Seance {
 	public String getDateCreation() {
 		return this.dateCreation;
 	}
+	public String getTitreService() {
+		return this.titreService;
+	}
 
 	// TODO Liste de membre à 30 ou bien nulle?
 	private Membre[] listeMembre = new Membre[30];
@@ -318,7 +321,7 @@ public class Seance {
 	 * @return
 	 */
 	public String descriptionTEF() {
-		String info = "\nDate de création : "+ this.getDateCreation()+ "\n"
+		String info = "\nTitre du Service: "+ this.getTitreService()+ "\nDate de création : "+ this.getDateCreation()+ "\n"
 					+ "Date du début du Service : " + this.getDebut() + "\n"
 					+ this.afficherInscription();
 				;
