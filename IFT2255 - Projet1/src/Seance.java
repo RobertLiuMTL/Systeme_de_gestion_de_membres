@@ -47,28 +47,57 @@ public class Seance {
 	public String getDebut() {
 		return this.dateDebut;
 	}
+	
+	public void setDebut(int annee, int mois, int journee) {
+		this.dateDebut = annee + "-" + mois + "-"  + journee;
+	}
 
 	public String getFin() {
 		return this.dateFin;
+	}
+	
+	public void setFin(int annee, int mois, int journee) {
+		this.dateFin = annee + "-" + mois + "-"  + journee;
 	}
 	
 	public String getHeure() {
 		return this.heureDebut;
 	}
 	
+	public void setHeure(int heure, int minute) {
+		this.heureDebut = heure + ":" + minute;
+	}
+	
 	public String getRecurrence() {
 		return this.recurrence;
+	}
+	
+	public void setRecurrence(String recurrence) {
+		this.recurrence = recurrence;
 	}
 	
 	public int getPrix() {
 		return this.prix;
 	}
 	
+	public void setPrix(int prix) {
+		this.prix = prix;
+	}
+	
 	public String getDateCreation() {
 		return this.dateCreation;
 	}
+	
 	public String getTitreService() {
 		return this.titreService;
+	}
+	
+	public int getCapaciteMax() {
+		return this.capaciteMax;
+	}
+	
+	public void setCapaciteMax(int capacite) {
+		this.capaciteMax = capacite;
 	}
 
 	// TODO Liste de membre à 30 ou bien nulle?

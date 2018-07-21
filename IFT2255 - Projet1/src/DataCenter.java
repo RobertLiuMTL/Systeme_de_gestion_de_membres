@@ -296,6 +296,10 @@ public class DataCenter implements Identification {
 	public void gestionnaireAddSeance() {
 		gs.creerSeance();
 	}
+	
+	public void gestionnaireModService() {
+		gs.modifierService();
+	}
 //////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////
 //Les méthodes qui permettent de mettre à jour les bases de données

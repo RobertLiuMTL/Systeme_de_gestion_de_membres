@@ -427,7 +427,7 @@ public class Vue {
 		System.out.println("[4]     Annuler une séance   \n");
 		System.out.println("[5]     Confirmer sa  présence \n");
 		System.out.println("[6]     Consulter inscriptions \n");
-		System.out.println("[7]     Modifier Service\n");
+		System.out.println("[7]     Modifier Seance\n");
 
 		Scanner sc2 = new Scanner(System.in);
 		// Boucle while qui vérifie que l'entrée est un Integer.
@@ -495,22 +495,8 @@ public class Vue {
 			menuRepertoireServices();
 			break;
 
-/* TODO : Refaire les options du Menu des Services
- 
-		case 3:
-			System.out.println("Veuillez entrer le numéro de membre(9 chiffres)");
-			Scanner yolo = new Scanner(System.in);
-			int numbMemb = yolo.nextInt();
-
-			System.out.println("Veuillez entrer le numéro de cours (7 chiffres) ");
-			int numbCours = yolo.nextInt();
-
-			data.desinscrireMembre(numbMemb, numbCours);
-
-			System.out.println("Le membre a été désinscrit du cours : "
-					+ (data.serviceListe[data.servicePosition(numbCours)].getTitre()));
-			menuRepertoireServices();
-			break;
+ //TODO : Refaire les options du Menu des Services
+/* 
 
 		case 4:
 			System.out.println("Veuillez entrer le numéro de service (7 chiffres)");
@@ -610,8 +596,8 @@ public class Vue {
 			}
 			menuRepertoireServices();
 			break;
-*/
-			
+
+	*/		
 		case 6:
 			System.out.println("Veuillez entrer le numéro de cours (7 chiffres) à consulter");
 			sc2 = new Scanner(System.in);
@@ -632,12 +618,12 @@ public class Vue {
 			}
 			menuRepertoireServices();
 			break;
-			/*
+			
 		case 7:
 			data.gestionnaireModService();
 			menuRepertoireServices();
 			break;
-			*/
+			
 			
 			
 		}
