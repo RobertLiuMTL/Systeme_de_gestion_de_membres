@@ -36,12 +36,10 @@ public class TEF {
 					
 					
 					
-					System.out.println(Pro[i].getNomComplet() + " " + Services[j].getSeance()[e].getPro());
 
 
 					//Premier if qui verifie si le nom du pro est bien celui qui donne la seance
 					if(Pro[i].getNomComplet().equals(Services[j].getSeance()[e].getPro())) {
-						System.out.println("premiere condition");
 
 						
 					String dateDebut = Services[j].getSeance()[e].getDebut();
@@ -52,7 +50,6 @@ public class TEF {
 					
 					
 					try {
-						System.out.println("try block");
 
 						calendrier.setTime(sdf.parse(dateDebut));
 					} catch (ParseException e1) {
@@ -62,7 +59,6 @@ public class TEF {
 					}
 					int semaineDebut = calendrier.get(Calendar.WEEK_OF_YEAR);
 					
-					System.out.println(semaineDebut);
 
 					
 					
@@ -75,7 +71,6 @@ public class TEF {
 						e1.printStackTrace();
 					}
 					int semaineFin = calendrier.get(Calendar.WEEK_OF_YEAR);
-					System.out.println(semaineFin);
 
 					
 					
@@ -87,7 +82,6 @@ public class TEF {
 							|| (semaineDebut > semaineFin && (currentWeek > semaineDebut || currentWeek < semaineFin ))) {
 							
 							try {
-								System.out.println("fichier");
 								File f = new File(dir,"TEF_" + Pro[i].getNomComplet()+ ".txt");
 							
 							//3 eme si le fichier TEF du Pro existe deja

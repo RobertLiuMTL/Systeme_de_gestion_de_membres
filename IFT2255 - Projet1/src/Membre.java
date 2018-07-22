@@ -29,6 +29,7 @@ public class Membre extends Personne{
 		this.province = province;
 		this.postalCode = postalcode;
 		this.city = city;
+		this.compte = "";
 	}
 	
 	/**
@@ -89,5 +90,6 @@ public class Membre extends Personne{
 			System.out.println("Le compte est en souffrance. Un montant de : " + facture + " est dû.");
 		}
 	}
+	
 	
 }

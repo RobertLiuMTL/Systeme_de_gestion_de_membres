@@ -22,6 +22,30 @@ public abstract class Personne {
 	protected String province;
 	protected String city;
 	protected String postalCode;
+	
+	//le compte est un attribut qui permet aux membres de recevoir leurs facture et aux pros de consulter
+	//leurs avis de paiement
+	protected String compte = "";
+	
+	public String getProvince() {
+		return province;
+	}
+
+	public void setProvince(String province) {
+		this.province = province;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public void setPostalCode(String postalCode) {
+		this.postalCode = postalCode;
+	}
 
 	/**
 	 * getPrenom retourne le nom et le prénom!
@@ -105,5 +129,14 @@ public abstract class Personne {
 	
 	public String getprovince() {
 		return this.province;
+	}
+	public String getCompte() {
+		return this.compte;
+	}
+	public void setCompte(String compte) {
+		this.compte = compte;
+	}
+	public int getNumeroMembre() {
+		return this.numeroMembre;
 	}
 }

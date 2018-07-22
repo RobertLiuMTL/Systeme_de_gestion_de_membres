@@ -22,7 +22,7 @@ public class Seance {
 	private int codeSeance;
 	private int prix = 0;
 	private int capaciteMax;
-	private int capaciteDispo;
+	
 	/**
 	 * Les formats des dates doivent être modifiés afin de répondre aux consignes
 	 */
@@ -99,9 +99,12 @@ public class Seance {
 	public void setCapaciteMax(int capacite) {
 		this.capaciteMax = capacite;
 	}
+	public Membre[] getListeMembre() {
+		return this.listeMembre;
+	}
 
-	// TODO Liste de membre à 30 ou bien nulle?
-	private Membre[] listeMembre = new Membre[30];
+	// CHANGEMENT la liste des membres commence avec une longueur de 0 et elle est incrementé par la suite 
+	private Membre[] listeMembre;
 
 	public Seance(String nomProf, int numProf, int codeSeance, int cout, int capacite,
 			String dateDebut, String dateFin,String heureDebut, String recurrence, 
@@ -116,9 +119,9 @@ public class Seance {
 		this.codeSeance = codeSeance + (numProf % 100);
 		this.prix=cout;
 		this.capaciteMax=capacite;
-		this.capaciteDispo=capacite;
 		this.dateDebut=dateDebut;
 		this.dateFin=dateFin;
+		this.listeMembre = new Membre[0];
 		this.heureDebut=heureDebut;
 		this.recurrence=recurrence;
 		this.commentaire=comments;
@@ -284,12 +287,14 @@ public class Seance {
 	 * @param membre
 	 */
 	public void inscrireMembre(Membre membre) {
-		if (capaciteDispo == 0) {
+		if (capaciteMax == listeMembre.length) {
 			System.out.println("Désolé, la séance est complète. " + "Veuillez choisir une autre séance");
 		} else {
-			// 30 - capacité disponible = l'emplacement dans le Array.
-			listeMembre[capaciteMax - capaciteDispo] = membre;
-			capaciteDispo--;
+			
+			
+			Membre[] temporaire = new Membre[listeMembre.length+1];
+			temporaire[listeMembre.length] = membre;
+			this.listeMembre = temporaire;
 			membre.ajouterSolde(prix);
 			System.out.println("Le membre " +membre.getNomComplet() +" s'est inscrit à la séance!");
 		}
@@ -317,7 +322,6 @@ public class Seance {
 		}
 		listeMembre = temporaire;
 
-		capaciteDispo--;
 	}
 
 	/**
@@ -325,25 +329,23 @@ public class Seance {
 	 */
 	public String afficherInscription() {
 		String msg = "Voici les membres inscrits à la séance de "
-	+this.titreService+"\n"+"Nom du professionnel : "+this.nomComplet
-	+"\nCode de la séance : "+this.codeSeance+"\n";
-		String resultat = "";
+				+this.titreService+"\n"+"Nom du professionnel : "+this.nomComplet
+				+"\nCode de la séance : "+this.codeSeance+"\n";
+					String resultat = "";
 
-		for (int i = 0; i <= capaciteMax - capaciteDispo; i++) {
-			if(listeMembre[i]==null) {
-				break;
-			}else {
-				resultat += listeMembre[i].getNomComplet() + "\n"
-					+listeMembre[i].getNumero()+"\n";
-			}
+					for (int i = 0; i < listeMembre.length; i++) {
+						
+							resultat += listeMembre[i].getNomComplet() + "\n"
+								+listeMembre[i].getNumero()+"\n";
+						
 
-		}
-		
-		if (resultat == "") {
-			return "Il n'y a aucun membre inscrit à cette séance\n";
-		} else {
-			return msg+resultat;
-		}
+					}
+					
+					if (resultat == "") {
+						return "Il n'y a aucun membre inscrit à cette séance\n";
+					} else {
+						return msg+resultat;
+					}
 	}
 	/**
 	 * une methode qui retourne un string formatter pour des ajouts de seances dans un fichier TEF
@@ -357,5 +359,6 @@ public class Seance {
 		
 		return info;
 	}
+	
 
 }
