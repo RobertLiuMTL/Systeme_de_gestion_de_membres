@@ -223,7 +223,7 @@ public class AppMobile implements RegexEmail {
 					for (int e = 0 ; e < data.getService()[i].getSeance()[j].getListeMembre().length ; e++) {
 						
 					
-						if( membre.getNomComplet() == data.getService()[i].getSeance()[j].getListeMembre()[e].getNomComplet()) {
+						if( membre.getNomComplet().equals(data.getService()[i].getSeance()[j].getListeMembre()[e].getNomComplet())) {
 							Seance  recherche = data.getService()[i].getSeance()[j];
 							System.out.println("\nTitre : " + recherche.getTitreService() + 
 									"\nprofessionnel : "+ recherche.getPro() + 
@@ -280,10 +280,10 @@ public class AppMobile implements RegexEmail {
 			break;
 		case 1:
 			for (int i = 0 ; i < data.getService().length ; i++ ) {
-				
-				for (int j = 0 ; j < data.getService()[i].getSeance().length ; j++) {
-					if( pro.getNomComplet() == data.getService()[i].getSeance()[j].getPro()) {
-						data.getService()[i].getSeance()[j].afficherInscription();
+				for (int j = 0 ; j < data.getService()[i].getSeance().length ; j++) {	
+					if( pro.getNomComplet().equals(data.getService()[i].getSeance()[j].getPro())) {
+						System.out.println(
+						data.getService()[i].getSeance()[j].afficherInscription());
 					}
 				}
 			}
@@ -291,15 +291,23 @@ public class AppMobile implements RegexEmail {
 		case 2:
 			System.out.println("entrez le numéro de la séance");
 			int numero = sc.nextInt();
-			IdentificationServiceSeance rechercher = new IdentificationServiceSeance(data);
-			Seance  recherche = rechercher.findSeance(numero);
+			Seance find = null;
+			for (int i = 0 ; i < data.getService().length ; i++ ) {
+				
+				for (int j = 0 ; j < data.getService()[i].getSeance().length ; j++) {
+					if( numero == data.getService()[i].getSeance()[j].getCode()) {
+					find =	data.getService()[i].getSeance()[j];
+					}
+				}
+			}
+			Seance recherche = find;
 			System.out.println("\nTitre : " + recherche.getTitreService() + 
 								"\nprofessionnel : "+ recherche.getPro() + 
 								"\nDébut du cour : "+ recherche.getDebut() + 
 								"\nFin du cour   : "+ recherche.getFin() +
 								"\nHeure du cour : "+ recherche.getHeure() +
-								"\nPrix          :"+ recherche.getPrix() +
-								"\nCapacité max  :"+ recherche.getCapaciteMax());
+								"\nPrix          : "+ recherche.getPrix() +
+								"\nCapacité max  : "+ recherche.getCapaciteMax());
 			break;
 
 		case 3:
