@@ -196,6 +196,7 @@ public class AppMobile implements RegexEmail {
 		switch (input) {
 		case 0:
 			accueilPublic();
+			break;
 
 		case 1:
 			data.gestionnaireServiceAff();
@@ -240,9 +241,11 @@ public class AppMobile implements RegexEmail {
 				}
 			}
 			accueilMembre(membre);
+			break;
 		case 3:
 			System.out.println("Voici vos factures" + membre.getCompte());
 			accueilMembre(membre);
+			break;
 		}
 	}
 	
@@ -280,6 +283,7 @@ public class AppMobile implements RegexEmail {
 		switch (input) {
 		case 0:
 			accueilPublic();
+			break;
 		case 1:
 			for (int i = 0 ; i < data.getService().length ; i++ ) {
 				for (int j = 0 ; j < data.getService()[i].getSeance().length ; j++) {	
@@ -317,7 +321,6 @@ public class AppMobile implements RegexEmail {
 			
 			accueilPro(pro);
 			break;
-
 		case 3:
 			System.out.println("Voici vos factures : " + pro.getCompte());
 			accueilPro(pro);

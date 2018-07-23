@@ -71,7 +71,7 @@ public class DataCenter implements Identification {
 		serviceListe[0].addSeance(proListe[0].getNomComplet(), proListe[0].getNumero(), 55, 30, "22/05/2018", "30/09/2018", "15:30", "Lundi", "");
 		serviceListe[0].addSeance(proListe[2].getNomComplet(), proListe[2].getNumero(), 55, 30, "22/04/2018", "30/09/2018", "15:30", "Mardi", "");
 		serviceListe[6].addSeance(proListe[1].getNomComplet(),proListe[1].getNumero(), 99, 30, "14/06/2018", "14/10/2019", "8:30", "Samedi", "You know nothing");
-		serviceListe[8].addSeance(proListe[1].getNomComplet(),proListe[1].getNumero(), 99, 30, "01/08/2018", "01/08/2019", "9:30", "Mercredi", "Let's own some noobs");
+		serviceListe[8].addSeance(proListe[1].getNomComplet(),proListe[1].getNumero(), 99, 30, "18/07/2018", "01/08/2019", "9:30", "Mercredi", "Let's own some noobs");
 
 		//inscription aux seances
 		serviceListe[0].getSeance()[0].inscrireMembre(membersListe[0]);

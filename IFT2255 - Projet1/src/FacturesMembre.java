@@ -100,7 +100,7 @@ public class FacturesMembre {
 									    //cette longue ligne degueu permet de retourner la date de la seance avec le format voulu
 									   "\n"+ "Date du service: " + LocalDate.parse(formatter.format(LocalDate.now().plusDays(calcDate(services[j].getSeance()[e].getRecurrence()))),formatter)+
 									   "\n"+ "Nom du professionnel: " + services[j].getSeance()[e].getPro()+
-									   "\n"+ "Prix : " + services[j].getSeance()[e].getPrix() ;
+									   "\n"+ "Prix : " + services[j].getSeance()[e].getPrix()+"\n\n" ;
 									membres[i].setCompte(newCompt);
 								}
 								//si la facture n'est pas nul
