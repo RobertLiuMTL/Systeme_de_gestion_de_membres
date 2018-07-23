@@ -1,5 +1,10 @@
 import java.util.Scanner;
-
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.BufferedWriter;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 /**
  * La vue de notre Logiciel. C'est l'interface utilisateur en ligne de commande.
  * 
@@ -8,6 +13,7 @@ import java.util.Scanner;
  */
 public class Vue {
 	private DataCenter data;
+
 
 	/**
 	 * Constructeur de la Vue. Instancié par le Main de notre Logiciel. Reçoit le
@@ -527,31 +533,28 @@ public class Vue {
 			menuRepertoireServices();
 			break;
 
-/*		case 5:
+		case 5:
+			
+			
 			System.out.println(
 					"Veuillez entrer le code de la séance (7 chiffres) pour laquelle vous voulez confirmer la présence du Membre");
 			sc2 = new Scanner(System.in);
+			int reponse = sc2.nextInt();
+			System.out.println("Veuillez taper le numéro de membre");
 			while (!sc2.hasNextInt()) {
 				System.out.println("Svp, entrez un numéro");
-				sc2.next();
-			}
-			int reponse = sc2.nextInt();
-			int user;
-			int compteur = 0;
-
-			while (data.servicePosition(reponse) == -1) {
-				System.out.println("La séance n'existe pas, veuillez recommencer");
-				compteur++;
 				reponse = sc2.nextInt();
-				if (compteur >= 3) {
-
-					System.out.println("trop d'essais, retour au répertoire des services");
-					menuRepertoireServices();
-				}
 			}
-
-			System.out.println("Veuillez taper le numéro de membre");
-			user = sc2.nextInt();
+			int compteur = 0;
+			
+			
+			
+			Seance seanceEnCours = data.is.findSeance(reponse);
+			if(seanceEnCours == null) {data.vue.accueil();}
+			
+			
+			
+			int user = sc2.nextInt();
 			compteur = 0;
 
 			while (data.membrePosition(user) == -1) {
@@ -564,40 +567,58 @@ public class Vue {
 				}
 			}
 
-			Boolean estPresent = false;
-			Membre[] listeMembServ = data.getService()[data.servicePosition(reponse)].getListeMembre();
+			boolean estPresent = false;
+			Membre[] listeMembServ = seanceEnCours.getListeMembre();
 
 			for (int i = 0; i < listeMembServ.length; i++) {
-				if (user == listeMembServ[i].getNumeroMembre()) {
+				if (user == listeMembServ[i].getNumero()) {
 					estPresent = true;
 				}
 			}
 			if (estPresent) {
-				System.out.println("La présence du Membre est confirmée pour le cours suivant : \n"
-						+ data.serviceListe[data.servicePosition(reponse)].getTitre() + "\n" + "Numéro du membre : "
-						+ user + "\n" + "Numéro du professionnel : "
-						+ data.serviceListe[data.servicePosition(reponse)].getEnseignant().getNomComplet() + "\n"
-						+ "Code du service : " + reponse + "\n" + "Commentaire : ");
+				
+				LocalDateTime now = LocalDateTime.now();
+				String format1 = now.format(DateTimeFormatter.ISO_DATE_TIME);
+				String identification = ("La présence du Membre est confirmée pour le cours suivant : \n"
+						+ seanceEnCours.getTitreService() + "\n" + "Numéro du membre : "
+						+ user + "\n" + "Nom du Professionel : "
+						+ seanceEnCours.getPro() + "\n"
+						+ "Code de la seance : " + seanceEnCours.getCode() + "\n" + "Commentaire : ")
+						+"\nheure de la confirmation: " + format1; 
+						
+						
+				
+						
+				System.out.println(identification);
+				File dir = new File("Confirmation de présence");
+				dir.mkdirs();
+				
 				try {
-					Thread.sleep(2000);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+					File f = new File(dir,"Confirmation_" + user+ ".txt");
+				
+			
+					
+						f.createNewFile();
+						FileWriter fw = new FileWriter(f); 
+						BufferedWriter bw = new BufferedWriter(fw);
+						bw.write(identification);
+						bw.flush();
+						fw.close();
+						
+					
+				}catch(IOException g){
+			        g.printStackTrace();
+			        System.out.println("erreur fichier");
+		        }	
 			} else {
 				System.out.println("Le Membre : " + user + " n'est pas inscrit au cours : "
 						+ data.serviceListe[data.servicePosition(reponse)].getTitre());
-				try {
-					Thread.sleep(2000);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				
 			}
 			menuRepertoireServices();
 			break;
 
-	*/		
+			
 		case 6:
 			System.out.println("Veuillez entrer le numéro de cours (7 chiffres) à consulter");
 			sc2 = new Scanner(System.in);
