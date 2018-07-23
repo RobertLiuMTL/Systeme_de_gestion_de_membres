@@ -31,8 +31,11 @@ public class Service{
 
 	}
 
-	// methode qui permet de format le service dans un String pour des fins de
-	// presentation aux membres
+	 /**
+	  * methode qui permet de format le service dans un String pour des fins de
+	 presentation aux membres
+	  * @return
+	  */
 	public String membreService() {
 		return "\n\nTitre: " + this.titre + "\nCode du cours: " + this.codeService;
 	}
@@ -56,7 +59,18 @@ public class Service{
 	}
 	
 	
-	
+	/**
+	 * methode qui permet d'ajouter une seance a la liste des seances dans le dataCenter
+	 * @param nomProf
+	 * @param numProf
+	 * @param cout
+	 * @param capacite
+	 * @param dateDebut
+	 * @param dateFin
+	 * @param heureDebut
+	 * @param recurrence
+	 * @param comments
+	 */
 	public void addSeance(String nomProf, int numProf, int cout, int capacite,
 			String dateDebut, String dateFin,String heureDebut, String recurrence, String comments) {
 		int longueur = seances.length;
@@ -77,7 +91,10 @@ public class Service{
 		//System.out.println("La Séance est : "+ temporaire[longueur].getTitre());
 		//System.out.println("Le code du service est le " + temporaire[longueur].getService());
 	}
-	
+	/**
+	 * enleve une seance de la liste des seances dans datacenter
+	 * @param pos position du service dans la liste des services
+	 */
 	public void removeSeance(int pos) {
 		int  longueur = seances.length;
 		Seance[] temporaire = new Seance[longueur - 1];
@@ -91,7 +108,11 @@ public class Service{
 		
 		seances = temporaire;
 	}
-	
+	/**
+	 * retourne la position d'une seance dans la liste des seances
+	 * @param number code de la seance
+	 * @return
+	 */
 	public int seanceposition( int number) {
 		int pos = -1;
 		for (int i = 0 ; i < seances.length ; i++ ) {

@@ -11,7 +11,11 @@ import java.io.IOException;
 
 public class RapportSynthese {
 	
-	
+	/**
+	 * Ce constructeur cree le rapport de synthese ainsi que le folder de celui-ci
+	 * @param services liste des services de data center
+	 * @param pros	liste des pros du datacenter
+	 */
 	public RapportSynthese(Service[] services, Pro[] pros){
 		Calendar calendrier = new GregorianCalendar();
 		int currentWeek = calendrier.get(Calendar.WEEK_OF_YEAR);
@@ -137,7 +141,12 @@ public class RapportSynthese {
 		}
 		return profits;
 	}
-	
+	/**
+	 * Cette methodes permet de creer le strings qui correspond au rapport hebdo pour chaque pro individuellement 
+	 * @param seancesHebdo
+	 * @param pros
+	 * @return
+	 */
 	private String rapportdeSyntheseIndi(Seance[] seancesHebdo, Pro[] pros) {
 		
 		String leRapportDeLaSynthese = "";

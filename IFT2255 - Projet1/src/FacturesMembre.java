@@ -165,7 +165,7 @@ public class FacturesMembre {
 	 * cette methode boboche prend un jour de la semaine en string et return un int qui correspond 
 	 * a sa position par rapport au vendredi, elle est utilisé pour parser la date a partir de la date 
 	 * de la procedure comptable (vendredi) et de la recurrence de la seance (string day)
-	 * @param day correspond au jour de la recurrence de la seance
+	 * @param day string qui correspond au jour de la recurrence de la seance
 	 * @return La position de day par rapport au vendredi
 	 */
 	
@@ -199,12 +199,12 @@ public class FacturesMembre {
 	
 	
 	/**
-	 * Cette methode prend la liste des membres, le membre en question et la seance et dit si le membre est inscrit
+	 * Cette methode prend le membre en question et la seance et dit si le membre est inscrit
 	 * a cette seance
 	 * 
 	 * @param membre Le membre en question
 	 * @param seance La seance en question
-	 * @return
+	 * @return boolean true si le membre est inscrit false sinon
 	 */
 	private boolean isMembreInscrit( Membre membre, Seance seance) {
 		Membre[] listeMembInsc = seance.getListeMembre();
