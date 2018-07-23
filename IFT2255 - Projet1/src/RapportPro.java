@@ -1,20 +1,31 @@
+import java.io.File;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.BufferedWriter;
 
 public class RapportPro {
 
-	
+	/**
+	 * Constructeur qui cree les fichiers hebdomadaires que les membres recoivent lors de la procedure comptable (cette classe est
+	 * invoque quand la procedure comptable est enclenche
+	 * @param pros liste des pros du gym
+	 * @param services liste des services du gym
+	 */
 		public RapportPro(Pro[] pros, Service[] services ) {
 			Calendar calendrier = new GregorianCalendar();
 			int currentWeek = calendrier.get(Calendar.WEEK_OF_YEAR);
 			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/uuuu");
 			
-			
+			File dir = new File("Rapport_des_professionels");
+			dir.mkdirs();
 			
 			
 			
@@ -129,8 +140,41 @@ public class RapportPro {
 					}
 				}
 		}
+			for(int e = 0; e < pros.length; e++) {
+			try {
+				File f = new File(dir,"Rapport_" + pros[e].getNomComplet()+ ".txt");
+			
+			//3 eme si le fichier TEF du Pro existe deja
+				
+				
+				
+				
+				//si il n'existe pas il est créé
+				
+					f.createNewFile();
+					FileWriter fw = new FileWriter(f); 
+					BufferedWriter bw = new BufferedWriter(fw);
+					bw.write(pros[e].getCompte());
+					bw.flush();
+					fw.close();
+					
+				
+			}catch(IOException g){
+		        g.printStackTrace();
+		        System.out.println("erreur fichier");
+	        }	
+			
+			}	
+			
 	}		
-			private int calcDate(String day) {
+			/**
+			 * Cette methode est utilisé par rapportPro, elle permet de trouver la date exacte, car la date des seances
+			 * est d'abord calculé par semaine, et par defaut c'est le vendredi, cette methode permet de soustraire ou d'ajouter
+			 * les bons jours a la date en utilisant les recurrences des seances
+			 * @param day String qui correspond a la recurrence d'une seance
+			 * @return
+			 */
+		private int calcDate(String day) {
 				
 				if(day.equals("Dimanche")) {
 					return -5;
@@ -157,7 +201,12 @@ public class RapportPro {
 					return 0;
 				}
 			}
-			
+			/**
+			 * Cette methode permet de prendre une seance et d'avoir la liste des membres formatté avec leurs noms
+			 * et leurs numero
+			 * @param seance la seance en question
+			 * @return
+			 */
 	public String getListeMembre(Seance seance) {
 		String listeMembre= "";
 		for(int i = 0;i < seance.getListeMembre().length ; i++) {

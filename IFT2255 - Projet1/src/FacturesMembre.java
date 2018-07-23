@@ -5,7 +5,10 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.BufferedWriter;
 
 public class FacturesMembre {
 	/**
@@ -22,7 +25,8 @@ public class FacturesMembre {
 		int currentWeek = calendrier.get(Calendar.WEEK_OF_YEAR);
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/uuuu");
-		
+		File dir = new File("Factures des membres");
+		dir.mkdirs();
 		
 		
 		
@@ -120,6 +124,39 @@ public class FacturesMembre {
 				}
 			}
 		}
+		
+		
+		for(int e = 0; e < membres.length; e++) {
+			try {
+				File f = new File(dir,"Facture_" + membres[e].getNomComplet()+ ".txt");
+			
+			//3 eme si le fichier TEF du Pro existe deja
+				
+				
+				
+				
+				//si il n'existe pas il est créé
+				
+					f.createNewFile();
+					FileWriter fw = new FileWriter(f); 
+					BufferedWriter bw = new BufferedWriter(fw);
+					bw.write(membres[e].getCompte());
+					bw.flush();
+					fw.close();
+					
+				
+			}catch(IOException g){
+		        g.printStackTrace();
+		        System.out.println("erreur fichier");
+	        }	
+		
+		
+		}
+		
+		
+		
+		
+		
 	}
 	
 	

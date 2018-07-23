@@ -448,13 +448,10 @@ public class DataCenter implements Identification {
 	public void procedureComptable() {
 		genererRapportMembre();
 		genererRapportPro();
-		//TO DO
-		//genererRapportDeSynthese();
+		genererRapportDeSynthese();
 		genererRapportTEF();
-		//test pour voir si les comptes sont enregisté dans les membres
-		System.out.println(membersListe[1].getCompte());
-		System.out.println(proListe[0].getCompte());
-		System.out.println(proListe[2].getCompte());
+		
+	
 		
 	}
 	
@@ -468,9 +465,11 @@ public class DataCenter implements Identification {
 		return pos;
 	}
 	
-	
+	/**
+	 * genere le rapport de synthese
+	 */
 	public void genererRapportDeSynthese() {
-		
+		RapportSynthese rapportSynth = new RapportSynthese(serviceListe, proListe);
 	}
 	
 	/**
