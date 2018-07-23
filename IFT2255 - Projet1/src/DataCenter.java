@@ -73,6 +73,9 @@ public class DataCenter implements Identification {
 		//inscription aux seances
 		serviceListe[0].getSeance()[0].inscrireMembre(membersListe[1]);
 		serviceListe[6].getSeance()[0].inscrireMembre(membersListe[1]);
+		
+		System.out.println("code seance:" + serviceListe[0].getSeance()[0].getCode());
+		System.out.println("code clien: "+membersListe[1].getNumero() );
 		this.vue.accueil();
 		
 	}
@@ -331,12 +334,7 @@ public class DataCenter implements Identification {
 		System.out.println("\nVeuillez patienter pendant que le Système "
 				+ "imprime la carte de Membre et retourne au Centre de Données..."
 				+ "\n\n");
-		try {
-			Thread.sleep(4000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
 	}
 	
 	

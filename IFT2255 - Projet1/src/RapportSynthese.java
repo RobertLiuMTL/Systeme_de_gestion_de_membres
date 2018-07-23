@@ -141,7 +141,7 @@ public class RapportSynthese {
 	private String rapportdeSyntheseIndi(Seance[] seancesHebdo, Pro[] pros) {
 		
 		String leRapportDeLaSynthese = "";
-		System.out.println(seancesHebdo.length);
+		
 		for(int i = 0; i < pros.length; i++) {
 			
 			int compteurDeSeance = 0;
@@ -149,10 +149,9 @@ public class RapportSynthese {
 			int profits = 0;
 			
 			for(int j = 0; j < seancesHebdo.length; j++) {
-				System.out.println(pros[i].getNomComplet());
-				System.out.println(seancesHebdo[j].getPro());
+				
 				if(pros[i].getNomComplet().equals(seancesHebdo[j].getPro())){
-					System.out.println(pros[i].getNomComplet()+ "         "+ seancesHebdo[j].getPro());
+					
 					compteurDeSeance++;
 					profits =+ (seancesHebdo[j].getListeMembre().length *seancesHebdo[j].getPrix());
 					
