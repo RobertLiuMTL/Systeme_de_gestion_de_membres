@@ -16,13 +16,6 @@
 /Service.class
 /Vue.class
 /CreationService.class
-<<<<<<< HEAD
-/FindMembreByName.class
-/FindMembreByNum.class
-/GestionnaireService.class
-/Seance.class
-/TEF.class
-=======
 /AppMobile.class
 /Application.class
 /CreateSeance.class
@@ -43,4 +36,4 @@
 /FacturesMembre.class
 /RapportPro.class
 /confirmationPresence.class
->>>>>>> e41704d7d476cee2ef7e3aac865db8996c0f0236
+/RapportSynthese.class
