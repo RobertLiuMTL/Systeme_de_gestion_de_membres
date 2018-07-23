@@ -59,7 +59,7 @@ public interface InscriptionSeance {
 		int code = scan.nextInt();
 		Seance seance = data.is.findSeance(code);
 		if (seance!= null) {
-			System.out.println("SVP, entrez le numéro du membre à 9 chiffres");
+			System.out.println("SVP, entrez le numéro du membre à 9 chiffres pour confirmer");
 			while(!scan.hasNextInt()) {
 				System.out.println("SVP, entrez un numéro valide à 9 chiffres");
 				scan.next();

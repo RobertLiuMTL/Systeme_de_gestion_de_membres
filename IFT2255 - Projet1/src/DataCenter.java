@@ -47,12 +47,13 @@ public class DataCenter implements Identification {
 	public DataCenter() {
 		
 		//Création d'une liste pour nos tests.
-		addMember ("poopopppop", "ewwwwwww", "edddddd", "naissance", "phone", "courriel@test.ca", "province", "city" , "postalcode");
-		addMember ("yuyuyuyuyu", "aaaaaa", "aaaaaaaa", "naissance", "phone", "courriel2@test.ca", "province", "city" , "postalcode");
-		addMember ("vavavavaav", "bbbbbbbbbb", "jjjjjjjjj", "naissance", "phone", "courriel@test.ca", "province", "city" , "postalcode");
-		addPro("wqeedddddd", "tfgdfggfm", "String adresse", "String naissance", "String phone", "courriel@jiji.ca", "String discipline", "String province","String city", "String postalcode");
-		addPro("dsfafaf", "111111", "ewqee", "String naissance", "String phone", "String courriel", "String discipline", "String province","String city", "String postalcode");
-		addPro("bololol", "aaaaaaaaaa", "123 e", "1990", "String phone", "String courriel", "String discipline", "String province","String city", "String postalcode");
+		addMember ("Liu", "Robert", "4981 Félix", "14/10/1987", "5146213688", "robert.liu@umontreal.ca", "QC", "Montreal", "H8Y123");
+		addMember ("Lebowski", "The Dude", "1337 Dude Street", "1/1/1981", "5141234567", "thebig@lebowski.ca", "QC", "Montreal" , "H3A4A5");
+		addMember ("Wick", "John", "123 The Dog", "12/11/1975", "5144500668", "johnwick@hotmail.com", "QC", "Laval" , "H3J2A4");
+		addMember ("Poutine", "Vlad", "123 Kremlin", "11/11/1961", "5141233333", "vladput@russia.ru", "QC", "Dorval" , "J4K1A4");
+		addPro("Badot", "Édouard", "AA-2355", "11/11/1954", "5141311337", "batotedo@iro.umontreal.ca", "Informatique", "QC","Montreal", "J4J4J4");
+		addPro("Kessentini", "Wael", "AA-2238", "11/11/1923", "5143333456", "kessentw@iro.umontreal.ca", "Correcteur", "QC","Montréal", "H3C 3J7");
+		addPro("Mokaddem", "Chihab ", "AA-2238", "1990", "4503343434", "mokaddec@iro.umontreal.ca", "Démonstrateur", "QC","Montréal", "H3C 3J7");
 
 		//Création de services de base + test de la méthode addService()
 		
@@ -70,9 +71,22 @@ public class DataCenter implements Identification {
 		serviceListe[0].addSeance(proListe[0].getNomComplet(), proListe[0].getNumero(), 55, 30, "22/05/2018", "30/09/2018", "15:30", "Lundi", "");
 		serviceListe[0].addSeance(proListe[2].getNomComplet(), proListe[2].getNumero(), 55, 30, "22/04/2018", "30/09/2018", "15:30", "Mardi", "");
 		serviceListe[6].addSeance(proListe[1].getNomComplet(),proListe[1].getNumero(), 99, 30, "14/06/2018", "14/10/2019", "8:30", "Samedi", "You know nothing");
+		serviceListe[8].addSeance(proListe[1].getNomComplet(),proListe[1].getNumero(), 99, 30, "01/08/2018", "01/08/2019", "9:30", "Mercredi", "Let's own some noobs");
+
 		//inscription aux seances
-		serviceListe[0].getSeance()[0].inscrireMembre(membersListe[1]);
+		serviceListe[0].getSeance()[0].inscrireMembre(membersListe[0]);
+		serviceListe[6].getSeance()[0].inscrireMembre(membersListe[0]);
 		serviceListe[6].getSeance()[0].inscrireMembre(membersListe[1]);
+		serviceListe[6].getSeance()[0].inscrireMembre(membersListe[2]);
+		serviceListe[6].getSeance()[0].inscrireMembre(membersListe[3]);
+		
+		serviceListe[8].getSeance()[0].inscrireMembre(membersListe[0]);
+		serviceListe[8].getSeance()[0].inscrireMembre(membersListe[1]);
+		serviceListe[8].getSeance()[0].inscrireMembre(membersListe[2]);
+		serviceListe[8].getSeance()[0].inscrireMembre(membersListe[3]);
+
+
+
 		
 		System.out.println("code seance:" + serviceListe[0].getSeance()[0].getCode());
 		System.out.println("code clien: "+membersListe[1].getNumero() );

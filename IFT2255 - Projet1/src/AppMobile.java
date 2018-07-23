@@ -195,10 +195,11 @@ public class AppMobile implements RegexEmail {
 		}
 		switch (input) {
 		case 0:
-			break;
+			accueilPublic();
+
 		case 1:
 			data.gestionnaireServiceAff();
-			System.out.println("Voulez - vous vous inscrire a une seance ?");
+			System.out.println("Voulez - vous vous inscrire a une seance ?\nSi oui, entrez 'y'.\nSinon, entrez 'n'.");
 			Scanner sc4 = new Scanner(System.in);
 
 			char input3 = sc4.nextLine().charAt(0);
@@ -209,9 +210,10 @@ public class AppMobile implements RegexEmail {
 			}
 			if (input3 == 'y') {
 				data.gs.inscrireMembre(data);
+				accueilMembre(membre);
 			}
 			else {
-				break;
+				accueilMembre(membre);
 			}
 			break;
 		case 2:
@@ -237,15 +239,15 @@ public class AppMobile implements RegexEmail {
 					}
 				}
 			}
-		break;	
+			accueilMembre(membre);
 		case 3:
 			System.out.println("Voici vos factures" + membre.getCompte());
+			accueilMembre(membre);
 		}
 	}
 	
 	
 	
-	//TODO : Accueil mobile pour les PRO est incomplet. 
 	//Les méthodes dépendent de d'autres implémentations.
 	public void accueilPro (Pro pro) {
 		System.out.println("================================================================================");
@@ -277,7 +279,7 @@ public class AppMobile implements RegexEmail {
 		}
 		switch (input) {
 		case 0:
-			break;
+			accueilPublic();
 		case 1:
 			for (int i = 0 ; i < data.getService().length ; i++ ) {
 				for (int j = 0 ; j < data.getService()[i].getSeance().length ; j++) {	
@@ -287,9 +289,13 @@ public class AppMobile implements RegexEmail {
 					}
 				}
 			}
+			accueilPro(pro);
 			break;
 		case 2:
 			System.out.println("entrez le numéro de la séance");
+			while(!sc.hasNextInt()) {
+				System.out.println("SVP, entrez un numéro de séance valide à 7 chiffres");
+			}
 			int numero = sc.nextInt();
 			Seance find = null;
 			for (int i = 0 ; i < data.getService().length ; i++ ) {
@@ -297,23 +303,27 @@ public class AppMobile implements RegexEmail {
 				for (int j = 0 ; j < data.getService()[i].getSeance().length ; j++) {
 					if( numero == data.getService()[i].getSeance()[j].getCode()) {
 					find =	data.getService()[i].getSeance()[j];
+					Seance recherche = find;
+					System.out.println("\nTitre : " + recherche.getTitreService() + 
+										"\nprofessionnel : "+ recherche.getPro() + 
+										"\nDébut du cour : "+ recherche.getDebut() + 
+										"\nFin du cour   : "+ recherche.getFin() +
+										"\nHeure du cour : "+ recherche.getHeure() +
+										"\nPrix          : "+ recherche.getPrix() +
+										"\nCapacité max  : "+ recherche.getCapaciteMax());
 					}
 				}
 			}
-			Seance recherche = find;
-			System.out.println("\nTitre : " + recherche.getTitreService() + 
-								"\nprofessionnel : "+ recherche.getPro() + 
-								"\nDébut du cour : "+ recherche.getDebut() + 
-								"\nFin du cour   : "+ recherche.getFin() +
-								"\nHeure du cour : "+ recherche.getHeure() +
-								"\nPrix          : "+ recherche.getPrix() +
-								"\nCapacité max  : "+ recherche.getCapaciteMax());
+			
+			accueilPro(pro);
 			break;
 
 		case 3:
-			System.out.println("Voici vos factures" + pro.getCompte());
+			System.out.println("Voici vos factures : " + pro.getCompte());
+			accueilPro(pro);
 			break;
 		}
+		
 	}
 
 }
