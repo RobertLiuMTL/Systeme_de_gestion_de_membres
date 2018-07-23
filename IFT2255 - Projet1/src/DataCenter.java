@@ -50,7 +50,7 @@ public class DataCenter implements Identification {
 		addMember ("poopopppop", "ewwwwwww", "edddddd", "naissance", "phone", "courriel@test.ca", "province", "city" , "postalcode");
 		addMember ("yuyuyuyuyu", "aaaaaa", "aaaaaaaa", "naissance", "phone", "courriel@test.ca", "province", "city" , "postalcode");
 		addMember ("vavavavaav", "bbbbbbbbbb", "jjjjjjjjj", "naissance", "phone", "courriel@test.ca", "province", "city" , "postalcode");
-		addPro("wqeedddddd", "tfgdfggfm", "String adresse", "String naissance", "String phone", "String courriel", "String discipline", "String province","String city", "String postalcode");
+		addPro("wqeedddddd", "tfgdfggfm", "String adresse", "String naissance", "String phone", "courriel@jiji.ca", "String discipline", "String province","String city", "String postalcode");
 		addPro("dsfafaf", "111111", "ewqee", "String naissance", "String phone", "String courriel", "String discipline", "String province","String city", "String postalcode");
 		addPro("bololol", "aaaaaaaaaa", "123 e", "1990", "String phone", "String courriel", "String discipline", "String province","String city", "String postalcode");
 

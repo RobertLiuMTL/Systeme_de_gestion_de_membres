@@ -131,11 +131,6 @@ public class GestionnaireService implements CreateSeance, InscriptionSeance{
 	
 	
 	
-	public void inscriptionService() {
-		
-	}
-	
-	
 	
 	public void modifierService() {
 		System.out.println("================================================================================");

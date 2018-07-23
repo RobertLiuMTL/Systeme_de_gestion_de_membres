@@ -526,8 +526,8 @@ public class Vue {
 			}
 			menuRepertoireServices();
 			break;
-/*
-		case 5:
+
+/*		case 5:
 			System.out.println(
 					"Veuillez entrer le code de la séance (7 chiffres) pour laquelle vous voulez confirmer la présence du Membre");
 			sc2 = new Scanner(System.in);
@@ -540,7 +540,7 @@ public class Vue {
 			int compteur = 0;
 
 			while (data.servicePosition(reponse) == -1) {
-				System.out.println("Le service n'existe pas, veuillez recommencer");
+				System.out.println("La séance n'existe pas, veuillez recommencer");
 				compteur++;
 				reponse = sc2.nextInt();
 				if (compteur >= 3) {
