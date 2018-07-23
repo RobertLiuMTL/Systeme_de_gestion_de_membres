@@ -176,7 +176,7 @@ public class AppMobile implements RegexEmail {
 		System.out.println("\n\n\nSélectionnez une option");
 		System.out.println("[0]     Quitter l'Application mobile pour Membre\n");
 		System.out.println("[1]     Voir les Services offerts et s'inscrire à un service \n");
-		System.out.println("[2]     Voir mes Services de la semaine\n");
+		System.out.println("[2]     Voir mes Services\n");
 		System.out.println("[3]     Consulter ma facture\n");
 		
 		
@@ -198,8 +198,48 @@ public class AppMobile implements RegexEmail {
 			break;
 		case 1:
 			data.gestionnaireServiceAff();
+			System.out.println("Voulez - vous vous inscrire a une seance ?");
+			Scanner sc4 = new Scanner(System.in);
+
+			char input3 = sc4.nextLine().charAt(0);
+
+			while (input3 != 'y' && input3 != 'n') {
+				System.out.println("tapez une entrée valide");
+				input3 = sc4.nextLine().charAt(0);
+			}
+			if (input3 == 'y') {
+				data.gs.inscrireMembre(data);
+			}
+			else {
+				break;
+			}
+			break;
 		case 2:
-		case 3: 
+			System.out.println("Voici vos services");
+			for (int i = 0 ; i < data.getService().length ; i++ ) {
+				
+				for (int j = 0 ; j < data.getService()[i].getSeance().length ; j++) {
+					
+					for (int e = 0 ; e < data.getService()[i].getSeance()[j].getListeMembre().length ; e++) {
+						
+					
+						if( membre.getNomComplet().equals(data.getService()[i].getSeance()[j].getListeMembre()[e].getNomComplet())) {
+							Seance  recherche = data.getService()[i].getSeance()[j];
+							System.out.println("\nTitre : " + recherche.getTitreService() + 
+									"\nprofessionnel : "+ recherche.getPro() + 
+									"\nDébut du cour : "+ recherche.getDebut() + 
+									"\nFin du cour   : "+ recherche.getFin() +
+									"\nHeure du cour : "+ recherche.getHeure() +
+									"\nPrix          : "+ recherche.getPrix() +
+									"\nCapacité max  : "+ recherche.getCapaciteMax());
+							
+						}
+					}
+				}
+			}
+		break;	
+		case 3:
+			System.out.println("Voici vos factures" + membre.getCompte());
 		}
 	}
 	
@@ -216,7 +256,7 @@ public class AppMobile implements RegexEmail {
 		
 		
 		System.out.println("\n\n\nSélectionnez une option");
-		System.out.println("[0]     Quitter l'Application mobile pour Membre\n");
+		System.out.println("[0]     Quitter l'Application mobile pour Professionnel\n");
 		System.out.println("[1]     Voir les inscriptions à mes séances \n");
 		System.out.println("[2]     Rechercher une séance\n");
 		System.out.println("[3]     Consulter mes avis de paiement\n");
@@ -239,8 +279,40 @@ public class AppMobile implements RegexEmail {
 		case 0:
 			break;
 		case 1:
+			for (int i = 0 ; i < data.getService().length ; i++ ) {
+				for (int j = 0 ; j < data.getService()[i].getSeance().length ; j++) {	
+					if( pro.getNomComplet().equals(data.getService()[i].getSeance()[j].getPro())) {
+						System.out.println(
+						data.getService()[i].getSeance()[j].afficherInscription());
+					}
+				}
+			}
+			break;
 		case 2:
-		case 3: 
+			System.out.println("entrez le numéro de la séance");
+			int numero = sc.nextInt();
+			Seance find = null;
+			for (int i = 0 ; i < data.getService().length ; i++ ) {
+				
+				for (int j = 0 ; j < data.getService()[i].getSeance().length ; j++) {
+					if( numero == data.getService()[i].getSeance()[j].getCode()) {
+					find =	data.getService()[i].getSeance()[j];
+					}
+				}
+			}
+			Seance recherche = find;
+			System.out.println("\nTitre : " + recherche.getTitreService() + 
+								"\nprofessionnel : "+ recherche.getPro() + 
+								"\nDébut du cour : "+ recherche.getDebut() + 
+								"\nFin du cour   : "+ recherche.getFin() +
+								"\nHeure du cour : "+ recherche.getHeure() +
+								"\nPrix          : "+ recherche.getPrix() +
+								"\nCapacité max  : "+ recherche.getCapaciteMax());
+			break;
+
+		case 3:
+			System.out.println("Voici vos factures" + pro.getCompte());
+			break;
 		}
 	}
 

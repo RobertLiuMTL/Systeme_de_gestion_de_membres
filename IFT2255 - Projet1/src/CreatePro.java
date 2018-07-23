@@ -9,6 +9,9 @@ public class CreatePro {
 		private String phone;
 		private String courriel;
 		private String discipline;
+		private String province;
+		private String city;
+		private String codepostal;
 		Scanner sc = new Scanner(System.in);
 		Scanner scString = new Scanner(System.in);
 		
@@ -100,11 +103,16 @@ public class CreatePro {
 			
 			
 			System.out.println("\nEntrez la date de naissance du Professionnel:");
+			System.out.println("\nEntrez le jour de naissance du professionnel (JJ):");
 			scString = new Scanner(System.in);
-			naissance = scString.nextLine();
+			String jour = scString.nextLine();
+			System.out.println("Entrez le mois de naissance du professionnel (MM)");
+			String mois = scString.nextLine();
+			System.out.println("Entrez l'année de naissance du professionnel (AAAA)");
+			String annee = scString.nextLine();
 			ok = false;
 			while (ok == false) {
-				System.out.println("La date de naissance entrée est :" + naissance+
+				System.out.println("La date de naissance entrée est :" + jour + "-" + mois + "-" + annee +
 						"\nVoulez-vous poursuivre avec cette date de naissance? "
 						+ "\nEntrez 'y' pour continuer ; "
 						+ "'n' pour saisir une nouvelle date de naissance.");
@@ -118,8 +126,6 @@ public class CreatePro {
 					System.out.println("La date de naissance " + naissance+ " a été enregistrée.");
 				}
 				if (reponse == 'n'){
-					System.out.println("Entrez à nouveau la date de naissance du Professionnel :");
-					naissance = scString.nextLine();
 					continue;
 				}
 				break;
@@ -203,11 +209,85 @@ public class CreatePro {
 				break;
 			}
 			
-			try {
-				data.addPro(nomFamille, prenom, adresse, naissance, phone, courriel, discipline);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+			System.out.println("\nEntrez la province du Professionnel :");
+			scString = new Scanner(System.in);
+			province = scString.nextLine();
+			ok = false;
+			while (ok == false) {
+				System.out.println("L'adresse courriel entrée est :" + province +
+						"\nVoulez-vous poursuivre avec cette province? "
+						+ "\nEntrez 'y' pour continuer ; "
+						+ "'n' pour saisir une nouvelle province.");
+				char reponse = sc.next().charAt(0);
+				while (reponse != 'y' && reponse != 'n') {
+					System.out.println("SVP, faites un choix valide.");
+					reponse = sc.next().charAt(0);	
+				}
+				if (reponse=='y') {
+					ok = true;
+					System.out.println("La province : " + province + " a été enregistrée.");
+				}
+				if (reponse == 'n'){
+					System.out.println("Entrez à nouveau la province du Professionnel :");
+					adresse = scString.nextLine();
+					continue;
+				}
+				break;
 			}
+			
+			System.out.println("\nEntrez la ville du Professionnel :");
+			scString = new Scanner(System.in);
+			city = scString.nextLine();
+			ok = false;
+			while (ok == false) {
+				System.out.println("La ville entrée est :" + city+
+						"\nVoulez-vous poursuivre avec cette ville? "
+						+ "\nEntrez 'y' pour continuer ; "
+						+ "'n' pour saisir une nouvelle ville.");
+				char reponse = sc.next().charAt(0);
+				while (reponse != 'y' && reponse != 'n') {
+					System.out.println("SVP, faites un choix valide.");
+					reponse = sc.next().charAt(0);	
+				}
+				if (reponse=='y') {
+					ok = true;
+					System.out.println("La ville: " + city + " a été enregistrée.");
+				}
+				if (reponse == 'n'){
+					System.out.println("Entrez à nouveau la ville du Professionnel :");
+					adresse = scString.nextLine();
+					continue;
+				}
+				break;
+			}
+			
+			System.out.println("\nEntrez le code postal du Professionnel :");
+			scString = new Scanner(System.in);
+			codepostal = scString.nextLine();
+			ok = false;
+			while (ok == false) {
+				System.out.println("Le code postal entrée est :" + codepostal +
+						"\nVoulez-vous poursuivre avec ce code postal? "
+						+ "\nEntrez 'y' pour continuer ; "
+						+ "'n' pour saisir un nouveau code postal.");
+				char reponse = sc.next().charAt(0);
+				while (reponse != 'y' && reponse != 'n') {
+					System.out.println("SVP, faites un choix valide.");
+					reponse = sc.next().charAt(0);	
+				}
+				if (reponse=='y') {
+					ok = true;
+					System.out.println("Le code postal : " + codepostal+ " a été enregistré.");
+				}
+				if (reponse == 'n'){
+					System.out.println("Entrez à nouveau le code postal du Professionnel :");
+					adresse = scString.nextLine();
+					continue;
+				}
+				break;
+			}
+			
+				data.addPro(nomFamille, prenom, adresse, naissance, phone, courriel, discipline, province, city, codepostal);
+				System.out.println("le professionnel a été avec succes");
 		}
 }

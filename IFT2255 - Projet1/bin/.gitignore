@@ -16,8 +16,31 @@
 /Service.class
 /Vue.class
 /CreationService.class
+<<<<<<< HEAD
 /FindMembreByName.class
 /FindMembreByNum.class
 /GestionnaireService.class
 /Seance.class
 /TEF.class
+=======
+/AppMobile.class
+/Application.class
+/CreateSeance.class
+/CreateService.class
+/DATA_InscriptionService.class
+/DATA_ServiceFourni.class
+/FindMembreByName.class
+/FindMembreByNum.class
+/FindPro.class
+/GestionnaireService.class
+/IdentificationCourriel.class
+/IdentificationServiceSeance.class
+/InscriptionSeance.class
+/ProcedureComptable.class
+/RegexEmail.class
+/Seance.class
+/TEF.class
+/FacturesMembre.class
+/RapportPro.class
+/confirmationPresence.class
+>>>>>>> e41704d7d476cee2ef7e3aac865db8996c0f0236

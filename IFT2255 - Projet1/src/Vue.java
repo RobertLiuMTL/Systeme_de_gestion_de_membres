@@ -1,5 +1,10 @@
 import java.util.Scanner;
-
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.BufferedWriter;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 /**
  * La vue de notre Logiciel. C'est l'interface utilisateur en ligne de commande.
  * 
@@ -8,6 +13,7 @@ import java.util.Scanner;
  */
 public class Vue {
 	private DataCenter data;
+
 
 	/**
 	 * Constructeur de la Vue. Instancié par le Main de notre Logiciel. Reçoit le
@@ -427,7 +433,7 @@ public class Vue {
 		System.out.println("[4]     Annuler une séance   \n");
 		System.out.println("[5]     Confirmer sa  présence \n");
 		System.out.println("[6]     Consulter inscriptions \n");
-		System.out.println("[7]     Modifier Service\n");
+		System.out.println("[7]     Modifier Seance\n");
 
 		Scanner sc2 = new Scanner(System.in);
 		// Boucle while qui vérifie que l'entrée est un Integer.
@@ -495,22 +501,8 @@ public class Vue {
 			menuRepertoireServices();
 			break;
 
-/* TODO : Refaire les options du Menu des Services
- 
-		case 3:
-			System.out.println("Veuillez entrer le numéro de membre(9 chiffres)");
-			Scanner yolo = new Scanner(System.in);
-			int numbMemb = yolo.nextInt();
+ //TODO : Refaire les options du Menu des Services
 
-			System.out.println("Veuillez entrer le numéro de cours (7 chiffres) ");
-			int numbCours = yolo.nextInt();
-
-			data.desinscrireMembre(numbMemb, numbCours);
-
-			System.out.println("Le membre a été désinscrit du cours : "
-					+ (data.serviceListe[data.servicePosition(numbCours)].getTitre()));
-			menuRepertoireServices();
-			break;
 
 		case 4:
 			System.out.println("Veuillez entrer le numéro de service (7 chiffres)");
@@ -520,18 +512,18 @@ public class Vue {
 			while (data.servicePosition(numbServ4) == -1) {
 				System.out.println("Le Service n'existe pas, veuillez recommencer");
 				numbServ4 = scanna.nextInt();
-
 			}
-			System.out.println("Veuillez taper votre numéro de membre (9 chiffres)");
+			 int servicenumb = data.servicePosition(numbServ4);
+			System.out.println("Veuillez taper votre numéro de séance (7 chiffres)");
 			int numbMemb4 = scanna.nextInt();
 
-			while (data.proPosition(numbMemb4) == -1) {
-				System.out.println("Le code de Professionnel n'existe pas, veuillez recommencer");
+			while (data.getService()[servicenumb].seanceposition(numbMemb4) == -1) {
+				System.out.println("Le code de séance  n'existe pas, veuillez recommencer");
 				numbMemb4 = scanna.nextInt();
 			}
-
-			data.removeService(data.servicePosition(numbServ4));
-			System.out.println("La scéance a été retirée de l'offre de Services. Veuillez en aviser les Membres");
+			 int seancenumb = data.getService()[servicenumb].seanceposition(numbMemb4);
+			data.getService()[servicenumb].removeSeance(seancenumb);
+			System.out.println("La séance a été retirée de l'offre de Services. Veuillez en aviser les Membres");
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e1) {
@@ -542,30 +534,27 @@ public class Vue {
 			break;
 
 		case 5:
+			
+			
 			System.out.println(
 					"Veuillez entrer le code de la séance (7 chiffres) pour laquelle vous voulez confirmer la présence du Membre");
 			sc2 = new Scanner(System.in);
+			int reponse = sc2.nextInt();
+			System.out.println("Veuillez taper le numéro de membre");
 			while (!sc2.hasNextInt()) {
 				System.out.println("Svp, entrez un numéro");
-				sc2.next();
-			}
-			int reponse = sc2.nextInt();
-			int user;
-			int compteur = 0;
-
-			while (data.servicePosition(reponse) == -1) {
-				System.out.println("Le service n'existe pas, veuillez recommencer");
-				compteur++;
 				reponse = sc2.nextInt();
-				if (compteur >= 3) {
-
-					System.out.println("trop d'essais, retour au répertoire des services");
-					menuRepertoireServices();
-				}
 			}
-
-			System.out.println("Veuillez taper le numéro de membre");
-			user = sc2.nextInt();
+			int compteur = 0;
+			
+			
+			
+			Seance seanceEnCours = data.is.findSeance(reponse);
+			if(seanceEnCours == null) {data.vue.accueil();}
+			
+			
+			
+			int user = sc2.nextInt();
 			compteur = 0;
 
 			while (data.membrePosition(user) == -1) {
@@ -578,39 +567,57 @@ public class Vue {
 				}
 			}
 
-			Boolean estPresent = false;
-			Membre[] listeMembServ = data.getService()[data.servicePosition(reponse)].getListeMembre();
+			boolean estPresent = false;
+			Membre[] listeMembServ = seanceEnCours.getListeMembre();
 
 			for (int i = 0; i < listeMembServ.length; i++) {
-				if (user == listeMembServ[i].getNumeroMembre()) {
+				if (user == listeMembServ[i].getNumero()) {
 					estPresent = true;
 				}
 			}
 			if (estPresent) {
-				System.out.println("La présence du Membre est confirmée pour le cours suivant : \n"
-						+ data.serviceListe[data.servicePosition(reponse)].getTitre() + "\n" + "Numéro du membre : "
-						+ user + "\n" + "Numéro du professionnel : "
-						+ data.serviceListe[data.servicePosition(reponse)].getEnseignant().getNomComplet() + "\n"
-						+ "Code du service : " + reponse + "\n" + "Commentaire : ");
+				
+				LocalDateTime now = LocalDateTime.now();
+				String format1 = now.format(DateTimeFormatter.ISO_DATE_TIME);
+				String identification = ("La présence du Membre est confirmée pour le cours suivant : \n"
+						+ seanceEnCours.getTitreService() + "\n" + "Numéro du membre : "
+						+ user + "\n" + "Nom du Professionel : "
+						+ seanceEnCours.getPro() + "\n"
+						+ "Code de la seance : " + seanceEnCours.getCode() + "\n" + "Commentaire : ")
+						+"\nheure de la confirmation: " + format1; 
+						
+						
+				
+						
+				System.out.println(identification);
+				File dir = new File("Confirmation de présence");
+				dir.mkdirs();
+				
 				try {
-					Thread.sleep(2000);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+					File f = new File(dir,"Confirmation_" + user+ ".txt");
+				
+			
+					
+						f.createNewFile();
+						FileWriter fw = new FileWriter(f); 
+						BufferedWriter bw = new BufferedWriter(fw);
+						bw.write(identification);
+						bw.flush();
+						fw.close();
+						
+					
+				}catch(IOException g){
+			        g.printStackTrace();
+			        System.out.println("erreur fichier");
+		        }	
 			} else {
 				System.out.println("Le Membre : " + user + " n'est pas inscrit au cours : "
 						+ data.serviceListe[data.servicePosition(reponse)].getTitre());
-				try {
-					Thread.sleep(2000);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				
 			}
 			menuRepertoireServices();
 			break;
-*/
+
 			
 		case 6:
 			System.out.println("Veuillez entrer le numéro de cours (7 chiffres) à consulter");
@@ -632,19 +639,21 @@ public class Vue {
 			}
 			menuRepertoireServices();
 			break;
-			/*
+			
 		case 7:
 			data.gestionnaireModService();
 			menuRepertoireServices();
 			break;
-			*/
+			
 			
 			
 		}
 		
 
 	}
-
+/**
+ * Methode qui permet d'acceder a la vue du menu pour la procedure comptable et la creation du rapport de synthese
+ */
 	public void menuComptable() {
 		System.out.println("================================================================================");
 		System.out.println("=========================== Procédure comptable =================================");
@@ -652,7 +661,7 @@ public class Vue {
 		System.out.println("\n");
 		System.out.println("Sélectionnez une option");
 		System.out.println("[0]     Quitter la procédure comptable \n");
-		System.out.println("[1]     Générer les enregistrments TEF \n");
+		System.out.println("[1]     Générer les enregistrements TEF \n");
 		System.out.println("[2]     Produire un rapport de synthèse \n");
 
 		Scanner sc4 = new Scanner(System.in);
@@ -674,14 +683,11 @@ public class Vue {
 			System.out.println("Retour au Menu Principal");
 			accueil();
 		case 1:
-			ProcedureComptable.generateTEF();
-			break;
+			data.procedureComptable();
+			accueil();
 		case 2:
-			ProcedureComptable.rapportSemaine();
-			break;
-		case 3:
-			ProcedureComptable.rapportJour();
-			break;
+			data.genererRapportDeSynthese();
+			accueil();
 		}
 	}
 }

@@ -68,9 +68,9 @@ public class CreateService {
 		commentaire = scanString.nextLine();
 		
 		
-		data.addService(titre, enseignant, dateDebut, 
+		/*data.addService(titre, enseignant, dateDebut, 
 				dateFin, heureDebut, recurrence, capaciteMax, commentaire);
-		data.vueAccueil();
+		data.vueAccueil();*/
 	}
 	
 }

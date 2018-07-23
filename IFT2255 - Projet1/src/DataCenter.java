@@ -1,4 +1,4 @@
-import java.awt.desktop.SystemEventListener;
+//import java.awt.desktop.SystemEventListener;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -19,9 +19,9 @@ import java.util.Scanner;
 public class DataCenter implements Identification {
 	
 	//Les attributs de la Base de Données
-	Membre [] membersListe = new Membre[3];
-	static Pro [] proListe = new Pro[3];
-	Service [] serviceListe = new Service[1];
+	Membre [] membersListe = new Membre[0];
+	static Pro [] proListe = new Pro[0];
+	Service [] serviceListe = new Service[0];
 
 	
 	//Les différentes extensions
@@ -47,24 +47,15 @@ public class DataCenter implements Identification {
 	public DataCenter() {
 		
 		//Création d'une liste pour nos tests.
-		membersListe[0] = new Membre("Liu", "Robert", 111111111, "4981 félix", "14 octobre", "514621", "robert.liu@umontreal.ca");
-		membersListe[0].setSuspendu(true);
-		
-		membersListe[1] = new Membre("Alarie", "Alexandre", 222222222, "123 UDEM", "13 octobre", "1234567", "alariey@hotmail.com");
-		
-		membersListe[2] = new Membre("Chabot", "Marc-André", 333333333, "321 allo", "12 octobre", "999123", "marcandrechabot86@gmail.com");
-		
-		addMember ("nomFamille", "prenom", "adresse", "naissance", "phone", "courriel@test.ca");
-		
-		proListe[0] = new Pro( "Wick",  "John", 666666666, "John Wick is a dog", 
-				 "n10 octobre", "5141234567",  "JohnWick@hotmail.com", "Docteur");
-		
-		proListe[1] = new Pro( "Escuela",  "Pablo", 555555555, "Yoyo vamos a la playa", 
-				 "1999 10 10", "1800-199-2000",  "Pablo@hotmail.com", "Voleur");
-		proListe[2] = new Pro( "Snow",  "John", 444444444, "123 St-John Street", 
-				 "12/12/2012", "514-5280528",  "johnSnow@hotmail.com", "John knows nothing");
+		addMember ("poopopppop", "ewwwwwww", "edddddd", "naissance", "phone", "courriel@test.ca", "province", "city" , "postalcode");
+		addMember ("yuyuyuyuyu", "aaaaaa", "aaaaaaaa", "naissance", "phone", "courriel2@test.ca", "province", "city" , "postalcode");
+		addMember ("vavavavaav", "bbbbbbbbbb", "jjjjjjjjj", "naissance", "phone", "courriel@test.ca", "province", "city" , "postalcode");
+		addPro("wqeedddddd", "tfgdfggfm", "String adresse", "String naissance", "String phone", "courriel@jiji.ca", "String discipline", "String province","String city", "String postalcode");
+		addPro("dsfafaf", "111111", "ewqee", "String naissance", "String phone", "String courriel", "String discipline", "String province","String city", "String postalcode");
+		addPro("bololol", "aaaaaaaaaa", "123 e", "1990", "String phone", "String courriel", "String discipline", "String province","String city", "String postalcode");
+
 		//Création de services de base + test de la méthode addService()
-		serviceListe[0]=new Service("Cours d'autodéfense", this.lastService);
+		
 		addService("Nutritionniste");
 		addService("Orthopédiste");
 		addService("Physiothérapeute");
@@ -76,10 +67,15 @@ public class DataCenter implements Identification {
 		addService("Esport");
 		
 		//Création de Séances test.
-		serviceListe[0].addSeance("John Wick", 666666666, 55, 22, "22/10/2018", "30/11/2018", "15:30", "Lundi", "");
-		serviceListe[0].addSeance("John Wick", 666666666, 55, 22, "22/10/2018", "30/11/2018", "15:30", "Mardi", "");
-
-		serviceListe[6].addSeance("John Snow", 444444444, 99, 30, "14/10/2018", "14/10/2019", "8:30", "Samedi", "You know nothing");
+		serviceListe[0].addSeance(proListe[0].getNomComplet(), proListe[0].getNumero(), 55, 30, "22/05/2018", "30/09/2018", "15:30", "Lundi", "");
+		serviceListe[0].addSeance(proListe[2].getNomComplet(), proListe[2].getNumero(), 55, 30, "22/04/2018", "30/09/2018", "15:30", "Mardi", "");
+		serviceListe[6].addSeance(proListe[1].getNomComplet(),proListe[1].getNumero(), 99, 30, "14/06/2018", "14/10/2019", "8:30", "Samedi", "You know nothing");
+		//inscription aux seances
+		serviceListe[0].getSeance()[0].inscrireMembre(membersListe[1]);
+		serviceListe[6].getSeance()[0].inscrireMembre(membersListe[1]);
+		
+		System.out.println("code seance:" + serviceListe[0].getSeance()[0].getCode());
+		System.out.println("code clien: "+membersListe[1].getNumero() );
 		this.vue.accueil();
 		
 	}
@@ -207,7 +203,7 @@ public class DataCenter implements Identification {
 	/**NON IMPLÉMENTÉE
 	 * Méthode pour passer au Gestionnaire des Membres.
 	 * Accède à la fonction de mofication d'un compte de Membre.
-	 */
+	 */ 
 	public void gestionnaireModMembre() {
 		gm.modifierMembre();
 	}
@@ -296,6 +292,10 @@ public class DataCenter implements Identification {
 	public void gestionnaireAddSeance() {
 		gs.creerSeance();
 	}
+	
+	public void gestionnaireModService() {
+		gs.modifierService();
+	}
 //////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////
 //Les méthodes qui permettent de mettre à jour les bases de données
@@ -319,14 +319,14 @@ public class DataCenter implements Identification {
 	 * @param courriel
 	 * @throws InterruptedException
 	 */
-	public void addMember (String nomFamille, String prenom, String adresse, String naissance, String phone, String courriel) {
+	public void addMember (String nomFamille, String prenom, String adresse, String naissance, String phone, String courriel, String province, String city, String postalcode) {
 		int longueur = membersListe.length;
 		//Recopier la liste des membres dans la liste temporaire
 		Membre[] temporaire = new Membre[longueur+1];
 		for (int i = 0;i<longueur;i++) {
 			temporaire[i]=membersListe[i];
 			}
-		temporaire[longueur] = new Membre(nomFamille, prenom, lastNumber, adresse, naissance, phone, courriel);
+		temporaire[longueur] = new Membre(nomFamille, prenom, lastNumber, adresse, naissance, phone, courriel, province, city, postalcode);
 		membersListe=temporaire;
 		System.out.println("Le nouveau Membre a été créé avec succès!\n");
 		System.out.println(prenom +" "+ nomFamille + " a le numéro de Membre suivant : "+lastNumber);
@@ -334,12 +334,7 @@ public class DataCenter implements Identification {
 		System.out.println("\nVeuillez patienter pendant que le Système "
 				+ "imprime la carte de Membre et retourne au Centre de Données..."
 				+ "\n\n");
-		try {
-			Thread.sleep(4000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
 	}
 	
 	
@@ -355,7 +350,7 @@ public class DataCenter implements Identification {
 	 * @param discipline String
 	 * @throws InterruptedException
 	 */
-	public void addPro (String nomFamille, String prenom, String adresse, String naissance, String phone, String courriel, String discipline) throws InterruptedException {
+	public void addPro (String nomFamille, String prenom, String adresse, String naissance, String phone, String courriel, String discipline, String province,String city, String postalcode )  {
 		int longueur = proListe.length;
 		
 		//recopier la liste des Professionnels dans la liste temporaire
@@ -363,7 +358,7 @@ public class DataCenter implements Identification {
 		for (int i = 0;i<=longueur-1;i++) {
 			temporaire[i]=proListe[i];		
 			}
-		temporaire[longueur] = new Pro(nomFamille, prenom, lastNumber, adresse, naissance, phone, courriel, discipline);
+		temporaire[longueur] = new Pro(nomFamille, prenom, lastNumber, adresse, naissance, phone, courriel, discipline, province , city , postalcode);
 		proListe=temporaire;
 		System.out.println("Le nouveau Professionnel a été créé avec succès!\n");
 		System.out.println(prenom +" "+ nomFamille + " a le numéro de Professionnel suivant : "+lastNumber);
@@ -371,7 +366,7 @@ public class DataCenter implements Identification {
 		System.out.println("\nVeuillez patienter pendant que le Système "
 				+ "imprime la carte du Professionnel et retourne au Centre de Données..."
 				+ "\n\n");
-		Thread.sleep(4000);
+		
 	}	
 	
 	
@@ -442,6 +437,57 @@ public class DataCenter implements Identification {
 		}
 		
 		return code;
+	}
+	/**
+	 * cette methode permet de realiser la procedure comptable les methodes qui suivent celle-ci sont celle qui implementent les 
+	 * parties de cette procedure.
+	 * 
+	 */
+	public void procedureComptable() {
+		genererRapportMembre();
+		genererRapportPro();
+		genererRapportDeSynthese();
+		genererRapportTEF();
+		
+		vue.accueil();
+		
+	}
+	
+	public int servicePosition(  int number  ) {
+		int pos = -1;
+		for (int i = 0 ; i < this.serviceListe.length ; i++ ) {
+			if (this.serviceListe[i].getService() == number) {
+				 pos = i;
+			}
+		}
+		return pos;
+	}
+	
+	/**
+	 * genere le rapport de synthese
+	 */
+	public void genererRapportDeSynthese() {
+		RapportSynthese rapportSynth = new RapportSynthese(serviceListe, proListe);
+	}
+	
+	/**
+	 * methode prive utilise par la procedure comptable pour generer les rapports a envoyer aux pros
+	 */
+	private void genererRapportPro(){
+		RapportPro rapportPro = new RapportPro(proListe, this.serviceListe);
+	}
+	/**
+	 * methode prive utilise par la procedure comptable pour generer les rapports a envoyer aux Membres
+	 */
+	private void genererRapportMembre() {
+		FacturesMembre facturesDesMembres = new FacturesMembre(this.getMembre(),this.getService());
+	}
+	/**
+	 * genere le rapport TEF a partir de la procedure comptable
+	 *
+	 */
+	private void genererRapportTEF() {
+		TEF tef = new TEF(this.getService(), this.getPro());
 	}
 	
 	/**

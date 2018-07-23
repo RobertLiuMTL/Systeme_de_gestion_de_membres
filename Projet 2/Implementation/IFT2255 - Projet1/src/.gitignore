@@ -16,3 +16,12 @@
 /Service.class
 /Vue.class
 /CreationService.class
+/Application.class
+/Comptable.class
+/FindMembreByName.class
+/FindMembreByNum.class
+/GestionnaireService.class
+/ProFind.class
+/Seance.class
+/ServiceFourni.class
+/TEF.class

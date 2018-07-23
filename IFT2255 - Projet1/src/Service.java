@@ -77,4 +77,28 @@ public class Service{
 		//System.out.println("La Séance est : "+ temporaire[longueur].getTitre());
 		//System.out.println("Le code du service est le " + temporaire[longueur].getService());
 	}
+	
+	public void removeSeance(int pos) {
+		int  longueur = seances.length;
+		Seance[] temporaire = new Seance[longueur - 1];
+			for(int i = 0; i < pos; i++) {
+				temporaire[i] = seances[i];
+			}
+			for(int j = pos+1; j < seances.length; j++) {
+				temporaire[j-1] = seances[j];
+			}
+			 
+		
+		seances = temporaire;
+	}
+	
+	public int seanceposition( int number) {
+		int pos = -1;
+		for (int i = 0 ; i < seances.length ; i++ ) {
+			if (seances[i].getCode() == number) {
+				 pos = i;
+			}
+		}
+		return pos;
+	}
 }
