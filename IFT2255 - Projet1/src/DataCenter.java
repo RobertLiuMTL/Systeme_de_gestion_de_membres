@@ -451,7 +451,7 @@ public class DataCenter implements Identification {
 		genererRapportDeSynthese();
 		genererRapportTEF();
 		
-	
+		vue.accueil();
 		
 	}
 	

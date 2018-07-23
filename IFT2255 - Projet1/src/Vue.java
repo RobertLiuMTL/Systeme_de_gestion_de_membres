@@ -630,7 +630,9 @@ public class Vue {
 		
 
 	}
-
+/**
+ * Methode qui permet d'acceder a la vue du menu pour la procedure comptable et la creation du rapport de synthese
+ */
 	public void menuComptable() {
 		System.out.println("================================================================================");
 		System.out.println("=========================== Procédure comptable =================================");
@@ -661,7 +663,10 @@ public class Vue {
 			accueil();
 		case 1:
 			data.procedureComptable();
-		
+			accueil();
+		case 2:
+			data.genererRapportDeSynthese();
+			accueil();
 		}
 	}
 }
