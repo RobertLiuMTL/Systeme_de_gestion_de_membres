@@ -72,8 +72,8 @@ public class Seance {
 		return this.recurrence;
 	}
 	
-	public void setRecurrence(String recurrence) {
-		this.recurrence = recurrence;
+	public void setRecurrence(int jour, int mois , int annee) {
+		this.recurrence = jour  + "-" + mois + "-" + annee;
 	}
 	
 	public int getPrix() {

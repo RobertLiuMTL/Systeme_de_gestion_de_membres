@@ -211,12 +211,12 @@ public class GestionnaireService implements CreateSeance, InscriptionSeance{
 				break;
 			case 1:
 				System.out.println("Veuillez entrer la nouvelle date de début");
-				System.out.println("Veuillez entrer l'année");
+				System.out.println("Veuillez entrer l'année (AAAA)");
 				sc2 = new Scanner(System.in);
 				int annee  = sc2.nextInt();
-				System.out.println("Veuillez entrer le mois");
+				System.out.println("Veuillez entrer le mois (MM)");
 				int mois = sc2.nextInt();
-				System.out.println("Veuillez entrer la journée");
+				System.out.println("Veuillez entrer la journée (JJ)");
 				int jour = sc2.nextInt();
 				System.out.println("La nouvelle date de fin est : " + annee + "-" + mois + "-" + jour);
 				seance.setDebut(annee, mois , jour);
@@ -224,22 +224,22 @@ public class GestionnaireService implements CreateSeance, InscriptionSeance{
 				break;
 			case 2:
 				System.out.println("Veuillez entrer la nouvelle date de fin");
-				System.out.println("Veuillez entrer l'année");
+				System.out.println("Veuillez entrer l'année (AAAA)");
 				sc2 = new Scanner(System.in);
 				int annee2  = sc2.nextInt();
-				System.out.println("Veuillez entrer le mois");
+				System.out.println("Veuillez entrer le mois (MM)");
 				int mois2 = sc2.nextInt();
-				System.out.println("Veuillez entrer la journée");
+				System.out.println("Veuillez entrer la journée (JJ)");
 				int jour2 = sc2.nextInt();
 				System.out.println("La nouvelle date de fin est : " + annee2 + "-" + mois2 + "-" + jour2);
 				seance.setFin(annee2, mois2 , jour2);
 				continuerModification = false;
 				break;
 			case 3:
-				System.out.println("Veuillez entrer la nouvelle heure de début");
+				System.out.println("Veuillez entrer la nouvelle heure de début (HH)");
 				sc2 = new Scanner(System.in);
 				int heureDebut = sc2.nextInt();
-				System.out.println("Veuillez entrer la nouvelle minute de début");
+				System.out.println("Veuillez entrer la nouvelle minute de début (MM)");
 				sc2 = new Scanner(System.in);
 				int minuteDebut = sc2.nextInt();
 				System.out.println("La nouvelle heure de début est : " + heureDebut + ":" + minuteDebut);
@@ -249,9 +249,14 @@ public class GestionnaireService implements CreateSeance, InscriptionSeance{
 			case 4:
 				System.out.println("Veuillez entrer la nouvelle récurrence");
 				sc2 = new Scanner(System.in);
-				String recurrence = sc2.nextLine();
-				System.out.println("La nouvelle récurrence est : " + recurrence);
-				seance.setRecurrence(recurrence);
+				System.out.println("Veuillez entrer l'année (AAAA)");
+				int annee3  = sc2.nextInt();
+				System.out.println("Veuillez entrer le mois (MM)");
+				int mois3 = sc2.nextInt();
+				System.out.println("Veuillez entrer la journée (JJ)");
+				int jour3 = sc2.nextInt();
+				System.out.println("La nouvelle récurrence est : " + jour3 + "-" + mois3 + "-"  + annee3);
+				seance.setRecurrence(jour3,mois3,annee3);
 				continuerModification = false;
 				break;
 			case 5:

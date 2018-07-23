@@ -496,7 +496,7 @@ public class Vue {
 			break;
 
  //TODO : Refaire les options du Menu des Services
-/* 
+
 
 		case 4:
 			System.out.println("Veuillez entrer le numéro de service (7 chiffres)");
@@ -506,18 +506,18 @@ public class Vue {
 			while (data.servicePosition(numbServ4) == -1) {
 				System.out.println("Le Service n'existe pas, veuillez recommencer");
 				numbServ4 = scanna.nextInt();
-
 			}
-			System.out.println("Veuillez taper votre numéro de membre (9 chiffres)");
+			 int servicenumb = data.servicePosition(numbServ4);
+			System.out.println("Veuillez taper votre numéro de séance (7 chiffres)");
 			int numbMemb4 = scanna.nextInt();
 
-			while (data.proPosition(numbMemb4) == -1) {
-				System.out.println("Le code de Professionnel n'existe pas, veuillez recommencer");
+			while (data.getService()[servicenumb].seanceposition(numbMemb4) == -1) {
+				System.out.println("Le code de séance  n'existe pas, veuillez recommencer");
 				numbMemb4 = scanna.nextInt();
 			}
-
-			data.removeService(data.servicePosition(numbServ4));
-			System.out.println("La scéance a été retirée de l'offre de Services. Veuillez en aviser les Membres");
+			 int seancenumb = data.getService()[servicenumb].seanceposition(numbMemb4);
+			data.getService()[servicenumb].removeSeance(seancenumb);
+			System.out.println("La séance a été retirée de l'offre de Services. Veuillez en aviser les Membres");
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e1) {
@@ -526,7 +526,7 @@ public class Vue {
 			}
 			menuRepertoireServices();
 			break;
-
+/*
 		case 5:
 			System.out.println(
 					"Veuillez entrer le code de la séance (7 chiffres) pour laquelle vous voulez confirmer la présence du Membre");

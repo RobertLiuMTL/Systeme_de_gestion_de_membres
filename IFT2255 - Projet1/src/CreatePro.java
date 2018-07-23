@@ -103,11 +103,16 @@ public class CreatePro {
 			
 			
 			System.out.println("\nEntrez la date de naissance du Professionnel:");
+			System.out.println("\nEntrez le jour de naissance du professionnel (JJ):");
 			scString = new Scanner(System.in);
-			naissance = scString.nextLine();
+			String jour = scString.nextLine();
+			System.out.println("Entrez le mois de naissance du professionnel (MM)");
+			String mois = scString.nextLine();
+			System.out.println("Entrez l'année de naissance du professionnel (AAAA)");
+			String annee = scString.nextLine();
 			ok = false;
 			while (ok == false) {
-				System.out.println("La date de naissance entrée est :" + naissance+
+				System.out.println("La date de naissance entrée est :" + jour + "-" + mois + "-" + annee +
 						"\nVoulez-vous poursuivre avec cette date de naissance? "
 						+ "\nEntrez 'y' pour continuer ; "
 						+ "'n' pour saisir une nouvelle date de naissance.");
@@ -121,8 +126,6 @@ public class CreatePro {
 					System.out.println("La date de naissance " + naissance+ " a été enregistrée.");
 				}
 				if (reponse == 'n'){
-					System.out.println("Entrez à nouveau la date de naissance du Professionnel :");
-					naissance = scString.nextLine();
 					continue;
 				}
 				break;
@@ -284,11 +287,7 @@ public class CreatePro {
 				break;
 			}
 			
-			try {
 				data.addPro(nomFamille, prenom, adresse, naissance, phone, courriel, discipline, province, city, codepostal);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+				System.out.println("le professionnel a été avec succes");
 		}
 }

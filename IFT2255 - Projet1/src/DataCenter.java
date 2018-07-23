@@ -200,7 +200,7 @@ public class DataCenter implements Identification {
 	/**NON IMPLÉMENTÉE
 	 * Méthode pour passer au Gestionnaire des Membres.
 	 * Accède à la fonction de mofication d'un compte de Membre.
-	 */
+	 */ 
 	public void gestionnaireModMembre() {
 		gm.modifierMembre();
 	}
@@ -456,6 +456,16 @@ public class DataCenter implements Identification {
 		System.out.println(proListe[0].getCompte());
 		System.out.println(proListe[2].getCompte());
 		
+	}
+	
+	public int servicePosition(  int number  ) {
+		int pos = -1;
+		for (int i = 0 ; i < this.serviceListe.length ; i++ ) {
+			if (this.serviceListe[i].getService() == number) {
+				 pos = i;
+			}
+		}
+		return pos;
 	}
 	
 	
