@@ -2,7 +2,10 @@ import java.util.regex.Pattern;
 
 /**
  * Interface qui offre une méthode pour valider le format d'une adresse courriel. 
- * Ne contient qu'une seule méthode.
+ * Ne contient qu'une seule méthode qui fait appel à une REGEX.
+ * 
+ * Cette interface est utilisée notamment lors de la création des Membres et professionnels (pour s'assurer d'une bonne adresse).
+ * Est également utilisée pour valider les courriels utilisés au moment de l'identification (AppMobile)
  * @author Robert
  *
  */

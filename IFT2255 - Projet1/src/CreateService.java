@@ -1,8 +1,12 @@
 import java.util.Scanner;
 /**
+ * C'est le module qui sert à la création de service. 
+ * Joue le rôle d'une extension de la Vue. 
+ * 
+ * Via les lignes de commandes, les informations par rapport au nouveau service sont recueillies.
  * 
  * @author Marc-André
- *La classe c'est juste une methode qui fais la vue pour la creation d'un service
+ * 
  */
 public class CreateService {
 

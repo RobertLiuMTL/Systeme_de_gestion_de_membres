@@ -1,5 +1,15 @@
 import java.util.Scanner;
 
+
+/**
+ * C'est le module de création d'un professionnel.
+ * 
+ * À l'aide de lignes de commandes, l'utilisateur est invité à entrer toute l'information requise.
+ * 
+ * Une fois l'information complétée, un appel est lancé via le DataCenter pour ajouter le professionnel.
+ * @author Robert
+ *
+ */
 public class CreatePro {
 	//les attributs qui seront utilisés pour la création du membre
 		private String nomFamille;

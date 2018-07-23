@@ -4,6 +4,9 @@ import java.util.Scanner;
  * C'est le module de recherche d'un Membre par son numéro. Cette classe est
  * créée par le Gestionnaire des Membres
  * 
+ * Une fois instanciée, cette classe interagit avec l'utilisateur via les lignes de commande. 
+ * L'information recueillie permet de faire une recherche du membre.
+ * 
  * @author Robert
  *
  */

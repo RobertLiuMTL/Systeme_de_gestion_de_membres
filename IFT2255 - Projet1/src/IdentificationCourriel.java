@@ -1,5 +1,8 @@
 /**
  * Classe qui offre une méthode pour authentifier un membre ou professionnel par son Courriel
+ * 
+ * Contient uniquement deux méthodes. (courriel Membre ou Pro)
+ * 
  * @author Robert
  *
  */

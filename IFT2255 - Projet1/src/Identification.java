@@ -1,5 +1,8 @@
 /**
- * C'est la méthode d'identification du Client.
+ * Interface qui implémente des méthodes d'identification du Client.
+ * 
+ * Redondance avec la Classe Identification. Utile notamment pour l'Application mobile
+ * Le couplage de la classe Identification rend son utilisation difficile avec l'AppMobile
  * 
  * @author Robert
  *

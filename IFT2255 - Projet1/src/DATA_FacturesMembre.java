@@ -10,7 +10,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.BufferedWriter;
 
-public class FacturesMembre {
+public class DATA_FacturesMembre {
 	/**
 	 * Ce constructeur permet a chaque vendredi durant la procedure comptable de generer la facture pour chacun
 	 * des clients inscrits a une seance cette semaine la, cette facture est sauvegarde dans l'attribut compte des 
@@ -19,7 +19,7 @@ public class FacturesMembre {
 	 * @param services prend l'ensemble des services du GYm en parametre
 	 * 
 	 */
-	public FacturesMembre(Membre[] membres, Service[] services) {
+	public DATA_FacturesMembre(Membre[] membres, Service[] services) {
 		
 		Calendar calendrier = new GregorianCalendar();
 		int currentWeek = calendrier.get(Calendar.WEEK_OF_YEAR);

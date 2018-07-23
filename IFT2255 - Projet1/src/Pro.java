@@ -2,6 +2,7 @@ import java.util.Date;
 
 /**
  * Classe du professionnel avec son constructeur.
+ * Hérite de la classe abstraite Personne.
  * @author Shado
  *
  */
@@ -10,6 +11,9 @@ public class Pro extends Personne{
 
 	private String discipline;
 	/**
+	 * C'est le constructeur d'un professionnel.
+	 * Ce constructeur est utilisé dans le DataCenter une fois que l'information requise a été recueillie.
+	 * L'information pour la création d'un nouveau Pro est recueillie par le GestionnairePro (en faisant appel à CreatePro).
 	 * 
 	 * @param nomFamille
 	 * @param prenom

@@ -7,7 +7,7 @@ import java.io.FileWriter;
 import java.io.BufferedWriter;
 import java.io.IOException;
 
-public class TEF {
+public class DATA_TEF {
 	
 	
 	/**
@@ -18,7 +18,7 @@ public class TEF {
 	 * @param Services
 	 * @param Pro
 	 */
-	public TEF(Service[] Services, Pro[] Pro) {
+	public DATA_TEF(Service[] Services, Pro[] Pro) {
 		
 		Calendar calendrier = new GregorianCalendar();
 		int currentWeek = calendrier.get(Calendar.WEEK_OF_YEAR);

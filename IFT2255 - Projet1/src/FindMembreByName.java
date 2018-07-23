@@ -3,6 +3,9 @@ import java.util.Scanner;
 /**
  * Classe qui est instanciée par le Gestionnaire des Membres
  * C'est la méthode de recherche par nom.
+ * 
+ * À chaque instantiation, des interactions par lignes de commande sont lancées. L'information recueillie
+ * permet ensuite de trouver le membre par son nom
  * @author Robert
  *
  */

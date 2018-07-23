@@ -1,6 +1,11 @@
 /**
  * Classe des Services
  * 
+ * Un Service est créé par le DataCenter (qui contient la base de données). 
+ * L'information nécessaire à sa création est recueillie par la classe CreateService (GestionnaireService)
+ * 
+ * Chaque service contient une liste de Séances dans lesquelles peuvent s'inscrire les Professionnels désireux offrir leurs services.
+ * 
  * @author Robert
  *
  */
@@ -61,15 +66,16 @@ public class Service{
 	
 	/**
 	 * methode qui permet d'ajouter une seance a la liste des seances dans le dataCenter
-	 * @param nomProf
-	 * @param numProf
-	 * @param cout
-	 * @param capacite
-	 * @param dateDebut
-	 * @param dateFin
-	 * @param heureDebut
-	 * @param recurrence
-	 * @param comments
+	 * 
+	 * @param nomProf : String
+	 * @param numProf : int
+	 * @param cout : int
+	 * @param capacite : int
+	 * @param dateDebut : String
+	 * @param dateFin : String
+	 * @param heureDebut : String
+	 * @param recurrence : String
+	 * @param comments : String
 	 */
 	public void addSeance(String nomProf, int numProf, int cout, int capacite,
 			String dateDebut, String dateFin,String heureDebut, String recurrence, String comments) {

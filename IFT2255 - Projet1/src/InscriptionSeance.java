@@ -2,9 +2,11 @@
  * 
  * 
  * @author Marc-André
- *module qui permet à l'utilisateur de s'inscrire à un service
+ *module qui permet à l'utilisateur de s'inscrire à un service. 
+ *Cette interface est notamment utilisée dans le Gestionnaire des services.
  */
 import java.util.Scanner;
+
 
 public interface InscriptionSeance {
 	

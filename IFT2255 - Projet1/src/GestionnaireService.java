@@ -1,10 +1,14 @@
 import java.util.Scanner;
 
 /**
- * C'est le gestionnaire des Services (incomplet en date de la remise du TP2). 
+ * C'est le gestionnaire des Service 
  * 
- * TODO : Migrer les opérations sur les services et séances dans ce gestionnaire.
- * Hérite d'une interface de création de Séance
+ * Hérite d'une interface de création de Séance et d'Inscription aux séances.
+ * 
+ * Complémente la Vue en affichant les principales actions en lien avec les Services.
+ * 
+ * Selon les besoins de l'utilisateur, ce gestionnaire va faire appel à d'Autres classes ou interfaces.
+ * 
  * @author Robert
  *
  */

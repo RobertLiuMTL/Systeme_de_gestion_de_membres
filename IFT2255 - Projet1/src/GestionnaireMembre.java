@@ -2,7 +2,12 @@ import java.util.Scanner;
 
 /**
  * C'est le gestionnaire des Membres. Interagit avec le Centre de données
- * (DataCenter). Toute communication avec la Vue passe par le Centre de Données
+ * (DataCenter). Toute communication entre la Vue et ce gestionnaire passe par le Centre de Données
+ * 
+ * Contient les menus (vue) du gestionnaire des Membres. 
+ * 
+ * Fait appel, au besoin, aux méthodes contenues dans le DataCenter ou dans d'autres classes.
+ * Notamment, pour la création de Membre, la classe CreateMembre est instanciée.
  * 
  * @author Robert
  *

@@ -7,6 +7,12 @@ import java.util.Scanner;
 /**
  * Interface pour la Classe GestionnaireService qui permet la création de Service.
  * 
+ * Cette interface propose le module d'interaction avec l'utilisateur en lignes de commande.
+ * 
+ * Une fois toute l'information recueillie, 
+ * Un appel est lancé à : service.addSeance(nomPro,numPro,prix,capaciteMax,dateDebut,
+				dateFin,heureDebut,recurrence,commentaire);
+ * 
  * @author Robert
  *
  */

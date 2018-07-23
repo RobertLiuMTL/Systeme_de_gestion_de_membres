@@ -1,5 +1,11 @@
 import java.util.Scanner;
 
+/**
+ * Méthode qui permet de faire la recherche du professionnel.
+ * 
+ * @author Robert
+ *
+ */
 public class FindPro {
 
 	public String rechercheParNum(Pro[] liste) {

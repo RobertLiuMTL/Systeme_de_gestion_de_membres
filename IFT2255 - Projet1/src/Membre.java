@@ -2,20 +2,24 @@ import java.util.Date;
 
 /**
  * Classe pour les Membres du Gym.
+ * Hérite de la classe Abstraite Personne.
  * @author Robert
  *
  */
 public class Membre extends Personne{
 	
 	/**
-	 * Constructeur du Membre qui acquitte ses frais d'inscription
-	 * @param nomFamille
-	 * @param prenom
-	 * @param numeroMembre
-	 * @param adresse
-	 * @param naissance
-	 * @param phone
-	 * @param courriel
+	 * Constructeur du Membre 
+	 * L'information requise pour la création d'un nouveau Membre est obtenue en faisant appel à la classe CreateMembre (appelée depuis le GestionnaireMembre - Vue).
+	 * C'est le DataCenter qui crée la nouvelle instance d'un Membre.
+	 * 
+	 * @param nomFamille : String
+	 * @param prenom : String
+	 * @param numeroMembre :Int
+	 * @param adresse : String
+	 * @param naissance : String
+	 * @param phone : String
+	 * @param courriel : String
 	 */
 	public Membre (String nomFamille, String prenom, int numeroMembre, String adresse, String naissance, String phone, String courriel , String province ,String city , String postalcode) {
 		this.nomFamille=nomFamille;
@@ -34,12 +38,12 @@ public class Membre extends Personne{
 	
 	/**
 	 * Constructeur pour un membre qui n'acquitte pas de ses frais de membre
-	 * @param nomFamille
-	 * @param prenom
-	 * @param adresse
-	 * @param naissance
-	 * @param phone
-	 * @param courriel
+	 * @param nomFamille : String
+	 * @param prenom : String
+	 * @param adresse : String
+	 * @param naissance : String
+	 * @param phone : String
+	 * @param courriel :String
 	 */
 	public Membre (String nomFamille, String prenom, String adresse, String naissance, String phone, String courriel, String province ,String city , String postalcode) {
 		this.nomFamille=nomFamille;

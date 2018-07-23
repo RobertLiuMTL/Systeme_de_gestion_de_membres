@@ -1,12 +1,12 @@
 import java.util.Scanner;
 
-/**TODO : Inclure une étape pour vérifier si le membre a payé ou non.
+/**
  * Le module de création de Membre.
  * 
  * Interagit avec l'utilisateur sous formes de lignes de commande.
  * Une fois toute l'information recueillie, on fait appel à la fonciton de création de Membre contenue dans le DataCenter.
  * 
- * @author Shado
+ * @author Robert
  *
  */
 public class CreateMembre implements RegexEmail {

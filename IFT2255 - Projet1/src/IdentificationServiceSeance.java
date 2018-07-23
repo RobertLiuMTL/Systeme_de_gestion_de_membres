@@ -16,8 +16,8 @@ public class IdentificationServiceSeance {
 	/**
 	 * Méthode qui trouve un Service à l'aide d'un numéro à 7 chiffres
 	 * 
-	 * @param numeroService
-	 * @return
+	 * @param numeroService : Int, numéro de service
+	 * @return : Service si existant.
 	 */
 	public Service findService(int numeroService) {
 		Service[] liste = data.getService();
@@ -28,7 +28,14 @@ public class IdentificationServiceSeance {
 		}
 		return null;
 	}
-
+	
+	/**
+	 * Méthode qui permet de trouver une Séance à l'aide de son numéro de séance à 7 chiffres.
+	 * 
+	 * Si la séance est trouvée, on retourne la Séance.
+	 * @param numero : int, numéro à 7 chiffres
+	 * @return : Seance si elle est trouvée.
+	 */
 	public Seance findSeance(int numero) {
 		Service[] liste = data.getService();
 		for (int i = 0; i <= liste.length - 1; i++) {

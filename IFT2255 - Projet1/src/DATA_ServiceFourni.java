@@ -1,7 +1,7 @@
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-/**TODO : Doit être produit à chaque fois qu'un membre confirme sa présence à une séance.
+/**Classe qui représente la donnée produite suite à la confirmation de présence à une séance par un membre.
  */
 public class DATA_ServiceFourni {
     //Date et heure actuelles

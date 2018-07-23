@@ -9,14 +9,14 @@ import java.io.FileWriter;
 import java.io.BufferedWriter;
 import java.io.IOException;
 
-public class RapportSynthese {
+public class DATA_RapportSynthese {
 	
 	/**
 	 * Ce constructeur cree le rapport de synthese ainsi que le folder de celui-ci
 	 * @param services liste des services de data center
 	 * @param pros	liste des pros du datacenter
 	 */
-	public RapportSynthese(Service[] services, Pro[] pros){
+	public DATA_RapportSynthese(Service[] services, Pro[] pros){
 		Calendar calendrier = new GregorianCalendar();
 		int currentWeek = calendrier.get(Calendar.WEEK_OF_YEAR);
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");

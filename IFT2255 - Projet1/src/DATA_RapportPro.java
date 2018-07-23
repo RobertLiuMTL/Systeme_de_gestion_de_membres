@@ -10,7 +10,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.BufferedWriter;
 
-public class RapportPro {
+public class DATA_RapportPro {
 
 	/**
 	 * Constructeur qui cree les fichiers hebdomadaires que les membres recoivent
@@ -22,7 +22,7 @@ public class RapportPro {
 	 * @param services
 	 *            liste des services du gym
 	 */
-	public RapportPro(Pro[] pros, Service[] services) {
+	public DATA_RapportPro(Pro[] pros, Service[] services) {
 		Calendar calendrier = new GregorianCalendar();
 		int currentWeek = calendrier.get(Calendar.WEEK_OF_YEAR);
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");

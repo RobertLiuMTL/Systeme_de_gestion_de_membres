@@ -1,5 +1,13 @@
 import java.util.Scanner;
 
+/**
+ * La classe de l'Application mobile. 
+ * Contient les principaux éléments d'affichage.
+ * 
+ * Les méthodes appelées passent par le DataCenter quand nécessaire
+ * @author Robert
+ *
+ */
 public class AppMobile implements RegexEmail {
 	DataCenter data;
 	IdentificationCourriel ic = new IdentificationCourriel();
@@ -10,7 +18,14 @@ public class AppMobile implements RegexEmail {
 	}
 
 	/**
-	 * Imprime l'écran d'accueil.
+	 * Méthode sans argument.
+	 * 
+	 * Affiche l'écran d'accueil à l'application mobile. 3 options sont offertes à l'utilisateur
+	 * Quitter
+	 * Authentifier le membre
+	 * Authentifier le pro
+	 * 
+	 * L'authentification est obligatoire pour accéder au contenu mobile.
 	 */
 	public void accueilPublic() {
 		System.out.println("================================================================================");
@@ -164,8 +179,10 @@ public class AppMobile implements RegexEmail {
 
 	/**
 	 * Le menu d'accueil mobile pour les Membres authentifiés.
-	 * TODO : Ajouter les différents SWITCH CASE
-	 * @param membre : Prend en argument le compte du Membre qui servira à accéder à ses factures et qui lui permettra de s'inscrire.
+	 * 
+	 * Différentes options sont offertes au Membre.
+	 * 
+	 * @param membre : Prend en argument le compte du Membre authentifié qui servira à accéder à ses factures et qui lui permettra de s'inscrire.
 	 */
 	public void accueilMembre(Membre membre) {
 		System.out.println("================================================================================");
@@ -251,7 +268,12 @@ public class AppMobile implements RegexEmail {
 	
 	
 	
-	//Les méthodes dépendent de d'autres implémentations.
+	/**
+	 * C'est le menu d'accueil du professionnel authentifié.
+	 * 
+	 * Plusieurs options sont offertes au Pro. Une Switch Case permet d'identifier les décisions de l'utilisateur.
+	 * @param pro : Prend en argument le Professionnel authentifié.
+	 */
 	public void accueilPro (Pro pro) {
 		System.out.println("================================================================================");
 		System.out.println("Bienvenue "+ pro.getNomComplet()+" à l'application mobile pour les Professionnels");

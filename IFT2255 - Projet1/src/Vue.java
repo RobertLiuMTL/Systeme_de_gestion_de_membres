@@ -7,6 +7,13 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 /**
  * La vue de notre Logiciel. C'est l'interface utilisateur en ligne de commande.
+ * Une grande partie de l'affichage se trouve ici. Cependant, afin d'alléger cette Classe
+ * et afin de mieux diviser le rôle des classes, certains éléments visuels sont contenus dans d'autres classes.
+ * Cela facilite, de notre avis, la maintenance.
+ * 
+ * La logique des options proposées se trouve généralement ailleurs. Souvent, l'option choisie par l'utilisateur dans la Vue
+ * lance un appel au DataCenter qui appelle ensuite la bonne méthode.
+ * Ce couplage, un peu fort, permet de bien séparer le rôle des différentes classes de notre projet.
  * 
  * @author Robert
  *
@@ -418,6 +425,11 @@ public class Vue {
 		}
 	}
 
+	/**
+	 * La méthode pour appeler le Menu des Services.
+	 * De nombreuses options s'offrent à l'utilisateur. Selon son choix, 
+	 * le GestionnaireService est sollicité (en passant, toujours, par le DataCenter)
+	 */
 	public void menuRepertoireServices() {
 
 		// menu principal du repertoire services
@@ -500,8 +512,6 @@ public class Vue {
 			data.gestionnaireAddSeance();
 			menuRepertoireServices();
 			break;
-
- //TODO : Refaire les options du Menu des Services
 
 
 		case 4:

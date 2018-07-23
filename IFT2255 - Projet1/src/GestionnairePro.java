@@ -1,6 +1,11 @@
 /**
  * Le gestionnaire des professionnels. 
- * Contient les méthodes qui touchent à cette catégorie de membre.
+ * 
+ * Affiche les principales méthodes en lien avec la classe des Professionnels.
+ * 
+ * Appelle, au besoin, d'autres classes comme CreatePro ou FindPro pour exécuter certaines actions plus lourdes. 
+ * 
+ * 
  * @author Shado
  *
  */
