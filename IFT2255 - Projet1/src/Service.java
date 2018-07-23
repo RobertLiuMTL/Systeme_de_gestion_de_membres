@@ -79,20 +79,16 @@ public class Service{
 	}
 	
 	public void removeSeance(int pos) {
-		int  longeur = seances.length;
-		Seance[] temporaire = new Seance[longeur - 1];
-		for ( int i = 0 ; i < longeur - 2 ; i++) {
-			 if(i < pos) {
-				 temporaire[i] = seances[i];
-			 }
-			 if( i == pos){
-				 continue;
-			 }
-			 if( i > pos) {
-				 temporaire[i] = seances[i+1];
-			 }
+		int  longueur = seances.length;
+		Seance[] temporaire = new Seance[longueur - 1];
+			for(int i = 0; i < pos; i++) {
+				temporaire[i] = seances[i];
+			}
+			for(int j = pos+1; j < seances.length; j++) {
+				temporaire[j-1] = seances[j];
+			}
 			 
-		}
+		
 		seances = temporaire;
 	}
 	
