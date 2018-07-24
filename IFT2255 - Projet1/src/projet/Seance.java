@@ -240,9 +240,10 @@ public class Seance {
 	 * 
 	 * @param membre : Prend la donnée Membre en argument. Permet d'en extraire l'information utile
 	 */
-	public void inscrireMembre(Membre membre) {
+	public boolean inscrireMembre(Membre membre) {
 		if (capaciteMax == listeMembre.length) {
-			System.out.println("Désolé, la séance est complète. " + "Veuillez choisir une autre séance");
+			System.out.println("Désolé, la séance est complète. Veuillez choisir une autre séance");
+			return false;
 		} else {
 
 			Membre[] temporaire = new Membre[listeMembre.length + 1];
@@ -253,6 +254,7 @@ public class Seance {
 			this.listeMembre = temporaire;
 			membre.ajouterSolde(prix);
 			System.out.println("Le membre " + membre.getNomComplet() + " s'est inscrit à la séance!");
+			return true;
 		}
 	}
 

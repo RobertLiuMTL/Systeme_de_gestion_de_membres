@@ -43,7 +43,15 @@ public class DataCenter implements Identification {
 	private int lastService = 1000000;
 
 	DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-
+	
+	/**
+	 * Constructeur du DataCenter pour nos tests unitaires
+	 * @param test
+	 */
+	public DataCenter(int test) {
+		
+	}
+	
 	/**
 	 * Constructeur. Au moment d'être instancié, il crée diverses données à des fins
 	 * de tests.
