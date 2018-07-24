@@ -26,7 +26,7 @@ public class CreateMembre implements RegexEmail {
 	
 	/**
 	 * Constructeur qui envoie les lignes de commandes et qui reçoit les résultats
-	 * @param data
+	 * @param data DataCenter
 	 */
 	public CreateMembre (DataCenter data) {
 		System.out.println("================================================================================");

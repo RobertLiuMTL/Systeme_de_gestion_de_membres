@@ -31,7 +31,7 @@ public class GestionnaireMembre {
 	 * Méthode pour supprimner un membre. Prend le numéro du Membre et performe une
 	 * recherche avec une boucle FOR.
 	 * Une liste temporaire -1 est créée pour remplacer l'ancienne liste.
-	 * @param numero
+	 * @param numero : numéro du membre à 9 chiffres
 	 */
 	public void suppMembre(int numero) {
 		Membre[]temp = new Membre[data.getMembre().length-1];
@@ -91,7 +91,7 @@ public class GestionnaireMembre {
 	 * Méthode qui prend en entrée la liste de Membres et qui l'affiche en
 	 * entièreté.
 	 * 
-	 * @param liste
+	 * @param liste : Liste de Membres
 	 */
 	public void afficherAll(Membre[] liste) {
 		String resultatAll = "Voici la liste de tous les membres " + "inscrits au Centre Sportif #GYM : \n\n";
@@ -167,7 +167,7 @@ public class GestionnaireMembre {
 	
 	/**
 	 * Méthode pour modifier les informations du Membre
-	 * @param membre
+	 * @param membre : Prend un Membre
 	 */
 	public void moduleMod(Membre membre) {
 		System.out.println("================================================================================");

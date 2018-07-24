@@ -102,7 +102,7 @@ public abstract class Personne {
 	
 	/**
 	 * Ajoute un nouveau commentaire au dossier
-	 * @param newComment
+	 * @param newComment : String (ajout d'un nouveau commentaire)
 	 */
 	public void setComment(String newComment) {
 		this.commentaires+=newComment+"\n";

@@ -39,7 +39,7 @@ public class Service{
 	 /**
 	  * methode qui permet de format le service dans un String pour des fins de
 	 presentation aux membres
-	  * @return
+	  * @return : Retourne la String 
 	  */
 	public String membreService() {
 		return "\n\nTitre: " + this.titre + "\nCode du cours: " + this.codeService;
@@ -117,7 +117,7 @@ public class Service{
 	/**
 	 * retourne la position d'une seance dans la liste des seances
 	 * @param number code de la seance
-	 * @return
+	 * @return : Retourne la position de la séance
 	 */
 	public int seanceposition( int number) {
 		int pos = -1;

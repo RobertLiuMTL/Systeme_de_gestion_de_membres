@@ -15,8 +15,8 @@ public class DATA_TEF {
 	 * une procedure)
 	 * La methode trouve pour chaque Pro, les services qu'ils ont données cette semaine 
 	 * La cette classe prend pour acquis que les seances sont donnees une fois semaine max 
-	 * @param Services
-	 * @param Pro
+	 * @param Services : Prend en argument la liste des Services
+	 * @param Pro : Prend en argument la liste de Pro
 	 */
 	public DATA_TEF(Service[] Services, Pro[] Pro) {
 		

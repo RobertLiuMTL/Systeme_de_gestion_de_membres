@@ -15,17 +15,17 @@ public class Pro extends Personne{
 	 * Ce constructeur est utilisé dans le DataCenter une fois que l'information requise a été recueillie.
 	 * L'information pour la création d'un nouveau Pro est recueillie par le GestionnairePro (en faisant appel à CreatePro).
 	 * 
-	 * @param nomFamille
-	 * @param prenom
-	 * @param numeroPro
-	 * @param adresse
-	 * @param naissance 
-	 * @param phone
-	 * @param courriel
-	 * @param discipline
-	 * @param province
-	 * @param city
-	 * @param postalcode
+	 * @param nomFamille : String
+	 * @param prenom : String
+	 * @param numeroPro : int
+	 * @param adresse  : String
+	 * @param naissance  : String
+	 * @param phone : String
+	 * @param courriel : String
+	 * @param discipline : String
+	 * @param province : String
+	 * @param city : String
+	 * @param postalcode : String
 	 */
 	public Pro (String nomFamille, String prenom, int numeroPro, String adresse, 
 			String naissance, String phone, String courriel, String discipline, String province ,String city , String postalcode) {
