@@ -143,9 +143,9 @@ public class DATA_RapportSynthese {
 	}
 	/**
 	 * Cette methodes permet de creer le strings qui correspond au rapport hebdo pour chaque pro individuellement 
-	 * @param seancesHebdo
-	 * @param pros
-	 * @return
+	 * @param seancesHebdo : Liste des séances
+	 * @param pros : Liste des pros
+	 * @return : Retourne un message
 	 */
 	private String rapportdeSyntheseIndi(Seance[] seancesHebdo, Pro[] pros) {
 		

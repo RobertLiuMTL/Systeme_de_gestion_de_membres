@@ -172,7 +172,7 @@ public class DATA_RapportPro {
 	 * 
 	 * @param day
 	 *            String qui correspond a la recurrence d'une seance
-	 * @return
+	 * @return : retourne un int.
 	 */
 	private int calcDate(String day) {
 
@@ -207,7 +207,7 @@ public class DATA_RapportPro {
 	 * 
 	 * @param seance
 	 *            la seance en question
-	 * @return
+	 * @return : Retourne la liste des membres sous forme de String
 	 */
 	public String getListeMembre(Seance seance) {
 		String listeMembre = "";

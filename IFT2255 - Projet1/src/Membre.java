@@ -9,17 +9,20 @@ import java.util.Date;
 public class Membre extends Personne{
 	
 	/**
-	 * Constructeur du Membre 
+	 * * Constructeur du Membre 
 	 * L'information requise pour la création d'un nouveau Membre est obtenue en faisant appel à la classe CreateMembre (appelée depuis le GestionnaireMembre - Vue).
 	 * C'est le DataCenter qui crée la nouvelle instance d'un Membre.
 	 * 
 	 * @param nomFamille : String
-	 * @param prenom : String
-	 * @param numeroMembre :Int
-	 * @param adresse : String
-	 * @param naissance : String
-	 * @param phone : String
-	 * @param courriel : String
+	 * @param prenom: String
+	 * @param numeroMembre : int
+	 * @param adresse: String
+	 * @param naissance: String
+	 * @param phone: String
+	 * @param courriel: String
+	 * @param province: String
+	 * @param city: String
+	 * @param postalcode: String
 	 */
 	public Membre (String nomFamille, String prenom, int numeroMembre, String adresse, String naissance, String phone, String courriel , String province ,String city , String postalcode) {
 		this.nomFamille=nomFamille;
@@ -37,13 +40,17 @@ public class Membre extends Personne{
 	}
 	
 	/**
-	 * Constructeur pour un membre qui n'acquitte pas de ses frais de membre
+	 * Constructeur pour le membre.
+	 * 
 	 * @param nomFamille : String
 	 * @param prenom : String
 	 * @param adresse : String
 	 * @param naissance : String
 	 * @param phone : String
-	 * @param courriel :String
+	 * @param courriel : String
+	 * @param province : String
+	 * @param city : String
+	 * @param postalcode : String
 	 */
 	public Membre (String nomFamille, String prenom, String adresse, String naissance, String phone, String courriel, String province ,String city , String postalcode) {
 		this.nomFamille=nomFamille;
@@ -58,23 +65,21 @@ public class Membre extends Personne{
 		this.city = city;
 	}
 	
-	/**
-	 * Créer les attributs nécessaires pour les paiements, et montant dûs
-	 * 
-	 */
 	private int facture = 0;
 	
-	/**
-	 * Méthode pour ajouter un montant à la facture globale du client
-	 * @param montant
+
+	/**Méthode pour ajouter un montant à la facture globale du client
+	 * 
+	 * @param montant : Montant en int
 	 */
 	public void ajouterSolde(int montant) {
 		this.facture+= montant;
 	}
 	
 	/**
-	 * Méthode pour vérifier l'état du solde. En ce moment, si le montant dû est >= 50$
+	 * Méthode pour vérifier l'état du solde. En ce moment, si le montant dû est plus grand ou égal 50$
 	 * le membre est suspendu
+	 * @return : Retourne la facture (sous forme de int)
 	 */
 	public int verifierSolde () {
 		return facture;
@@ -84,7 +89,7 @@ public class Membre extends Personne{
 	 * Méthode qui prend en argument un montant payé par le client.
 	 * Ce montant est soustrait de la facture globale du client.
 	 * Si la solde dûe est inférieure à 50$, la suspension du membre est levée.
-	 * @param montant
+	 * @param montant : Montant sous forme de int
 	 */
 	public void payerSolde (int montant) {
 		facture-=montant;

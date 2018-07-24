@@ -16,7 +16,7 @@ public class FindMembreByNum {
 	 * Une amélioration possible serait de déplacer la fonction de recherche à une
 	 * méthode à l'extérieur du Constructeur de cette classe.
 	 * 
-	 * @param liste
+	 * @param liste : Liste de Membres
 	 */
 	public FindMembreByNum(Membre[] liste) {
 		Scanner sc = new Scanner(System.in);

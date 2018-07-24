@@ -237,7 +237,7 @@ public class Seance {
 	/**
 	 * Méthode pour inscrire un membre à cette séance.
 	 * 
-	 * @param membre
+	 * @param membre : Prend la donnée Membre en argument. Permet d'en extraire l'information utile
 	 */
 	public void inscrireMembre(Membre membre) {
 		if (capaciteMax == listeMembre.length) {
@@ -255,8 +255,10 @@ public class Seance {
 		}
 	}
 
+	
 	/**
-	 * Méthode pour désinscrire un Membre à la séance.
+	 * Méthode pour désinscrire un Membre à la séance
+	 * @param numeroMembre : Prend en argument le numéro à 9 chiffres du membre
 	 */
 	public void desinscrireMembre(int numeroMembre) {
 		Membre[] temporaire = new Membre[30];
@@ -281,6 +283,8 @@ public class Seance {
 
 	/**
 	 * Méthode qui affiche les membres inscrits à la présente séance.
+	 * 
+	 * @return : Retourne les inscriptions à la séance
 	 */
 	public String afficherInscription() {
 		String msg = "\n================================================================================\n"+
@@ -307,7 +311,7 @@ public class Seance {
 	 * une methode qui retourne un string formatter pour des ajouts de seances dans
 	 * un fichier TEF
 	 * 
-	 * @return
+	 * @return : Retourne la description du TEF
 	 */
 	public String descriptionTEF() {
 		String info = "\nTitre du Service: " + this.getTitreService() + "\nDate de création : " + this.getDateCreation()

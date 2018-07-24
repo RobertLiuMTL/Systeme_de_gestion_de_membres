@@ -27,7 +27,7 @@ public class Vue {
 	 * Centre de Données en paramètre. Appelle séquentiellement accueil pour passer
 	 * au menu principal
 	 * 
-	 * @param data
+	 * @param data : DataCenter
 	 */
 	public Vue(DataCenter data) {
 		this.data = data;

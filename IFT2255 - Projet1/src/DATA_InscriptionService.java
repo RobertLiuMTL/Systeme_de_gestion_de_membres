@@ -19,12 +19,12 @@ public class DATA_InscriptionService {
 	
 	/**
 	 * Constructeur de la Donnée InscriptionService
-	 * @param dateHeure
-	 * @param reccurrence
-	 * @param numPro
-	 * @param numMembre
-	 * @param numSeance
-	 * @param comment
+	 * @param dateHeure : String
+	 * @param reccurrence  : String
+	 * @param numPro : numéro à 9 chiffres 
+	 * @param numMembre : numéro à 9 chiffres
+	 * @param numSeance : numéro à 7 chiffres
+	 * @param comment : string
 	 */
 	public DATA_InscriptionService(String dateHeure, String reccurrence, int numPro,
 			int numMembre, int numSeance, String comment) {

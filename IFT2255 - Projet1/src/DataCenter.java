@@ -119,7 +119,7 @@ public class DataCenter implements Identification {
 	/**
 	 * Retourne la liste des professionnels contenue dans la Base de données
 	 * 
-	 * @return
+	 * @return : Retourne la liste de Pro
 	 */
 	public Pro[] getPro() {
 		return proListe;
@@ -128,7 +128,7 @@ public class DataCenter implements Identification {
 	/**
 	 * Retourne la liste des Services contenue dans la base de données
 	 * 
-	 * @return
+	 * @return : Retourne la liste de Services
 	 */
 	public Service[] getService() {
 		return this.serviceListe;
@@ -140,7 +140,7 @@ public class DataCenter implements Identification {
 	 * 
 	 * @param numero
 	 *            : Numéro de client à 9 chiffres.
-	 * @return
+	 * @return : Retourne un message si le membre est identifié
 	 */
 	public String identifier(int numero) {
 		return identifier(this, numero);
@@ -149,7 +149,7 @@ public class DataCenter implements Identification {
 	/**
 	 * Méthode qui permet d'identifier le Client avec son numéo.
 	 * 
-	 * @param numero
+	 * @param numero : Prend le numéro du membre à 9 chioffres
 	 * @return Résultat sous forme de Boolean
 	 */
 	public boolean identifierBool(int numero) {
@@ -353,20 +353,15 @@ public class DataCenter implements Identification {
 	 * 
 	 * Tous les arguments proviennent du module de Création de Membre qui aura été
 	 * lancé par la Vue.
-	 * 
-	 * @param nomFamille
-	 *            : String
-	 * @param prenom
-	 *            : String
-	 * @param adresse
-	 *            : String
-	 * @param naissance
-	 *            : String
-	 * @param phone
-	 *            : String
-	 * @param courriel
-	 *            : String
-	 * @throws InterruptedException
+	 * @param nomFamille : String
+	 * @param prenom : String
+	 * @param adresse : String
+	 * @param naissance : String
+	 * @param phone : String
+	 * @param courriel : String
+	 * @param province : String
+	 * @param city : String
+	 * @param postalcode : String
 	 */
 	public void addMember(String nomFamille, String prenom, String adresse, String naissance, String phone,
 			String courriel, String province, String city, String postalcode) {
@@ -388,26 +383,20 @@ public class DataCenter implements Identification {
 	}
 
 	/**
-	 * Méthode pour créer un professionnel.
+	 *  Méthode pour créer un professionnel.
 	 * 
 	 * Prend en entrée l'information qui aura été, au préalable, recueillie par le
 	 * Module de création d'un Pro (appelé par la VUE)
-	 * 
-	 * @param nomFamille
-	 *            String
-	 * @param prenom
-	 *            String
-	 * @param adresse
-	 *            String
-	 * @param naissance
-	 *            String
-	 * @param phone
-	 *            String
-	 * @param courriel
-	 *            String
-	 * @param discipline
-	 *            String
-	 * @throws InterruptedException
+	 * @param nomFamille : String
+	 * @param prenom : String
+	 * @param adresse : String
+	 * @param naissance : String
+	 * @param phone : String
+	 * @param courriel : String
+	 * @param discipline : String
+	 * @param province : String 
+	 * @param city : String
+	 * @param postalcode : String
 	 */
 	public void addPro(String nomFamille, String prenom, String adresse, String naissance, String phone,
 			String courriel, String discipline, String province, String city, String postalcode) {
@@ -469,8 +458,8 @@ public class DataCenter implements Identification {
 	 * retourne le numero qui correspond a la position du membre dans la liste des
 	 * membres si le membre n'existe pas, retourne -1
 	 * 
-	 * @param num
-	 * @return
+	 * @param num : Prend un int en argument
+	 * @return : La position du membre
 	 */
 
 	public int membrePosition(int num) {
@@ -488,8 +477,8 @@ public class DataCenter implements Identification {
 	 * retourne le numero qui correspond a la position du membre dans la liste des
 	 * membres si le membre n'existe pas, retourne -1
 	 * 
-	 * @param num
-	 * @return
+	 * @param num : Prend en argument un numéro int
+	 * @return : Position du pro sous forme de int
 	 */
 
 	public int proPosition(int num) {

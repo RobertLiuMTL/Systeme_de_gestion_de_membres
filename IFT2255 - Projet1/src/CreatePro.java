@@ -27,7 +27,7 @@ public class CreatePro {
 		
 		/**
 		 * Constructeur qui envoie les lignes de commandes et qui reçoit les résultats
-		 * @param data
+		 * @param data : DAtaCenter
 		 */
 		public CreatePro (DataCenter data) {
 			System.out.println("================================================================================");

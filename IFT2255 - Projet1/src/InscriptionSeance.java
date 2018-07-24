@@ -45,7 +45,7 @@ public interface InscriptionSeance {
 	
 	/**
 	 * Méthode d'inscription du Membre pour le Logiciel (demande une authentification du Membre)
-	 * @param data
+	 * @param data : DataCenter
 	 */
 	public default void inscrireMembre(DataCenter data){
 		System.out.println("================================================================================");

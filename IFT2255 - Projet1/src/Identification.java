@@ -92,9 +92,9 @@ public interface Identification {
 	
 	/**
 	 * Méthode d'identification qui retourne le compte du membre
-	 * @param data
-	 * @param numero
-	 * @return
+	 * @param data : DataCenter
+	 * @param numero : numéro de membre à 9 chiffres
+	 * @return : Membre si trouvé
 	 */
 	public default Membre identifierMembre(DataCenter data, int numero) {
 		Membre resultat = null;
@@ -108,9 +108,9 @@ public interface Identification {
 	
 	/**
 	 * Méthode d'identification qui retourne le compte du professionnel s'il existe
-	 * @param data
-	 * @param numero
-	 * @return
+	 * @param data : DataCenter
+	 * @param numero : numéro de Pro à 9 chiffres
+	 * @return : Retourne le Pro si identifié
 	 */
 	public default Pro identifierPro(DataCenter data, int numero) {
 		Pro resultat = null;

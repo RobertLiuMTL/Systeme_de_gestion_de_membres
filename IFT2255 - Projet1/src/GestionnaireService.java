@@ -53,7 +53,7 @@ public class GestionnaireService implements CreateSeance, InscriptionSeance{
 	/**
 	 * Méthode pour afficher la liste des Membres inscrits
 	 * à une séance.
-	 * @param codeSeance
+	 * @param codeSeance : code de la séance int 7 chiffres
 	 */
 	public void afficherInscription(int codeSeance) {
 		Seance seance = data.is.findSeance(codeSeance);
