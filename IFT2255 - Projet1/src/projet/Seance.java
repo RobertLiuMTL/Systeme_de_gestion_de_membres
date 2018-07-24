@@ -239,6 +239,7 @@ public class Seance {
 	 * Méthode pour inscrire un membre à cette séance.
 	 * 
 	 * @param membre : Prend la donnée Membre en argument. Permet d'en extraire l'information utile
+	 * @return : Booléenne pour nos tests
 	 */
 	public boolean inscrireMembre(Membre membre) {
 		if (capaciteMax == listeMembre.length) {

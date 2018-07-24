@@ -46,7 +46,7 @@ public class DataCenter implements Identification {
 	
 	/**
 	 * Constructeur du DataCenter pour nos tests unitaires
-	 * @param test
+	 * @param test : Prend un entier au hasard
 	 */
 	public DataCenter(int test) {
 		

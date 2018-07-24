@@ -9,6 +9,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+/**
+ * Tests unitaires sur les services et Séances
+ * 
+ * @author Robert
+ *
+ */
 class JUNIT_ServiceSeanceTest {
 	@Test
 	public void testSeance() {
